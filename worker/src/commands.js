@@ -14,6 +14,10 @@ export async function handleCommand(interaction, env) {
       case "cc":          return cmdCC(userId, pseudo, getSub(), getSubOpt, env);
       case "absence":     return cmdAbsence(userId, pseudo, getSub(), getSubOpt, env);
       case "tierlist":    return cmdTierlist(userId, getSub(), getSubOpt, env);
+      case "perso":       return cmdPerso(interaction, env);
+      case "team":        return cmdTeam(interaction, env);
+      case "profil":      return cmdProfil(interaction, env);
+      case "annonce":     return cmdAnnonce(interaction, env);
       case "calendrier":  return cmdCalendrier();
       case "recrutement": return cmdRecrutement(env);
       default:            return reply("❓ Commande non reconnue.");
@@ -137,6 +141,7 @@ async function cmdTierlist(userId, sub, getOpt, env) {
     const tier  = getOpt("tier");
     if (!["S","A","B","C","D"].includes(tier)) return reply("❌ Tier invalide.");
     await appendRow(env, "Tierlist_Votes", [userId, perso, tier, new Date().toISOString()]);
+    await recalcTierlist(env, perso);
     return replyEmbed([embed({
       title: "✅ Vote enregistré !",
       fields: [field("Personnage", perso, true), field("Tier", `**${tier}**`, true)],
@@ -200,4 +205,210 @@ function cmdRecrutement(env) {
     fields: [field("Prérequis", "CC compétitive · Actif en GDG · Respectueux")],
     color: 0xd97706,
   })]);
+}
+
+async function recalcTierlist(env, personnage) {
+  const votes = await readSheet(env, "Tierlist_Votes");
+  const persoVotes = votes.filter(r => r.personnage === personnage);
+  const counts = { S:0, A:0, B:0, C:0, D:0 };
+  persoVotes.forEach(r => { if (counts[r.tier] !== undefined) counts[r.tier]++; });
+  const total = Object.values(counts).reduce((a,b) => a+b, 0);
+  const tierOrder = { S:5, A:4, B:3, C:2, D:1 };
+  const avg = total > 0 ? Object.entries(counts).reduce((s,[t,c]) => s + tierOrder[t]*c, 0) / total : 0;
+  const tierMoyen = ["D","C","B","A","S"][Math.round(avg) - 1] || "B";
+
+  const existing = await readSheet(env, "Tierlist");
+  const idx = existing.findIndex(r => r.personnage === personnage);
+
+  if (idx !== -1) {
+    const token = await getToken(env);
+    const rowNum = idx + 2;
+    const range = `Tierlist!A${rowNum}:H${rowNum}`;
+    await fetch(
+      `https://sheets.googleapis.com/v4/spreadsheets/${env.GOOGLE_SHEET_ID}/values/${encodeURIComponent(range)}?valueInputOption=USER_ENTERED`,
+      { method: "PUT", headers: { Authorization: `Bearer ${token}`, "Content-Type": "application/json" },
+        body: JSON.stringify({ range, majorDimension: "ROWS", values: [[personnage, counts.S, counts.A, counts.B, counts.C, counts.D, total, tierMoyen]] }) }
+    );
+  } else {
+    await appendRow(env, "Tierlist", [personnage, counts.S, counts.A, counts.B, counts.C, counts.D, total, tierMoyen]);
+  }
+}
+
+async function getToken(env) {
+  const pem = env.GOOGLE_PRIVATE_KEY.replace(/-----BEGIN PRIVATE KEY-----/g,"").replace(/-----END PRIVATE KEY-----/g,"").replace(/\\n/g,"").replace(/\n/g,"").replace(/\s/g,"");
+  const keyData = Uint8Array.from(atob(pem), c => c.charCodeAt(0));
+  const key = await crypto.subtle.importKey("pkcs8", keyData, { name:"RSASSA-PKCS1-v1_5", hash:"SHA-256" }, false, ["sign"]);
+  const b64url = (buf) => btoa(String.fromCharCode(...new Uint8Array(buf))).replace(/\+/g,"-").replace(/\//g,"_").replace(/=/g,"");
+  const jb = (o) => b64url(new TextEncoder().encode(JSON.stringify(o)));
+  const now = Math.floor(Date.now()/1000);
+  const h = jb({ alg:"RS256", typ:"JWT" });
+  const p = jb({ iss:env.GOOGLE_SERVICE_ACCOUNT_EMAIL, scope:"https://www.googleapis.com/auth/spreadsheets", aud:"https://oauth2.googleapis.com/token", iat:now, exp:now+3600 });
+  const sig = await crypto.subtle.sign({ name:"RSASSA-PKCS1-v1_5" }, key, new TextEncoder().encode(`${h}.${p}`));
+  const jwt = `${h}.${p}.${b64url(sig)}`;
+  const res = await fetch("https://oauth2.googleapis.com/token", { method:"POST", headers:{"Content-Type":"application/x-www-form-urlencoded"}, body:`grant_type=urn%3Aietf%3Aparams%3Aoauth%3Agrant-type%3Ajwt-bearer&assertion=${jwt}` });
+  const data = await res.json();
+  return data.access_token;
+}
+
+// ══════════════════════════════════════════════════════════════
+//  /perso ajouter | liste
+// ══════════════════════════════════════════════════════════════
+export async function cmdPerso(interaction, env) {
+  const options = interaction.data.options || [];
+  const sub     = options[0]?.name;
+  const userId  = interaction.member?.user?.id || interaction.user?.id;
+  const pseudo  = interaction.member?.nick || interaction.member?.user?.username || "Inconnu";
+
+  if (sub === "ajouter") {
+    const subOpts  = options[0]?.options || [];
+    const perso    = subOpts.find(o => o.name === "personnage")?.value;
+    const potentiel = subOpts.find(o => o.name === "potentiel")?.value ?? 0;
+
+    if (!perso) return reply("❌ Personnage manquant.");
+
+    // Upsert dans onglet Persos
+    const rows = await readSheet(env, "Persos");
+    const idx  = rows.findIndex(r => r.discord_id === userId && r.personnage === perso);
+
+    if (idx !== -1) {
+      // Update
+      const token  = await getToken(env);
+      const rowNum = idx + 2;
+      const range  = `Persos!A${rowNum}:E${rowNum}`;
+      await fetch(
+        `https://sheets.googleapis.com/v4/spreadsheets/${env.GOOGLE_SHEET_ID}/values/${encodeURIComponent(range)}?valueInputOption=USER_ENTERED`,
+        { method: "PUT", headers: { Authorization: `Bearer ${token}`, "Content-Type": "application/json" },
+          body: JSON.stringify({ range, majorDimension: "ROWS", values: [[userId, pseudo, perso, potentiel, new Date().toISOString().slice(0,10)]] }) }
+      );
+    } else {
+      await appendRow(env, "Persos", [userId, pseudo, perso, potentiel, new Date().toISOString().slice(0,10)]);
+    }
+
+    const bar = "█".repeat(potentiel) + "░".repeat(10 - potentiel);
+    return replyEmbed([embed({
+      title: "⚔️ Personnage enregistré",
+      fields: [
+        field("Personnage", perso,                           true),
+        field("Potentiel",  `${bar} **${potentiel}/10**`,   true),
+      ],
+    })], null, true);
+  }
+
+  if (sub === "liste") {
+    const rows  = await readSheet(env, "Persos");
+    const persos = rows.filter(r => r.discord_id === userId);
+    if (!persos.length) return reply("❌ Tu n'as aucun personnage enregistré. Utilise `/perso ajouter` !");
+    const bar = (n) => "█".repeat(Number(n)||0) + "░".repeat(10-(Number(n)||0));
+    const lines = persos.map(p =>
+      `⚔️ **${p.personnage}** — ${bar(p.potentiel)} **${p.potentiel}/10**`
+    ).join("\n");
+    return replyEmbed([embed({ title: "⚔️ Tes personnages", description: lines })], null, true);
+  }
+
+  return reply("❓ Sous-commande inconnue.");
+}
+
+// ══════════════════════════════════════════════════════════════
+//  /team <url>
+// ══════════════════════════════════════════════════════════════
+export async function cmdTeam(interaction, env) {
+  const options = interaction.data.options || [];
+  const url     = options.find(o => o.name === "url")?.value;
+  const userId  = interaction.member?.user?.id || interaction.user?.id;
+  const pseudo  = interaction.member?.nick || interaction.member?.user?.username || "Inconnu";
+
+  if (!url) return reply("❌ URL manquante.");
+  if (!url.startsWith("http")) return reply("❌ URL invalide. Colle un lien direct vers ton image (imgur, discord...)");
+
+  await upsertMembre(env, userId, { pseudo, team_photo: url });
+
+  return replyEmbed([embed({
+    title: "📸 Photo de team enregistrée !",
+    description: `[Voir la photo](${url})`,
+    fields: [field("Astuce", "Utilise `/profil` pour voir ta fiche complète.")],
+  })], null, true);
+}
+
+// ══════════════════════════════════════════════════════════════
+//  /profil
+// ══════════════════════════════════════════════════════════════
+export async function cmdProfil(interaction, env) {
+  const options  = interaction.data.options || [];
+  const targetId = options.find(o => o.name === "membre")?.value
+    || interaction.member?.user?.id || interaction.user?.id;
+
+  const [membres, persos] = await Promise.all([
+    readSheet(env, "Membres"),
+    readSheet(env, "Persos"),
+  ]);
+
+  const membre  = membres.find(m => m.discord_id === targetId);
+  const myPersos = persos.filter(p => p.discord_id === targetId);
+
+  if (!membre) return reply("❌ Aucun profil trouvé. Utilise `/cc set` pour créer ton profil !");
+
+  const bar = (n) => "█".repeat(Number(n)||0) + "░".repeat(10-(Number(n)||0));
+
+  const fields = [
+    field("⚡ Combat Class", `**${membre.cc_format || formatCC(membre.cc || 0)}**`, true),
+    field("🎖️ Grade",        membre.grade || "Recrue",                              true),
+  ];
+
+  if (myPersos.length) {
+    fields.push(field(
+      "⚔️ Personnages",
+      myPersos.map(p => `**${p.personnage}** — ${bar(p.potentiel)} ${p.potentiel}/10`).join("\n")
+    ));
+  }
+
+  if (membre.team_photo) {
+    fields.push(field("📸 Team", `[Voir la photo](${membre.team_photo})`));
+  }
+
+  return replyEmbed([{
+    ...embed({ title: `⚔️ Profil — ${membre.pseudo || "Inconnu"}`, fields }),
+    image: membre.team_photo ? { url: membre.team_photo } : undefined,
+  }], null, true);
+}
+
+// ══════════════════════════════════════════════════════════════
+//  /annonce <titre> <message>  (officiers seulement)
+// ══════════════════════════════════════════════════════════════
+export async function cmdAnnonce(interaction, env) {
+  const options = interaction.data.options || [];
+  const titre   = options.find(o => o.name === "titre")?.value;
+  const message = options.find(o => o.name === "message")?.value;
+  const categorie = options.find(o => o.name === "categorie")?.value || "Annonce";
+  const userId  = interaction.member?.user?.id || interaction.user?.id;
+  const pseudo  = interaction.member?.nick || interaction.member?.user?.username;
+
+  // Vérif rôle officier
+  const roles = interaction.member?.roles || [];
+  const officierRoleId = env.OFFICIER_ROLE_ID;
+  if (officierRoleId && !roles.includes(officierRoleId)) {
+    return reply("🚫 Cette commande est réservée aux officiers.");
+  }
+
+  const date = new Date().toISOString().slice(0, 10);
+  await appendRow(env, "Annonces", [titre, message, categorie, date, "OUI", "NON", "", "", ""]);
+
+  // Webhook annonces
+  const wh = env.WEBHOOK_ANNONCES;
+  if (wh) {
+    const { sendWebhook, embed: mkEmbed, field: mkField } = await import("./discord.js");
+    await sendWebhook(wh, { embeds: [mkEmbed({
+      title: `📣 ${titre}`,
+      description: message,
+      fields: [mkField("Catégorie", categorie, true), mkField("Par", pseudo, true)],
+      color: 0xd97706,
+    })]});
+  }
+
+  return replyEmbed([embed({
+    title: "✅ Annonce publiée !",
+    fields: [
+      field("Titre",     titre,    true),
+      field("Catégorie", categorie, true),
+    ],
+  })], null, true);
 }

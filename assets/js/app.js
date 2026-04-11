@@ -136,7 +136,7 @@ function renderRosterPage(roster) {
     tbody.innerHTML = sorted.map((r,i) => {
       const statut = String(r.statut||'').toLowerCase();
       const pillCls = statut === 'absent' ? 'badge-red' : statut === 'actif' ? 'badge-green' : '';
-      return `<tr>
+      return `<tr data-id="${r.discord_id||''}" data-photo="${r.team_photo||''}"
         <td>${medals[i]||i+1}</td>
         <td style="font-weight:600">${esc(r.pseudo||'—')}</td>
         <td class="col-cc">${formatCC(r.cc)}</td>
