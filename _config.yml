@@ -1,9 +1,11 @@
 title: Purgatoire
 description: Guilde 7DS Origin
-baseurl: ""
-url: ""
+
+baseurl: "/Purgatoire"
+url: "https://pencilgong.github.io"
+
 markdown: kramdown
 permalink: pretty
-collections: {}
+
 exclude:
   - README.md
