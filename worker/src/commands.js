@@ -18,6 +18,7 @@ export async function handleCommand(interaction, env) {
       case "team":        return cmdTeam(interaction, env);
       case "profil":      return cmdProfil(interaction, env);
       case "annonce":     return cmdAnnonce(interaction, env);
+      case "gdg":         return cmdGDG(interaction, env);
       case "calendrier":  return cmdCalendrier();
       case "recrutement": return cmdRecrutement(env);
       default:            return reply("❓ Commande non reconnue.");
@@ -452,6 +453,65 @@ export async function cmdAnnonce(interaction, env) {
       title: "🗑️ Annonce supprimée",
       fields: [field("Titre", titre)],
       color: 0xc94f4f,
+    })], null, true);
+  }
+
+  return reply("❓ Sous-commande inconnue.");
+}
+
+// ══════════════════════════════════════════════════════════════
+//  /gdg declarer (officiers seulement)
+// ══════════════════════════════════════════════════════════════
+export async function cmdGDG(interaction, env) {
+  const options = interaction.data.options || [];
+  const sub     = options[0]?.name;
+  const subOpts = options[0]?.options || [];
+  const pseudo  = interaction.member?.nick || interaction.member?.user?.username;
+
+  // Vérif rôle officier
+  const roles = interaction.member?.roles || [];
+  const officierRoleId = env.OFFICIER_ROLE_ID;
+  if (officierRoleId && !roles.includes(officierRoleId)) {
+    return reply("🚫 Cette commande est réservée aux officiers.");
+  }
+
+  if (sub === "declarer") {
+    const ennemi       = subOpts.find(o => o.name === "ennemi")?.value || "?";
+    const resultat     = subOpts.find(o => o.name === "resultat")?.value || "nul";
+    const notre_score  = subOpts.find(o => o.name === "notre_score")?.value || 0;
+    const score_ennemi = subOpts.find(o => o.name === "score_ennemi")?.value || 0;
+    const notes        = subOpts.find(o => o.name === "notes")?.value || "";
+    const date         = new Date().toISOString().slice(0, 10);
+    const id           = Date.now().toString();
+
+    await appendRow(env, "GDG", [id, "GDG", ennemi, date, resultat, notre_score, score_ennemi, notes]);
+
+    const emoji = resultat === "victoire" ? "🏆" : resultat === "defaite" ? "💀" : "🤝";
+    const color = resultat === "victoire" ? 0x2ea87a : resultat === "defaite" ? 0xc94f4f : 0x6e4fff;
+
+    // Webhook notif
+    const wh = env.WEBHOOK_NOTIF;
+    if (wh) {
+      await sendWebhook(wh, { embeds: [embed({
+        title: `${emoji} GDG — ${resultat.charAt(0).toUpperCase() + resultat.slice(1)} contre ${ennemi}`,
+        fields: [
+          field("⚔️ Purgatoire", String(notre_score),  true),
+          field("🔴 " + ennemi,  String(score_ennemi), true),
+          field("📅 Date",        date,                 true),
+          ...(notes ? [field("📝 Notes", notes)] : []),
+        ],
+        color,
+      })]});
+    }
+
+    return replyEmbed([embed({
+      title: `${emoji} GDG enregistré !`,
+      fields: [
+        field("Adversaire",    ennemi,            true),
+        field("Résultat",      resultat,          true),
+        field("Score",         `${notre_score} — ${score_ennemi}`, true),
+      ],
+      color,
     })], null, true);
   }
 

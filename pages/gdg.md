@@ -12,7 +12,13 @@ permalink: /pages/gdg/
   </div>
 </section>
 
-<section class="section">
+<section class="section-tight">
+  <div class="container">
+    <div id="gdg-summary" class="gdg-summary"></div>
+  </div>
+</section>
+
+<section class="section-tight">
   <div class="container">
     <div id="gdg-list" class="cards-grid"></div>
   </div>

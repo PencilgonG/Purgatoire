@@ -60,6 +60,19 @@ async function registerSlashCommands(env) {
         { name: "titre", type: 3, description: "Titre de l'annonce à supprimer", required: true, autocomplete: true },
       ]},
     ]},
+    { name: "gdg", description: "Gérer les guerres de guilde (officiers)", options: [
+      { name: "declarer", type: 1, description: "Déclarer le résultat d'un GDG", options: [
+        { name: "ennemi",       type: 3, description: "Nom de la guilde adverse",  required: true },
+        { name: "resultat",     type: 3, description: "Résultat du GDG",           required: true, choices: [
+          { name: "🏆 Victoire", value: "victoire" },
+          { name: "💀 Défaite",  value: "defaite" },
+          { name: "🤝 Nul",      value: "nul" },
+        ]},
+        { name: "notre_score",  type: 4, description: "Notre score",              required: true, min_value: 0 },
+        { name: "score_ennemi", type: 4, description: "Score de l'adversaire",    required: true, min_value: 0 },
+        { name: "notes",        type: 3, description: "Notes (optionnel)",         required: false },
+      ]},
+    ]},
     { name: "calendrier",  description: "Prochains resets 7DS Origin" },
     { name: "recrutement", description: "Formulaire de candidature Purgatoire" },
   ];
