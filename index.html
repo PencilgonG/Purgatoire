@@ -3,59 +3,52 @@ layout: default
 title: Accueil
 ---
 
-<section class="home">
-
-  <div class="container home-grid">
-
-    <!-- GAUCHE -->
-    <div class="home-left">
-      <p class="intro">
-        Guilde compétitive orientée performance et organisation.<br>
-        Objectif : domination en Guerre de Guilde et stabilité du roster.
-      </p>
-    </div>
-
-    <!-- DROITE -->
-    <div class="home-right">
-
-      <img class="banner" src="{{ '/assets/images/banner.png' | relative_url }}" alt="Banner">
-
-      <div class="stats">
-        <div><span>28</span><small>Membres</small></div>
-        <div><span>2.5M</span><small>CC moyenne</small></div>
-        <div><span>17</span><small>Annonces</small></div>
-        <div><span>SaintSeiya</span><small>Dernier GDG</small></div>
+<section class="hero">
+  <img class="hero-art" src="{{ '/assets/images/hero.png' | relative_url }}" alt="">
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <div class="container">
+      <img class="top-banner" src="{{ '/assets/images/banner.png' | relative_url }}" alt="Purgatoire">
+      <div class="hero-copy">
+        <span class="eyebrow">Guild N°1 · Seven Deadly Sins: Origin</span>
+        <h1>Purgatoire</h1>
+        <p>Guilde compétitive orientée performance et organisation.<br>
+        Domination en Guerre de Guilde · Roster d'élite · Communauté soudée.</p>
+        <div class="hero-actions">
+          <a id="discord-button" class="button button-gold" href="#" target="_blank" rel="noopener">Discord ↗</a>
+          <a href="{{ '/pages/recrutement/' | relative_url }}" class="button button-ghost">Nous rejoindre</a>
+        </div>
       </div>
-
     </div>
-
   </div>
+</section>
 
-  <div class="container bottom-grid">
-
-    <!-- COMMU -->
-    <div class="bloc">
-      <h3>Communauté</h3>
-      <div class="mini-annonce">
-        Patch 1.2 — équilibrage
-      </div>
-      <div class="mini-annonce">
-        GDG ce soir 21h30
-      </div>
+<section class="section-tight">
+  <div class="container">
+    <div class="stats-grid">
+      <div class="stat-card"><strong id="stat-members">—</strong><span>Membres actifs</span></div>
+      <div class="stat-card"><strong id="stat-average-cc">—</strong><span>CC moyenne</span></div>
+      <div class="stat-card"><strong id="stat-annonces">—</strong><span>Annonces</span></div>
+      <div class="stat-card"><strong id="stat-last-gdg">—</strong><span>Dernier GDG</span></div>
     </div>
-
-    <!-- TOP 5 -->
-    <div class="bloc">
-      <h3>Top 5</h3>
-      <ol class="top">
-        <li>Mola</li>
-        <li>NoXis</li>
-        <li>Sasuke</li>
-        <li>Hulk</li>
-        <li>Momo</li>
-      </ol>
-    </div>
-
   </div>
+</section>
 
+<section class="section">
+  <div class="container grid-2">
+    <div>
+      <div class="section-head">
+        <h2>Top CC</h2>
+        <a class="text-link" href="{{ '/pages/roster/' | relative_url }}" style="font-size:.85rem">Voir tout →</a>
+      </div>
+      <div id="home-roster" class="stack-list"><div class="loading-state">Chargement</div></div>
+    </div>
+    <div>
+      <div class="section-head">
+        <h2>Annonces</h2>
+        <a class="text-link" href="{{ '/pages/annonces/' | relative_url }}" style="font-size:.85rem">Voir tout →</a>
+      </div>
+      <div id="home-annonces" class="stack-list"><div class="loading-state">Chargement</div></div>
+    </div>
+  </div>
 </section>
