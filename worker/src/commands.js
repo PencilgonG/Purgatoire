@@ -40,7 +40,23 @@ async function cmdCC(userId, pseudo, sub, getOpt, env) {
       if (m) oldCC = Number(m.cc) || 0;
     } catch {}
     const grade = getGradeFromCC(cc);
-    await upsertMembre(env, userId, { pseudo, cc, grade });
+
+    // Récupère l'avatar Discord
+    let avatar_url = "";
+    try {
+      const userRes  = await fetch(`https://discord.com/api/v10/users/${userId}`, {
+        headers: { Authorization: `Bot ${env.DISCORD_TOKEN}` }
+      });
+      const userData = await userRes.json();
+      if (userData.avatar) {
+        avatar_url = `https://cdn.discordapp.com/avatars/${userId}/${userData.avatar}.png?size=128`;
+      } else {
+        const idx = (BigInt(userId) >> 22n) % 6n;
+        avatar_url = `https://cdn.discordapp.com/embed/avatars/${idx}.png`;
+      }
+    } catch {}
+
+    await upsertMembre(env, userId, { pseudo, cc, grade, avatar_url });
     const diff    = cc - oldCC;
     const diffStr = diff > 0 ? `📈 +${formatCC(diff)}` : diff < 0 ? `📉 −${formatCC(Math.abs(diff))}` : "Premier enregistrement";
     return replyEmbed([embed({

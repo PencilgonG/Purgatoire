@@ -93,6 +93,7 @@ export async function upsertMembre(env, discordId, data) {
       data.statut      ?? current[6] ?? "Actif",
       new Date().toISOString().slice(0, 10),
       data.team_photo  ?? current[8] ?? "",
+      data.avatar_url  ?? current[9] ?? "",
     ];
     await fetch(
       `https://sheets.googleapis.com/v4/spreadsheets/${env.GOOGLE_SHEET_ID}/values/${encodeURIComponent(range)}?valueInputOption=USER_ENTERED`,
@@ -119,6 +120,7 @@ export async function upsertMembre(env, discordId, data) {
           data.statut     || "Actif",
           new Date().toISOString().slice(0, 10),
           data.team_photo || "",
+          data.avatar_url || "",
         ]] }),
       }
     );
