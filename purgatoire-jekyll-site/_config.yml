@@ -1,0 +1,9 @@
+title: Purgatoire
+description: Guilde 7DS Origin
+baseurl: ""
+url: ""
+markdown: kramdown
+permalink: pretty
+collections: {}
+exclude:
+  - README.md
