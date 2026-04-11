@@ -1,0 +1,93 @@
+
+/* NAVBAR */
+header {
+  backdrop-filter: blur(10px);
+  background: rgba(10,10,15,0.6);
+}
+
+nav {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+}
+
+nav a {
+  position: relative;
+  color: #ccc;
+}
+
+nav a::after {
+  content: "";
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 0%;
+  height: 1px;
+  background: #d4b06a;
+  transition: .3s;
+}
+
+nav a:hover::after {
+  width: 100%;
+}
+
+/* GRID */
+.home-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  min-height: 60vh;
+}
+
+.home-left {
+  padding-right: 40px;
+}
+
+.intro {
+  font-size: 18px;
+  line-height: 1.6;
+  color: #ddd;
+}
+
+/* RIGHT */
+.banner {
+  max-width: 500px;
+  margin-bottom: 20px;
+}
+
+.stats {
+  display: flex;
+  gap: 30px;
+}
+
+.stats div {
+  text-align: center;
+}
+
+.stats span {
+  font-size: 20px;
+  color: #d4b06a;
+}
+
+/* BOTTOM */
+.bottom-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  margin-top: 60px;
+}
+
+.bloc {
+  padding: 20px;
+  border: 1px solid rgba(255,255,255,0.1);
+}
+
+.top li {
+  margin: 8px 0;
+}
+
+.mini-annonce {
+  margin: 10px 0;
+  opacity: 0.8;
+}
+
