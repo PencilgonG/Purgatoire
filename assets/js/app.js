@@ -111,6 +111,22 @@ function renderHomeAnnonces(annonces) {
     </article>`).join('');
 }
 
+function renderRosterFilters(roster, onFilter) {
+  const wrap = qs('#roster-filters');
+  if (!wrap) return;
+  const grades = ['Tous', ...new Set(roster.map(r => r.grade).filter(Boolean))];
+  wrap.innerHTML = grades.map(g =>
+    `<button class="filter-btn${g==='Tous'?' active':''}" data-grade="${esc(g)}">${esc(g)}</button>`
+  ).join('');
+  wrap.querySelectorAll('.filter-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      wrap.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      onFilter(btn.dataset.grade);
+    });
+  });
+}
+
 function renderRosterPage(roster) {
   const podium = qs('#roster-podium');
   const tbody  = qs('#roster-table tbody');
