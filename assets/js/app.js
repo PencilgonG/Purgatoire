@@ -133,203 +133,53 @@ function renderRosterPage(roster) {
       </article>`).join('');
   }
   if (tbody) {
-    tbody.innerHTML = sorted.map((r,i) => {
-      const statut = String(r.statut||'').toLowerCase();
-      const pillCls = statut === 'absent' ? 'badge-red' : statut === 'actif' ? 'badge-green' : '';
-      return `<tr class="roster-row-clickable" data-id="${esc(r.discord_id||'')}" data-photo="${esc(r.team_photo||'')}" data-pseudo="${esc(r.pseudo||'')}" data-cc="${esc(r.cc_format||formatCC(r.cc))}" data-main="${esc(r.main_char||'')}" data-grade="${esc(r.grade||'')}" data-statut="${esc(r.statut||'')}">
-        <td>${i < 3 ? medals[i] : (i+1)}</td>
-        <td style="font-weight:600">${esc(r.pseudo||'—')}</td>
-        <td class="col-cc">${formatCC(r.cc)}</td>
-        <td style="color:var(--text-secondary)">${esc(r.main_char||'—')}</td>
-        <td>${gradePill(r.grade||'—')}</td>
-        <td><span class="badge ${pillCls}">${esc(r.statut||'—')}</span></td>
-        <td style="font-size:.8rem;color:var(--gold);cursor:pointer" title="Voir la fiche">📋</td>
-      </tr>`;
-    }).join('');
+    const WORKER = 'https://purgatoire-bot.originsguild.workers.dev';
 
-    // Attache les clics directement
-    tbody.querySelectorAll('.roster-row-clickable').forEach(tr => {
-      tr.addEventListener('click', () => {
-        if (typeof openMemberModal === 'function') {
-          openMemberModal({
-            discord_id: tr.dataset.id,
-            pseudo:     tr.dataset.pseudo,
-            cc_format:  tr.dataset.cc,
-            main_char:  tr.dataset.main,
-            grade:      tr.dataset.grade,
-            statut:     tr.dataset.statut,
-            team_photo: tr.dataset.photo,
-          });
-        }
+    function renderRows(data) {
+      tbody.innerHTML = data.map((r,i) => {
+        const statut  = String(r.statut||'').toLowerCase();
+        const pillCls = statut === 'absent' ? 'badge-red' : statut === 'actif' ? 'badge-green' : '';
+        const avatarSrc = r.discord_id ? `${WORKER}/avatar/${r.discord_id}` : '';
+        const avatar  = `<img src="${avatarSrc}" alt="" style="width:28px;height:28px;border-radius:99px;vertical-align:middle;margin-right:8px;border:1px solid var(--border)" onerror="this.style.display='none'">`;
+        return `<tr class="roster-row-clickable"
+          data-id="${esc(r.discord_id||'')}"
+          data-photo="${esc(r.team_photo||'')}"
+          data-pseudo="${esc(r.pseudo||'')}"
+          data-cc="${esc(r.cc_format||formatCC(r.cc))}"
+          data-main="${esc(r.main_char||'')}"
+          data-grade="${esc(r.grade||'')}"
+          data-statut="${esc(r.statut||'')}">
+          <td>${i < 3 ? medals[i] : (i+1)}</td>
+          <td style="font-weight:600">${avatar}${esc(r.pseudo||'—')}</td>
+          <td class="col-cc">${formatCC(r.cc)}</td>
+          <td style="color:var(--text-secondary)">${esc(r.main_char||'—')}</td>
+          <td>${gradePill(r.grade||'—')}</td>
+          <td><span class="badge ${pillCls}">${esc(r.statut||'—')}</span></td>
+          <td style="font-size:.9rem;text-align:center" title="Voir la fiche">📋</td>
+        </tr>`;
+      }).join('');
+
+      tbody.querySelectorAll('.roster-row-clickable').forEach(tr => {
+        tr.addEventListener('click', () => {
+          if (typeof openMemberModal === 'function') {
+            openMemberModal({
+              discord_id: tr.dataset.id,
+              pseudo:     tr.dataset.pseudo,
+              cc_format:  tr.dataset.cc,
+              main_char:  tr.dataset.main,
+              grade:      tr.dataset.grade,
+              statut:     tr.dataset.statut,
+              team_photo: tr.dataset.photo,
+            });
+          }
+        });
       });
+    }
+
+    renderRosterFilters(sorted, (grade) => {
+      const filtered = grade === 'Tous' ? sorted : sorted.filter(r => r.grade === grade);
+      renderRows(filtered);
     });
+
+    renderRows(sorted);
   }
-}
-
-function renderGDGPage(rows) {
-  const wrap = qs('#gdg-list');
-  if (!wrap) return;
-  if (!rows.length) { wrap.innerHTML = '<p class="empty-state">Aucune guerre enregistrée.</p>'; return; }
-  const normalize = s => String(s||'').toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'');
-  const v = rows.filter(r => normalize(r.resultat) === 'victoire').length;
-  const d = rows.filter(r => normalize(r.resultat) === 'defaite').length;
-  const summaryEl = qs('#gdg-summary');
-  if (summaryEl) {
-    summaryEl.innerHTML = `
-      <div class="gdg-summary-item"><span style="color:var(--green)">${v}</span><small>Victoires</small></div>
-      <div class="gdg-summary-item"><span style="color:var(--red)">${d}</span><small>Défaites</small></div>
-      <div class="gdg-summary-item"><span>${rows.length-v-d}</span><small>Nuls</small></div>
-      <div class="gdg-summary-item"><span style="color:var(--gold-bright)">${rows.length}</span><small>Total</small></div>`;
-  }
-  wrap.innerHTML = [...rows].reverse().map(item => `
-    <article class="card">
-      <div class="card-body">
-        <div class="gdg-card-header">${resultBadge(item.resultat)}<span style="color:var(--text-muted);font-size:.8rem">${esc(fmtDate(item.date))}</span></div>
-        <h3 style="font-size:1.05rem;margin-bottom:4px">vs ${esc(item.ennemi||'Adversaire')}</h3>
-        <div class="score-line">
-          <strong style="color:var(--gold-bright)">${esc(item.notre_score||'—')}</strong>
-          <span>vs</span>
-          <strong style="color:var(--text-secondary)">${esc(item.score_ennemi||'—')}</strong>
-        </div>
-        ${item.notes?`<p style="font-size:.83rem;color:var(--text-muted);margin-top:8px">${esc(item.notes)}</p>`:''}
-      </div>
-    </article>`).join('');
-}
-
-function renderAnnoncesPage(rows) {
-  const wrap = qs('#annonces-list'), featured = qs('#annonce-featured');
-  if (!wrap) return;
-  const visible = rows.filter(a => String(a.publie||'').toLowerCase() !== 'non')
-    .sort((a,b) => String(b.date||'').localeCompare(String(a.date||'')));
-  if (!visible.length) { wrap.innerHTML = '<p class="empty-state">Aucune annonce.</p>'; if(featured) featured.innerHTML=''; return; }
-  const pin  = visible.find(a => String(a.epingle||'').toLowerCase() === 'oui') || visible[0];
-  const rest = visible.filter(a => a !== pin);
-  if (featured) {
-    featured.innerHTML = `<article class="featured-annonce" style="display:block;overflow:hidden">
-      ${pin.image ? `
-        <div style="position:relative;width:100%;height:220px;overflow:hidden">
-          <img src="${esc(pin.image)}" alt="" style="width:100%;height:100%;object-fit:cover;display:block" onerror="this.parentElement.style.display='none'">
-          <div style="position:absolute;inset:0;background:linear-gradient(180deg,transparent 30%,rgba(13,15,26,.97) 100%)"></div>
-        </div>` : ''}
-      <div class="featured-annonce-body">
-        <div class="card-topline"><span class="badge">${esc(pin.categorie||'Annonce')}</span>${String(pin.epingle||'').toLowerCase()==='oui'?'<span class="badge badge-gold">Épinglée</span>':''}</div>
-        <h2 style="font-family:var(--font-display);font-size:1.6rem;margin:8px 0 4px">${esc(pin.titre||'Sans titre')}</h2>
-        <p style="color:var(--text-muted);font-size:.8rem;margin-bottom:10px">${esc(pin.date||'')}</p>
-        <p style="color:var(--text-secondary)">${esc(pin.resume||'')}</p>
-        ${pin.lien_notion ? `<div style="margin-top:12px"><a class="button button-ghost small" href="${esc(pin.lien_notion)}" target="_blank" rel="noopener">🔗 Voir sur Notion</a></div>` : ''}
-      </div></article>`;
-  }
-  wrap.innerHTML = rest.map(item => `
-    <article class="card annonce-card" style="display:block;overflow:hidden">
-      ${item.image ? `
-        <div style="position:relative;width:100%;height:160px;overflow:hidden">
-          <img src="${esc(item.image)}" alt="" style="width:100%;height:100%;object-fit:cover;display:block" onerror="this.parentElement.style.display='none'">
-          <div style="position:absolute;inset:0;background:linear-gradient(180deg,transparent 40%,rgba(13,15,26,.95) 100%)"></div>
-        </div>` : ''}
-      <div class="card-body">
-        <div class="card-topline"><span class="badge">${esc(item.categorie||'Annonce')}</span></div>
-        <h3>${esc(item.titre||'Sans titre')}</h3>
-        <p class="muted" style="margin:4px 0 6px;font-size:.8rem">${esc(item.date||'')}</p>
-        <p style="color:var(--text-secondary);font-size:.875rem">${esc(item.resume||'')}</p>
-        ${item.lien_notion ? `<div style="margin-top:10px"><a class="button button-ghost small" href="${esc(item.lien_notion)}" target="_blank" rel="noopener">🔗 Voir sur Notion</a></div>` : ''}
-      </div>
-    </article>`).join('');
-}
-
-async function renderAbsences() {
-  const tbody = qs('#absences-table tbody');
-  if (!tbody) return;
-  const url = cfg.sheets?.absencesCsvUrl;
-  if (!url) { tbody.innerHTML = '<tr><td colspan="4" class="empty-cell">absencesCsvUrl non configurée.</td></tr>'; return; }
-  tbody.innerHTML = '<tr><td colspan="4" class="loading-state">Chargement</td></tr>';
-  const rows  = await loadCsv(url);
-  const today = new Date().toISOString().slice(0,10);
-  const active = rows.filter(r => { const fin = r.fin||r.end||''; return !fin || fin >= today; });
-  if (!active.length) { tbody.innerHTML = '<tr><td colspan="4" class="empty-cell">Aucune absence en cours.</td></tr>'; return; }
-  tbody.innerHTML = active.map(r => {
-    const fin = r.fin||r.end||'', now = r.debut||r.start||'', curr = now && now <= today;
-    return `<tr>
-      <td style="font-weight:600">${esc(r.pseudo||'—')}</td>
-      <td>${esc(fmtDate(now))}</td><td>${esc(fmtDate(fin))}</td>
-      <td><span class="${curr?'absence-tag-active':'absence-tag-upcoming'}">${curr?'En cours':'À venir'}</span>
-      ${r.raison?`<span style="color:var(--text-secondary);font-size:.83rem;margin-left:8px">${esc(r.raison)}</span>`:''}</td>
-    </tr>`;
-  }).join('');
-}
-
-async function renderTierlist() {
-  const wrap = qs('#tierlist-wrap');
-  if (!wrap) return;
-  const url = cfg.sheets?.tierlistCsvUrl;
-  if (!url) { wrap.innerHTML = '<p class="empty-state">tierlistCsvUrl non configurée.</p>'; return; }
-  wrap.innerHTML = '<div class="loading-state">Chargement</div>';
-  const rows = await loadCsv(url);
-  if (!rows.length) { wrap.innerHTML = '<p class="empty-state">Aucun vote. Utilise <code>/tierlist voter</code> sur Discord.</p>'; return; }
-  const groups = {};
-  rows.forEach(r => { const t = String(r.tier_moyen||r.tier||'B').toUpperCase(); if(!groups[t]) groups[t]=[]; groups[t].push(r.personnage||r.name||'—'); });
-  wrap.innerHTML = ['S','A','B','C','D'].filter(t => groups[t]?.length).map(t => `
-    <div class="tier-section">
-      <div class="tier-label">${tierBadge(t)}<span style="font-size:.75rem;color:var(--text-muted);font-weight:600;letter-spacing:.06em;text-transform:uppercase">${groups[t].length} personnage${groups[t].length>1?'s':''}</span></div>
-      <div class="tier-chars">${groups[t].map(p=>`<span class="tier-char-tag">${esc(p)}</span>`).join('')}</div>
-    </div>`).join('');
-}
-
-function renderCalendrier() {
-  const wrap = qs('#reset-cards');
-  if (!wrap) return;
-  const now = new Date();
-  const nextD = new Date(now);
-  if (now.getUTCHours() >= 7) nextD.setUTCDate(nextD.getUTCDate()+1);
-  nextD.setUTCHours(7,0,0,0);
-  const day = now.getUTCDay(), toMon = day===1&&now.getUTCHours()<7?0:((8-day)%7||7);
-  const nextW = new Date(now); nextW.setUTCDate(now.getUTCDate()+toMon); nextW.setUTCHours(7,0,0,0);
-  const nextM = new Date(Date.UTC(now.getUTCFullYear(),now.getUTCMonth()+1,1,7));
-  const paris = 7+(isDST(now)?2:1);
-  const cards = [
-    { icon:'🌅', label:'Reset Quotidien', target:nextD, id:'cd-daily', items:['Missions journalières','Boss de terrain','Tentatives PVP Arena','Boutique quotidienne','Énergie / Stamina'] },
-    { icon:'📆', label:'Reset Hebdomadaire — Lundi', target:nextW, id:'cd-weekly', items:['⚔️ GDG — Guerre de Guilde','Donjon de guilde','Classements PVP','Boutique hebdomadaire','Boss de raid'] },
-    { icon:'📅', label:'Reset Mensuel — 1er du mois', target:nextM, id:'cd-monthly', items:['Saison PVP','Classement de guilde','Boutique mensuelle'] },
-  ];
-  wrap.innerHTML = `
-    <p style="color:var(--text-muted);font-size:.85rem;margin-bottom:20px">Heure officielle : <strong style="color:var(--text-secondary)">07:00 UTC</strong> = <strong style="color:var(--gold-bright)">${paris}h00 Paris</strong></p>
-    <div class="reset-grid">${cards.map(c=>`
-      <div class="reset-card">
-        <span class="reset-card-icon">${c.icon}</span>
-        <div class="reset-card-label">${c.label}</div>
-        <div class="countdown" id="${c.id}" data-target="${c.target.getTime()}">—</div>
-        <ul class="reset-content-list">${c.items.map(i=>`<li>${i}</li>`).join('')}</ul>
-      </div>`).join('')}</div>`;
-  function tick() {
-    qsa('[data-target]').forEach(el => {
-      const diff = parseInt(el.dataset.target)-Date.now();
-      if (diff<=0){el.textContent='En cours';return;}
-      const d=Math.floor(diff/86400000),h=Math.floor((diff%86400000)/3600000),m=Math.floor((diff%3600000)/60000),s=Math.floor((diff%60000)/1000);
-      el.textContent=d>0?`${d}j ${h}h ${m}min`:h>0?`${h}h ${m}min ${s}s`:`${m}min ${s}s`;
-    });
-  }
-  setInterval(tick,1000); tick();
-}
-
-function isDST(d) {
-  const j=new Date(d.getFullYear(),0,1).getTimezoneOffset(),t=new Date(d.getFullYear(),6,1).getTimezoneOffset();
-  return d.getTimezoneOffset()<Math.max(j,t);
-}
-
-async function boot() {
-  markActiveNav(); setLinks(); renderCalendrier();
-  const [roster,gdg,annonces] = await Promise.all([
-    loadCsv(cfg.sheets?.rosterCsvUrl),
-    loadCsv(cfg.sheets?.gdgCsvUrl),
-    loadCsv(cfg.sheets?.annoncesCsvUrl),
-  ]);
-  renderHomeStats(roster,annonces,gdg);
-  renderHomeRoster(roster);
-  renderHomeAnnonces(annonces);
-  renderRosterPage(roster);
-  renderGDGPage(gdg);
-  renderAnnoncesPage(annonces);
-  await renderAbsences();
-  await renderTierlist();
-}
-
-document.addEventListener('DOMContentLoaded', boot);
