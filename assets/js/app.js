@@ -212,6 +212,7 @@ function renderAnnoncesPage(rows) {
         <h2 style="font-family:var(--font-display);font-size:1.6rem;margin:8px 0 4px">${esc(pin.titre||'Sans titre')}</h2>
         <p style="color:var(--text-muted);font-size:.8rem;margin-bottom:10px">${esc(pin.date||'')}</p>
         <p style="color:var(--text-secondary)">${esc(pin.resume||'')}</p>
+        ${pin.lien_notion ? `<div style="margin-top:12px"><a class="button button-ghost small" href="${esc(pin.lien_notion)}" target="_blank" rel="noopener">🔗 Voir sur Notion</a></div>` : ''}
       </div></article>`;
   }
   wrap.innerHTML = rest.map(item => `
@@ -222,6 +223,7 @@ function renderAnnoncesPage(rows) {
         <h3>${esc(item.titre||'Sans titre')}</h3>
         <p class="muted" style="margin:4px 0 6px;font-size:.8rem">${esc(item.date||'')}</p>
         <p style="color:var(--text-secondary);font-size:.875rem">${esc(item.resume||'')}</p>
+        ${item.lien_notion ? `<div style="margin-top:10px"><a class="button button-ghost small" href="${esc(item.lien_notion)}" target="_blank" rel="noopener">🔗 Voir sur Notion</a></div>` : ''}
       </div>
     </article>`).join('');
 }
