@@ -137,7 +137,7 @@ function renderRosterPage(roster) {
       const statut = String(r.statut||'').toLowerCase();
       const pillCls = statut === 'absent' ? 'badge-red' : statut === 'actif' ? 'badge-green' : '';
       return `<tr class="roster-row-clickable" data-id="${esc(r.discord_id||'')}" data-photo="${esc(r.team_photo||'')}" data-pseudo="${esc(r.pseudo||'')}" data-cc="${esc(r.cc_format||formatCC(r.cc))}" data-main="${esc(r.main_char||'')}" data-grade="${esc(r.grade||'')}" data-statut="${esc(r.statut||'')}">
-        <td>${i < 3 ? medals[i] : '#'+(i+1)}</td>
+        <td>${i < 3 ? medals[i] : (i+1)}</td>
         <td style="font-weight:600">${esc(r.pseudo||'—')}</td>
         <td class="col-cc">${formatCC(r.cc)}</td>
         <td style="color:var(--text-secondary)">${esc(r.main_char||'—')}</td>
