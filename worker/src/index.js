@@ -133,6 +133,36 @@ export default {
   async fetch(request, env, ctx) {
     const url = new URL(request.url);
 
+    // Proxy avatar Discord (contourne CORS)
+    if (url.pathname.startsWith("/avatar/")) {
+      const userId = url.pathname.split("/avatar/")[1];
+      if (!userId) return new Response("Not found", { status: 404 });
+      try {
+        const userRes = await fetch(`https://discord.com/api/v10/users/${userId}`, {
+          headers: { Authorization: `Bot ${env.DISCORD_TOKEN}` }
+        });
+        const userData = await userRes.json();
+        let avatarUrl;
+        if (userData.avatar) {
+          avatarUrl = `https://cdn.discordapp.com/avatars/${userId}/${userData.avatar}.png?size=128`;
+        } else {
+          const idx = (BigInt(userId) >> 22n) % 6n;
+          avatarUrl = `https://cdn.discordapp.com/embed/avatars/${idx}.png`;
+        }
+        const imgRes = await fetch(avatarUrl);
+        const img    = await imgRes.arrayBuffer();
+        return new Response(img, {
+          headers: {
+            "Content-Type": imgRes.headers.get("Content-Type") || "image/png",
+            "Cache-Control": "public, max-age=86400",
+            "Access-Control-Allow-Origin": "*",
+          }
+        });
+      } catch(e) {
+        return new Response("Error", { status: 500 });
+      }
+    }
+
     if (url.pathname === "/register" && request.method === "GET") {
       try {
         const cmds = await registerSlashCommands(env);
