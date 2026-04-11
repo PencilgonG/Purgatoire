@@ -205,8 +205,12 @@ function renderAnnoncesPage(rows) {
   const pin  = visible.find(a => String(a.epingle||'').toLowerCase() === 'oui') || visible[0];
   const rest = visible.filter(a => a !== pin);
   if (featured) {
-    featured.innerHTML = `<article class="featured-annonce">
-      ${pin.image?`<img class="featured-annonce-image" src="${esc(pin.image)}" alt="">`:''}
+    featured.innerHTML = `<article class="featured-annonce" style="display:block;overflow:hidden">
+      ${pin.image ? `
+        <div style="position:relative;width:100%;height:220px;overflow:hidden">
+          <img src="${esc(pin.image)}" alt="" style="width:100%;height:100%;object-fit:cover;display:block" onerror="this.parentElement.style.display='none'">
+          <div style="position:absolute;inset:0;background:linear-gradient(180deg,transparent 30%,rgba(13,15,26,.97) 100%)"></div>
+        </div>` : ''}
       <div class="featured-annonce-body">
         <div class="card-topline"><span class="badge">${esc(pin.categorie||'Annonce')}</span>${String(pin.epingle||'').toLowerCase()==='oui'?'<span class="badge badge-gold">Épinglée</span>':''}</div>
         <h2 style="font-family:var(--font-display);font-size:1.6rem;margin:8px 0 4px">${esc(pin.titre||'Sans titre')}</h2>
@@ -216,8 +220,12 @@ function renderAnnoncesPage(rows) {
       </div></article>`;
   }
   wrap.innerHTML = rest.map(item => `
-    <article class="card annonce-card">
-      ${item.image?`<img class="annonce-image" src="${esc(item.image)}" alt="">`:''}
+    <article class="card annonce-card" style="display:block;overflow:hidden">
+      ${item.image ? `
+        <div style="position:relative;width:100%;height:160px;overflow:hidden">
+          <img src="${esc(item.image)}" alt="" style="width:100%;height:100%;object-fit:cover;display:block" onerror="this.parentElement.style.display='none'">
+          <div style="position:absolute;inset:0;background:linear-gradient(180deg,transparent 40%,rgba(13,15,26,.95) 100%)"></div>
+        </div>` : ''}
       <div class="card-body">
         <div class="card-topline"><span class="badge">${esc(item.categorie||'Annonce')}</span></div>
         <h3>${esc(item.titre||'Sans titre')}</h3>
