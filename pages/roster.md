@@ -12,10 +12,16 @@ permalink: /pages/roster/
   </div>
 </section>
 
-<section class="section">
+<section class="section section-tight">
   <div class="container">
-    <div class="table-shell">
-      <table class="data-table" id="roster-table">
+    <div id="roster-podium" class="podium-grid"></div>
+  </div>
+</section>
+
+<section class="section section-tight">
+  <div class="container">
+    <div class="table-shell table-shell-roster">
+      <table class="data-table roster-table" id="roster-table">
         <thead>
           <tr>
             <th>#</th>

@@ -3,15 +3,16 @@ layout: default
 title: Accueil
 ---
 
-<section class="hero">
+<section class="hero hero-home">
   <img class="hero-art" src="{{ '/assets/images/hero.png' | relative_url }}" alt="Visuel Purgatoire">
   <div class="hero-overlay"></div>
   <div class="container hero-content">
     <img class="top-banner" src="{{ '/assets/images/banner.png' | relative_url }}" alt="Bannière Purgatoire">
-    <div class="hero-copy">
+
+    <div class="hero-copy hero-copy-home">
       <span class="eyebrow">Guild N°1</span>
       <h1>Purgatoire</h1>
-      <p>Une vitrine de guilde sombre, propre et vivante, alimentée par vos données Google Sheets et vos annonces communautaires.</p>
+      <p>Une interface claire, structurée et vivante pour suivre la guilde, les annonces, le roster et le recrutement.</p>
       <div class="hero-actions">
         <a class="button button-gold" href="{{ '/pages/recrutement/' | relative_url }}">Postuler</a>
         <a class="button button-ghost" href="{{ '/pages/roster/' | relative_url }}">Voir le roster</a>
@@ -20,15 +21,9 @@ title: Accueil
   </div>
 </section>
 
-<section class="section">
+<section class="section section-tight">
   <div class="container">
-    <div class="section-head">
-      <div>
-        <span class="eyebrow">Vue rapide</span>
-        <h2>État de la guilde</h2>
-      </div>
-    </div>
-    <div class="stats-grid" id="home-stats">
+    <div class="stats-grid stats-grid-home" id="home-stats">
       <article class="stat-card">
         <span>Membres</span>
         <strong id="stat-members">--</strong>
@@ -49,9 +44,9 @@ title: Accueil
   </div>
 </section>
 
-<section class="section">
-  <div class="container grid-2">
-    <article class="panel">
+<section class="section section-tight">
+  <div class="container home-split">
+    <article class="panel panel-emphasis">
       <div class="panel-head">
         <div>
           <span class="eyebrow">Communauté</span>
@@ -59,7 +54,7 @@ title: Accueil
         </div>
         <a class="text-link" href="{{ '/pages/annonces/' | relative_url }}">Tout voir</a>
       </div>
-      <div id="home-annonces" class="stack-list"></div>
+      <div id="home-annonces" class="stack-list stack-list-wide"></div>
     </article>
 
     <article class="panel">
