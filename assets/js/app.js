@@ -21,7 +21,7 @@ function parseCsv(text) {
   }
   if (cell || row.length) { row.push(cell); rows.push(row); }
   if (!rows.length) return [];
-  const headers = rows[0].map(h => h.trim());
+  const headers = rows[0].map(h => h.trim().replace(/\s+/g, "_").toLowerCase());
   return rows.slice(1).filter(r => r.some(c => c.trim())).map(r => Object.fromEntries(headers.map((h,i) => [h, (r[i]||'').trim()])));
 }
 

@@ -81,7 +81,7 @@ export async function upsertMembre(env, discordId, data) {
 
   if (rowIndex !== -1) {
     const lineNum = rowIndex + 1;
-    const range   = `Membres!A${lineNum}:I${lineNum}`;
+    const range   = `Membres!A${lineNum}:J${lineNum}`;
     const current = values[rowIndex];
     const updated = [
       discordId,
