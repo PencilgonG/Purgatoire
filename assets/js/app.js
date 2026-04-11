@@ -48,9 +48,9 @@ function fmtDate(s) {
   return s;
 }
 function resultBadge(r) {
-  const l = String(r||'').toLowerCase();
+  const l = String(r||'').toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'');
   if (l === 'victoire') return '<span class="badge badge-green">Victoire</span>';
-  if (l === 'defaite' || l === 'défaite') return '<span class="badge badge-red">Défaite</span>';
+  if (l === 'defaite') return '<span class="badge badge-red">Défaite</span>';
   return '<span class="badge">Nul</span>';
 }
 function gradePill(g) { return `<span class="status-pill">${esc(g)}</span>`; }
@@ -170,8 +170,9 @@ function renderGDGPage(rows) {
   const wrap = qs('#gdg-list');
   if (!wrap) return;
   if (!rows.length) { wrap.innerHTML = '<p class="empty-state">Aucune guerre enregistrée.</p>'; return; }
-  const v = rows.filter(r => String(r.resultat||'').toLowerCase() === 'victoire').length;
-  const d = rows.filter(r => ['defaite','défaite'].includes(String(r.resultat||'').toLowerCase())).length;
+  const normalize = s => String(s||'').toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'');
+  const v = rows.filter(r => normalize(r.resultat) === 'victoire').length;
+  const d = rows.filter(r => normalize(r.resultat) === 'defaite').length;
   const summaryEl = qs('#gdg-summary');
   if (summaryEl) {
     summaryEl.innerHTML = `

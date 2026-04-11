@@ -107,7 +107,7 @@ async function handleAutocomplete(body, env) {
       const { readSheet } = await import("./sheets.js");
       const rows = await readSheet(env, "Annonces");
       choices = rows
-        .filter(r => r.titre && (r.publie || "").toUpperCase() === "OUI" && r.titre.toLowerCase().includes(query))
+        .filter(r => r.titre && (r.publie || "").toLowerCase() === "oui" && r.titre.toLowerCase().includes(query))
         .slice(0, 25)
         .map(r => ({ name: `${r.titre} (${r.categorie || "?"}) — ${r.date || ""}`, value: r.titre }));
     } catch {}
