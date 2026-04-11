@@ -372,13 +372,12 @@ export async function cmdProfil(interaction, env) {
 }
 
 // ══════════════════════════════════════════════════════════════
-//  /annonce <titre> <message>  (officiers seulement)
+//  /annonce creer | supprimer  (officiers seulement)
 // ══════════════════════════════════════════════════════════════
 export async function cmdAnnonce(interaction, env) {
   const options = interaction.data.options || [];
-  const titre   = options.find(o => o.name === "titre")?.value;
-  const message = options.find(o => o.name === "message")?.value;
-  const categorie = options.find(o => o.name === "categorie")?.value || "Annonce";
+  const sub     = options[0]?.name;
+  const subOpts = options[0]?.options || [];
   const userId  = interaction.member?.user?.id || interaction.user?.id;
   const pseudo  = interaction.member?.nick || interaction.member?.user?.username;
 
@@ -389,26 +388,72 @@ export async function cmdAnnonce(interaction, env) {
     return reply("🚫 Cette commande est réservée aux officiers.");
   }
 
-  const date = new Date().toISOString().slice(0, 10);
-  await appendRow(env, "Annonces", [titre, message, categorie, date, "OUI", "NON", "", "", ""]);
+  if (sub === "creer") {
+    const titre     = subOpts.find(o => o.name === "titre")?.value || "";
+    const desc      = subOpts.find(o => o.name === "description")?.value || "";
+    const categorie = subOpts.find(o => o.name === "categorie")?.value || "Annonce";
+    const image     = subOpts.find(o => o.name === "image")?.value || "";
+    const epingle   = subOpts.find(o => o.name === "epingle")?.value === "oui" ? "OUI" : "NON";
+    const date      = new Date().toISOString().slice(0, 10);
 
-  // Webhook annonces
-  const wh = env.WEBHOOK_ANNONCES;
-  if (wh) {
-    const { sendWebhook, embed: mkEmbed, field: mkField } = await import("./discord.js");
-    await sendWebhook(wh, { embeds: [mkEmbed({
-      title: `📣 ${titre}`,
-      description: message,
-      fields: [mkField("Catégorie", categorie, true), mkField("Par", pseudo, true)],
-      color: 0xd97706,
-    })]});
+    await appendRow(env, "Annonces", [titre, desc, categorie, date, "OUI", epingle, image, "", ""]);
+
+    // Webhook annonces
+    const wh = env.WEBHOOK_ANNONCES;
+    if (wh) {
+      await sendWebhook(wh, { embeds: [embed({
+        title: "📣 " + titre,
+        description: desc,
+        fields: [
+          field("Catégorie", categorie, true),
+          field("Par", pseudo, true),
+          ...(epingle === "OUI" ? [field("", "📌 Épinglée")] : []),
+        ],
+        color: 0xd97706,
+      })]});
+    }
+
+    return replyEmbed([embed({
+      title: "✅ Annonce publiée !",
+      fields: [
+        field("Titre",     titre,     true),
+        field("Catégorie", categorie, true),
+        field("Épinglée",  epingle,   true),
+      ],
+    })], null, true);
   }
 
-  return replyEmbed([embed({
-    title: "✅ Annonce publiée !",
-    fields: [
-      field("Titre",     titre,    true),
-      field("Catégorie", categorie, true),
-    ],
-  })], null, true);
+  if (sub === "supprimer") {
+    const titre = subOpts.find(o => o.name === "titre")?.value;
+    if (!titre) return reply("❌ Titre manquant.");
+
+    // Cherche la ligne dans le Sheet et met publie = NON
+    const token  = await getToken(env);
+    const getUrl = `https://sheets.googleapis.com/v4/spreadsheets/${env.GOOGLE_SHEET_ID}/values/Annonces`;
+    const getRes = await fetch(getUrl, { headers: { Authorization: `Bearer ${token}` } });
+    const sheet  = await getRes.json();
+    const values = sheet.values || [];
+
+    const rowIndex = values.findIndex((r, i) => i > 0 && r[0] === titre);
+    if (rowIndex === -1) return reply("❌ Annonce introuvable : **" + titre + "**");
+
+    const lineNum = rowIndex + 1;
+    const range   = `Annonces!E${lineNum}`;
+    await fetch(
+      `https://sheets.googleapis.com/v4/spreadsheets/${env.GOOGLE_SHEET_ID}/values/${encodeURIComponent(range)}?valueInputOption=USER_ENTERED`,
+      {
+        method: "PUT",
+        headers: { Authorization: `Bearer ${token}`, "Content-Type": "application/json" },
+        body: JSON.stringify({ range, majorDimension: "ROWS", values: [["NON"]] }),
+      }
+    );
+
+    return replyEmbed([embed({
+      title: "🗑️ Annonce supprimée",
+      fields: [field("Titre", titre)],
+      color: 0xc94f4f,
+    })], null, true);
+  }
+
+  return reply("❓ Sous-commande inconnue.");
 }

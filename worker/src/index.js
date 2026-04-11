@@ -39,16 +39,27 @@ async function registerSlashCommands(env) {
       { name: "url", type: 3, description: "Lien direct vers ton image (imgur, discord...)", required: true }]},
     { name: "profil", description: "Voir ta fiche complète", options: [
       { name: "membre", type: 6, description: "Membre (toi par défaut)", required: false }]},
-    { name: "annonce", description: "Publier une annonce (officiers)", options: [
-      { name: "titre",     type: 3, description: "Titre de l'annonce",  required: true },
-      { name: "message",   type: 3, description: "Contenu",             required: true },
-      { name: "categorie", type: 3, description: "Catégorie",           required: false,
-        choices: [
-          { name: "Annonce",    value: "Annonce" },
-          { name: "Event",      value: "Event" },
-          { name: "GDG",        value: "GDG" },
-          { name: "Important",  value: "Important" },
-        ]}]},
+    { name: "annonce", description: "Gérer les annonces (officiers)", options: [
+      { name: "creer", type: 1, description: "Créer une annonce", options: [
+        { name: "titre",       type: 3, description: "Titre",        required: true, max_length: 100 },
+        { name: "description", type: 3, description: "Description",  required: true, max_length: 1000 },
+        { name: "categorie",   type: 3, description: "Catégorie",    required: true, choices: [
+          { name: "📢 Annonce",      value: "Annonce" },
+          { name: "🎉 Event",        value: "Event" },
+          { name: "📋 Note de patch",value: "Note de patch" },
+          { name: "⚔️ GDG",          value: "GDG" },
+          { name: "❗ Important",    value: "Important" },
+        ]},
+        { name: "image",   type: 3, description: "URL d'une image (optionnel)", required: false },
+        { name: "epingle", type: 3, description: "Épingler l'annonce ?",        required: false, choices: [
+          { name: "Oui", value: "oui" },
+          { name: "Non", value: "non" },
+        ]},
+      ]},
+      { name: "supprimer", type: 1, description: "Supprimer une annonce", options: [
+        { name: "titre", type: 3, description: "Titre de l'annonce à supprimer", required: true, autocomplete: true },
+      ]},
+    ]},
     { name: "calendrier",  description: "Prochains resets 7DS Origin" },
     { name: "recrutement", description: "Formulaire de candidature Purgatoire" },
   ];
@@ -88,6 +99,17 @@ async function handleAutocomplete(body, env) {
         .filter(r => r.nom && r.nom.toLowerCase().includes(query))
         .slice(0, 25)
         .map(r => ({ name: `${r.nom} (${r.categorie || "?"})`, value: r.nom }));
+    } catch {}
+  }
+
+  if (name === "annonce" && focused.name === "titre") {
+    try {
+      const { readSheet } = await import("./sheets.js");
+      const rows = await readSheet(env, "Annonces");
+      choices = rows
+        .filter(r => r.titre && (r.publie || "").toUpperCase() === "OUI" && r.titre.toLowerCase().includes(query))
+        .slice(0, 25)
+        .map(r => ({ name: `${r.titre} (${r.categorie || "?"}) — ${r.date || ""}`, value: r.titre }));
     } catch {}
   }
 
