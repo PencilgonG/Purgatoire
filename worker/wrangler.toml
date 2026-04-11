@@ -1,0 +1,16 @@
+name = "purgatoire-bot"
+main = "src/index.js"
+compatibility_date = "2024-01-01"
+
+[triggers]
+crons = [
+  "0 9 * * 1",
+  "0 9 1 * *",
+  "0 10 * * *"
+]
+
+[vars]
+DISCORD_APPLICATION_ID       = "1492569751908516102"
+GUILD_ID                     = "1488740561262477474"
+GOOGLE_SHEET_ID              = "1npBpU9jQXFOW_mrDiycpB1ptJzXdcZE2iJ8-r8RP8oM"
+GOOGLE_SERVICE_ACCOUNT_EMAIL = "purgatoire-bot@purgatoire-bot.iam.gserviceaccount.com"
