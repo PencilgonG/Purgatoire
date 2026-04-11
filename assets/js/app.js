@@ -298,6 +298,69 @@ async function boot() {
   renderRosterPage(roster);
   renderGDGPage(gdg);
   renderAnnoncesPage(annonces);
+  renderAbsences();
+  renderTierlist();
 }
 
 document.addEventListener("DOMContentLoaded", boot);
+
+async function renderAbsences() {
+  if (!window.PURGATOIRE_CONFIG?.sheets?.absencesCsvUrl) return;
+
+  let rows = [];
+  try {
+    rows = await loadCsv(window.PURGATOIRE_CONFIG.sheets.absencesCsvUrl);
+  } catch (e) { return; }
+
+  const tbody = document.querySelector("#absences-table tbody");
+  if (!tbody) return;
+
+  if (!rows.length) {
+    tbody.innerHTML = '<tr><td colspan="4">Aucune absence</td></tr>';
+    return;
+  }
+
+  tbody.innerHTML = rows.map(r => `
+    <tr>
+      <td>${escapeHtml(r.pseudo || "—")}</td>
+      <td>${escapeHtml(r.debut || r.start || "—")}</td>
+      <td>${escapeHtml(r.fin || r.end || "—")}</td>
+      <td>${escapeHtml(r.raison || "—")}</td>
+    </tr>
+  `).join("");
+}
+
+async function renderTierlist() {
+  if (!window.PURGATOIRE_CONFIG?.sheets?.tierlistCsvUrl) return;
+
+  let rows = [];
+  try {
+    rows = await loadCsv(window.PURGATOIRE_CONFIG.sheets.tierlistCsvUrl);
+  } catch (e) { return; }
+
+  const wrap = document.querySelector("#tierlist-wrap");
+  if (!wrap) return;
+
+  if (!rows.length) {
+    wrap.innerHTML = '<p>Aucune donnée</p>';
+    return;
+  }
+
+  const groups = {};
+  rows.forEach(r => {
+    const tier = (r.tier || "Autre").toUpperCase();
+    if (!groups[tier]) groups[tier] = [];
+    groups[tier].push(r.personnage || r.name || "—");
+  });
+
+  const order = ["S","A","B","C","D","AUTRE"];
+
+  wrap.innerHTML = order
+    .filter(t => groups[t] && groups[t].length)
+    .map(t => `
+      <div class="tier-row">
+        <strong>${t}</strong>
+        <div>${groups[t].map(p => `<span>${escapeHtml(p)}</span>`).join("")}</div>
+      </div>
+    `).join("");
+}
