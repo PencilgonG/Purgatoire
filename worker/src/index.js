@@ -172,7 +172,7 @@ export default {
       const corsH = { "Content-Type": "application/json", "Access-Control-Allow-Origin": "*" };
       try {
         const body = await request.json();
-        const { pseudo, personnage, match_pct, top5 } = body;
+        const { pseudo, personnage, match_pct, top5, profil } = body;
         if (!pseudo || !personnage) return new Response(JSON.stringify({error:"Missing fields"}),{status:400,headers:corsH});
 
         const { getToken } = await import("./sheets.js");
@@ -203,6 +203,7 @@ export default {
             personnage,
             match_pct,
             top5,
+            profil || '',
           ]] })
         });
         return new Response(JSON.stringify({ok:true}), {headers:corsH});

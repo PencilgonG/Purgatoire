@@ -344,7 +344,13 @@ async function saveResult(winner,top5) {
     const res=await fetch(`${WORKER_URL}/personnalite`,{
       method:'POST',
       headers:{'Content-Type':'application/json'},
-      body:JSON.stringify({pseudo:state.pseudo,personnage:winner.nom,match_pct:Math.round(winner.matchPct),top5:JSON.stringify(top5.map(c=>c.nom))})
+      body:JSON.stringify({
+        pseudo:state.pseudo,
+        personnage:winner.nom,
+        match_pct:Math.round(winner.matchPct),
+        top5:JSON.stringify(top5.map(c=>c.nom)),
+        profil:JSON.stringify(state.finalProfile)
+      })
     });
     const data=await res.json();
     if(data.ok)loadPersoCards();
@@ -375,7 +381,9 @@ async function loadPersoCards() {
       const top5raw=r.top5||r.top_5||'[]';
       let top5=[];
       try{top5=JSON.parse(top5raw);}catch(e){}
-      const dataStr=encodeURIComponent(JSON.stringify({pseudo:r.pseudo,personnage:r.personnage,match_pct:r.match_pct,top5,discord_id:r.discord_id}));
+      let profil={};
+      try{profil=JSON.parse(r.profil_json||r.profil||'{}');}catch(e){}
+      const dataStr=encodeURIComponent(JSON.stringify({pseudo:r.pseudo,personnage:r.personnage,match_pct:r.match_pct,top5,discord_id:r.discord_id,profil}));
       return `<div class="perso-card" onclick="openModal('${dataStr}')">
         <img class="perso-avatar" src="${WORKER_URL}/avatar/${r.discord_id||''}" alt="" onerror="this.style.opacity='.2'">
         <div class="perso-pseudo">${r.pseudo||'—'}</div>
@@ -402,7 +410,21 @@ function openModal(encoded) {
       <div style="display:flex;align-items:center;gap:10px;padding:7px 0;border-bottom:1px solid rgba(255,255,255,.06)">
         <span style="font-size:.7rem;font-weight:700;color:${i===0?'#e3b45a':'rgba(153,147,170,.5)'};min-width:18px">#${i+1}</span>
         <span style="font-size:.85rem;font-weight:${i===0?700:400};color:${i===0?'#f0ece0':'rgba(233,228,217,.7)'}">${nom}</span>
-      </div>`).join('')}`;
+      </div>`).join('')}
+    ${Object.keys(d.profil||{}).length ? `
+      <div style="font-size:.65rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:rgba(153,147,170,.6);margin:16px 0 10px">Profil de personnalité</div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px">
+        ${AXES.map(a=>{
+          const val=Math.round(d.profil[a]||0);
+          return `<div style="background:rgba(255,255,255,.04);border-radius:7px;padding:7px 10px">
+            <div style="font-size:.58rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:rgba(153,147,170,.55);margin-bottom:3px">${AXIS_LABELS[a]}</div>
+            <div style="height:3px;background:rgba(255,255,255,.06);border-radius:99px;overflow:hidden;margin-bottom:3px">
+              <div style="height:100%;width:${val}%;background:linear-gradient(90deg,#c9973e,#e3b45a);border-radius:99px"></div>
+            </div>
+            <div style="font-size:.68rem;font-weight:700;color:#e3b45a">${val}</div>
+          </div>`;
+        }).join('')}
+      </div>` : ''}`;
   document.getElementById('perso-modal').style.display='flex';
 }
 
