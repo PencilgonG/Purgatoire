@@ -504,7 +504,7 @@ document.addEventListener('DOMContentLoaded', async () => {
 
   const S = cfg.sheets || {};
 
-  const isHome     = !!qs('#home-roster');
+  const isHome     = !!qs('#stat-members');
   const isRoster   = !!qs('#roster-table');
   const isGdg      = !!qs('#gdg-list') || !!qs('#gdg-timeline');
   const isAnnonces = !!qs('#annonces-list') || !!qs('#annonce-featured');
@@ -518,7 +518,6 @@ document.addEventListener('DOMContentLoaded', async () => {
       loadCsv(S.gdgCsvUrl),
     ]);
     renderHomeStats(roster, annonces, gdg);
-    renderHomeRoster(roster);
     renderHomeAnnonces(annonces);
   }
 
