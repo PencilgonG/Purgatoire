@@ -164,6 +164,50 @@ export default {
     }
 
     // Route calendrier
+    // Route personnalite — sauvegarde résultat quiz
+    if (url.pathname === "/personnalite" && request.method === "POST") {
+      const corsH = { "Content-Type": "application/json", "Access-Control-Allow-Origin": "*" };
+      try {
+        const body = await request.json();
+        const { pseudo, personnage, match_pct, top5 } = body;
+        if (!pseudo || !personnage) return new Response(JSON.stringify({error:"Missing fields"}),{status:400,headers:corsH});
+
+        const { getToken } = await import("./sheets.js");
+        const token = await getToken(env);
+
+        // Récupère le discord_id depuis Membres
+        const getMembres = await fetch(
+          `https://sheets.googleapis.com/v4/spreadsheets/${env.GOOGLE_SHEET_ID}/values/Membres`,
+          { headers: { Authorization: `Bearer ${token}` } }
+        );
+        const membresData = await getMembres.json();
+        const rows = membresData.values || [];
+        const headers = rows[0] || [];
+        const pseudoCol = headers.findIndex(h => h.trim().toLowerCase() === 'pseudo');
+        const idCol = headers.findIndex(h => h.trim().toLowerCase() === 'discord_id');
+        const memberRow = rows.slice(1).find(r => (r[pseudoCol]||'').toLowerCase() === pseudo.toLowerCase());
+        const discord_id = memberRow ? (memberRow[idCol]||'') : '';
+
+        // Écrit dans Personnalite
+        const appendUrl = `https://sheets.googleapis.com/v4/spreadsheets/${env.GOOGLE_SHEET_ID}/values/Personnalite:append?valueInputOption=USER_ENTERED`;
+        await fetch(appendUrl, {
+          method: "POST",
+          headers: { Authorization: `Bearer ${token}`, "Content-Type": "application/json" },
+          body: JSON.stringify({ values: [[
+            new Date().toISOString().slice(0,10),
+            discord_id,
+            pseudo,
+            personnage,
+            match_pct,
+            top5,
+          ]] })
+        });
+        return new Response(JSON.stringify({ok:true}), {headers:corsH});
+      } catch(e) {
+        return new Response(JSON.stringify({error:e.message}),{status:500,headers:{...corsH}});
+      }
+    }
+
     if (url.pathname === "/calendar-events" && request.method === "GET") {
       const corsH = { "Content-Type": "application/json", "Access-Control-Allow-Origin": "*", "Cache-Control": "public, max-age=300" };
       try {

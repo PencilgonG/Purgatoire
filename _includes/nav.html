@@ -1,7 +1,7 @@
 <header class="site-header">
   <div class="nav-inner">
     <a class="nav-brand" href="{{ '/' | relative_url }}">Purgatoire</a>
-    <span class="nav-sep"></span>
+    <span class="nav-divider"></span>
     <nav class="nav">
       <a href="{{ '/' | relative_url }}">Accueil</a>
       <span class="nav-pipe">|</span>
@@ -18,6 +18,8 @@
       <a href="{{ '/pages/tierlist/' | relative_url }}">Tierlist</a>
       <span class="nav-pipe">|</span>
       <a href="{{ '/pages/recrutement/' | relative_url }}">Recrutement</a>
+      <span class="nav-pipe">|</span>
+      <a href="{{ '/pages/personnalite/' | relative_url }}">Personnalité</a>
     </nav>
   </div>
 </header>
@@ -25,35 +27,36 @@
 <style>
 .site-header {
   position: sticky; top: 0; z-index: 100;
-  height: 54px;
-  background: rgba(7,8,13,.92);
+  height: 52px;
+  background: rgba(7,8,13,.93);
   backdrop-filter: blur(20px) saturate(1.4);
-  border-bottom: 1px solid rgba(255,255,255,.07);
+  border-bottom: 1px solid rgba(255,255,255,.08);
 }
 .nav-inner {
-  height: 54px;
+  height: 52px;
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 0;
   padding: 0 32px;
+  gap: 0;
 }
 .nav-brand {
   font-family: 'Cormorant Garamond', Georgia, serif;
-  font-size: 1.25rem;
+  font-size: 1.2rem;
   font-weight: 700;
   letter-spacing: .06em;
   color: #e3b45a;
   white-space: nowrap;
-  padding-right: 20px;
+  padding-right: 24px;
+  flex-shrink: 0;
   text-decoration: none;
 }
-.nav-sep {
+.nav-divider {
   display: inline-block;
   width: 1px;
-  height: 16px;
-  background: rgba(255,255,255,.18);
-  margin-right: 20px;
+  height: 18px;
+  background: rgba(255,255,255,.28);
+  margin-right: 24px;
   flex-shrink: 0;
 }
 .nav {
@@ -64,19 +67,20 @@
 .nav a {
   font-size: .78rem;
   font-weight: 500;
-  letter-spacing: .03em;
-  color: rgba(233,228,217,.55);
-  padding: 5px 14px;
+  letter-spacing: .04em;
+  color: rgba(233,228,217,.5);
+  padding: 4px 16px;
   white-space: nowrap;
   transition: color .18s;
   text-decoration: none;
 }
-.nav a:hover { color: #e8e4d9; }
+.nav a:hover  { color: #e8e4d9; }
 .nav a.active { color: #e3b45a; }
 .nav-pipe {
-  color: rgba(255,255,255,.15);
-  font-size: .7rem;
-  user-select: none;
+  color: rgba(255,255,255,.28);
+  font-size: .75rem;
+  line-height: 1;
   flex-shrink: 0;
+  user-select: none;
 }
 </style>
