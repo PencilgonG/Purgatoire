@@ -1,0 +1,779 @@
+---
+layout: none
+permalink: /join/
+---
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Rejoindre Purgatoire — Guild Seven Deadly Sins: Origin</title>
+  <meta name="description" content="Guilde compétitive N°1 sur Seven Deadly Sins: Origin. Rejoins une communauté d'élite axée sur la performance et la progression.">
+  <meta property="og:title" content="Rejoindre Purgatoire — Guild SDS Origin">
+  <meta property="og:description" content="Guilde compétitive N°1. Roster d'élite · Guerres de Guilde · Communauté soudée.">
+  <meta property="og:image" content="https://pencilgong.github.io/Purgatoire/assets/images/banner.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&family=Crimson+Pro:ital,wght@0,300;0,400;0,600;1,300;1,400&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; }
+
+    :root {
+      --black:    #04050a;
+      --deep:     #080910;
+      --surface:  #0c0d18;
+      --elevated: #111420;
+      --gold:     #c9923a;
+      --gold-bright: #e8b455;
+      --gold-pale: rgba(201,146,58,.12);
+      --gold-border: rgba(201,146,58,.25);
+      --text:     #ede8dc;
+      --muted:    rgba(237,232,220,.45);
+      --font-title: 'Cinzel', 'Trajan Pro', serif;
+      --font-body:  'Crimson Pro', Georgia, serif;
+    }
+
+    body {
+      font-family: var(--font-body);
+      font-size: 18px;
+      line-height: 1.7;
+      color: var(--text);
+      background: var(--black);
+      overflow-x: hidden;
+    }
+
+    /* ── GRAIN OVERLAY ── */
+    body::after {
+      content: '';
+      position: fixed; inset: 0; z-index: 9999;
+      pointer-events: none;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+      opacity: .4;
+    }
+
+    /* ── HERO ─────────────────────────────────────────── */
+    .hero {
+      position: relative;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      overflow: hidden;
+    }
+
+    .hero-bg {
+      position: absolute; inset: 0;
+      background:
+        radial-gradient(ellipse 80% 60% at 50% -10%, rgba(201,146,58,.18) 0%, transparent 60%),
+        radial-gradient(ellipse 50% 80% at 100% 50%, rgba(201,146,58,.06) 0%, transparent 50%),
+        radial-gradient(ellipse 60% 60% at 0% 100%, rgba(60,40,10,.4) 0%, transparent 50%),
+        var(--black);
+    }
+
+    /* Animated diagonal lines */
+    .hero-lines {
+      position: absolute; inset: 0; overflow: hidden; pointer-events: none;
+    }
+    .hero-lines::before, .hero-lines::after {
+      content: '';
+      position: absolute;
+      width: 1px;
+      height: 200%;
+      background: linear-gradient(to bottom, transparent, rgba(201,146,58,.15), transparent);
+      animation: line-drift 8s linear infinite;
+    }
+    .hero-lines::before { left: 25%; animation-delay: -3s; }
+    .hero-lines::after  { left: 75%; animation-delay: -6s; opacity: .5; }
+    @keyframes line-drift { from { transform: translateY(-50%); } to { transform: translateY(0%); } }
+
+    /* Diagonal slash accent */
+    .hero-slash {
+      position: absolute;
+      top: 0; right: 0;
+      width: 55%;
+      height: 100%;
+      background: linear-gradient(135deg, transparent 40%, rgba(201,146,58,.04) 40%, rgba(201,146,58,.04) 60%, transparent 60%);
+      pointer-events: none;
+    }
+
+    .hero-content {
+      position: relative; z-index: 2;
+      width: 100%;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 80px 48px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: center;
+    }
+
+    .hero-left { }
+
+    .hero-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-family: var(--font-title);
+      font-size: .65rem;
+      font-weight: 600;
+      letter-spacing: .2em;
+      text-transform: uppercase;
+      color: var(--gold);
+      border: 1px solid var(--gold-border);
+      border-radius: 2px;
+      padding: 6px 14px;
+      margin-bottom: 28px;
+      position: relative;
+    }
+    .hero-tag::before {
+      content: '';
+      position: absolute; left: -1px; top: -1px; bottom: -1px;
+      width: 2px;
+      background: var(--gold);
+    }
+
+    .hero-title {
+      font-family: var(--font-title);
+      font-size: clamp(3.5rem, 7vw, 6.5rem);
+      font-weight: 900;
+      line-height: .92;
+      letter-spacing: .04em;
+      color: var(--text);
+      margin-bottom: 8px;
+    }
+    .hero-title span {
+      display: block;
+      background: linear-gradient(135deg, #f0e8d0, var(--gold-bright), #c9923a);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .hero-subtitle {
+      font-family: var(--font-title);
+      font-size: clamp(1rem, 2vw, 1.4rem);
+      font-weight: 400;
+      letter-spacing: .15em;
+      color: var(--muted);
+      margin-bottom: 32px;
+      text-transform: uppercase;
+    }
+
+    .hero-desc {
+      font-size: 1.1rem;
+      color: rgba(237,232,220,.7);
+      line-height: 1.8;
+      margin-bottom: 44px;
+      max-width: 480px;
+    }
+
+    .hero-ctas { display: flex; gap: 14px; flex-wrap: wrap; }
+
+    .btn-primary {
+      display: inline-flex; align-items: center; gap: 10px;
+      font-family: var(--font-title);
+      font-size: .75rem;
+      font-weight: 700;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: var(--black);
+      background: linear-gradient(135deg, var(--gold-bright), var(--gold));
+      border: none;
+      border-radius: 2px;
+      padding: 16px 32px;
+      cursor: pointer;
+      text-decoration: none;
+      transition: filter .2s, transform .2s;
+      box-shadow: 0 4px 30px rgba(201,146,58,.35);
+    }
+    .btn-primary:hover { filter: brightness(1.1); transform: translateY(-2px); }
+
+    .btn-ghost {
+      display: inline-flex; align-items: center; gap: 10px;
+      font-family: var(--font-title);
+      font-size: .75rem;
+      font-weight: 600;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: var(--gold-bright);
+      background: transparent;
+      border: 1px solid var(--gold-border);
+      border-radius: 2px;
+      padding: 15px 28px;
+      cursor: pointer;
+      text-decoration: none;
+      transition: border-color .2s, background .2s;
+    }
+    .btn-ghost:hover { border-color: var(--gold); background: var(--gold-pale); }
+
+    /* Stats on right */
+    .hero-right {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+    }
+
+    .banner-frame {
+      border: 1px solid var(--gold-border);
+      border-radius: 4px;
+      overflow: hidden;
+      margin-bottom: 24px;
+      position: relative;
+    }
+    .banner-frame::before {
+      content: '';
+      position: absolute; inset: 0;
+      background: linear-gradient(to bottom, transparent 60%, rgba(4,5,10,.8));
+      z-index: 1; pointer-events: none;
+    }
+    .banner-frame img { width: 100%; display: block; }
+
+    .stats-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 1px;
+      background: var(--gold-border);
+      border: 1px solid var(--gold-border);
+      border-radius: 2px;
+      overflow: hidden;
+    }
+    .stat-box {
+      background: var(--surface);
+      padding: 20px 18px;
+      text-align: center;
+      transition: background .2s;
+    }
+    .stat-box:hover { background: var(--elevated); }
+    .stat-num {
+      font-family: var(--font-title);
+      font-size: 2rem;
+      font-weight: 700;
+      color: var(--gold-bright);
+      line-height: 1;
+      margin-bottom: 5px;
+      display: block;
+    }
+    .stat-lbl {
+      font-size: .65rem;
+      font-weight: 600;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    /* ── SCROLL INDICATOR ── */
+    .scroll-hint {
+      position: absolute;
+      bottom: 32px; left: 50%;
+      transform: translateX(-50%);
+      display: flex; flex-direction: column; align-items: center; gap: 8px;
+      color: var(--muted); font-size: .65rem; letter-spacing: .15em; text-transform: uppercase;
+      font-family: var(--font-title);
+      animation: float 2s ease-in-out infinite;
+    }
+    .scroll-hint::after {
+      content: '';
+      width: 1px; height: 40px;
+      background: linear-gradient(to bottom, var(--gold-border), transparent);
+    }
+    @keyframes float { 0%,100%{transform:translateX(-50%) translateY(0)} 50%{transform:translateX(-50%) translateY(-6px)} }
+
+    /* ── SECTION COMMON ── */
+    section { padding: 96px 48px; }
+    .section-inner { max-width: 1200px; margin: 0 auto; }
+
+    .section-tag {
+      font-family: var(--font-title);
+      font-size: .62rem;
+      font-weight: 600;
+      letter-spacing: .2em;
+      text-transform: uppercase;
+      color: var(--gold);
+      display: block;
+      margin-bottom: 12px;
+    }
+    .section-title {
+      font-family: var(--font-title);
+      font-size: clamp(2rem, 4vw, 3.2rem);
+      font-weight: 700;
+      color: var(--text);
+      line-height: 1.05;
+      margin-bottom: 16px;
+    }
+    .section-sub {
+      font-size: 1.05rem;
+      color: var(--muted);
+      max-width: 560px;
+      line-height: 1.75;
+    }
+
+    /* ── PILLARS ── */
+    .pillars-section { background: var(--deep); }
+    .pillars-head { margin-bottom: 56px; }
+    .pillars-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1px;
+      background: var(--gold-border);
+      border: 1px solid var(--gold-border);
+    }
+    .pillar-box {
+      background: var(--surface);
+      padding: 40px 36px;
+      position: relative;
+      overflow: hidden;
+      transition: background .25s;
+    }
+    .pillar-box::before {
+      content: '';
+      position: absolute; top: 0; left: 0; right: 0;
+      height: 2px;
+      background: linear-gradient(90deg, transparent, var(--gold), transparent);
+      transform: scaleX(0);
+      transition: transform .3s;
+    }
+    .pillar-box:hover { background: var(--elevated); }
+    .pillar-box:hover::before { transform: scaleX(1); }
+    .pillar-num {
+      font-family: var(--font-title);
+      font-size: 4rem;
+      font-weight: 900;
+      color: rgba(201,146,58,.08);
+      line-height: 1;
+      position: absolute;
+      top: 20px; right: 24px;
+    }
+    .pillar-icon { font-size: 2rem; margin-bottom: 16px; }
+    .pillar-title {
+      font-family: var(--font-title);
+      font-size: 1.1rem;
+      font-weight: 700;
+      letter-spacing: .06em;
+      color: var(--text);
+      margin-bottom: 10px;
+    }
+    .pillar-desc { font-size: .95rem; color: rgba(237,232,220,.6); line-height: 1.65; }
+
+    /* ── TOP 3 ── */
+    .top3-section { }
+    .top3-layout {
+      display: grid;
+      grid-template-columns: 1fr 1.5fr;
+      gap: 80px;
+      align-items: start;
+      margin-top: 56px;
+    }
+    .top3-podium { display: flex; flex-direction: column; gap: 12px; }
+    .top3-card {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      padding: 18px 22px;
+      background: var(--surface);
+      border: 1px solid var(--gold-border);
+      border-left-width: 3px;
+      transition: border-color .2s, background .2s, transform .2s;
+    }
+    .top3-card:hover { background: var(--elevated); transform: translateX(4px); }
+    .top3-card.gold-card   { border-left-color: #f0c060; }
+    .top3-card.silver-card { border-left-color: #b0b8c8; }
+    .top3-card.bronze-card { border-left-color: #cd7f32; }
+    .top3-medal { font-size: 1.6rem; flex-shrink: 0; }
+    .top3-avatar { width: 44px; height: 44px; border-radius: 50%; border: 1px solid var(--gold-border); flex-shrink: 0; background: var(--elevated); object-fit: cover; }
+    .top3-info { flex: 1; min-width: 0; }
+    .top3-pseudo { font-family: var(--font-title); font-size: .9rem; font-weight: 700; color: var(--text); }
+    .top3-grade  { font-size: .75rem; color: var(--muted); letter-spacing: .05em; }
+    .top3-cc     { font-family: var(--font-title); font-size: 1.3rem; font-weight: 700; color: var(--gold-bright); }
+
+    /* GDG Bilan */
+    .gdg-bilan {
+      background: var(--surface);
+      border: 1px solid var(--gold-border);
+      padding: 36px;
+    }
+    .gdg-bilan-title {
+      font-family: var(--font-title);
+      font-size: .7rem;
+      font-weight: 600;
+      letter-spacing: .15em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 24px;
+    }
+    .gdg-bar-row {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 14px;
+    }
+    .gdg-bar-label { font-size: .75rem; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); width: 70px; flex-shrink: 0; font-family: var(--font-title); }
+    .gdg-bar-track { flex: 1; height: 8px; background: rgba(255,255,255,.06); border-radius: 1px; overflow: hidden; }
+    .gdg-bar-fill  { height: 100%; border-radius: 1px; transition: width 1.2s ease; }
+    .gdg-bar-fill.win  { background: linear-gradient(90deg, #2ea87a, #4ade80); }
+    .gdg-bar-fill.lose { background: linear-gradient(90deg, #c94f4f, #f87171); }
+    .gdg-bar-fill.draw { background: rgba(255,255,255,.2); }
+    .gdg-bar-count { font-family: var(--font-title); font-size: 1.1rem; font-weight: 700; color: var(--text); width: 32px; text-align: right; }
+    .gdg-recent { margin-top: 24px; border-top: 1px solid rgba(255,255,255,.06); padding-top: 20px; }
+    .gdg-recent-title { font-size: .65rem; letter-spacing: .14em; text-transform: uppercase; color: var(--muted); margin-bottom: 12px; font-family: var(--font-title); }
+    .gdg-result-row { display: flex; justify-content: space-between; align-items: center; padding: 6px 0; border-bottom: 1px solid rgba(255,255,255,.04); font-size: .85rem; }
+    .gdg-result-row:last-child { border-bottom: none; }
+    .gdg-badge { font-size: .7rem; font-weight: 700; padding: 2px 8px; border-radius: 1px; font-family: var(--font-title); letter-spacing: .05em; }
+    .gdg-badge.win  { background: rgba(46,168,122,.15); color: #4ade80; }
+    .gdg-badge.lose { background: rgba(201,79,79,.15);  color: #f87171; }
+    .gdg-badge.draw { background: rgba(255,255,255,.07); color: var(--muted); }
+
+    /* ── VALEURS ── */
+    .values-section { background: var(--deep); }
+    .values-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+      margin-top: 56px;
+    }
+    .value-card {
+      padding: 32px;
+      border: 1px solid rgba(255,255,255,.07);
+      position: relative;
+      transition: border-color .2s;
+    }
+    .value-card:hover { border-color: var(--gold-border); }
+    .value-card::after {
+      content: '';
+      position: absolute; bottom: 0; left: 0; right: 0;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(201,146,58,.3), transparent);
+    }
+    .value-icon { font-size: 1.6rem; margin-bottom: 14px; }
+    .value-title { font-family: var(--font-title); font-size: 1rem; font-weight: 700; color: var(--text); margin-bottom: 8px; letter-spacing: .05em; }
+    .value-desc { font-size: .92rem; color: rgba(237,232,220,.55); line-height: 1.65; }
+
+    /* ── CTA FINAL ── */
+    .cta-section {
+      position: relative;
+      text-align: center;
+      padding: 120px 48px;
+      overflow: hidden;
+    }
+    .cta-bg {
+      position: absolute; inset: 0;
+      background: radial-gradient(ellipse 70% 80% at 50% 50%, rgba(201,146,58,.1) 0%, transparent 70%);
+    }
+    .cta-inner { position: relative; z-index: 1; max-width: 680px; margin: 0 auto; }
+    .cta-title {
+      font-family: var(--font-title);
+      font-size: clamp(2.5rem, 5vw, 4.5rem);
+      font-weight: 900;
+      line-height: .95;
+      letter-spacing: .04em;
+      margin-bottom: 20px;
+    }
+    .cta-title em { font-style: italic; color: var(--gold-bright); }
+    .cta-sub { font-size: 1.1rem; color: var(--muted); margin-bottom: 44px; line-height: 1.7; }
+    .cta-note { font-size: .8rem; color: rgba(237,232,220,.3); margin-top: 20px; font-family: var(--font-title); letter-spacing: .08em; }
+
+    /* ── FOOTER ── */
+    footer {
+      border-top: 1px solid rgba(201,146,58,.15);
+      padding: 32px 48px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      max-width: 100%;
+    }
+    .footer-brand { font-family: var(--font-title); font-size: 1.1rem; font-weight: 700; color: var(--gold-bright); letter-spacing: .08em; }
+    .footer-links { display: flex; gap: 24px; }
+    .footer-links a { font-size: .8rem; color: var(--muted); letter-spacing: .05em; text-decoration: none; transition: color .15s; font-family: var(--font-title); }
+    .footer-links a:hover { color: var(--gold-bright); }
+    .footer-right { font-size: .75rem; color: rgba(237,232,220,.2); font-family: var(--font-title); letter-spacing: .08em; }
+
+    /* ── REVEAL ANIMATIONS ── */
+    .reveal {
+      opacity: 0;
+      transform: translateY(28px);
+      transition: opacity .7s ease, transform .7s ease;
+    }
+    .reveal.visible { opacity: 1; transform: none; }
+    .reveal-delay-1 { transition-delay: .1s; }
+    .reveal-delay-2 { transition-delay: .2s; }
+    .reveal-delay-3 { transition-delay: .3s; }
+    .reveal-delay-4 { transition-delay: .4s; }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 900px) {
+      .hero-content { grid-template-columns: 1fr; gap: 48px; padding: 60px 24px; }
+      .hero-right { order: -1; }
+      .pillars-grid { grid-template-columns: 1fr; }
+      .top3-layout { grid-template-columns: 1fr; gap: 40px; }
+      .values-grid { grid-template-columns: 1fr; }
+      section { padding: 64px 24px; }
+      footer { flex-direction: column; gap: 16px; text-align: center; padding: 24px; }
+      .footer-links { flex-wrap: wrap; justify-content: center; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-bg"></div>
+    <div class="hero-lines"></div>
+    <div class="hero-slash"></div>
+
+    <div class="hero-content">
+      <div class="hero-left">
+        <div class="hero-tag">⚔ Seven Deadly Sins: Origin</div>
+        <h1 class="hero-title">
+          PURGA<span>TOIRE</span>
+        </h1>
+        <p class="hero-subtitle">Guild N°1 · Saison en cours</p>
+        <p class="hero-desc">
+          Guilde compétitive fondée sur l'exigence, la cohésion et la progression constante.
+          Nous dominons les Guerres de Guilde et formons les meilleurs joueurs du serveur.
+        </p>
+        <div class="hero-ctas">
+          <a href="https://docs.google.com/forms/d/e/1FAIpQLScxMz3iqwmYNxf3q5muZ03Wvjt3LD4QPldVqqraqCQmi8Cf5Q/viewform" target="_blank" class="btn-primary">
+            Postuler maintenant ↗
+          </a>
+          <a href="https://pencilgong.github.io/Purgatoire" class="btn-ghost">
+            Voir le site guild →
+          </a>
+        </div>
+      </div>
+
+      <div class="hero-right">
+        <div class="banner-frame">
+          <img src="/Purgatoire/assets/images/banner.png" alt="Purgatoire Guild">
+        </div>
+        <div class="stats-grid">
+          <div class="stat-box">
+            <span class="stat-num" id="stat-membres">—</span>
+            <span class="stat-lbl">Membres</span>
+          </div>
+          <div class="stat-box">
+            <span class="stat-num" id="stat-cc">—</span>
+            <span class="stat-lbl">CC Moy.</span>
+          </div>
+          <div class="stat-box">
+            <span class="stat-num" id="stat-gdg">—</span>
+            <span class="stat-lbl">Win Rate</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="scroll-hint">Découvrir</div>
+  </section>
+
+  <!-- PILLARS -->
+  <section class="pillars-section">
+    <div class="section-inner">
+      <div class="pillars-head reveal">
+        <span class="section-tag">Notre identité</span>
+        <h2 class="section-title">Bâtis pour gagner</h2>
+        <p class="section-sub">Trois piliers fondateurs qui définissent Purgatoire depuis sa création.</p>
+      </div>
+      <div class="pillars-grid">
+        <div class="pillar-box reveal reveal-delay-1">
+          <span class="pillar-num">01</span>
+          <div class="pillar-icon">⚔️</div>
+          <div class="pillar-title">Guerres de Guilde</div>
+          <p class="pillar-desc">Organisation tactique de chaque GDG. Analyse des adversaires, coordination des membres, debriefs post-guerre. Objectif : victoire systématique.</p>
+        </div>
+        <div class="pillar-box reveal reveal-delay-2">
+          <span class="pillar-num">02</span>
+          <div class="pillar-icon">📈</div>
+          <div class="pillar-title">Progression continue</div>
+          <p class="pillar-desc">Suivi hebdomadaire de la Combat Class. Objectifs individuels, contrats publics, classement interne. Chaque membre monte en puissance.</p>
+        </div>
+        <div class="pillar-box reveal reveal-delay-3">
+          <span class="pillar-num">03</span>
+          <div class="pillar-icon">🛡️</div>
+          <div class="pillar-title">Cohésion</div>
+          <p class="pillar-desc">Une communauté soudée où l'entraide est une norme. Discord actif, encadrement des nouvelles recrues, culture guild forte.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TOP 3 + GDG -->
+  <section>
+    <div class="section-inner">
+      <div class="reveal">
+        <span class="section-tag">Live depuis le roster</span>
+        <h2 class="section-title">L'élite de Purgatoire</h2>
+      </div>
+      <div class="top3-layout">
+        <div>
+          <p class="section-sub reveal" style="margin-bottom:32px">Le classement Combat Class en temps réel. Ces membres représentent le niveau d'exigence que nous maintenons.</p>
+          <div class="top3-podium" id="top3-podium">
+            <div style="color:rgba(237,232,220,.3);font-size:.85rem">Chargement…</div>
+          </div>
+        </div>
+        <div class="gdg-bilan reveal" id="gdg-bilan">
+          <div class="gdg-bilan-title">Bilan Guerres de Guilde</div>
+          <div style="color:rgba(237,232,220,.3);font-size:.85rem">Chargement…</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- VALEURS -->
+  <section class="values-section">
+    <div class="section-inner">
+      <div class="reveal">
+        <span class="section-tag">Ce qu'on attend</span>
+        <h2 class="section-title">Le profil Purgatoire</h2>
+        <p class="section-sub">Nous ne cherchons pas juste une haute CC. Nous cherchons des joueurs qui partagent nos valeurs.</p>
+      </div>
+      <div class="values-grid">
+        <div class="value-card reveal reveal-delay-1">
+          <div class="value-icon">🎯</div>
+          <div class="value-title">Implication</div>
+          <p class="value-desc">Participation aux GDG, mise à jour régulière de la CC, présence active sur Discord. On s'engage ensemble.</p>
+        </div>
+        <div class="value-card reveal reveal-delay-2">
+          <div class="value-icon">📊</div>
+          <div class="value-title">Niveau</div>
+          <p class="value-desc">Un niveau minimum est requis. Nous aidons à progresser, mais la volonté de s'améliorer doit venir de toi.</p>
+        </div>
+        <div class="value-card reveal reveal-delay-3">
+          <div class="value-icon">🤝</div>
+          <div class="value-title">Respect</div>
+          <p class="value-desc">Ambiance saine, sans toxicité. L'entraide et le respect des membres sont non-négociables.</p>
+        </div>
+        <div class="value-card reveal reveal-delay-4">
+          <div class="value-icon">🧠</div>
+          <div class="value-title">Stratégie</div>
+          <p class="value-desc">Savoir jouer en équipe, comprendre les enjeux d'un GDG, accepter la coordination. Ce n'est pas du solo.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA FINAL -->
+  <section class="cta-section">
+    <div class="cta-bg"></div>
+    <div class="cta-inner">
+      <h2 class="cta-title reveal">Tu as ce qu'il<br><em>faut ?</em></h2>
+      <p class="cta-sub reveal reveal-delay-1">Les candidatures sont ouvertes. Remplis le formulaire, présente-toi, et rejoins la guilde qui t'emmènera au sommet.</p>
+      <div class="reveal reveal-delay-2">
+        <a href="https://docs.google.com/forms/d/e/1FAIpQLScxMz3iqwmYNxf3q5muZ03Wvjt3LD4QPldVqqraqCQmi8Cf5Q/viewform" target="_blank" class="btn-primary" style="font-size:.85rem;padding:18px 44px">
+          Déposer ma candidature ↗
+        </a>
+      </div>
+      <p class="cta-note reveal reveal-delay-3">Réponse sous 48h · Discord requis</p>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <span class="footer-brand">PURGATOIRE</span>
+    <div class="footer-links">
+      <a href="https://pencilgong.github.io/Purgatoire">Site Guild</a>
+      <a href="https://discord.gg/kgwNWR5M" target="_blank">Discord</a>
+      <a href="https://pencilgong.github.io/Purgatoire/pages/roster/">Roster</a>
+    </div>
+    <span class="footer-right">Seven Deadly Sins: Origin</span>
+  </footer>
+
+  <script>
+  const SHEET = '1npBpU9jQXFOW_mrDiycpB1ptJzXdcZE2iJ8-r8RP8oM';
+  const WORKER = 'https://purgatoire-bot.originsguild.workers.dev';
+
+  function parseCsv(text) {
+    const rows=[]; let row=[],cell='',q=false;
+    for(let i=0;i<text.length;i++){
+      const ch=text[i],nx=text[i+1];
+      if(ch==='"'){if(q&&nx==='"'){cell+='"';i++;}else q=!q;}
+      else if(ch===','&&!q){row.push(cell);cell='';}
+      else if((ch==='\n'||ch==='\r')&&!q){if(ch==='\r'&&nx==='\n')i++;if(cell||row.length){row.push(cell);rows.push(row);row=[];cell='';}}
+      else cell+=ch;
+    }
+    if(cell||row.length){row.push(cell);rows.push(row);}
+    if(!rows.length)return[];
+    const headers=rows[0].map(h=>h.trim().replace(/\s+/g,'_').toLowerCase());
+    return rows.slice(1).filter(r=>r.some(c=>c.trim())).map(r=>Object.fromEntries(headers.map((h,i)=>[h,(r[i]||'').trim()])));
+  }
+  function fmtCC(v){const n=Number(String(v).replace(/[^\d.]/g,''));if(!n)return'—';if(n>=1e6)return(n/1e6).toFixed(2)+'M';if(n>=1000)return(n/1000).toFixed(1)+'K';return String(n);}
+  function norm(s){return String(s||'').toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'');}
+
+  async function loadData() {
+    try {
+      const [roster, gdg] = await Promise.all([
+        fetch(`https://docs.google.com/spreadsheets/d/${SHEET}/gviz/tq?tqx=out:csv&sheet=Membres`,{cache:'no-store'}).then(r=>r.text()).then(parseCsv),
+        fetch(`https://docs.google.com/spreadsheets/d/${SHEET}/gviz/tq?tqx=out:csv&sheet=GDG`,{cache:'no-store'}).then(r=>r.text()).then(parseCsv),
+      ]);
+
+      // Stats
+      const actifs = roster.filter(r=>r.discord_id && Number(r.cc)>0);
+      const ccVals = actifs.map(r=>Number(r.cc)||0);
+      const avg    = ccVals.length ? Math.round(ccVals.reduce((a,b)=>a+b,0)/ccVals.length) : 0;
+      const wins   = gdg.filter(g=>norm(g.resultat)==='victoire').length;
+      const wr     = gdg.length ? Math.round(wins/gdg.length*100) : 0;
+      document.getElementById('stat-membres').textContent = actifs.length || '—';
+      document.getElementById('stat-cc').textContent      = avg ? fmtCC(avg) : '—';
+      document.getElementById('stat-gdg').textContent     = gdg.length ? wr+'%' : '—';
+
+      // Top 3
+      const sorted = [...actifs].sort((a,b)=>Number(b.cc)-Number(a.cc)).slice(0,3);
+      const medals = ['🥇','🥈','🥉'];
+      const cardCls = ['gold-card','silver-card','bronze-card'];
+      document.getElementById('top3-podium').innerHTML = sorted.map((r,i)=>`
+        <div class="top3-card ${cardCls[i]}">
+          <span class="top3-medal">${medals[i]}</span>
+          <img class="top3-avatar" src="${WORKER}/avatar/${r.discord_id}" onerror="this.style.opacity='.2'">
+          <div class="top3-info">
+            <div class="top3-pseudo">${r.pseudo||'—'}</div>
+            <div class="top3-grade">${r.grade||'Membre'}</div>
+          </div>
+          <span class="top3-cc">${fmtCC(r.cc)}</span>
+        </div>`).join('');
+
+      // GDG bilan
+      const loses = gdg.filter(g=>norm(g.resultat)==='defaite').length;
+      const draws = gdg.length - wins - loses;
+      const max   = Math.max(wins, loses, draws, 1);
+      const recent = [...gdg].reverse().slice(0,5);
+      document.getElementById('gdg-bilan').innerHTML = `
+        <div class="gdg-bilan-title">Bilan Guerres de Guilde · ${gdg.length} matchs</div>
+        <div class="gdg-bar-row">
+          <span class="gdg-bar-label">Victoires</span>
+          <div class="gdg-bar-track"><div class="gdg-bar-fill win" style="width:${Math.round(wins/max*100)}%"></div></div>
+          <span class="gdg-bar-count">${wins}</span>
+        </div>
+        <div class="gdg-bar-row">
+          <span class="gdg-bar-label">Défaites</span>
+          <div class="gdg-bar-track"><div class="gdg-bar-fill lose" style="width:${Math.round(loses/max*100)}%"></div></div>
+          <span class="gdg-bar-count">${loses}</span>
+        </div>
+        <div class="gdg-bar-row">
+          <span class="gdg-bar-label">Nuls</span>
+          <div class="gdg-bar-track"><div class="gdg-bar-fill draw" style="width:${Math.round(draws/max*100)}%"></div></div>
+          <span class="gdg-bar-count">${draws}</span>
+        </div>
+        ${recent.length ? `
+          <div class="gdg-recent">
+            <div class="gdg-recent-title">Résultats récents</div>
+            ${recent.map(g=>{
+              const r = norm(g.resultat);
+              const cls = r==='victoire'?'win':r==='defaite'?'lose':'draw';
+              const lbl = r==='victoire'?'Victoire':r==='defaite'?'Défaite':'Nul';
+              return `<div class="gdg-result-row">
+                <span style="color:rgba(237,232,220,.7)">vs ${g.ennemi||'?'}</span>
+                <span class="gdg-badge ${cls}">${lbl}</span>
+              </div>`;
+            }).join('')}
+          </div>` : ''}`;
+    } catch(e) { console.warn(e); }
+  }
+
+  // Reveal on scroll
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(e => { if(e.isIntersecting) e.target.classList.add('visible'); });
+  }, { threshold: 0.12 });
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+  loadData();
+  </script>
+</body>
+</html>
