@@ -121,15 +121,103 @@ async function loadPersos() {
   } catch { return []; }
 }
 
-function potentialBar(n) {
-  const val = Math.min(10, Math.max(0, Number(n)||0));
-  return '█'.repeat(val) + '░'.repeat(10-val) + ` ${val}/10`;
+function drawRadarChart(canvasId, persos) {
+  const canvas = document.getElementById(canvasId);
+  if (!canvas) return;
+  const ctx = canvas.getContext('2d');
+  const W = canvas.width, H = canvas.height;
+  const cx = W / 2, cy = H / 2;
+  const R = Math.min(cx, cy) - 36;
+  const N = persos.length;
+  if (N < 2) {
+    // Single perso: draw a simple bar instead
+    ctx.clearRect(0, 0, W, H);
+    return;
+  }
+
+  const gold   = '#c9973e';
+  const goldDim = 'rgba(201,151,62,0.15)';
+  const gridCol = 'rgba(255,255,255,0.08)';
+  const textCol = '#a09070';
+  const levels = 5;
+
+  ctx.clearRect(0, 0, W, H);
+
+  // Grid rings
+  for (let l = 1; l <= levels; l++) {
+    const r = (R * l) / levels;
+    ctx.beginPath();
+    for (let i = 0; i < N; i++) {
+      const a = (i / N) * Math.PI * 2 - Math.PI / 2;
+      const x = cx + r * Math.cos(a);
+      const y = cy + r * Math.sin(a);
+      i === 0 ? ctx.moveTo(x, y) : ctx.lineTo(x, y);
+    }
+    ctx.closePath();
+    ctx.strokeStyle = gridCol;
+    ctx.lineWidth = 1;
+    ctx.stroke();
+  }
+
+  // Axes
+  for (let i = 0; i < N; i++) {
+    const a = (i / N) * Math.PI * 2 - Math.PI / 2;
+    ctx.beginPath();
+    ctx.moveTo(cx, cy);
+    ctx.lineTo(cx + R * Math.cos(a), cy + R * Math.sin(a));
+    ctx.strokeStyle = gridCol;
+    ctx.lineWidth = 1;
+    ctx.stroke();
+  }
+
+  // Data polygon
+  ctx.beginPath();
+  persos.forEach((p, i) => {
+    const val = Math.min(10, Math.max(0, Number(p.potentiel) || 0));
+    const a = (i / N) * Math.PI * 2 - Math.PI / 2;
+    const r = (val / 10) * R;
+    const x = cx + r * Math.cos(a);
+    const y = cy + r * Math.sin(a);
+    i === 0 ? ctx.moveTo(x, y) : ctx.lineTo(x, y);
+  });
+  ctx.closePath();
+  ctx.fillStyle = goldDim;
+  ctx.fill();
+  ctx.strokeStyle = gold;
+  ctx.lineWidth = 2;
+  ctx.stroke();
+
+  // Dots
+  persos.forEach((p, i) => {
+    const val = Math.min(10, Math.max(0, Number(p.potentiel) || 0));
+    const a = (i / N) * Math.PI * 2 - Math.PI / 2;
+    const r = (val / 10) * R;
+    ctx.beginPath();
+    ctx.arc(cx + r * Math.cos(a), cy + r * Math.sin(a), 4, 0, Math.PI * 2);
+    ctx.fillStyle = gold;
+    ctx.fill();
+  });
+
+  // Labels
+  ctx.font = '600 10px system-ui, sans-serif';
+  ctx.textAlign = 'center';
+  ctx.textBaseline = 'middle';
+  persos.forEach((p, i) => {
+    const a = (i / N) * Math.PI * 2 - Math.PI / 2;
+    const labelR = R + 22;
+    const lx = cx + labelR * Math.cos(a);
+    const ly = cy + labelR * Math.sin(a);
+    ctx.fillStyle = textCol;
+    // Truncate long names
+    const name = (p.personnage || '').length > 10 ? p.personnage.slice(0, 9) + '…' : p.personnage;
+    ctx.fillText(name, lx, ly);
+  });
 }
 
 async function openMemberModal(member) {
   const modal   = document.getElementById('member-modal');
   const content = document.getElementById('modal-content');
-  content.innerHTML = '<div class="loading-state">Chargement</div>';
+  content.innerHTML = '<div class="loading-state">Chargement…</div>';
   modal.style.display = 'flex';
 
   const persos   = await loadPersos();
@@ -137,6 +225,9 @@ async function openMemberModal(member) {
 
   const WORKER_URL = 'https://purgatoire-bot.originsguild.workers.dev';
   const avatarUrl = member.discord_id ? `${WORKER_URL}/avatar/${member.discord_id}` : '';
+  const showRadar = myPersos.length >= 2;
+  const showList  = myPersos.length >= 1;
+
   content.innerHTML = `
     <div class="modal-header">
       ${avatarUrl
@@ -152,21 +243,38 @@ async function openMemberModal(member) {
       <div class="modal-stat"><div class="modal-stat-label">Statut</div><div class="modal-stat-value" style="font-size:1rem;color:var(--text-primary)">${member.statut||'—'}</div></div>
       <div class="modal-stat"><div class="modal-stat-label">Perso principal</div><div class="modal-stat-value" style="font-size:1rem;color:var(--text-primary)">${member.main_char||'—'}</div></div>
     </div>
-    ${myPersos.length ? `
-      <div class="modal-persos" style="margin-bottom:20px">
+    ${showList ? `
+      <div class="modal-persos" style="margin-bottom:${showRadar ? 0 : 20}px">
         <h3>Personnages (${myPersos.length})</h3>
-        ${myPersos.map(p => `
+        ${showRadar ? `
+          <div style="display:flex;justify-content:center;margin:12px 0 4px">
+            <canvas id="radar-canvas" width="260" height="260" style="display:block"></canvas>
+          </div>` : ''}
+        ${myPersos.map(p => {
+          const val = Math.min(10, Math.max(0, Number(p.potentiel)||0));
+          const pct = val * 10;
+          return `
           <div class="modal-perso-row">
             <span class="modal-perso-name">${p.personnage}</span>
-            <span class="modal-perso-bar">${potentialBar(p.potentiel)}</span>
-          </div>`).join('')}
+            <div style="display:flex;align-items:center;gap:8px">
+              <div style="width:80px;height:4px;background:var(--border);border-radius:99px;overflow:hidden">
+                <div style="height:100%;width:${pct}%;background:var(--gold-bright);border-radius:99px"></div>
+              </div>
+              <span style="font-size:.75rem;color:var(--gold-bright);font-family:monospace;min-width:28px">${val}/10</span>
+            </div>
+          </div>`;
+        }).join('')}
       </div>` : ''}
     ${member.team_photo ? `
-      <div>
+      <div style="margin-top:16px">
         <div class="modal-stat-label" style="margin-bottom:8px">Team</div>
         <img class="modal-photo" src="${member.team_photo}" alt="" onerror="this.style.display='none'">
       </div>` : ''}
   `;
+
+  if (showRadar) {
+    requestAnimationFrame(() => drawRadarChart('radar-canvas', myPersos));
+  }
 }
 
 function closeModal(event) {

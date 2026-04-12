@@ -20,6 +20,12 @@ permalink: /pages/gdg/
 
 <section class="section-tight">
   <div class="container">
+    <div id="gdg-timeline" class="gdg-timeline"></div>
+  </div>
+</section>
+
+<section class="section-tight">
+  <div class="container">
     <div id="gdg-list" class="cards-grid"></div>
   </div>
 </section>

@@ -210,27 +210,149 @@ function renderRosterPage(roster) {
 // GDG PAGE
 
 function renderGdgPage(gdg) {
-  const summary = qs('#gdg-summary');
-  const list    = qs('#gdg-list');
-  if (!summary && !list) return;
+  const summary  = qs('#gdg-summary');
+  const timeline = qs('#gdg-timeline');
+  const list     = qs('#gdg-list');
+  if (!summary && !timeline && !list) return;
+
+  const norm = s => String(s||'').toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'');
+
   if (!gdg.length) {
-    if (summary) summary.innerHTML = '<p class="empty-state">Aucun GDG enregistré.</p>';
-    if (list)    list.innerHTML    = '';
+    if (summary)  summary.innerHTML  = '<p class="empty-state">Aucun GDG enregistré.</p>';
+    if (timeline) timeline.innerHTML = '';
+    if (list)     list.innerHTML     = '';
     return;
   }
+
+  // ── Résumé ──
   if (summary) {
-    const norm = s => String(s||'').toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'');
     const v = gdg.filter(g => norm(g.resultat) === 'victoire').length;
     const d = gdg.filter(g => norm(g.resultat) === 'defaite').length;
     const n = gdg.length - v - d;
+    const winRate = gdg.length ? Math.round(v / gdg.length * 100) : 0;
     summary.innerHTML = `
       <div class="gdg-summary-grid">
         <div class="gdg-stat"><span class="gdg-stat-num" style="color:var(--gold-bright)">${gdg.length}</span><span>Total</span></div>
         <div class="gdg-stat"><span class="gdg-stat-num" style="color:#4ade80">${v}</span><span>Victoires</span></div>
         <div class="gdg-stat"><span class="gdg-stat-num" style="color:#f87171">${d}</span><span>Défaites</span></div>
         <div class="gdg-stat"><span class="gdg-stat-num" style="color:var(--text-muted)">${n}</span><span>Nuls</span></div>
+        <div class="gdg-stat"><span class="gdg-stat-num" style="color:var(--gold-bright)">${winRate}%</span><span>Win rate</span></div>
       </div>`;
   }
+
+  // ── Timeline visuelle ──
+  if (timeline) {
+    const sorted = [...gdg].sort((a,b) => String(a.date||'').localeCompare(String(b.date||'')));
+
+    // Couleur selon résultat
+    const dotColor = r => {
+      const v = norm(r);
+      if (v === 'victoire') return '#4ade80';
+      if (v === 'defaite')  return '#f87171';
+      return '#6b7280';
+    };
+
+    // Barre de score visuelle
+    const scoreBar = g => {
+      const nos  = Number(g.notre_score  || 0);
+      const eux  = Number(g.score_ennemi || 0);
+      const total = nos + eux;
+      if (!total) return '';
+      const pctNous = Math.round(nos / total * 100);
+      const pctEux  = 100 - pctNous;
+      const col = norm(g.resultat) === 'victoire' ? '#4ade80'
+                : norm(g.resultat) === 'defaite'  ? '#f87171'
+                : '#6b7280';
+      return `
+        <div style="margin-top:8px">
+          <div style="display:flex;justify-content:space-between;font-size:.75rem;margin-bottom:3px">
+            <span style="color:${col};font-weight:700">${esc(g.notre_score)}</span>
+            <span style="color:var(--text-muted)">${esc(g.score_ennemi)}</span>
+          </div>
+          <div style="height:6px;border-radius:99px;overflow:hidden;background:rgba(255,255,255,0.08);display:flex">
+            <div style="width:${pctNous}%;background:${col};border-radius:99px 0 0 99px;transition:.4s"></div>
+            <div style="width:${pctEux}%;background:rgba(255,255,255,0.12);border-radius:0 99px 99px 0"></div>
+          </div>
+        </div>`;
+    };
+
+    timeline.innerHTML = `
+      <div class="gdg-timeline-wrap">
+        ${sorted.map((g, i) => {
+          const col  = dotColor(g.resultat);
+          const side = i % 2 === 0 ? 'left' : 'right';
+          return `
+          <div class="gdg-tl-item gdg-tl-${side}">
+            <div class="gdg-tl-card">
+              <div style="display:flex;justify-content:space-between;align-items:flex-start;gap:8px;margin-bottom:6px">
+                <div>
+                  <span style="font-size:.7rem;color:var(--text-muted);display:block;margin-bottom:2px">${esc(fmtDate(g.date))}</span>
+                  <strong style="font-size:.95rem">vs ${esc(g.ennemi||'Inconnu')}</strong>
+                </div>
+                ${resultBadge(g.resultat)}
+              </div>
+              ${scoreBar(g)}
+            </div>
+            <div class="gdg-tl-dot" style="background:${col};box-shadow:0 0 8px ${col}66"></div>
+          </div>`;
+        }).join('')}
+        <div class="gdg-tl-line"></div>
+      </div>
+      <style>
+        .gdg-timeline-wrap {
+          position: relative;
+          padding: 8px 0 8px;
+          max-width: 700px;
+          margin: 0 auto 32px;
+        }
+        .gdg-tl-line {
+          position: absolute;
+          left: 50%;
+          top: 0; bottom: 0;
+          width: 2px;
+          background: linear-gradient(to bottom, transparent, var(--border) 8%, var(--border) 92%, transparent);
+          transform: translateX(-50%);
+          z-index: 0;
+        }
+        .gdg-tl-item {
+          position: relative;
+          display: flex;
+          align-items: center;
+          margin-bottom: 20px;
+          z-index: 1;
+        }
+        .gdg-tl-left  { flex-direction: row; }
+        .gdg-tl-right { flex-direction: row-reverse; }
+        .gdg-tl-card {
+          width: calc(50% - 28px);
+          background: var(--bg-surface);
+          border: 1px solid var(--border);
+          border-radius: var(--radius);
+          padding: 12px 14px;
+          transition: border-color .2s;
+        }
+        .gdg-tl-left  .gdg-tl-card { margin-right: 28px; }
+        .gdg-tl-right .gdg-tl-card { margin-left: 28px; }
+        .gdg-tl-card:hover { border-color: var(--border-gold); }
+        .gdg-tl-dot {
+          width: 14px; height: 14px;
+          border-radius: 50%;
+          border: 2px solid var(--bg-base, #0e0c0a);
+          position: absolute;
+          left: 50%;
+          transform: translateX(-50%);
+          flex-shrink: 0;
+        }
+        @media (max-width: 600px) {
+          .gdg-tl-line { left: 14px; }
+          .gdg-tl-item { flex-direction: row !important; }
+          .gdg-tl-card { width: calc(100% - 44px); margin-left: 44px !important; margin-right: 0 !important; }
+          .gdg-tl-dot  { left: 14px; }
+        }
+      </style>`;
+  }
+
+  // ── Cards (conservées en bas) ──
   if (list) {
     list.innerHTML = gdg.map(g => `
       <article class="card">
@@ -384,7 +506,7 @@ document.addEventListener('DOMContentLoaded', async () => {
 
   const isHome     = !!qs('#home-roster');
   const isRoster   = !!qs('#roster-table');
-  const isGdg      = !!qs('#gdg-list');
+  const isGdg      = !!qs('#gdg-list') || !!qs('#gdg-timeline');
   const isAnnonces = !!qs('#annonces-list') || !!qs('#annonce-featured');
   const isAbsences = !!qs('#absences-table');
   const isTierlist = !!qs('#tierlist-wrap');
