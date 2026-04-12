@@ -4,6 +4,16 @@ title: Builder
 permalink: /pages/builder/
 ---
 
+<script>
+(function(){
+  var KEY='builder_auth',PWD='purga2026';
+  if(sessionStorage.getItem(KEY)!=='1'){
+    var input=prompt('🔐 Code accès Builder :');
+    if(input!==PWD){document.body.innerHTML='<div style="display:flex;align-items:center;justify-content:center;height:60vh;color:#9993aa;flex-direction:column;gap:12px"><span style="font-size:2rem">🔒</span><span>Accès refusé</span><a href="/Purgatoire/" style="color:#e3b45a">← Retour</a></div>';return;}
+    sessionStorage.setItem(KEY,'1');
+  }
+})();
+</script>
 <section class="page-hero compact">
   <div class="container">
     <span class="eyebrow">Guild · Outils</span>
