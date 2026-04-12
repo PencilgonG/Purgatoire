@@ -3,291 +3,217 @@ layout: default
 title: Accueil
 ---
 
-<!-- 1. BANNIÈRE -->
-<section class="home-banner">
-  <div class="home-banner-inner">
-    <img src="{{ '/assets/images/banner.png' | relative_url }}" alt="Purgatoire" class="home-banner-img">
-  </div>
-</section>
+<div class="page-split">
 
-<!-- 2. PRÉSENTATION -->
-<section class="home-pres">
-  <div class="home-container">
-    <div class="pres-grid">
-      <div class="pres-text">
-        <span class="pres-eyebrow">Qui sommes-nous</span>
-        <h2 class="pres-title">Une guilde bâtie pour gagner</h2>
-        <p>Guilde compétitive de Seven Deadly Sins: Origin, fondée sur l'exigence et la cohésion. Chaque membre est sélectionné pour son implication et son niveau de jeu.</p>
-        <p>Nous dominons les Guerres de Guilde et évoluons ensemble vers les sommets du classement.</p>
-      </div>
+  <!-- GAUCHE : Présentation + Discord -->
+  <div class="col-left">
+    <div class="pres-block">
+      <span class="pres-eyebrow">Qui sommes-nous</span>
+      <h2 class="pres-title">Une guilde bâtie<br>pour gagner</h2>
+      <p class="pres-body">Guilde compétitive de Seven Deadly Sins: Origin, fondée sur l'exigence et la cohésion. Chaque membre est sélectionné pour son implication et son niveau de jeu. Nous dominons les Guerres de Guilde et évoluons ensemble vers les sommets du classement.</p>
       <div class="pres-pillars">
-        <div class="pillar"><span class="pillar-ico">⚔️</span><div><strong>GDG</strong><p>Organisation tactique et analyse des résultats en Guerres de Guilde.</p></div></div>
-        <div class="pillar"><span class="pillar-ico">📈</span><div><strong>Progression</strong><p>Suivi hebdomadaire de la Combat Class de chaque membre.</p></div></div>
-        <div class="pillar"><span class="pillar-ico">🛡️</span><div><strong>Cohésion</strong><p>Communauté soudée, entraide et communication permanente.</p></div></div>
+        <div class="pillar"><span class="pi">⚔️</span><div><strong>GDG</strong><p>Organisation tactique et analyse des résultats en Guerres de Guilde.</p></div></div>
+        <div class="pillar"><span class="pi">📈</span><div><strong>Progression</strong><p>Suivi hebdomadaire de la Combat Class de chaque membre.</p></div></div>
+        <div class="pillar"><span class="pi">🛡️</span><div><strong>Cohésion</strong><p>Communauté soudée, entraide et communication permanente.</p></div></div>
+      </div>
+    </div>
+    <div class="discord-block">
+      <div class="bh"><h3 class="bt">Discord</h3><span id="discord-online-count" class="bm"></span></div>
+      <div id="home-discord-widget" class="discord-scroll"><div class="ld">Chargement…</div></div>
+    </div>
+  </div>
+
+  <!-- DROITE : Bannière + (Annonces | Cards) -->
+  <div class="col-right">
+    <div class="banner-block">
+      <img src="{{ '/assets/images/banner.png' | relative_url }}" alt="Purgatoire" class="banner-img">
+    </div>
+    <div class="content-block">
+      <!-- Annonces : 50% gauche -->
+      <div class="annonces-block">
+        <div class="bh"><h3 class="bt">Annonces</h3><a href="{{ '/pages/annonces/' | relative_url }}" class="bl">Voir tout →</a></div>
+        <div id="home-annonces" class="annonces-inner"><div class="ld">Chargement</div></div>
+      </div>
+      <!-- Cards : 50% droite -->
+      <div class="cards-block">
+        <div class="stat-gem"><div class="sg-bar"></div><strong id="stat-members">—</strong><span>Membres actifs</span></div>
+        <div class="stat-gem"><div class="sg-bar"></div><strong id="stat-average-cc">—</strong><span>CC moyenne</span></div>
+        <div class="stat-gem"><div class="sg-bar"></div><strong id="stat-annonces">—</strong><span>Annonces</span></div>
+        <div class="stat-gem"><div class="sg-bar"></div><strong id="stat-last-gdg">—</strong><span>Dernier GDG</span></div>
       </div>
     </div>
   </div>
-</section>
 
-<!-- 3-8. GRILLE PRINCIPALE -->
-<section class="home-grid-section">
-  <div class="home-container">
-    <div class="home-grid">
-
-      <!-- Colonne gauche : Discord + Annonces -->
-      <div class="home-left">
-
-        <div class="home-block">
-          <div class="block-head">
-            <h3>Discord</h3>
-            <span id="discord-online-count" class="block-meta"></span>
-          </div>
-          <div id="home-discord-widget" class="discord-scroll">
-            <div class="loading-state" style="padding:14px">Chargement…</div>
-          </div>
-        </div>
-
-        <div class="home-block">
-          <div class="block-head">
-            <h3>Annonces</h3>
-            <a href="{{ '/pages/annonces/' | relative_url }}" class="block-link">Voir tout →</a>
-          </div>
-          <div id="home-annonces" class="stack-list">
-            <div class="loading-state" style="padding:14px">Chargement</div>
-          </div>
-        </div>
-
-      </div>
-
-      <!-- Colonne droite : 4 stat cards en 2×2 -->
-      <div class="home-right">
-        <div class="stat-gem">
-          <div class="stat-gem-line"></div>
-          <strong id="stat-members">—</strong>
-          <span>Membres actifs</span>
-        </div>
-        <div class="stat-gem">
-          <div class="stat-gem-line"></div>
-          <strong id="stat-average-cc">—</strong>
-          <span>CC moyenne</span>
-        </div>
-        <div class="stat-gem">
-          <div class="stat-gem-line"></div>
-          <strong id="stat-annonces">—</strong>
-          <span>Annonces</span>
-        </div>
-        <div class="stat-gem">
-          <div class="stat-gem-line"></div>
-          <strong id="stat-last-gdg">—</strong>
-          <span>Dernier GDG</span>
-        </div>
-      </div>
-
-    </div>
-  </div>
-</section>
+</div>
 
 <style>
-/* ── Reset sections ── */
-.home-container { width: min(1160px, calc(100% - 40px)); margin-inline: auto; }
-
-/* ── 1. Bannière ── */
-.home-banner {
-  border-bottom: 1px solid rgba(255,255,255,.06);
-  background: #07080d;
-  padding: 16px 0;
-}
-.home-banner-inner {
-  width: min(1160px, calc(100% - 40px));
-  margin-inline: auto;
-  display: flex;
-  justify-content: center;
-}
-.home-banner-img {
-  height: 90px;
-  width: auto;
-  object-fit: contain;
-}
-
-/* ── 2. Présentation ── */
-.home-pres {
-  padding: 28px 0 24px;
-  border-bottom: 1px solid rgba(255,255,255,.06);
-}
-.pres-grid {
+/* ── Structure principale ── */
+.page-split {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 40px;
-  align-items: center;
+  height: calc(100vh - 52px);
+  overflow: hidden;
 }
-.pres-eyebrow {
-  font-size: .68rem;
-  font-weight: 700;
-  letter-spacing: .12em;
-  text-transform: uppercase;
-  color: #e3b45a;
-  display: block;
-  margin-bottom: 8px;
-}
-.pres-title {
-  font-family: 'Cormorant Garamond', Georgia, serif;
-  font-size: clamp(1.5rem, 2.5vw, 2rem);
-  font-weight: 700;
-  color: #f0ece0;
-  margin-bottom: 12px;
-  line-height: 1.1;
-}
-.pres-text p {
-  font-size: .85rem;
-  color: rgba(153,147,170,.85);
-  line-height: 1.7;
-  margin-bottom: 8px;
-}
-.pres-pillars { display: flex; flex-direction: column; gap: 8px; }
-.pillar {
+
+/* ══ COLONNE GAUCHE ══ */
+.col-left {
   display: flex;
-  gap: 12px;
-  align-items: flex-start;
-  padding: 10px 14px;
-  background: transparent;
-  border: 1px solid rgba(255,255,255,.06);
-  border-left: 2px solid rgba(201,151,62,.35);
-  border-radius: 8px;
-  transition: border-color .2s, background .2s;
-}
-.pillar:hover {
-  border-color: rgba(201,151,62,.5);
-  border-left-color: rgba(201,151,62,.7);
-  background: rgba(201,151,62,.03);
-}
-.pillar-ico { font-size: 1rem; flex-shrink: 0; margin-top: 1px; }
-.pillar strong { font-size: .82rem; font-weight: 700; color: #e8e4d9; display: block; margin-bottom: 2px; }
-.pillar p { font-size: .74rem; color: rgba(153,147,170,.8); margin: 0; line-height: 1.45; }
-
-/* ── 3-8. Grille principale ── */
-.home-grid-section { padding: 24px 0 32px; }
-.home-grid {
-  display: grid;
-  grid-template-columns: 1.6fr 1fr;
-  gap: 20px;
-  align-items: start;
+  flex-direction: column;
+  border-right: 1px solid rgba(255,255,255,.08);
+  overflow: hidden;
 }
 
-/* Colonne gauche */
-.home-left { display: flex; flex-direction: column; gap: 18px; }
-.home-block { display: flex; flex-direction: column; }
-.block-head {
+/* Présentation */
+.pres-block {
+  flex: 1;
+  padding: 32px 36px 24px;
   display: flex;
-  justify-content: space-between;
-  align-items: baseline;
-  margin-bottom: 10px;
+  flex-direction: column;
+  justify-content: center;
+  border-bottom: 1px solid rgba(255,255,255,.06);
+  overflow: hidden;
 }
-.block-head h3 {
-  font-family: 'Cormorant Garamond', Georgia, serif;
-  font-size: 1.15rem;
-  font-weight: 700;
-  color: #f0ece0;
-}
-.block-meta { font-size: .74rem; color: rgba(153,147,170,.7); }
-.block-link { font-size: .74rem; color: rgba(201,151,62,.8); transition: color .15s; }
-.block-link:hover { color: #e3b45a; }
+.pres-eyebrow { font-size: .62rem; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: #e3b45a; display: block; margin-bottom: 9px; }
+.pres-title { font-family: 'Cormorant Garamond',Georgia,serif; font-size: clamp(1.6rem,2.2vw,2.3rem); font-weight: 700; color: #f0ece0; line-height: 1.08; margin-bottom: 12px; }
+.pres-body { font-size: .8rem; color: rgba(153,147,170,.85); line-height: 1.7; margin-bottom: 18px; }
+.pres-pillars { display: flex; flex-direction: column; gap: 7px; }
+.pillar { display: flex; gap: 10px; align-items: flex-start; padding: 9px 12px; border: 1px solid rgba(255,255,255,.06); border-left: 2px solid rgba(201,151,62,.38); border-radius: 7px; transition: border-color .2s,background .2s; }
+.pillar:hover { border-left-color: rgba(201,151,62,.7); background: rgba(201,151,62,.03); }
+.pi { font-size: .88rem; flex-shrink: 0; margin-top: 1px; }
+.pillar strong { font-size: .77rem; font-weight: 700; color: #e8e4d9; display: block; margin-bottom: 2px; }
+.pillar p { font-size: .7rem; color: rgba(153,147,170,.72); margin: 0; line-height: 1.4; }
 
-/* Discord scroll */
+/* Discord */
+.discord-block {
+  flex: 0 0 36%;
+  padding: 18px 24px 20px;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
 .discord-scroll {
-  max-height: 200px;
+  flex: 1;
   overflow-y: auto;
   scrollbar-width: thin;
-  scrollbar-color: rgba(255,255,255,.08) transparent;
+  scrollbar-color: rgba(255,255,255,.07) transparent;
   border: 1px solid rgba(255,255,255,.07);
-  border-radius: 10px;
+  border-radius: 9px;
+  min-height: 0;
 }
 .discord-scroll::-webkit-scrollbar { width: 3px; }
 .discord-scroll::-webkit-scrollbar-thumb { background: rgba(255,255,255,.1); border-radius: 99px; }
-.dm { display: flex; align-items: center; gap: 9px; padding: 7px 12px; transition: background .15s; }
+.dm { display: flex; align-items: center; gap: 9px; padding: 6px 12px; transition: background .14s; }
 .dm:hover { background: rgba(255,255,255,.04); }
-.dm-avatar { width: 26px; height: 26px; border-radius: 50%; flex-shrink: 0; background: rgba(255,255,255,.05); }
-.dm-name { font-size: .8rem; font-weight: 600; flex: 1; }
-.dm-game { font-size: .67rem; color: rgba(153,147,170,.7); }
-.dm-dot { width: 7px; height: 7px; border-radius: 50%; flex-shrink: 0; }
-.dot-online { background: #4ade80; }
-.dot-idle   { background: #fb923c; }
-.dot-dnd    { background: #f87171; }
+.dm-avatar { width: 25px; height: 25px; border-radius: 50%; flex-shrink: 0; background: rgba(255,255,255,.05); }
+.dm-name { font-size: .77rem; font-weight: 600; flex: 1; }
+.dm-game { font-size: .63rem; color: rgba(153,147,170,.6); }
+.dm-dot { width: 6px; height: 6px; border-radius: 50%; flex-shrink: 0; }
+.dot-online{background:#4ade80}.dot-idle{background:#fb923c}.dot-dnd{background:#f87171}
 
-/* Annonces dans home */
-#home-annonces .list-card {
-  background: transparent !important;
-  border-color: rgba(255,255,255,.07) !important;
-}
-#home-annonces .list-card:hover {
-  background: rgba(255,255,255,.03) !important;
-  border-color: rgba(255,255,255,.12) !important;
+/* Shared header */
+.bh { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 10px; flex-shrink: 0; }
+.bt { font-family: 'Cormorant Garamond',Georgia,serif; font-size: 1.05rem; font-weight: 700; color: #f0ece0; }
+.bm { font-size: .68rem; color: rgba(153,147,170,.6); }
+.bl { font-size: .68rem; color: rgba(201,151,62,.75); transition: color .15s; }
+.bl:hover { color: #e3b45a; }
+.ld { padding: 12px 14px; font-size: .76rem; color: rgba(153,147,170,.55); }
+
+/* ══ COLONNE DROITE ══ */
+.col-right {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
 }
 
-/* Colonne droite : 4 stat gems */
-.home-right {
+/* Bannière : 33% de hauteur */
+.banner-block {
+  flex: 0 0 33%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-bottom: 1px solid rgba(255,255,255,.07);
+  background: rgba(0,0,0,.1);
+  padding: 14px 24px;
+  overflow: hidden;
+}
+.banner-img { width: 100%; height: 100%; object-fit: contain; }
+
+/* Zone contenu : 67% restants, split 50/50 */
+.content-block {
+  flex: 1;
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 12px;
+  min-height: 0;
+}
+
+/* Annonces : 50% gauche, toute la hauteur */
+.annonces-block {
+  padding: 18px 20px 16px;
+  border-right: 1px solid rgba(255,255,255,.07);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+.annonces-inner {
+  flex: 1;
+  overflow-y: auto;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(255,255,255,.06) transparent;
+  min-height: 0;
+}
+.annonces-inner .list-card {
+  background: transparent !important;
+  border-color: rgba(255,255,255,.07) !important;
+  font-size: .8rem;
+}
+.annonces-inner .list-card:hover {
+  background: rgba(255,255,255,.03) !important;
+  border-color: rgba(255,255,255,.13) !important;
+}
+
+/* Cards : 50% droite, grille 2×2 qui remplit toute la hauteur */
+.cards-block {
+  padding: 16px 16px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  gap: 10px;
 }
 .stat-gem {
   position: relative;
-  background: linear-gradient(150deg, rgba(201,151,62,.07) 0%, rgba(7,8,13,.6) 100%);
-  border: 1px solid rgba(201,151,62,.14);
-  border-radius: 12px;
-  padding: 22px 18px 18px;
+  background: linear-gradient(145deg, rgba(201,151,62,.07), rgba(7,8,13,.55));
+  border: 1px solid rgba(201,151,62,.16);
+  border-radius: 10px;
+  padding: 16px 14px 14px;
   overflow: hidden;
-  transition: border-color .25s, background .25s;
-  aspect-ratio: 1.1 / 1;
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
+  transition: border-color .22s, background .22s;
 }
-.stat-gem:hover {
-  border-color: rgba(201,151,62,.28);
-  background: linear-gradient(150deg, rgba(201,151,62,.1) 0%, rgba(7,8,13,.5) 100%);
-}
-.stat-gem-line {
-  position: absolute;
-  top: 0; left: 0; right: 0;
-  height: 1px;
-  background: linear-gradient(90deg, transparent 0%, rgba(201,151,62,.6) 40%, rgba(201,151,62,.6) 60%, transparent 100%);
-}
-.stat-gem strong {
-  display: block;
-  font-family: 'Cormorant Garamond', Georgia, serif;
-  font-size: 2.2rem;
-  font-weight: 700;
-  color: #e3b45a;
-  line-height: 1;
-  margin-bottom: 6px;
-}
-.stat-gem span {
-  font-size: .63rem;
-  font-weight: 700;
-  letter-spacing: .1em;
-  text-transform: uppercase;
-  color: rgba(153,147,170,.65);
-}
+.stat-gem:hover { border-color: rgba(201,151,62,.3); background: linear-gradient(145deg,rgba(201,151,62,.1),rgba(7,8,13,.45)); }
+.sg-bar { position: absolute; top: 0; left: 10%; right: 10%; height: 1px; background: linear-gradient(90deg,transparent,rgba(201,151,62,.6),transparent); }
+.stat-gem strong { display: block; font-family: 'Cormorant Garamond',Georgia,serif; font-size: 1.9rem; font-weight: 700; color: #e3b45a; line-height: 1; margin-bottom: 4px; }
+.stat-gem span { font-size: .58rem; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: rgba(153,147,170,.55); }
 
-/* ── Responsive ── */
-@media (max-width: 768px) {
-  .pres-grid { grid-template-columns: 1fr; }
-  .home-grid { grid-template-columns: 1fr; }
-  .home-right { order: -1; }
+@media (max-width: 900px) {
+  .page-split { grid-template-columns: 1fr; height: auto; }
+  .content-block { grid-template-columns: 1fr; }
+  .cards-block { grid-template-columns: 1fr 1fr; grid-template-rows: auto; }
+  .col-left,.col-right { border: none; }
+  .banner-block { flex: 0 0 120px; }
 }
 </style>
 
 <script>
-const DISCORD_GUILD_HOME = '1488740561262477474';
-
 async function renderHomeDiscordWidget() {
   const wrap  = document.getElementById('home-discord-widget');
   const count = document.getElementById('discord-online-count');
   if (!wrap) return;
   try {
-    const res  = await fetch(`https://discord.com/api/guilds/${DISCORD_GUILD_HOME}/widget.json`);
+    const res  = await fetch('https://discord.com/api/guilds/1488740561262477474/widget.json');
     const data = await res.json();
-    if (data.code === 50004) { wrap.innerHTML = '<p style="padding:14px;font-size:.8rem;color:rgba(153,147,170,.7)">Widget désactivé.</p>'; return; }
+    if (data.code === 50004) { wrap.innerHTML = '<div class="ld">Widget désactivé.</div>'; return; }
     const members = data.members || [];
     if (count) count.textContent = `${data.presence_count || members.length} en ligne`;
     wrap.innerHTML = members.map(m => `
@@ -298,10 +224,9 @@ async function renderHomeDiscordWidget() {
           ${m.game?.name ? `<div class="dm-game">🎮 ${m.game.name}</div>` : ''}
         </div>
         <div class="dm-dot dot-${m.status||'online'}"></div>
-      </div>`).join('') || '<p style="padding:14px;font-size:.8rem;color:rgba(153,147,170,.7)">Aucun membre en ligne.</p>';
+      </div>`).join('') || '<div class="ld">Aucun membre en ligne.</div>';
     setTimeout(renderHomeDiscordWidget, 60000);
-  } catch { wrap.innerHTML = '<p style="padding:14px;font-size:.8rem;color:rgba(153,147,170,.7)">Indisponible.</p>'; }
+  } catch { wrap.innerHTML = '<div class="ld">Indisponible.</div>'; }
 }
-
 document.addEventListener('DOMContentLoaded', renderHomeDiscordWidget);
 </script>
