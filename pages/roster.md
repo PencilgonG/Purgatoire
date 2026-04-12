@@ -214,19 +214,144 @@ function drawRadarChart(canvasId, persos) {
   });
 }
 
+async function loadCCHistory() {
+  const url = `https://docs.google.com/spreadsheets/d/${SHEET_ID_ROSTER}/gviz/tq?tqx=out:csv&sheet=CC_Historique`;
+  try {
+    const res  = await fetch(url, { cache: 'no-store' });
+    const text = await res.text();
+    const rows = text.split('\n').filter(r => r.trim());
+    if (!rows.length) return [];
+    const headers = rows[0].split(',').map(h => h.replace(/"/g,'').trim());
+    return rows.slice(1).map(row => {
+      const cells = row.match(/(".*?"|[^,]+)/g) || [];
+      return Object.fromEntries(headers.map((h,i) => [h, (cells[i]||'').replace(/"/g,'').trim()]));
+    });
+  } catch { return []; }
+}
+
+function formatCCShort(v) {
+  const n = Number(String(v).replace(/[^\d.]/g,''));
+  if (!n) return '—';
+  if (n >= 1_000_000) return (n/1_000_000).toFixed(2)+'M';
+  if (n >= 1_000)     return (n/1_000).toFixed(1)+'K';
+  return String(n);
+}
+
+function drawLineChart(canvasId, history) {
+  const canvas = document.getElementById(canvasId);
+  if (!canvas || history.length < 2) return;
+  const ctx  = canvas.getContext('2d');
+  const W = canvas.width, H = canvas.height;
+  const PAD = { top: 16, right: 16, bottom: 28, left: 48 };
+  const iW  = W - PAD.left - PAD.right;
+  const iH  = H - PAD.top  - PAD.bottom;
+
+  const gold     = '#c9973e';
+  const goldDim  = 'rgba(201,151,62,0.12)';
+  const gridCol  = 'rgba(255,255,255,0.06)';
+  const textCol  = '#6b5a3e';
+  const labelCol = '#a09070';
+
+  const vals   = history.map(h => Number(h.cc) || 0);
+  const minVal = Math.min(...vals);
+  const maxVal = Math.max(...vals);
+  const range  = maxVal - minVal || 1;
+
+  const toX = i => PAD.left + (i / (history.length - 1)) * iW;
+  const toY = v => PAD.top  + iH - ((v - minVal) / range) * iH;
+
+  ctx.clearRect(0, 0, W, H);
+
+  // Grid lines (4 horizontal)
+  for (let l = 0; l <= 4; l++) {
+    const y = PAD.top + (l / 4) * iH;
+    ctx.beginPath();
+    ctx.moveTo(PAD.left, y);
+    ctx.lineTo(W - PAD.right, y);
+    ctx.strokeStyle = gridCol;
+    ctx.lineWidth = 1;
+    ctx.stroke();
+    // Y label
+    const val = maxVal - (l / 4) * range;
+    ctx.font = '9px system-ui, sans-serif';
+    ctx.fillStyle = labelCol;
+    ctx.textAlign = 'right';
+    ctx.textBaseline = 'middle';
+    ctx.fillText(formatCCShort(val), PAD.left - 6, y);
+  }
+
+  // Area fill under line
+  ctx.beginPath();
+  history.forEach((h, i) => {
+    const x = toX(i), y = toY(Number(h.cc)||0);
+    i === 0 ? ctx.moveTo(x, y) : ctx.lineTo(x, y);
+  });
+  ctx.lineTo(toX(history.length - 1), PAD.top + iH);
+  ctx.lineTo(toX(0), PAD.top + iH);
+  ctx.closePath();
+  ctx.fillStyle = goldDim;
+  ctx.fill();
+
+  // Line
+  ctx.beginPath();
+  history.forEach((h, i) => {
+    const x = toX(i), y = toY(Number(h.cc)||0);
+    i === 0 ? ctx.moveTo(x, y) : ctx.lineTo(x, y);
+  });
+  ctx.strokeStyle = gold;
+  ctx.lineWidth = 2;
+  ctx.lineJoin = 'round';
+  ctx.stroke();
+
+  // Dots + X labels (semaine ou date)
+  history.forEach((h, i) => {
+    const x = toX(i), y = toY(Number(h.cc)||0);
+    ctx.beginPath();
+    ctx.arc(x, y, 3.5, 0, Math.PI * 2);
+    ctx.fillStyle = gold;
+    ctx.fill();
+
+    // Label only for first, last, and every ~3rd point
+    if (i === 0 || i === history.length - 1 || i % Math.ceil(history.length / 5) === 0) {
+      const label = h.semaine || (h.date ? h.date.slice(5) : ''); // "W12" ou "04-11"
+      ctx.font = '8px system-ui, sans-serif';
+      ctx.fillStyle = labelCol;
+      ctx.textAlign = i === 0 ? 'left' : i === history.length - 1 ? 'right' : 'center';
+      ctx.textBaseline = 'top';
+      ctx.fillText(label, x, PAD.top + iH + 6);
+    }
+  });
+}
+
 async function openMemberModal(member) {
   const modal   = document.getElementById('member-modal');
   const content = document.getElementById('modal-content');
   content.innerHTML = '<div class="loading-state">Chargement…</div>';
   modal.style.display = 'flex';
 
-  const persos   = await loadPersos();
-  const myPersos = persos.filter(p => p.discord_id === member.discord_id);
+  // Chargement parallèle
+  const [persos, allHistory] = await Promise.all([loadPersos(), loadCCHistory()]);
+  const myPersos  = persos.filter(p => p.discord_id === member.discord_id);
+  const myHistory = allHistory
+    .filter(h => h.discord_id === member.discord_id)
+    .sort((a,b) => String(a.date||a.semaine||'').localeCompare(String(b.date||b.semaine||'')));
 
   const WORKER_URL = 'https://purgatoire-bot.originsguild.workers.dev';
   const avatarUrl = member.discord_id ? `${WORKER_URL}/avatar/${member.discord_id}` : '';
-  const showRadar = myPersos.length >= 2;
-  const showList  = myPersos.length >= 1;
+  const showRadar   = myPersos.length >= 2;
+  const showList    = myPersos.length >= 1;
+  const showHistory = myHistory.length >= 2;
+
+  // Calcul progression
+  let progHtml = '';
+  if (showHistory) {
+    const first = Number(myHistory[0].cc) || 0;
+    const last  = Number(myHistory[myHistory.length - 1].cc) || 0;
+    const diff  = last - first;
+    const sign  = diff >= 0 ? '+' : '';
+    const col   = diff >= 0 ? '#4ade80' : '#f87171';
+    progHtml = `<span style="font-size:.8rem;color:${col};margin-left:8px">${sign}${formatCCShort(diff)}</span>`;
+  }
 
   content.innerHTML = `
     <div class="modal-header">
@@ -238,11 +363,22 @@ async function openMemberModal(member) {
         <div style="color:var(--text-secondary);font-size:.85rem">${member.grade||'—'}</div>
       </div>
     </div>
+
     <div class="modal-stats">
       <div class="modal-stat"><div class="modal-stat-label">Combat Class</div><div class="modal-stat-value">${member.cc_format||'—'}</div></div>
       <div class="modal-stat"><div class="modal-stat-label">Statut</div><div class="modal-stat-value" style="font-size:1rem;color:var(--text-primary)">${member.statut||'—'}</div></div>
       <div class="modal-stat"><div class="modal-stat-label">Perso principal</div><div class="modal-stat-value" style="font-size:1rem;color:var(--text-primary)">${member.main_char||'—'}</div></div>
     </div>
+
+    ${showHistory ? `
+      <div style="margin-bottom:20px">
+        <div class="modal-stat-label" style="margin-bottom:8px;display:flex;align-items:center">
+          Évolution CC ${progHtml}
+        </div>
+        <canvas id="cc-history-canvas" width="460" height="130"
+          style="display:block;width:100%;height:auto;border-radius:var(--radius);background:var(--bg-elevated)"></canvas>
+      </div>` : ''}
+
     ${showList ? `
       <div class="modal-persos" style="margin-bottom:${showRadar ? 0 : 20}px">
         <h3>Personnages (${myPersos.length})</h3>
@@ -265,6 +401,7 @@ async function openMemberModal(member) {
           </div>`;
         }).join('')}
       </div>` : ''}
+
     ${member.team_photo ? `
       <div style="margin-top:16px">
         <div class="modal-stat-label" style="margin-bottom:8px">Team</div>
@@ -272,9 +409,10 @@ async function openMemberModal(member) {
       </div>` : ''}
   `;
 
-  if (showRadar) {
-    requestAnimationFrame(() => drawRadarChart('radar-canvas', myPersos));
-  }
+  requestAnimationFrame(() => {
+    if (showHistory) drawLineChart('cc-history-canvas', myHistory);
+    if (showRadar)   drawRadarChart('radar-canvas', myPersos);
+  });
 }
 
 function closeModal(event) {
