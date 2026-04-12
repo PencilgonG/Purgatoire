@@ -1,15 +1,82 @@
 <header class="site-header">
-  <div class="container nav-wrap">
-    <a class="brand" href="{{ '/' | relative_url }}">Purgatoire</a>
+  <div class="nav-inner">
+    <a class="nav-brand" href="{{ '/' | relative_url }}">Purgatoire</a>
+    <span class="nav-sep"></span>
     <nav class="nav">
       <a href="{{ '/' | relative_url }}">Accueil</a>
+      <span class="nav-pipe">|</span>
       <a href="{{ '/pages/roster/' | relative_url }}">Roster</a>
+      <span class="nav-pipe">|</span>
       <a href="{{ '/pages/gdg/' | relative_url }}">GDG</a>
+      <span class="nav-pipe">|</span>
       <a href="{{ '/pages/annonces/' | relative_url }}">Annonces</a>
+      <span class="nav-pipe">|</span>
       <a href="{{ '/pages/calendrier/' | relative_url }}">Calendrier</a>
+      <span class="nav-pipe">|</span>
       <a href="{{ '/pages/absences/' | relative_url }}">Absences</a>
+      <span class="nav-pipe">|</span>
       <a href="{{ '/pages/tierlist/' | relative_url }}">Tierlist</a>
+      <span class="nav-pipe">|</span>
       <a href="{{ '/pages/recrutement/' | relative_url }}">Recrutement</a>
     </nav>
   </div>
 </header>
+
+<style>
+.site-header {
+  position: sticky; top: 0; z-index: 100;
+  height: 54px;
+  background: rgba(7,8,13,.92);
+  backdrop-filter: blur(20px) saturate(1.4);
+  border-bottom: 1px solid rgba(255,255,255,.07);
+}
+.nav-inner {
+  height: 54px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0;
+  padding: 0 32px;
+}
+.nav-brand {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 1.25rem;
+  font-weight: 700;
+  letter-spacing: .06em;
+  color: #e3b45a;
+  white-space: nowrap;
+  padding-right: 20px;
+  text-decoration: none;
+}
+.nav-sep {
+  display: inline-block;
+  width: 1px;
+  height: 16px;
+  background: rgba(255,255,255,.18);
+  margin-right: 20px;
+  flex-shrink: 0;
+}
+.nav {
+  display: flex;
+  align-items: center;
+  gap: 0;
+}
+.nav a {
+  font-size: .78rem;
+  font-weight: 500;
+  letter-spacing: .03em;
+  color: rgba(233,228,217,.55);
+  padding: 5px 14px;
+  white-space: nowrap;
+  transition: color .18s;
+  text-decoration: none;
+}
+.nav a:hover { color: #e8e4d9; }
+.nav a.active { color: #e3b45a; }
+.nav-pipe {
+  color: rgba(255,255,255,.15);
+  font-size: .7rem;
+  user-select: none;
+  flex-shrink: 0;
+}
+</style>

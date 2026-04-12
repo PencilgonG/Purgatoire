@@ -4,92 +4,83 @@ title: Accueil
 ---
 
 <!-- 1. BANNIÈRE -->
-<section class="hero">
-  <img class="hero-art" src="{{ '/assets/images/hero.png' | relative_url }}" alt="">
-  <div class="hero-overlay"></div>
-  <div class="hero-content">
-    <div class="container">
-      <img class="top-banner" src="{{ '/assets/images/banner.png' | relative_url }}" alt="Purgatoire">
-      <div class="hero-copy">
-        <span class="eyebrow">Guild N°1 · Seven Deadly Sins: Origin</span>
-        <h1>Purgatoire</h1>
-        <p>Guilde compétitive orientée performance et organisation.<br>
-        Domination en Guerre de Guilde · Roster d'élite · Communauté soudée.</p>
-        <div class="hero-actions">
-          <a id="discord-button" class="button button-ghost" href="#" target="_blank" rel="noopener">Discord ↗</a>
-          <a href="{{ '/pages/recrutement/' | relative_url }}" class="button button-ghost">Nous rejoindre</a>
-        </div>
+<section class="home-banner">
+  <div class="home-banner-inner">
+    <img src="{{ '/assets/images/banner.png' | relative_url }}" alt="Purgatoire" class="home-banner-img">
+  </div>
+</section>
+
+<!-- 2. PRÉSENTATION -->
+<section class="home-pres">
+  <div class="home-container">
+    <div class="pres-grid">
+      <div class="pres-text">
+        <span class="pres-eyebrow">Qui sommes-nous</span>
+        <h2 class="pres-title">Une guilde bâtie pour gagner</h2>
+        <p>Guilde compétitive de Seven Deadly Sins: Origin, fondée sur l'exigence et la cohésion. Chaque membre est sélectionné pour son implication et son niveau de jeu.</p>
+        <p>Nous dominons les Guerres de Guilde et évoluons ensemble vers les sommets du classement.</p>
+      </div>
+      <div class="pres-pillars">
+        <div class="pillar"><span class="pillar-ico">⚔️</span><div><strong>GDG</strong><p>Organisation tactique et analyse des résultats en Guerres de Guilde.</p></div></div>
+        <div class="pillar"><span class="pillar-ico">📈</span><div><strong>Progression</strong><p>Suivi hebdomadaire de la Combat Class de chaque membre.</p></div></div>
+        <div class="pillar"><span class="pillar-ico">🛡️</span><div><strong>Cohésion</strong><p>Communauté soudée, entraide et communication permanente.</p></div></div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- 2. PRÉSENTATION GUILDE -->
-<section class="section-tight home-presentation">
-  <div class="container">
-    <div class="presentation-grid">
-      <div class="presentation-text">
-        <span class="eyebrow">Qui sommes-nous</span>
-        <h2>Une guilde bâtie pour gagner</h2>
-        <p>Purgatoire est une guilde compétitive de Seven Deadly Sins: Origin, fondée sur l'exigence, la cohésion et la progression constante. Chaque membre est sélectionné pour son implication et son niveau de jeu.</p>
-        <p>Nous dominons les Guerres de Guilde, coordonnons nos stratégies et évoluons ensemble vers les sommets du classement.</p>
-      </div>
-      <div class="presentation-pillars">
-        <div class="pillar-card">
-          <span class="pillar-icon">⚔️</span>
-          <div><h3>GDG</h3><p>Organisation tactique des Guerres de Guilde avec analyse des résultats.</p></div>
-        </div>
-        <div class="pillar-card">
-          <span class="pillar-icon">📈</span>
-          <div><h3>Progression</h3><p>Suivi hebdomadaire de la Combat Class de chaque membre.</p></div>
-        </div>
-        <div class="pillar-card">
-          <span class="pillar-icon">🛡️</span>
-          <div><h3>Cohésion</h3><p>Communauté soudée, communication active et entraide permanente.</p></div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
+<!-- 3-8. GRILLE PRINCIPALE -->
+<section class="home-grid-section">
+  <div class="home-container">
+    <div class="home-grid">
 
-<!-- 3–8. GRILLE PRINCIPALE -->
-<section class="section">
-  <div class="container">
-    <div class="home-main-grid">
+      <!-- Colonne gauche : Discord + Annonces -->
+      <div class="home-left">
 
-      <!-- GAUCHE : Discord (haut) + Annonces (bas) -->
-      <div class="home-left-col">
-
-        <!-- 8. Widget Discord -->
         <div class="home-block">
-          <div class="home-block-head">
-            <h2>Discord</h2>
-            <span id="discord-online-count" class="muted" style="font-size:.8rem"></span>
+          <div class="block-head">
+            <h3>Discord</h3>
+            <span id="discord-online-count" class="block-meta"></span>
           </div>
-          <div id="home-discord-widget" class="home-discord-scroll">
-            <div class="loading-state">Chargement…</div>
+          <div id="home-discord-widget" class="discord-scroll">
+            <div class="loading-state" style="padding:14px">Chargement…</div>
           </div>
         </div>
 
-        <!-- 7. Annonces -->
         <div class="home-block">
-          <div class="home-block-head">
-            <h2>Annonces</h2>
-            <a class="text-link" href="{{ '/pages/annonces/' | relative_url }}" style="font-size:.82rem">Voir tout →</a>
+          <div class="block-head">
+            <h3>Annonces</h3>
+            <a href="{{ '/pages/annonces/' | relative_url }}" class="block-link">Voir tout →</a>
           </div>
           <div id="home-annonces" class="stack-list">
-            <div class="loading-state">Chargement</div>
+            <div class="loading-state" style="padding:14px">Chargement</div>
           </div>
         </div>
 
       </div>
 
-      <!-- DROITE : 2×2 stats cards -->
-      <div class="home-right-col">
-        <div class="stat-card-home"><strong id="stat-members">—</strong><span>Membres actifs</span></div>
-        <div class="stat-card-home"><strong id="stat-average-cc">—</strong><span>CC moyenne</span></div>
-        <div class="stat-card-home"><strong id="stat-annonces">—</strong><span>Annonces</span></div>
-        <div class="stat-card-home"><strong id="stat-last-gdg">—</strong><span>Dernier GDG</span></div>
+      <!-- Colonne droite : 4 stat cards en 2×2 -->
+      <div class="home-right">
+        <div class="stat-gem">
+          <div class="stat-gem-line"></div>
+          <strong id="stat-members">—</strong>
+          <span>Membres actifs</span>
+        </div>
+        <div class="stat-gem">
+          <div class="stat-gem-line"></div>
+          <strong id="stat-average-cc">—</strong>
+          <span>CC moyenne</span>
+        </div>
+        <div class="stat-gem">
+          <div class="stat-gem-line"></div>
+          <strong id="stat-annonces">—</strong>
+          <span>Annonces</span>
+        </div>
+        <div class="stat-gem">
+          <div class="stat-gem-line"></div>
+          <strong id="stat-last-gdg">—</strong>
+          <span>Dernier GDG</span>
+        </div>
       </div>
 
     </div>
@@ -97,131 +88,192 @@ title: Accueil
 </section>
 
 <style>
-/* ── Présentation ── */
-.home-presentation { border-bottom: 1px solid var(--border); padding-bottom: 40px; }
-.presentation-grid {
+/* ── Reset sections ── */
+.home-container { width: min(1160px, calc(100% - 40px)); margin-inline: auto; }
+
+/* ── 1. Bannière ── */
+.home-banner {
+  border-bottom: 1px solid rgba(255,255,255,.06);
+  background: #07080d;
+  padding: 16px 0;
+}
+.home-banner-inner {
+  width: min(1160px, calc(100% - 40px));
+  margin-inline: auto;
+  display: flex;
+  justify-content: center;
+}
+.home-banner-img {
+  height: 90px;
+  width: auto;
+  object-fit: contain;
+}
+
+/* ── 2. Présentation ── */
+.home-pres {
+  padding: 28px 0 24px;
+  border-bottom: 1px solid rgba(255,255,255,.06);
+}
+.pres-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 48px;
+  gap: 40px;
   align-items: center;
 }
-@media (max-width: 768px) { .presentation-grid { grid-template-columns: 1fr; gap: 24px; } }
-.presentation-text h2 {
-  font-family: var(--font-display);
-  font-size: clamp(1.6rem, 3vw, 2.2rem);
+.pres-eyebrow {
+  font-size: .68rem;
+  font-weight: 700;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: #e3b45a;
+  display: block;
+  margin-bottom: 8px;
+}
+.pres-title {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: clamp(1.5rem, 2.5vw, 2rem);
   font-weight: 700;
   color: #f0ece0;
-  margin: 8px 0 16px;
+  margin-bottom: 12px;
+  line-height: 1.1;
 }
-.presentation-text p { color: var(--text-secondary); line-height: 1.75; margin-bottom: 12px; font-size: .93rem; }
-.presentation-pillars { display: flex; flex-direction: column; gap: 10px; }
-.pillar-card {
+.pres-text p {
+  font-size: .85rem;
+  color: rgba(153,147,170,.85);
+  line-height: 1.7;
+  margin-bottom: 8px;
+}
+.pres-pillars { display: flex; flex-direction: column; gap: 8px; }
+.pillar {
   display: flex;
-  gap: 14px;
+  gap: 12px;
   align-items: flex-start;
+  padding: 10px 14px;
   background: transparent;
-  border: 1px solid var(--border);
-  border-radius: var(--radius);
-  padding: 14px 16px;
+  border: 1px solid rgba(255,255,255,.06);
+  border-left: 2px solid rgba(201,151,62,.35);
+  border-radius: 8px;
   transition: border-color .2s, background .2s;
 }
-.pillar-card:hover { border-color: rgba(255,255,255,.16); background: rgba(255,255,255,.03); }
-.pillar-icon { font-size: 1.1rem; flex-shrink: 0; margin-top: 2px; }
-.pillar-card h3 { font-size: .88rem; font-weight: 700; color: var(--text-primary); margin: 0 0 3px; }
-.pillar-card p  { font-size: .78rem; color: var(--text-muted); margin: 0; line-height: 1.5; }
+.pillar:hover {
+  border-color: rgba(201,151,62,.5);
+  border-left-color: rgba(201,151,62,.7);
+  background: rgba(201,151,62,.03);
+}
+.pillar-ico { font-size: 1rem; flex-shrink: 0; margin-top: 1px; }
+.pillar strong { font-size: .82rem; font-weight: 700; color: #e8e4d9; display: block; margin-bottom: 2px; }
+.pillar p { font-size: .74rem; color: rgba(153,147,170,.8); margin: 0; line-height: 1.45; }
 
-/* ── Grille principale ── */
-.home-main-grid {
+/* ── 3-8. Grille principale ── */
+.home-grid-section { padding: 24px 0 32px; }
+.home-grid {
   display: grid;
-  grid-template-columns: 1.7fr 1fr;
-  gap: 24px;
+  grid-template-columns: 1.6fr 1fr;
+  gap: 20px;
   align-items: start;
 }
-@media (max-width: 768px) {
-  .home-main-grid { grid-template-columns: 1fr; }
-  .home-right-col { order: -1; }
-}
 
-/* ── Colonne gauche ── */
-.home-left-col { display: flex; flex-direction: column; gap: 24px; }
+/* Colonne gauche */
+.home-left { display: flex; flex-direction: column; gap: 18px; }
 .home-block { display: flex; flex-direction: column; }
-.home-block-head {
+.block-head {
   display: flex;
   justify-content: space-between;
   align-items: baseline;
-  margin-bottom: 14px;
+  margin-bottom: 10px;
 }
-.home-block-head h2 {
-  font-family: var(--font-display);
-  font-size: 1.3rem;
+.block-head h3 {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 1.15rem;
   font-weight: 700;
   color: #f0ece0;
-  margin: 0;
 }
+.block-meta { font-size: .74rem; color: rgba(153,147,170,.7); }
+.block-link { font-size: .74rem; color: rgba(201,151,62,.8); transition: color .15s; }
+.block-link:hover { color: #e3b45a; }
 
-/* ── Discord scroll ── */
-.home-discord-scroll {
-  max-height: 280px;
+/* Discord scroll */
+.discord-scroll {
+  max-height: 200px;
   overflow-y: auto;
   scrollbar-width: thin;
-  scrollbar-color: var(--border) transparent;
-  border: 1px solid var(--border);
-  border-radius: var(--radius);
+  scrollbar-color: rgba(255,255,255,.08) transparent;
+  border: 1px solid rgba(255,255,255,.07);
+  border-radius: 10px;
 }
-.home-discord-scroll::-webkit-scrollbar { width: 3px; }
-.home-discord-scroll::-webkit-scrollbar-thumb { background: var(--border); border-radius: 99px; }
-.discord-home-member {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  padding: 8px 14px;
-  transition: background .15s;
-}
-.discord-home-member:hover { background: rgba(255,255,255,.04); }
-.discord-home-avatar { width: 28px; height: 28px; border-radius: 50%; flex-shrink: 0; background: var(--bg-elevated); }
-.discord-home-name   { font-size: .83rem; font-weight: 600; flex: 1; }
-.discord-home-game   { font-size: .68rem; color: var(--text-muted); }
-.discord-home-dot    { width: 7px; height: 7px; border-radius: 50%; flex-shrink: 0; }
+.discord-scroll::-webkit-scrollbar { width: 3px; }
+.discord-scroll::-webkit-scrollbar-thumb { background: rgba(255,255,255,.1); border-radius: 99px; }
+.dm { display: flex; align-items: center; gap: 9px; padding: 7px 12px; transition: background .15s; }
+.dm:hover { background: rgba(255,255,255,.04); }
+.dm-avatar { width: 26px; height: 26px; border-radius: 50%; flex-shrink: 0; background: rgba(255,255,255,.05); }
+.dm-name { font-size: .8rem; font-weight: 600; flex: 1; }
+.dm-game { font-size: .67rem; color: rgba(153,147,170,.7); }
+.dm-dot { width: 7px; height: 7px; border-radius: 50%; flex-shrink: 0; }
 .dot-online { background: #4ade80; }
 .dot-idle   { background: #fb923c; }
 .dot-dnd    { background: #f87171; }
 
-/* ── Colonne droite : 2×2 cards ── */
-.home-right-col {
+/* Annonces dans home */
+#home-annonces .list-card {
+  background: transparent !important;
+  border-color: rgba(255,255,255,.07) !important;
+}
+#home-annonces .list-card:hover {
+  background: rgba(255,255,255,.03) !important;
+  border-color: rgba(255,255,255,.12) !important;
+}
+
+/* Colonne droite : 4 stat gems */
+.home-right {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 12px;
 }
-.stat-card-home {
-  background: transparent;
-  border: 1px solid var(--border);
-  border-radius: var(--radius);
-  padding: 20px 16px 16px;
-  transition: border-color .2s, background .2s;
-  aspect-ratio: 1 / 1;
+.stat-gem {
+  position: relative;
+  background: linear-gradient(150deg, rgba(201,151,62,.07) 0%, rgba(7,8,13,.6) 100%);
+  border: 1px solid rgba(201,151,62,.14);
+  border-radius: 12px;
+  padding: 22px 18px 18px;
+  overflow: hidden;
+  transition: border-color .25s, background .25s;
+  aspect-ratio: 1.1 / 1;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-end;
 }
-.stat-card-home:hover {
-  border-color: rgba(255,255,255,.18);
-  background: rgba(255,255,255,.03);
+.stat-gem:hover {
+  border-color: rgba(201,151,62,.28);
+  background: linear-gradient(150deg, rgba(201,151,62,.1) 0%, rgba(7,8,13,.5) 100%);
 }
-.stat-card-home strong {
+.stat-gem-line {
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent 0%, rgba(201,151,62,.6) 40%, rgba(201,151,62,.6) 60%, transparent 100%);
+}
+.stat-gem strong {
   display: block;
-  font-family: var(--font-display);
-  font-size: 1.7rem;
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 2.2rem;
   font-weight: 700;
-  color: var(--gold-bright);
+  color: #e3b45a;
   line-height: 1;
-  margin-bottom: 8px;
+  margin-bottom: 6px;
 }
-.stat-card-home span {
-  font-size: .68rem;
-  font-weight: 600;
-  letter-spacing: .07em;
+.stat-gem span {
+  font-size: .63rem;
+  font-weight: 700;
+  letter-spacing: .1em;
   text-transform: uppercase;
-  color: var(--text-muted);
+  color: rgba(153,147,170,.65);
+}
+
+/* ── Responsive ── */
+@media (max-width: 768px) {
+  .pres-grid { grid-template-columns: 1fr; }
+  .home-grid { grid-template-columns: 1fr; }
+  .home-right { order: -1; }
 }
 </style>
 
@@ -235,26 +287,20 @@ async function renderHomeDiscordWidget() {
   try {
     const res  = await fetch(`https://discord.com/api/guilds/${DISCORD_GUILD_HOME}/widget.json`);
     const data = await res.json();
-    if (data.code === 50004) {
-      wrap.innerHTML = '<p class="muted" style="font-size:.8rem;padding:16px">Widget Discord désactivé.</p>';
-      return;
-    }
+    if (data.code === 50004) { wrap.innerHTML = '<p style="padding:14px;font-size:.8rem;color:rgba(153,147,170,.7)">Widget désactivé.</p>'; return; }
     const members = data.members || [];
     if (count) count.textContent = `${data.presence_count || members.length} en ligne`;
     wrap.innerHTML = members.map(m => `
-      <div class="discord-home-member">
-        <img class="discord-home-avatar" src="${m.avatar_url||''}" alt="" onerror="this.style.opacity='.2'">
+      <div class="dm">
+        <img class="dm-avatar" src="${m.avatar_url||''}" alt="" onerror="this.style.opacity='.15'">
         <div style="flex:1;min-width:0">
-          <div class="discord-home-name">${m.username||'—'}</div>
-          ${m.game?.name ? `<div class="discord-home-game">🎮 ${m.game.name}</div>` : ''}
+          <div class="dm-name">${m.username||'—'}</div>
+          ${m.game?.name ? `<div class="dm-game">🎮 ${m.game.name}</div>` : ''}
         </div>
-        <div class="discord-home-dot dot-${m.status||'online'}"></div>
-      </div>`).join('')
-      || '<p class="muted" style="font-size:.8rem;padding:16px">Aucun membre en ligne.</p>';
+        <div class="dm-dot dot-${m.status||'online'}"></div>
+      </div>`).join('') || '<p style="padding:14px;font-size:.8rem;color:rgba(153,147,170,.7)">Aucun membre en ligne.</p>';
     setTimeout(renderHomeDiscordWidget, 60000);
-  } catch {
-    wrap.innerHTML = '<p class="muted" style="font-size:.8rem;padding:16px">Indisponible.</p>';
-  }
+  } catch { wrap.innerHTML = '<p style="padding:14px;font-size:.8rem;color:rgba(153,147,170,.7)">Indisponible.</p>'; }
 }
 
 document.addEventListener('DOMContentLoaded', renderHomeDiscordWidget);
