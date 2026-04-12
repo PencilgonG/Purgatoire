@@ -379,50 +379,30 @@ function renderGdgPage(gdg) {
 // ANNONCES PAGE
 
 function renderAnnoncesPage(annonces) {
-  const featured = qs('#annonce-featured');
-  const list     = qs('#annonces-list');
-  if (!featured && !list) return;
+  const list = qs('#annonces-list');
+  if (!list) return;
   const visible = annonces
     .filter(a => String(a.publie||'').toLowerCase() !== 'non')
     .sort((a,b) => String(b.date||'').localeCompare(String(a.date||'')));
   if (!visible.length) {
-    if (featured) featured.innerHTML = '';
-    if (list)     list.innerHTML     = '<p class="empty-state">Aucune annonce publiée.</p>';
+    list.innerHTML = '<p class="empty-state">Aucune annonce publiée.</p>';
     return;
   }
-  const pinned = visible.find(a => String(a.epingle||'').toLowerCase() === 'oui') || visible[0];
-  const rest   = visible.filter(a => a !== pinned);
-  if (featured) {
-    featured.innerHTML = `
-      <article class="featured-card">
-        ${pinned.image ? `<img class="featured-img" src="${esc(pinned.image)}" alt="" onerror="this.style.display='none'">` : ''}
-        <div class="featured-body">
-          <div><span class="badge">${esc(pinned.categorie||'Annonce')}</span><span class="muted" style="font-size:.8rem;margin-left:8px">${esc(pinned.date||'')}</span></div>
-          <h2 class="featured-title">${esc(pinned.titre||'Sans titre')}</h2>
-          <p>${esc(pinned.resume||'')}</p>
-          ${pinned.lien_notion ? `<a class="button button-ghost" href="${esc(pinned.lien_notion)}" target="_blank" rel="noopener">Voir sur Notion ↗</a>` : ''}
-          ${pinned.lien_fichier ? `<a class="button button-ghost" href="${esc(pinned.lien_fichier)}" target="_blank" rel="noopener">Télécharger ↗</a>` : ''}
-        </div>
-      </article>`;
-  }
-  if (list) {
-    list.innerHTML = rest.map(item => `
-      <article class="card">
-        ${item.image ? `<img class="card-img" src="${esc(item.image)}" alt="" onerror="this.style.display='none'">` : ''}
-        <div class="card-head">
-          <span class="badge">${esc(item.categorie||'Annonce')}</span>
-          <span class="muted" style="font-size:.8rem">${esc(item.date||'')}</span>
-        </div>
-        <div class="card-body">
-          <h3 class="card-title">${esc(item.titre||'Sans titre')}</h3>
-          <p>${esc(item.resume||'')}</p>
-          <div style="display:flex;gap:8px;margin-top:10px;flex-wrap:wrap">
-            ${item.lien_notion  ? `<a class="text-link" href="${esc(item.lien_notion)}" target="_blank" rel="noopener">Notion ↗</a>` : ''}
-            ${item.lien_fichier ? `<a class="text-link" href="${esc(item.lien_fichier)}" target="_blank" rel="noopener">Fichier ↗</a>` : ''}
-          </div>
-        </div>
-      </article>`).join('');
-  }
+  list.innerHTML = visible.map(item => `
+    <div class="ann-card">
+      <div class="ann-card-top">
+        <span class="badge">${esc(item.categorie||'Annonce')}</span>
+        <span class="muted" style="font-size:.74rem">${esc(item.date||'')}</span>
+        ${String(item.epingle||'').toLowerCase()==='oui' ? '<span class="badge" style="background:rgba(201,151,62,.18);color:#e3b45a">📌</span>' : ''}
+      </div>
+      <div class="ann-card-title">${esc(item.titre||'Sans titre')}</div>
+      ${item.resume ? `<div class="ann-card-desc">${esc(item.resume)}</div>` : ''}
+      ${item.lien_notion || item.lien_fichier ? `
+        <div class="ann-card-links">
+          ${item.lien_notion  ? `<a class="ann-card-link" href="${esc(item.lien_notion)}" target="_blank" rel="noopener">Voir sur Notion ↗</a>` : ''}
+          ${item.lien_fichier ? `<a class="ann-card-link" href="${esc(item.lien_fichier)}" target="_blank" rel="noopener">Fichier ↗</a>` : ''}
+        </div>` : ''}
+    </div>`).join('');
 }
 
 // ABSENCES PAGE
