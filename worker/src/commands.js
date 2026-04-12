@@ -21,6 +21,8 @@ export async function handleCommand(interaction, env) {
       case "gdg":         return cmdGDG(interaction, env);
       case "calendrier":  return cmdCalendrier();
       case "recrutement": return cmdRecrutement(env);
+      case "recruteur":   return cmdRecruteur(interaction, env);
+      case "contrat":     return cmdContrat(interaction, env);
       default:            return reply("❓ Commande non reconnue.");
     }
   } catch(e) {
@@ -529,6 +531,167 @@ export async function cmdGDG(interaction, env) {
       ],
       color,
     })], null, true);
+  }
+
+  return reply("❓ Sous-commande inconnue.");
+}
+
+
+// ══════════════════════════════════════════════════════════════
+//  /recruteur set @membre
+// ══════════════════════════════════════════════════════════════
+export async function cmdRecruteur(interaction, env) {
+  const options  = interaction.data.options || [];
+  const sub      = options[0]?.name;
+  const subOpts  = options[0]?.options || [];
+  const userId   = interaction.member?.user?.id || interaction.user?.id;
+  const pseudo   = interaction.member?.nick || interaction.member?.user?.username || "Inconnu";
+
+  if (sub === "set") {
+    const targetId    = subOpts.find(o => o.name === "recrue")?.value;
+    if (!targetId) return reply("❌ Mentionne la recrue.");
+
+    // Récupère pseudo recrue
+    let recruePseudo = "";
+    try {
+      const membres = await readSheet(env, "Membres");
+      const m = membres.find(r => r.discord_id === targetId);
+      if (!m) return reply("❌ Ce membre n'est pas enregistré. Il doit d'abord faire /cc set.");
+      recruePseudo = m.pseudo;
+    } catch {}
+
+    // Vérifie si déjà dans l'arbre
+    try {
+      const arbre = await readSheet(env, "Arbre");
+      const exists = arbre.find(r => r.discord_id === targetId);
+      if (exists) return reply(`❌ ${recruePseudo} a déjà un recruteur enregistré : **${exists.recruteur_pseudo}**.`);
+    } catch {}
+
+    const date = new Date().toISOString().slice(0, 10);
+    await appendRow(env, "Arbre", [targetId, recruePseudo, userId, pseudo, date]);
+
+    // Activité
+    try { await appendRow(env, "Activite", [new Date().toISOString(), "recrutement", `🌿 **${pseudo}** a recruté **${recruePseudo}**`, userId, ""]); } catch {}
+
+    return replyEmbed([embed({
+      title: "🌿 Lien de recrutement enregistré",
+      description: `**${recruePseudo}** a été recruté(e) par **${pseudo}**`,
+      color: 0x2ea87a,
+    })], null, true);
+  }
+
+  if (sub === "voir") {
+    let arbre = [];
+    try { arbre = await readSheet(env, "Arbre"); } catch {}
+    const recrues = arbre.filter(r => r.recruteur_id === userId);
+    if (!recrues.length) return reply("🌿 Tu n'as encore recruté personne.");
+    const lines = recrues.map(r => `• **${r.pseudo}** — recruté le ${r.date}`).join("\n");
+    return replyEmbed([embed({
+      title: `🌿 Recrues de ${pseudo}`,
+      description: lines,
+      color: 0x2ea87a,
+    })], null, true);
+  }
+
+  return reply("❓ Sous-commande inconnue.");
+}
+
+// ══════════════════════════════════════════════════════════════
+//  /contrat set|voir|liste
+// ══════════════════════════════════════════════════════════════
+export async function cmdContrat(interaction, env) {
+  const options = interaction.data.options || [];
+  const sub     = options[0]?.name;
+  const subOpts = options[0]?.options || [];
+  const userId  = interaction.member?.user?.id || interaction.user?.id;
+  const pseudo  = interaction.member?.nick || interaction.member?.user?.username || "Inconnu";
+
+  if (sub === "set") {
+    const objectifRaw = subOpts.find(o => o.name === "objectif")?.value || "";
+    const dateStr     = subOpts.find(o => o.name === "date")?.value || "";
+
+    const objectif = parseInt(String(objectifRaw).replace(/[^\d]/g, ""));
+    if (!objectif || objectif <= 0) return reply("❌ Objectif invalide. Ex: 2000000");
+
+    // Parse date JJ/MM/AAAA
+    let dateISO = "";
+    try {
+      const [d, m, y] = dateStr.split("/");
+      dateISO = `${y}-${m.padStart(2,"0")}-${d.padStart(2,"0")}`;
+      if (isNaN(new Date(dateISO).getTime())) throw new Error("invalid");
+    } catch { return reply("❌ Date invalide. Format : JJ/MM/AAAA"); }
+
+    // CC actuelle
+    let ccActuelle = 0;
+    try {
+      const membres = await readSheet(env, "Membres");
+      const m = membres.find(r => r.discord_id === userId);
+      if (m) ccActuelle = Number(m.cc) || 0;
+    } catch {}
+
+    if (objectif <= ccActuelle) return reply(`❌ Ton objectif (${formatCC(objectif)}) est déjà atteint ! Ta CC actuelle est ${formatCC(ccActuelle)}.`);
+
+    // Vérifie contrat existant actif
+    try {
+      const contrats = await readSheet(env, "Contrats");
+      const actif = contrats.find(r => r.discord_id === userId && r.statut === "actif");
+      if (actif) return reply(`❌ Tu as déjà un contrat actif : **${formatCC(actif.objectif_cc)} CC** avant le ${actif.date_objectif}. Atteins-le d'abord !`);
+    } catch {}
+
+    const date = new Date().toISOString().slice(0, 10);
+    await appendRow(env, "Contrats", [userId, pseudo, objectif, dateISO, ccActuelle, "actif", date, ""]);
+
+    // Activité
+    try { await appendRow(env, "Activite", [new Date().toISOString(), "contrat", `📜 **${pseudo}** s'engage à atteindre **${formatCC(objectif)} CC** avant le ${dateStr}`, userId, ""]); } catch {}
+
+    return replyEmbed([embed({
+      title: "📜 Contrat enregistré !",
+      description: `Tu t'engages à atteindre **${formatCC(objectif)} CC** d'ici le **${dateStr}**`,
+      fields: [
+        field("CC actuelle",  formatCC(ccActuelle), true),
+        field("Objectif",     formatCC(objectif),   true),
+        field("À gagner",     formatCC(objectif - ccActuelle), true),
+      ],
+      color: 0xd97706,
+    })], null, true);
+  }
+
+  if (sub === "voir") {
+    let contrats = [];
+    try { contrats = await readSheet(env, "Contrats"); } catch {}
+    const mon = contrats.find(r => r.discord_id === userId && r.statut === "actif");
+    if (!mon) return reply("📜 Tu n'as pas de contrat actif.");
+
+    let ccActuelle = 0;
+    try {
+      const membres = await readSheet(env, "Membres");
+      const m = membres.find(r => r.discord_id === userId);
+      if (m) ccActuelle = Number(m.cc) || 0;
+    } catch {}
+
+    const pct = Math.min(100, Math.round((ccActuelle - Number(mon.cc_au_moment)) / (Number(mon.objectif_cc) - Number(mon.cc_au_moment)) * 100));
+    const bar = "█".repeat(Math.floor(pct / 10)) + "░".repeat(10 - Math.floor(pct / 10));
+
+    return replyEmbed([embed({
+      title: "📜 Ton contrat",
+      fields: [
+        field("Objectif",    `${formatCC(mon.objectif_cc)} CC`, true),
+        field("Échéance",    mon.date_objectif, true),
+        field("Progression", `${bar} ${pct}%`),
+        field("CC actuelle", formatCC(ccActuelle), true),
+        field("Restant",     formatCC(Math.max(0, Number(mon.objectif_cc) - ccActuelle)), true),
+      ],
+      color: 0xd97706,
+    })], null, true);
+  }
+
+  if (sub === "liste") {
+    let contrats = [];
+    try { contrats = await readSheet(env, "Contrats"); } catch {}
+    const actifs = contrats.filter(r => r.statut === "actif");
+    if (!actifs.length) return reply("📜 Aucun contrat actif en ce moment.");
+    const lines = actifs.map(r => `• **${r.pseudo}** → ${formatCC(r.objectif_cc)} CC avant le ${r.date_objectif}`).join("\n");
+    return replyEmbed([embed({ title: "📜 Contrats actifs", description: lines, color: 0xd97706 })]);
   }
 
   return reply("❓ Sous-commande inconnue.");

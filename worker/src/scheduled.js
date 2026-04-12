@@ -4,8 +4,9 @@ import { readSheet, appendRow, formatCC, getWeekKey } from "./sheets.js";
 export async function handleScheduled(event, env) {
   const cron = event.cron;
   if (cron === "0 9 * * 1") { await weeklyReport(env); await snapshotCC(env); }
+  if (cron === "0 10 * * *") { await checkCCProgress(env); await checkContrats(env); }
   if (cron === "0 9 1 * *")  await monthlyReport(env);
-  if (cron === "0 10 * * *") await checkCCProgress(env);
+
 }
 
 async function weeklyReport(env) {
@@ -103,4 +104,58 @@ async function checkCCProgress(env) {
     description: lines,
     color: 0x2ea87a,
   })]});
+}
+
+async function checkContrats(env) {
+  const wh = env.WEBHOOK_NOTIF;
+  let contrats = [], membres = [];
+  try { contrats = await readSheet(env, "Contrats"); } catch { return; }
+  try { membres  = await readSheet(env, "Membres"); }  catch { return; }
+  const today = new Date().toISOString().slice(0, 10);
+
+  for (const c of contrats) {
+    if (c.statut !== "actif") continue;
+    const membre = membres.find(m => m.discord_id === c.discord_id);
+    if (!membre) continue;
+    const ccActuelle = Number(membre.cc) || 0;
+    const objectif   = Number(c.objectif_cc) || 0;
+
+    // Objectif atteint
+    if (ccActuelle >= objectif) {
+      try {
+        const rows = await readSheet(env, "Contrats");
+        const rowIdx = rows.findIndex(r => r.discord_id === c.discord_id && r.statut === "actif");
+        if (rowIdx >= 0) {
+          const { getToken } = await import("./sheets.js");
+          const token = await getToken(env);
+          const lineNum = rowIdx + 2;
+          await fetch(
+            `https://sheets.googleapis.com/v4/spreadsheets/${env.GOOGLE_SHEET_ID}/values/Contrats!F${lineNum}:H${lineNum}?valueInputOption=USER_ENTERED`,
+            { method: "PUT", headers: { Authorization: `Bearer ${token}`, "Content-Type": "application/json" },
+              body: JSON.stringify({ range: `Contrats!F${lineNum}:H${lineNum}`, majorDimension: "ROWS", values: [["accompli", today, today]] }) }
+          );
+        }
+      } catch {}
+      try { await appendRow(env, "Activite", [new Date().toISOString(), "contrat_accompli", `🏆 **${c.pseudo}** a accompli son contrat : **${formatCC(objectif)} CC** atteint !`, c.discord_id, ""]); } catch {}
+      if (wh) await sendWebhook(wh, { embeds: [embed({ title: "🏆 Contrat accompli !", description: `**${c.pseudo}** a atteint son objectif de **${formatCC(objectif)} CC** !`, color: 0xd97706 })] });
+    }
+    // Contrat expiré
+    else if (c.date_objectif && c.date_objectif < today) {
+      try {
+        const { getToken } = await import("./sheets.js");
+        const token = await getToken(env);
+        const rows = await readSheet(env, "Contrats");
+        const rowIdx = rows.findIndex(r => r.discord_id === c.discord_id && r.statut === "actif");
+        if (rowIdx >= 0) {
+          const lineNum = rowIdx + 2;
+          await fetch(
+            `https://sheets.googleapis.com/v4/spreadsheets/${env.GOOGLE_SHEET_ID}/values/Contrats!F${lineNum}?valueInputOption=USER_ENTERED`,
+            { method: "PUT", headers: { Authorization: `Bearer ${token}`, "Content-Type": "application/json" },
+              body: JSON.stringify({ range: `Contrats!F${lineNum}`, majorDimension: "ROWS", values: [["expire"]] }) }
+          );
+        }
+      } catch {}
+      try { await appendRow(env, "Activite", [new Date().toISOString(), "contrat_expire", `⌛ Le contrat de **${c.pseudo}** a expiré (objectif : ${formatCC(objectif)} CC)`, c.discord_id, ""]); } catch {}
+    }
+  }
 }

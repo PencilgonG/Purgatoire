@@ -18,8 +18,14 @@ title: Accueil
       </div>
     </div>
     <div class="discord-block">
-      <div class="bh"><h3 class="bt">Discord</h3><span id="discord-online-count" class="bm"></span></div>
+      <div class="bh" style="margin-bottom:0">
+        <div style="display:flex;gap:0;border:1px solid rgba(255,255,255,.08);border-radius:8px;overflow:hidden;margin-bottom:12px">
+          <button id="tab-discord" class="tab-btn tab-active" onclick="switchTab('discord')">Discord <span id="discord-online-count" style="font-size:.65rem;opacity:.7"></span></button>
+          <button id="tab-activite" class="tab-btn" onclick="switchTab('activite')">Activité</button>
+        </div>
+      </div>
       <div id="home-discord-widget" class="discord-scroll"><div class="ld">Chargement…</div></div>
+      <div id="home-activite-widget" class="discord-scroll" style="display:none"><div class="ld">Chargement…</div></div>
     </div>
   </div>
 
@@ -196,7 +202,19 @@ title: Accueil
 .stat-gem strong { display: block; font-family: 'Cormorant Garamond',Georgia,serif; font-size: 1.9rem; font-weight: 700; color: #e3b45a; line-height: 1; margin-bottom: 4px; }
 .stat-gem span { font-size: .58rem; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: rgba(153,147,170,.55); }
 
-@media (max-width: 900px) {
+.tab-btn {
+  flex:1;padding:6px 12px;background:transparent;border:none;
+  font-size:.72rem;font-weight:600;color:rgba(233,228,217,.5);cursor:pointer;
+  font-family:inherit;transition:.18s;letter-spacing:.03em;
+}
+.tab-btn:hover { color:#e8e4d9; background:rgba(255,255,255,.04); }
+.tab-btn.tab-active { color:#e3b45a; background:rgba(201,151,62,.1); }
+.activite-item { display:flex;gap:10px;align-items:flex-start;padding:8px 12px;border-bottom:1px solid rgba(255,255,255,.04);transition:background .14s; }
+.activite-item:hover { background:rgba(255,255,255,.03); }
+.activite-item:last-child { border-bottom:none; }
+.activite-msg { font-size:.77rem;color:rgba(233,228,217,.8);line-height:1.45;flex:1; }
+.activite-time { font-size:.65rem;color:rgba(153,147,170,.5);white-space:nowrap;flex-shrink:0;padding-top:2px; }
+@media (max-width: 900px) {@media (max-width: 900px) {
   .page-split { grid-template-columns: 1fr; height: auto; }
   .content-block { grid-template-columns: 1fr; }
   .cards-block { grid-template-columns: 1fr 1fr; grid-template-rows: auto; }
@@ -228,5 +246,41 @@ async function renderHomeDiscordWidget() {
     setTimeout(renderHomeDiscordWidget, 60000);
   } catch { wrap.innerHTML = '<div class="ld">Indisponible.</div>'; }
 }
-document.addEventListener('DOMContentLoaded', renderHomeDiscordWidget);
+document.addEventListener('DOMContentLoaded', () => {
+  renderHomeDiscordWidget();
+  loadActivite();
+});
+
+function switchTab(tab) {
+  document.getElementById('tab-discord').classList.toggle('tab-active', tab==='discord');
+  document.getElementById('tab-activite').classList.toggle('tab-active', tab==='activite');
+  document.getElementById('home-discord-widget').style.display  = tab==='discord'  ? 'block' : 'none';
+  document.getElementById('home-activite-widget').style.display = tab==='activite' ? 'block' : 'none';
+}
+
+function timeAgo(ts) {
+  const diff = (Date.now() - new Date(ts)) / 1000;
+  if (diff < 60)    return 'À l'instant';
+  if (diff < 3600)  return `${Math.floor(diff/60)}min`;
+  if (diff < 86400) return `${Math.floor(diff/3600)}h`;
+  return `${Math.floor(diff/86400)}j`;
+}
+
+async function loadActivite() {
+  const wrap = document.getElementById('home-activite-widget');
+  try {
+    const res  = await fetch(`${DISCORD_GUILD_HOME.replace('1488740561262477474','')}`);
+    // Use WORKER_URL
+    const WURL = 'https://purgatoire-bot.originsguild.workers.dev';
+    const resp = await fetch(`${WURL}/activite`);
+    const data = await resp.json();
+    if (!data.length) { wrap.innerHTML = '<div class="ld">Aucune activité récente.</div>'; return; }
+    wrap.innerHTML = data.map(a => `
+      <div class="activite-item">
+        <div class="activite-msg">${a.message||''}</div>
+        <div class="activite-time">${timeAgo(a.timestamp)}</div>
+      </div>`).join('');
+    setTimeout(loadActivite, 60000);
+  } catch { wrap.innerHTML = '<div class="ld">Indisponible.</div>'; }
+}
 </script>

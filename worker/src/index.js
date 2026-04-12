@@ -163,6 +163,36 @@ export default {
       }
     }
 
+    // Route activite — flux d'activité live
+    if (url.pathname === "/activite" && request.method === "GET") {
+      const corsH = { "Content-Type": "application/json", "Access-Control-Allow-Origin": "*", "Cache-Control": "public, max-age=60" };
+      try {
+        const { getToken } = await import("./sheets.js");
+        const token = await getToken(env);
+
+        // Fetch Activite sheet
+        let activiteRows = [];
+        try {
+          const r = await fetch(`https://sheets.googleapis.com/v4/spreadsheets/${env.GOOGLE_SHEET_ID}/values/Activite`, { headers: { Authorization: `Bearer ${token}` } });
+          const d = await r.json();
+          if (d.values && d.values.length > 1) {
+            const [hdrs, ...rows] = d.values;
+            activiteRows = rows.map(r => Object.fromEntries(hdrs.map((h,i) => [h.trim().toLowerCase(), (r[i]||'').trim()])));
+          }
+        } catch {}
+
+        // Sort by timestamp desc, take last 30
+        const sorted = activiteRows
+          .filter(r => r.timestamp)
+          .sort((a,b) => new Date(b.timestamp) - new Date(a.timestamp))
+          .slice(0, 30);
+
+        return new Response(JSON.stringify(sorted), { headers: corsH });
+      } catch(e) {
+        return new Response(JSON.stringify([]), { status: 500, headers: { "Content-Type": "application/json", "Access-Control-Allow-Origin": "*" } });
+      }
+    }
+
     // Route calendrier
     // Route personnalite — sauvegarde résultat quiz
     if (url.pathname === "/personnalite" && request.method === "OPTIONS") {
