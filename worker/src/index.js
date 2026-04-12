@@ -75,6 +75,18 @@ async function registerSlashCommands(env) {
     ]},
     { name: "calendrier",  description: "Prochains resets 7DS Origin" },
     { name: "recrutement", description: "Formulaire de candidature Purgatoire" },
+    { name: "recruteur", description: "Arbre genealogique de la guilde", options: [
+      { name: "set",  type: 1, description: "Declare qui tu as recrute", options: [
+        { name: "recrue", type: 6, description: "Le membre que tu as recrute", required: true }]},
+      { name: "voir", type: 1, description: "Voir tes recrues" },
+    ]},
+    { name: "contrat", description: "Engagement public sur un objectif CC", options: [
+      { name: "set",   type: 1, description: "Cree un contrat", options: [
+        { name: "objectif", type: 3, description: "Objectif CC (ex: 2000000)", required: true },
+        { name: "date",     type: 3, description: "Date limite JJ/MM/AAAA",   required: true }]},
+      { name: "voir",  type: 1, description: "Voir ton contrat actif" },
+      { name: "liste", type: 1, description: "Tous les contrats actifs" },
+    ]},
   ];
 
   const res = await fetch(
