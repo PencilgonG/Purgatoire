@@ -229,8 +229,17 @@ function cmdRecrutement(env) {
 async function recalcTierlist(env, personnage) {
   const votes = await readSheet(env, "Tierlist_Votes");
   const persoVotes = votes.filter(r => r.personnage === personnage);
+  // Déduplique : 1 vote par utilisateur, on garde le plus récent
+  const lastVoteByUser = {};
+  persoVotes.forEach(r => {
+    if (!lastVoteByUser[r.discord_id] ||
+        new Date(r.date) > new Date(lastVoteByUser[r.discord_id].date)) {
+      lastVoteByUser[r.discord_id] = r;
+    }
+  });
+  const deduped = Object.values(lastVoteByUser);
   const counts = { S:0, A:0, B:0, C:0, D:0 };
-  persoVotes.forEach(r => { if (counts[r.tier] !== undefined) counts[r.tier]++; });
+  deduped.forEach(r => { if (counts[r.tier] !== undefined) counts[r.tier]++; });
   const total = Object.values(counts).reduce((a,b) => a+b, 0);
   const tierOrder = { S:5, A:4, B:3, C:2, D:1 };
   const avg = total > 0 ? Object.entries(counts).reduce((s,[t,c]) => s + tierOrder[t]*c, 0) / total : 0;
