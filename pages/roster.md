@@ -135,10 +135,12 @@ async function openMemberModal(member) {
   const persos   = await loadPersos();
   const myPersos = persos.filter(p => p.discord_id === member.discord_id);
 
+  const WORKER_URL = 'https://purgatoire-bot.originsguild.workers.dev';
+  const avatarUrl = member.discord_id ? `${WORKER_URL}/avatar/${member.discord_id}` : '';
   content.innerHTML = `
     <div class="modal-header">
-      ${member.avatar_url
-        ? `<img class="modal-avatar" src="${member.avatar_url}" alt="" onerror="this.className='modal-avatar-placeholder'">`
+      ${avatarUrl
+        ? `<img class="modal-avatar" src="${avatarUrl}" alt="" onerror="this.className='modal-avatar-placeholder'">`
         : `<div class="modal-avatar-placeholder"></div>`}
       <div>
         <div class="modal-name">${member.pseudo||'—'}</div>

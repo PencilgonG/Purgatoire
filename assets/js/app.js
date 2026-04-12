@@ -2,6 +2,8 @@ const cfg = window.PURGATOIRE_CONFIG || {};
 const qs  = (s, ctx) => (ctx || document).querySelector(s);
 const qsa = (s, ctx) => [...(ctx || document).querySelectorAll(s)];
 
+const WORKER = 'https://purgatoire-bot.originsguild.workers.dev';
+
 function esc(v) {
   return String(v ?? '').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
 }
@@ -75,6 +77,8 @@ function setLinks() {
   if (calWrap && cfg.calendarEmbedUrl) calWrap.innerHTML = `<iframe src="${esc(cfg.calendarEmbedUrl)}" loading="lazy"></iframe>`;
 }
 
+// HOME PAGE
+
 function renderHomeStats(roster, annonces, gdg) {
   const actifs = roster.filter(r => r.discord_id);
   const ccVals = actifs.map(r => ccNum(r.cc)).filter(Boolean);
@@ -110,6 +114,8 @@ function renderHomeAnnonces(annonces) {
       <span class="muted" style="white-space:nowrap;font-size:.8rem">${esc(item.date||'')}</span>
     </article>`).join('');
 }
+
+// ROSTER PAGE
 
 function renderRosterFilters(roster, onFilter) {
   const wrap = qs('#roster-filters');
@@ -149,14 +155,14 @@ function renderRosterPage(roster) {
       </article>`).join('');
   }
   if (tbody) {
-    const WORKER = 'https://purgatoire-bot.originsguild.workers.dev';
-
     function renderRows(data) {
       tbody.innerHTML = data.map((r,i) => {
         const statut  = String(r.statut||'').toLowerCase();
         const pillCls = statut === 'absent' ? 'badge-red' : statut === 'actif' ? 'badge-green' : '';
         const avatarSrc = r.discord_id ? `${WORKER}/avatar/${r.discord_id}` : '';
-        const avatar  = `<img src="${avatarSrc}" alt="" style="width:28px;height:28px;border-radius:99px;vertical-align:middle;margin-right:8px;border:1px solid var(--border)" onerror="this.style.display='none'">`;
+        const avatar  = avatarSrc
+          ? `<img src="${avatarSrc}" alt="" style="width:28px;height:28px;border-radius:99px;vertical-align:middle;margin-right:8px;border:1px solid var(--border)" onerror="this.style.display='none'">`
+          : '';
         return `<tr class="roster-row-clickable"
           data-id="${esc(r.discord_id||'')}"
           data-photo="${esc(r.team_photo||'')}"
@@ -199,3 +205,223 @@ function renderRosterPage(roster) {
 
     renderRows(sorted);
   }
+}
+
+// GDG PAGE
+
+function renderGdgPage(gdg) {
+  const summary = qs('#gdg-summary');
+  const list    = qs('#gdg-list');
+  if (!summary && !list) return;
+  if (!gdg.length) {
+    if (summary) summary.innerHTML = '<p class="empty-state">Aucun GDG enregistré.</p>';
+    if (list)    list.innerHTML    = '';
+    return;
+  }
+  if (summary) {
+    const norm = s => String(s||'').toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'');
+    const v = gdg.filter(g => norm(g.resultat) === 'victoire').length;
+    const d = gdg.filter(g => norm(g.resultat) === 'defaite').length;
+    const n = gdg.length - v - d;
+    summary.innerHTML = `
+      <div class="gdg-summary-grid">
+        <div class="gdg-stat"><span class="gdg-stat-num" style="color:var(--gold-bright)">${gdg.length}</span><span>Total</span></div>
+        <div class="gdg-stat"><span class="gdg-stat-num" style="color:#4ade80">${v}</span><span>Victoires</span></div>
+        <div class="gdg-stat"><span class="gdg-stat-num" style="color:#f87171">${d}</span><span>Défaites</span></div>
+        <div class="gdg-stat"><span class="gdg-stat-num" style="color:var(--text-muted)">${n}</span><span>Nuls</span></div>
+      </div>`;
+  }
+  if (list) {
+    list.innerHTML = gdg.map(g => `
+      <article class="card">
+        <div class="card-head">
+          <div>
+            <span class="eyebrow">${esc(fmtDate(g.date))}</span>
+            <h3 class="card-title">vs ${esc(g.ennemi||'Inconnu')}</h3>
+          </div>
+          ${resultBadge(g.resultat)}
+        </div>
+        <div class="card-body">
+          ${g.notre_score || g.score_ennemi ? `
+            <div class="gdg-score">
+              <span>${esc(g.notre_score||'—')}</span>
+              <span class="muted" style="font-size:.8rem">–</span>
+              <span>${esc(g.score_ennemi||'—')}</span>
+            </div>` : ''}
+          ${g.nom ? `<p class="muted" style="font-size:.8rem;margin-top:6px">${esc(g.nom)}</p>` : ''}
+        </div>
+      </article>`).join('');
+  }
+}
+
+// ANNONCES PAGE
+
+function renderAnnoncesPage(annonces) {
+  const featured = qs('#annonce-featured');
+  const list     = qs('#annonces-list');
+  if (!featured && !list) return;
+  const visible = annonces
+    .filter(a => String(a.publie||'').toLowerCase() !== 'non')
+    .sort((a,b) => String(b.date||'').localeCompare(String(a.date||'')));
+  if (!visible.length) {
+    if (featured) featured.innerHTML = '';
+    if (list)     list.innerHTML     = '<p class="empty-state">Aucune annonce publiée.</p>';
+    return;
+  }
+  const pinned = visible.find(a => String(a.epingle||'').toLowerCase() === 'oui') || visible[0];
+  const rest   = visible.filter(a => a !== pinned);
+  if (featured) {
+    featured.innerHTML = `
+      <article class="featured-card">
+        ${pinned.image ? `<img class="featured-img" src="${esc(pinned.image)}" alt="" onerror="this.style.display='none'">` : ''}
+        <div class="featured-body">
+          <div><span class="badge">${esc(pinned.categorie||'Annonce')}</span><span class="muted" style="font-size:.8rem;margin-left:8px">${esc(pinned.date||'')}</span></div>
+          <h2 class="featured-title">${esc(pinned.titre||'Sans titre')}</h2>
+          <p>${esc(pinned.resume||'')}</p>
+          ${pinned.lien_notion ? `<a class="button button-ghost" href="${esc(pinned.lien_notion)}" target="_blank" rel="noopener">Voir sur Notion ↗</a>` : ''}
+          ${pinned.lien_fichier ? `<a class="button button-ghost" href="${esc(pinned.lien_fichier)}" target="_blank" rel="noopener">Télécharger ↗</a>` : ''}
+        </div>
+      </article>`;
+  }
+  if (list) {
+    list.innerHTML = rest.map(item => `
+      <article class="card">
+        ${item.image ? `<img class="card-img" src="${esc(item.image)}" alt="" onerror="this.style.display='none'">` : ''}
+        <div class="card-head">
+          <span class="badge">${esc(item.categorie||'Annonce')}</span>
+          <span class="muted" style="font-size:.8rem">${esc(item.date||'')}</span>
+        </div>
+        <div class="card-body">
+          <h3 class="card-title">${esc(item.titre||'Sans titre')}</h3>
+          <p>${esc(item.resume||'')}</p>
+          <div style="display:flex;gap:8px;margin-top:10px;flex-wrap:wrap">
+            ${item.lien_notion  ? `<a class="text-link" href="${esc(item.lien_notion)}" target="_blank" rel="noopener">Notion ↗</a>` : ''}
+            ${item.lien_fichier ? `<a class="text-link" href="${esc(item.lien_fichier)}" target="_blank" rel="noopener">Fichier ↗</a>` : ''}
+          </div>
+        </div>
+      </article>`).join('');
+  }
+}
+
+// ABSENCES PAGE
+
+function renderAbsencesPage(absences) {
+  const tbody = qs('#absences-table tbody');
+  if (!tbody) return;
+  const today = new Date().toISOString().slice(0,10);
+  const active = absences
+    .filter(a => String(a.active||'').toLowerCase() !== 'non')
+    .filter(a => !a.fin || a.fin >= today)
+    .sort((a,b) => String(a.debut||'').localeCompare(String(b.debut||'')));
+  if (!active.length) {
+    tbody.innerHTML = '<tr><td colspan="4" class="empty-cell">Aucune absence en cours ou à venir.</td></tr>';
+    return;
+  }
+  tbody.innerHTML = active.map(a => {
+    const isOngoing = (!a.debut || a.debut <= today) && (!a.fin || a.fin >= today);
+    return `<tr>
+      <td style="font-weight:600">${esc(a.pseudo||'—')}</td>
+      <td>${fmtDate(a.debut)}</td>
+      <td>${a.fin ? fmtDate(a.fin) : '<span class="muted">Indéterminée</span>'}</td>
+      <td>${esc(a.raison||'—')}${isOngoing ? ' <span class="badge badge-red" style="margin-left:6px">En cours</span>' : ''}</td>
+    </tr>`;
+  }).join('');
+}
+
+// TIERLIST PAGE
+
+function renderTierlistPage(tierlist) {
+  const wrap = qs('#tierlist-wrap');
+  if (!wrap) return;
+  if (!tierlist.length) {
+    wrap.innerHTML = '<p class="empty-state">Aucune donnée tierlist.</p>';
+    return;
+  }
+  const TIERS  = ['S','A','B','C','D'];
+  const COLORS = { S:'#f0c060', A:'#80c280', B:'#6090d0', C:'#b070c0', D:'#a0a0a0' };
+  const byTier = {};
+  TIERS.forEach(t => byTier[t] = []);
+  tierlist.forEach(p => {
+    const t = String(p.tier_moyen||'D').toUpperCase();
+    (byTier[TIERS.includes(t) ? t : 'D']).push(p);
+  });
+  TIERS.forEach(t => byTier[t].sort((a,b) => Number(b.total||0)-Number(a.total||0)));
+  const maxVotes = Math.max(1, ...tierlist.map(x => Number(x.total||0)));
+
+  wrap.innerHTML = TIERS.map(t => {
+    const chars = byTier[t];
+    if (!chars.length) return '';
+    return `
+      <div style="margin-bottom:24px">
+        <div style="display:flex;align-items:center;gap:12px;margin-bottom:12px">
+          ${tierBadge(t)}
+          <span class="muted" style="font-size:.8rem">${chars.length} personnage${chars.length>1?'s':''}</span>
+        </div>
+        <div style="display:flex;flex-wrap:wrap;gap:8px">
+          ${chars.map(p => {
+            const pct = Math.round(Number(p.total||0)/maxVotes*100);
+            return `
+            <div style="background:var(--bg-elevated);border:1px solid var(--border);border-radius:var(--radius);padding:10px 14px;min-width:130px">
+              <div style="font-weight:600;font-size:.85rem">${esc(p.personnage||'—')}</div>
+              <div style="font-size:.75rem;color:${COLORS[t]||'var(--text-muted)'};margin-top:4px">${p.total||0} vote${Number(p.total||0)>1?'s':''}</div>
+              <div style="margin-top:6px;height:4px;background:var(--border);border-radius:99px;overflow:hidden">
+                <div style="height:100%;width:${pct}%;background:${COLORS[t]||'var(--gold-bright)'};border-radius:99px;transition:.3s"></div>
+              </div>
+            </div>`;
+          }).join('')}
+        </div>
+      </div>`;
+  }).join('');
+}
+
+// INIT
+
+document.addEventListener('DOMContentLoaded', async () => {
+  markActiveNav();
+  setLinks();
+
+  const S = cfg.sheets || {};
+
+  const isHome     = !!qs('#home-roster');
+  const isRoster   = !!qs('#roster-table');
+  const isGdg      = !!qs('#gdg-list');
+  const isAnnonces = !!qs('#annonces-list') || !!qs('#annonce-featured');
+  const isAbsences = !!qs('#absences-table');
+  const isTierlist = !!qs('#tierlist-wrap');
+
+  if (isHome) {
+    const [roster, annonces, gdg] = await Promise.all([
+      loadCsv(S.rosterCsvUrl),
+      loadCsv(S.annoncesCsvUrl),
+      loadCsv(S.gdgCsvUrl),
+    ]);
+    renderHomeStats(roster, annonces, gdg);
+    renderHomeRoster(roster);
+    renderHomeAnnonces(annonces);
+  }
+
+  if (isRoster) {
+    const roster = await loadCsv(S.rosterCsvUrl);
+    renderRosterPage(roster);
+  }
+
+  if (isGdg) {
+    const gdg = await loadCsv(S.gdgCsvUrl);
+    renderGdgPage(gdg);
+  }
+
+  if (isAnnonces) {
+    const annonces = await loadCsv(S.annoncesCsvUrl);
+    renderAnnoncesPage(annonces);
+  }
+
+  if (isAbsences) {
+    const absences = await loadCsv(S.absencesCsvUrl);
+    renderAbsencesPage(absences);
+  }
+
+  if (isTierlist) {
+    const tierlist = await loadCsv(S.tierlistCsvUrl);
+    renderTierlistPage(tierlist);
+  }
+});
