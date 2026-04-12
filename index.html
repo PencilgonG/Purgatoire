@@ -244,6 +244,38 @@ async function renderHomeDiscordWidget() {
 document.addEventListener('DOMContentLoaded', () => {
   renderHomeDiscordWidget();
   loadActivite();
+
+  // Preview mode — masque la nav, ajoute un bandeau retour
+  if (new URLSearchParams(window.location.search).get('preview') === '1') {
+    // Hide nav
+    const nav = document.querySelector('.site-header');
+    if (nav) nav.style.display = 'none';
+    // Hide footer
+    const footer = document.querySelector('footer, .site-footer');
+    if (footer) footer.style.display = 'none';
+    // Add back banner
+    const banner = document.createElement('div');
+    banner.style.cssText = 'position:fixed;top:0;left:0;right:0;z-index:9999;background:rgba(7,8,13,.96);border-bottom:1px solid rgba(201,151,62,.3);backdrop-filter:blur(16px);display:flex;align-items:center;justify-content:space-between;padding:10px 28px;';
+    banner.innerHTML = `
+      <span style="font-family:'Cormorant Garamond',Georgia,serif;font-size:.85rem;color:rgba(201,151,62,.8);letter-spacing:.08em">
+        PURGATOIRE — Aperçu du site
+      </span>
+      <a href="/Purgatoire/join/" style="font-size:.75rem;font-weight:600;color:#e3b45a;border:1px solid rgba(201,151,62,.35);border-radius:3px;padding:5px 14px;text-decoration:none;font-family:'Cormorant Garamond',Georgia,serif;letter-spacing:.06em;transition:.15s" onmouseover="this.style.background='rgba(201,151,62,.1)'" onmouseout="this.style.background='transparent'">
+        ← Retour au recrutement
+      </a>`;
+    document.body.prepend(banner);
+    // Adjust body top padding
+    document.body.style.paddingTop = '48px';
+    // Disable all nav links to prevent navigation
+    document.querySelectorAll('a[href]').forEach(a => {
+      const href = a.getAttribute('href');
+      if (href && !href.includes('join') && !href.startsWith('http') && !href.startsWith('#') && href !== '/Purgatoire/') {
+        a.addEventListener('click', e => e.preventDefault());
+        a.style.pointerEvents = 'none';
+        a.style.opacity = '.3';
+      }
+    });
+  }
 });
 
 function timeAgo(ts) {
