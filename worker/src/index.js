@@ -163,6 +163,18 @@ export default {
       }
     }
 
+    // Route calendrier
+    if (url.pathname === "/calendar-events" && request.method === "GET") {
+      const corsH = { "Content-Type": "application/json", "Access-Control-Allow-Origin": "*", "Cache-Control": "public, max-age=300" };
+      try {
+        const { getCalendarEvents } = await import("./calendar.js");
+        const events = await getCalendarEvents(env);
+        return new Response(JSON.stringify(events), { headers: corsH });
+      } catch(e) {
+        return new Response(JSON.stringify({ error: e.message }), { status: 500, headers: corsH });
+      }
+    }
+
     if (url.pathname === "/register" && request.method === "GET") {
       try {
         const cmds = await registerSlashCommands(env);
