@@ -324,15 +324,10 @@ var TYPE_LBL = {'Shield':'Bouclier','Book':'Grimoire','Wand':'Baguette','Axe':'H
 var SLOT_LBL = {'Top':'Torse','Bottom':'Bas','Belt':'Ceinture','Shoes':'Bottes','Necklace':'Collier','Earring':'Boucles','Ring':'Anneau','Costume':'Costume'};
 var SLOT_ICO = {'Top':'🎽','Bottom':'👖','Belt':'🟫','Shoes':'👢','Necklace':'📿','Earring':'💎','Ring':'💍','Costume':'👘'};
 
-// Mastery tier stats — cumulative totals at each tier
-// Based on in-game data (tier I = ~+2%, tier IV = ~+5%)
-var MASTERY_TIERS = {
-  0: {atk_pct:0,def_pct:0,hp_pct:0,atk:0,def:0,hp:0,perfo:0,persev:0},
-  1: {atk_pct:2,def_pct:2,hp_pct:2,atk:75,def:66,hp:192,perfo:10,persev:8},
-  2: {atk_pct:3,def_pct:3,hp_pct:3,atk:225,def:102,hp:288,perfo:16,persev:11},
-  3: {atk_pct:4,def_pct:4,hp_pct:4,atk:385,def:170,hp:490,perfo:22,persev:15},
-  4: {atk_pct:5,def_pct:5,hp_pct:5,atk:580,def:265,hp:765,perfo:28,persev:19},
-};
+// Mastery data loaded from DB (mastery_by_type)
+// Per weapon type, per tier: global stats (all weapons) + sub_nodes (equipped weapon only)
+// Filled after DB load
+var MASTERY_DATA = {}; // weapon_type → {tier → {global, subs}}
 
 // Enchant pool
 var ENCH_POOL = [
@@ -361,7 +356,8 @@ var S = {
   mode:'armor', char:null,
   gear:{}, weapons:[null,null,null],
   echelons:[1,1,1], weaponTypes:[null,null,null],
-  masteries:{}, // typeId → tier 0-4
+  masteries:{}, // typeId → tier 0-5
+  mastery_subs:{}, // key → bool (sub-node acquired)
   enchants:[[null,null,null,null]], // only for active weapon
   advancedStats:false,
 };
@@ -440,12 +436,17 @@ function openGear(slot){
   document.getElementById('gear-ov').style.display='block';
   renderGearList();
 }
+function getGearItems(slot){
+  // Costume slot uses BindArmor items
+  var key = slot==='Costume' ? 'BindArmor' : slot;
+  return DB.gear_by_slot[key]||[];
+}
 function closeGear(){ document.getElementById('gear-ov').style.display='none'; openGearSlot=null; }
 function renderGearList(){
   var slot=openGearSlot;
   if(!slot) return;
   var q=document.getElementById('gear-search').value.toLowerCase();
-  var items=(DB.gear_by_slot[slot]||[]).filter(function(i){return !q||i.nom.toLowerCase().indexOf(q)>=0;});
+  var items=getGearItems(slot).filter(function(i){return !q||i.nom.toLowerCase().indexOf(q)>=0;});
   var cur=S.gear[slot];
   document.getElementById('gear-list').innerHTML=items.map(function(item){
     var r=rarityClass(item.rarete);
@@ -461,7 +462,7 @@ function renderGearList(){
   }).join('');
 }
 function selectGear(slot,id){
-  var item=(DB.gear_by_slot[slot]||[]).find(function(i){return i.id==id;});
+  var item=getGearItems(slot).find(function(i){return i.id==id;});
   if(!item) return;
   S.gear[slot]=item;
   // Update all slot elements (armor + costume share Necklace/Earring/Ring)
@@ -575,14 +576,36 @@ function renderMastery(){
     document.getElementById('mastery-zone').innerHTML='<div style="font-size:.73rem;color:rgba(153,147,170,.4)">Sélectionne un personnage et ses armes.</div>';
     return;
   }
-  var tiers=['—','I','II','III','IV'];
+  var tiers=['—','I','II','III','IV','V'];
   var html=types.map(function(tp){
     var cur=S.masteries[tp]||0;
     var lbl=TYPE_LBL[tp]||tp;
-    var stats=MASTERY_TIERS[cur];
-    var statStr=cur>0?('ATK+'+stats.atk_pct+'% DEF+'+stats.def_pct+'% HP+'+stats.hp_pct+'%'):'Aucun bonus';
+    // Get global stats for current tier
+    var md=MASTERY_DATA[tp];
+    var statStr='Aucun bonus';
+    if(cur>0&&md&&md[cur]){
+      var g=md[cur].global||{};
+      var atkPct=g['Attaque %']||0;
+      var defPct=g['Défense %']||0;
+      var hpPct=g['HP %']||0;
+      statStr='ATK+'+(atkPct*cur).toFixed(0)+'% DEF+'+(defPct*cur).toFixed(0)+'% HP+'+(hpPct*cur).toFixed(0)+'%';
+    }
+    // Show sub-nodes for this tier if any
+    var subHtml='';
+    if(cur>0&&md&&md[cur]&&md[cur].subs&&md[cur].subs.length){
+      subHtml='<div style="margin-top:6px;display:flex;flex-wrap:wrap;gap:4px">'+
+        md[cur].subs.map(function(node,i){
+          var key=tp+'_t'+cur+'_n'+i;
+          var checked=S.mastery_subs[key]?'checked':'';;
+          var label=node.map(function(a){return a.label+(a.val?(' +'+a.val+a.unit):'');}).join(', ');
+          return '<label style="display:flex;align-items:center;gap:4px;font-size:.62rem;color:rgba(233,228,217,.7);background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:4px;padding:2px 7px;cursor:pointer">'+
+            '<input type="checkbox" '+checked+' onchange="setMasterySub(\''+key+'\',this.checked)" style="accent-color:#e3b45a;width:11px;height:11px">'+
+            label+'</label>';
+        }).join('')+
+      '</div>';
+    }
     return '<div class="mastery-row">'+
-      '<div class="mr-name">'+lbl+'<div style="font-size:.6rem;color:rgba(153,147,170,.45);margin-top:2px">'+statStr+'</div></div>'+
+      '<div class="mr-name">'+lbl+'<div style="font-size:.6rem;color:rgba(153,147,170,.45);margin-top:1px">'+statStr+' (global)</div>'+subHtml+'</div>'+
       '<div class="mr-levels">'+
         tiers.map(function(t,i){
           return '<button class="mlv'+(cur===i?' on':'')+'" onclick="setMastery(\''+tp+'\','+i+')">'+t+'</button>';
@@ -591,11 +614,8 @@ function renderMastery(){
   }).join('');
   document.getElementById('mastery-zone').innerHTML=html;
 }
-function setMastery(tp,lvl){
-  S.masteries[tp]=lvl;
-  renderMastery();
-  recalc();
-}
+function setMastery(tp,lvl){ S.masteries[tp]=lvl; renderMastery(); recalc(); }
+function setMasterySub(key,v){ S.mastery_subs[key]=v; recalc(); }
 
 // ── ENCHANTEMENTS ─────────────────────────────────────────────────────────────
 function renderEnchant(){
@@ -660,14 +680,35 @@ function recalc(){
     t.atk+= i===0 ? atk : Math.round(atk*0.3);
   });
 
-  // Masteries
+  // Masteries — global stats (all tiers cumulative x level)
   S.weaponTypes.filter(Boolean).forEach(function(tp){
     var lvl=S.masteries[tp]||0;
-    if(!lvl) return;
-    var ms=MASTERY_TIERS[lvl];
-    t.atk_pct+=ms.atk_pct; t.def_pct+=ms.def_pct; t.hp_pct+=ms.hp_pct;
-    t.atk+=ms.atk; t.def+=ms.def; t.hp+=ms.hp;
-    t.perfo+=ms.perfo; t.persev+=ms.persev;
+    if(!lvl||!MASTERY_DATA[tp]) return;
+    // Each tier's Special node gives +3%/+3%/+3% - cumulate
+    for(var tier=2;tier<=lvl;tier++){
+      var md=MASTERY_DATA[tp]&&MASTERY_DATA[tp][tier];
+      if(!md||!md.global) continue;
+      var g=md.global;
+      t.atk_pct += g['Attaque %']||0;
+      t.def_pct += g['Défense %']||0;
+      t.hp_pct  += g['HP %']||0;
+    }
+    // Sub-nodes (per equipped weapon) — add if checked
+    for(var tier=2;tier<=lvl;tier++){
+      var md2=MASTERY_DATA[tp]&&MASTERY_DATA[tp][tier];
+      if(!md2||!md2.subs) continue;
+      md2.subs.forEach(function(node,i){
+        var key=tp+'_t'+tier+'_n'+i;
+        if(!S.mastery_subs[key]) return;
+        node.forEach(function(ab){
+          if(ab.label==='Attaque')    t.atk    += ab.val;
+          else if(ab.label==='Défense') t.def  += ab.val;
+          else if(ab.label==='PV')      t.hp   += ab.val;
+          else if(ab.label==='Chance critique') t.crit_rate += ab.val/100;
+          else if(ab.label==='Dégâts crit.')    t.crit_dmg  += ab.val/100;
+        });
+      });
+    }
   });
 
   // Enchantements
