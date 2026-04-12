@@ -205,11 +205,102 @@ export default {
       }
     }
 
+    // Route builds — GET load / POST save
+    if (url.pathname === "/builds" && request.method === "OPTIONS") {
+      return new Response(null, { headers: { "Access-Control-Allow-Origin": "*", "Access-Control-Allow-Methods": "GET, POST, OPTIONS", "Access-Control-Allow-Headers": "Content-Type" } });
+    }
+    if (url.pathname === "/builds" && request.method === "POST") {
+      const corsH = { "Content-Type": "application/json", "Access-Control-Allow-Origin": "*" };
+      try {
+        const body = await request.json();
+        const { pseudo, build_name, character, build_json, build_id } = body;
+        if (!pseudo || !build_json) return new Response(JSON.stringify({error:"Missing fields"}), {status:400,headers:corsH});
+        const { getToken } = await import("./sheets.js");
+        const token = await getToken(env);
+        const date = new Date().toISOString().slice(0,10);
+        const id = build_id || crypto.randomUUID().slice(0,8);
+        // Check if updating existing build
+        const getUrl = `https://sheets.googleapis.com/v4/spreadsheets/${env.GOOGLE_SHEET_ID}/values/Builds`;
+        const getRes = await fetch(getUrl, { headers: { Authorization: `Bearer ${token}` } });
+        const sheet = await getRes.json();
+        const rows = sheet.values || [];
+        const existing = rows.findIndex((r,i) => i > 0 && r[5] === id);
+        if (existing !== -1) {
+          const lineNum = existing + 1;
+          const range = `Builds!A${lineNum}:G${lineNum}`;
+          await fetch(`https://sheets.googleapis.com/v4/spreadsheets/${env.GOOGLE_SHEET_ID}/values/${encodeURIComponent(range)}?valueInputOption=USER_ENTERED`, {
+            method: "PUT", headers: { Authorization: `Bearer ${token}`, "Content-Type": "application/json" },
+            body: JSON.stringify({ range, majorDimension: "ROWS", values: [[date, pseudo, character||"", build_name||"Mon build", build_json, id, "public"]] })
+          });
+        } else {
+          await fetch(`https://sheets.googleapis.com/v4/spreadsheets/${env.GOOGLE_SHEET_ID}/values/Builds:append?valueInputOption=USER_ENTERED`, {
+            method: "POST", headers: { Authorization: `Bearer ${token}`, "Content-Type": "application/json" },
+            body: JSON.stringify({ values: [[date, pseudo, character||"", build_name||"Mon build", build_json, id, "public"]] })
+          });
+        }
+        return new Response(JSON.stringify({ok:true, id}), {headers:corsH});
+      } catch(e) { return new Response(JSON.stringify({error:e.message}), {status:500,headers:{"Content-Type":"application/json","Access-Control-Allow-Origin":"*"}}); }
+    }
+    if (url.pathname.startsWith("/builds/") && request.method === "GET") {
+      const corsH = { "Content-Type": "application/json", "Access-Control-Allow-Origin": "*", "Cache-Control": "public, max-age=60" };
+      try {
+        const id = url.pathname.replace("/builds/","");
+        const { getToken } = await import("./sheets.js");
+        const token = await getToken(env);
+        const getRes = await fetch(`https://sheets.googleapis.com/v4/spreadsheets/${env.GOOGLE_SHEET_ID}/values/Builds`, { headers: { Authorization: `Bearer ${token}` } });
+        const sheet = await getRes.json();
+        const rows = (sheet.values || []).slice(1);
+        const row = rows.find(r => r[5] === id);
+        if (!row) return new Response(JSON.stringify({error:"Build not found"}), {status:404,headers:corsH});
+        return new Response(JSON.stringify({ date:row[0], pseudo:row[1], character:row[2], build_name:row[3], build_json:row[4], id:row[5] }), {headers:corsH});
+      } catch(e) { return new Response(JSON.stringify({error:e.message}), {status:500,headers:{"Content-Type":"application/json","Access-Control-Allow-Origin":"*"}}); }
+    }
+
     // Route calendrier
     // Route personnalite — sauvegarde résultat quiz
+    // Route build — sauvegarde un build
+    if (url.pathname === "/build" && request.method === "OPTIONS") {
+      return new Response(null, { headers: { "Access-Control-Allow-Origin": "*", "Access-Control-Allow-Methods": "POST, OPTIONS", "Access-Control-Allow-Headers": "Content-Type" } });
+    }
+    if (url.pathname === "/build" && request.method === "POST") {
+      const corsH = { "Content-Type": "application/json", "Access-Control-Allow-Origin": "*" };
+      try {
+        const body = await request.json();
+        const { pseudo, name, build_data } = body;
+        if (!pseudo || !build_data) return new Response(JSON.stringify({error:"Missing fields"}),{status:400,headers:corsH});
+        const { appendRow } = await import("./sheets.js");
+        await appendRow(env, "Builds", [
+          new Date().toISOString().slice(0,10), pseudo, name, build_data
+        ]);
+        return new Response(JSON.stringify({ok:true}), {headers:corsH});
+      } catch(e) {
+        return new Response(JSON.stringify({error:e.message}),{status:500,headers:corsH});
+      }
+    }
+
     if (url.pathname === "/personnalite" && request.method === "OPTIONS") {
       return new Response(null, { headers: { "Access-Control-Allow-Origin": "*", "Access-Control-Allow-Methods": "POST, OPTIONS", "Access-Control-Allow-Headers": "Content-Type" } });
     }
+    // Route build — sauvegarde un build
+    if (url.pathname === "/build" && request.method === "OPTIONS") {
+      return new Response(null, { headers: { "Access-Control-Allow-Origin": "*", "Access-Control-Allow-Methods": "POST, OPTIONS", "Access-Control-Allow-Headers": "Content-Type" } });
+    }
+    if (url.pathname === "/build" && request.method === "POST") {
+      const corsH = { "Content-Type": "application/json", "Access-Control-Allow-Origin": "*" };
+      try {
+        const body = await request.json();
+        const { pseudo, name, build_data } = body;
+        if (!pseudo || !build_data) return new Response(JSON.stringify({error:"Missing fields"}),{status:400,headers:corsH});
+        const { appendRow } = await import("./sheets.js");
+        await appendRow(env, "Builds", [
+          new Date().toISOString().slice(0,10), pseudo, name, build_data
+        ]);
+        return new Response(JSON.stringify({ok:true}), {headers:corsH});
+      } catch(e) {
+        return new Response(JSON.stringify({error:e.message}),{status:500,headers:corsH});
+      }
+    }
+
     if (url.pathname === "/personnalite" && request.method === "POST") {
       const corsH = { "Content-Type": "application/json", "Access-Control-Allow-Origin": "*" };
       try {
