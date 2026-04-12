@@ -316,6 +316,22 @@ permalink: /pages/personnalite/
 .perso-pseudo { font-size: .78rem; font-weight: 700; color: #e8e4d9; margin-bottom: 4px; }
 .perso-char { font-size: .7rem; color: #e3b45a; font-weight: 600; }
 .perso-match { font-size: .62rem; color: rgba(153,147,170,.6); margin-top: 2px; }
+.perso-hint { font-size: .62rem; color: rgba(201,151,62,.5); margin-top: 5px; transition: color .18s; }
+.perso-card:hover .perso-hint { color: rgba(201,151,62,.9); }
+.quiz-exaequo-btn {
+  background: rgba(255,255,255,.04);
+  border: 1px solid rgba(255,255,255,.1);
+  border-radius: 10px;
+  padding: 16px;
+  cursor: pointer;
+  font-family: inherit;
+  text-align: center;
+  transition: border-color .2s, background .2s;
+  color: #e8e4d9;
+}
+.quiz-exaequo-btn:hover { border-color: rgba(201,151,62,.45); background: rgba(201,151,62,.07); }
+.quiz-exaequo-btn strong { display: block; font-size: .95rem; color: #f0ece0; margin-bottom: 6px; }
+.quiz-exaequo-btn p { font-size: .74rem; color: rgba(153,147,170,.75); margin: 0; line-height: 1.5; }
 </style>
 
 <script>
@@ -507,25 +523,114 @@ function blendProfiles(p, comp, inf) {
   return Object.fromEntries(AXES.map(a=>[a, p[a]*(1-inf)+comp[a]*inf]));
 }
 
+async function computeResult() {
+  document.getElementById('step-quiz').style.display = 'none';
+
+  const raw = Object.fromEntries(AXES.map(a=>[a,0]));
+  state.questions.forEach(q => {
+    const key = state.answers[q.id];
+    if (!key || !q.answers[key]) return;
+    q.answers[key].deltas.forEach(({axis,delta}) => { if(raw[axis]!==undefined) raw[axis]+=delta; });
+  });
+
+  const profile = Object.fromEntries(AXES.map(a=>[a, Math.max(0,Math.min(100,50+raw[a]))]));
+  const scored  = scoreCharacters(profile, state.characters);
+  const top5    = scored.slice(0,5);
+  const weights = softmaxWeights(top5);
+  const composite = buildComposite(top5, weights);
+  const adjusted  = blendProfiles(profile, composite, SECONDARY_INFLUENCE);
+  const final   = scoreCharacters(adjusted, state.characters);
+  const top5f   = final.slice(0,5);
+
+  // Détection ex-aequo (< 0.8% d'écart entre 1er et 2ème)
+  if (top5f.length >= 2 && Math.abs(top5f[0].matchPct - top5f[1].matchPct) < 0.8) {
+    showExAequo(top5f[0], top5f[1], top5f, adjusted);
+    return;
+  }
+
+  showResult(top5f[0], top5f, adjusted);
+  await saveResult(top5f[0], top5f);
+}
+
+function showExAequo(charA, charB, top5, profile) {
+  document.getElementById('step-quiz').style.display = 'none';
+  const wrap = document.getElementById('step-result');
+  wrap.style.display = 'block';
+  wrap.innerHTML = `
+    <div class="quiz-card" style="text-align:center">
+      <span class="eyebrow">Ex-aequo !</span>
+      <h2 style="font-family:'Cormorant Garamond',Georgia,serif;font-size:1.6rem;color:#f0ece0;margin:10px 0 6px">Deux personnages à égalité</h2>
+      <p style="font-size:.85rem;color:rgba(153,147,170,.8);margin-bottom:28px">
+        ${charA.nom} et ${charB.nom} ont tous les deux <strong style="color:#e3b45a">${Math.round(charA.matchPct)}%</strong> de compatibilité.<br>
+        Lequel te correspond le mieux ?
+      </p>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;max-width:480px;margin:0 auto">
+        <button class="quiz-exaequo-btn" onclick="chooseExAequo('${charA.slug}', window.__top5, window.__profile)">
+          <strong>${charA.nom}</strong>
+          <p>${(charA.description||'').slice(0,80)}…</p>
+        </button>
+        <button class="quiz-exaequo-btn" onclick="chooseExAequo('${charB.slug}', window.__top5, window.__profile)">
+          <strong>${charB.nom}</strong>
+          <p>${(charB.description||'').slice(0,80)}…</p>
+        </button>
+      </div>
+    </div>`;
+  window.__top5    = top5;
+  window.__profile = profile;
+}
+
+async function chooseExAequo(slug, top5, profile) {
+  const winner = top5.find(c => c.slug === slug) || top5[0];
+  const reordered = [winner, ...top5.filter(c=>c.slug!==slug)];
+  document.getElementById('step-result').innerHTML = '';
+  showResult(winner, reordered, profile);
+  await saveResult(winner, reordered);
+}
+
 function showResult(winner, top5, profile) {
-  document.getElementById('result-name').textContent = winner.nom;
-  document.getElementById('result-match').textContent = `Compatibilité : ${Math.round(winner.matchPct)}%`;
-  document.getElementById('result-desc').textContent  = winner.description || '';
+  const wrap = document.getElementById('step-result');
+  wrap.style.display = 'block';
+  wrap.innerHTML = `
+    <div class="quiz-card quiz-result-card">
+      <div class="quiz-result-header">
+        <span class="eyebrow">Ton personnage</span>
+        <h2 class="result-name">${winner.nom}</h2>
+        <div class="result-match">Compatibilité : ${Math.round(winner.matchPct)}%</div>
+      </div>
+      <p class="result-desc">${winner.description||''}</p>
+      <div class="result-top5">
+        ${top5.map((c,i)=>`<span class="result-top5-item${i===0?' first':''}">${c.nom} — ${Math.round(c.matchPct)}%</span>`).join('')}
+      </div>
+      <div class="result-axes">
+        ${AXES.map(a=>{
+          const axisLabels={impulsivite:'Impuls.',empathie:'Empathie',loyaute:'Loyauté',ambition:'Ambition',humour:'Humour',agressivite:'Agressiv.',discipline:'Discip.',strategie:'Stratégie',idealisme:'Idéalism.',dominance:'Dominance'};
+          return `<div class="result-axis">
+            <div class="result-axis-label">${axisLabels[a]||a}</div>
+            <div class="result-axis-bar"><div class="result-axis-fill" style="width:${Math.round(profile[a]||0)}%"></div></div>
+            <div class="result-axis-val">${Math.round(profile[a]||0)}</div>
+          </div>`;
+        }).join('')}
+      </div>
+      <button class="quiz-btn-secondary" onclick="resetQuiz()">Recommencer</button>
+    </div>`;
+}
 
-  document.getElementById('result-top5').innerHTML = top5.map((c,i)=>`
-    <span class="result-top5-item${i===0?' first':''}">
-      ${c.nom} — ${Math.round(c.matchPct)}%
-    </span>`).join('');
-
-  const axisLabels = {impulsivite:'Impuls.',empathie:'Empathie',loyaute:'Loyauté',ambition:'Ambition',humour:'Humour',agressivite:'Agressiv.',discipline:'Discip.',strategie:'Stratégie',idealisme:'Idéalism.',dominance:'Dominance'};
-  document.getElementById('result-axes').innerHTML = AXES.map(a=>`
-    <div class="result-axis">
-      <div class="result-axis-label">${axisLabels[a]||a}</div>
-      <div class="result-axis-bar"><div class="result-axis-fill" style="width:${Math.round(profile[a]||0)}%"></div></div>
-      <div class="result-axis-val">${Math.round(profile[a]||0)}</div>
-    </div>`).join('');
-
-  document.getElementById('step-result').style.display = 'block';
+async function saveResult(winner, top5) {
+  try {
+    const res = await fetch(\`\${WORKER_URL}/personnalite\`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        pseudo:     state.pseudo,
+        personnage: winner.nom,
+        match_pct:  Math.round(winner.matchPct),
+        top5:       JSON.stringify(top5.map(c=>c.nom))
+      })
+    });
+    const data = await res.json();
+    if (!data.ok) console.warn('Save error:', data);
+    else loadPersoCards();
+  } catch(e) { console.warn('Save failed', e); }
 }
 
 function resetQuiz() {

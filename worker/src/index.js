@@ -165,6 +165,9 @@ export default {
 
     // Route calendrier
     // Route personnalite — sauvegarde résultat quiz
+    if (url.pathname === "/personnalite" && request.method === "OPTIONS") {
+      return new Response(null, { headers: { "Access-Control-Allow-Origin": "*", "Access-Control-Allow-Methods": "POST, OPTIONS", "Access-Control-Allow-Headers": "Content-Type" } });
+    }
     if (url.pathname === "/personnalite" && request.method === "POST") {
       const corsH = { "Content-Type": "application/json", "Access-Control-Allow-Origin": "*" };
       try {
