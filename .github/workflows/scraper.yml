@@ -1,0 +1,46 @@
+name: 7DS Scraper → Google Sheets
+
+on:
+  schedule:
+    - cron: '0 3 * * 1'  # Chaque lundi à 3h du matin
+  workflow_dispatch:       # Déclenchement manuel possible
+
+jobs:
+  scrape:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: |
+          pip install requests beautifulsoup4 google-auth google-auth-httplib2 google-api-python-client
+
+      - name: Run scraper
+        env:
+          GOOGLE_SHEET_ID: ${{ secrets.GOOGLE_SHEET_ID }}
+          GOOGLE_SERVICE_ACCOUNT_JSON: ${{ secrets.GOOGLE_SERVICE_ACCOUNT_JSON }}
+        run: python scraper_to_sheets.py
+
+      - name: Update builder_data.json
+        run: |
+          if [ -f scraper_output/builder_data.json ]; then
+            cp scraper_output/builder_data.json assets/data/builder_data.json
+            echo "✅ builder_data.json updated"
+          fi
+
+      - name: Commit updated data
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add assets/data/builder_data.json
+          git diff --staged --quiet || git commit -m "chore: update game data from scraper [$(date '+%Y-%m-%d')]"
+          git push
+        continue-on-error: true

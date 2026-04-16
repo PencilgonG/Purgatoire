@@ -258,20 +258,55 @@ export default {
 
     // Route calendrier
     // Route personnalite — sauvegarde résultat quiz
-    // Route build — sauvegarde un build
+    // Route build — sauvegarde/mise à jour un build (1 par pseudo+char_slug)
     if (url.pathname === "/build" && request.method === "OPTIONS") {
-      return new Response(null, { headers: { "Access-Control-Allow-Origin": "*", "Access-Control-Allow-Methods": "POST, OPTIONS", "Access-Control-Allow-Headers": "Content-Type" } });
+      return new Response(null, { headers: { "Access-Control-Allow-Origin": "*", "Access-Control-Allow-Methods": "POST, GET, OPTIONS", "Access-Control-Allow-Headers": "Content-Type" } });
+    }
+    if (url.pathname === "/build" && request.method === "GET") {
+      const corsH = { "Content-Type": "application/json", "Access-Control-Allow-Origin": "*", "Cache-Control": "public, max-age=60" };
+      try {
+        const { readSheet } = await import("./sheets.js");
+        const builds = await readSheet(env, "Builds");
+        const pseudo = url.searchParams.get("pseudo");
+        const char_slug = url.searchParams.get("char_slug");
+        let result = builds;
+        if (pseudo) result = result.filter(b => b.pseudo === pseudo);
+        if (char_slug) result = result.filter(b => b.char_slug === char_slug);
+        return new Response(JSON.stringify(result), { headers: corsH });
+      } catch(e) {
+        return new Response(JSON.stringify([]), { status: 500, headers: { "Content-Type": "application/json", "Access-Control-Allow-Origin": "*" } });
+      }
     }
     if (url.pathname === "/build" && request.method === "POST") {
       const corsH = { "Content-Type": "application/json", "Access-Control-Allow-Origin": "*" };
       try {
         const body = await request.json();
-        const { pseudo, name, build_data } = body;
-        if (!pseudo || !build_data) return new Response(JSON.stringify({error:"Missing fields"}),{status:400,headers:corsH});
-        const { appendRow } = await import("./sheets.js");
-        await appendRow(env, "Builds", [
-          new Date().toISOString().slice(0,10), pseudo, name, build_data
-        ]);
+        const { pseudo, char_slug, name, build_data } = body;
+        if (!pseudo || !char_slug || !build_data) return new Response(JSON.stringify({error:"Missing fields"}),{status:400,headers:corsH});
+        const { readSheet, appendRow, getToken } = await import("./sheets.js");
+        // Check if build already exists for this pseudo+char_slug
+        const builds = await readSheet(env, "Builds");
+        const idx = builds.findIndex(b => b.pseudo === pseudo && b.char_slug === char_slug);
+        if (idx >= 0) {
+          // Update existing row
+          const token = await getToken(env);
+          const rowNum = idx + 2;
+          const range = `Builds!A${rowNum}:E${rowNum}`;
+          await fetch(
+            `https://sheets.googleapis.com/v4/spreadsheets/${env.GOOGLE_SHEET_ID}/values/${encodeURIComponent(range)}?valueInputOption=USER_ENTERED`,
+            { method: "PUT", headers: { Authorization: `Bearer ${token}`, "Content-Type": "application/json" },
+              body: JSON.stringify({ range, majorDimension: "ROWS", values: [[
+                new Date().toISOString().slice(0,10), pseudo, char_slug, name, build_data
+              ]] }) }
+          );
+        } else {
+          // Append new row
+          await appendRow(env, "Builds", [
+            new Date().toISOString().slice(0,10), pseudo, char_slug, name, build_data
+          ]);
+        }
+        // Log activite
+        try { await appendRow(env, "Activite", [new Date().toISOString(), "build", `⚔️ **${pseudo}** a enregistré un build pour **${char_slug}**`, "", ""]); } catch {}
         return new Response(JSON.stringify({ok:true}), {headers:corsH});
       } catch(e) {
         return new Response(JSON.stringify({error:e.message}),{status:500,headers:corsH});
@@ -281,20 +316,55 @@ export default {
     if (url.pathname === "/personnalite" && request.method === "OPTIONS") {
       return new Response(null, { headers: { "Access-Control-Allow-Origin": "*", "Access-Control-Allow-Methods": "POST, OPTIONS", "Access-Control-Allow-Headers": "Content-Type" } });
     }
-    // Route build — sauvegarde un build
+    // Route build — sauvegarde/mise à jour un build (1 par pseudo+char_slug)
     if (url.pathname === "/build" && request.method === "OPTIONS") {
-      return new Response(null, { headers: { "Access-Control-Allow-Origin": "*", "Access-Control-Allow-Methods": "POST, OPTIONS", "Access-Control-Allow-Headers": "Content-Type" } });
+      return new Response(null, { headers: { "Access-Control-Allow-Origin": "*", "Access-Control-Allow-Methods": "POST, GET, OPTIONS", "Access-Control-Allow-Headers": "Content-Type" } });
+    }
+    if (url.pathname === "/build" && request.method === "GET") {
+      const corsH = { "Content-Type": "application/json", "Access-Control-Allow-Origin": "*", "Cache-Control": "public, max-age=60" };
+      try {
+        const { readSheet } = await import("./sheets.js");
+        const builds = await readSheet(env, "Builds");
+        const pseudo = url.searchParams.get("pseudo");
+        const char_slug = url.searchParams.get("char_slug");
+        let result = builds;
+        if (pseudo) result = result.filter(b => b.pseudo === pseudo);
+        if (char_slug) result = result.filter(b => b.char_slug === char_slug);
+        return new Response(JSON.stringify(result), { headers: corsH });
+      } catch(e) {
+        return new Response(JSON.stringify([]), { status: 500, headers: { "Content-Type": "application/json", "Access-Control-Allow-Origin": "*" } });
+      }
     }
     if (url.pathname === "/build" && request.method === "POST") {
       const corsH = { "Content-Type": "application/json", "Access-Control-Allow-Origin": "*" };
       try {
         const body = await request.json();
-        const { pseudo, name, build_data } = body;
-        if (!pseudo || !build_data) return new Response(JSON.stringify({error:"Missing fields"}),{status:400,headers:corsH});
-        const { appendRow } = await import("./sheets.js");
-        await appendRow(env, "Builds", [
-          new Date().toISOString().slice(0,10), pseudo, name, build_data
-        ]);
+        const { pseudo, char_slug, name, build_data } = body;
+        if (!pseudo || !char_slug || !build_data) return new Response(JSON.stringify({error:"Missing fields"}),{status:400,headers:corsH});
+        const { readSheet, appendRow, getToken } = await import("./sheets.js");
+        // Check if build already exists for this pseudo+char_slug
+        const builds = await readSheet(env, "Builds");
+        const idx = builds.findIndex(b => b.pseudo === pseudo && b.char_slug === char_slug);
+        if (idx >= 0) {
+          // Update existing row
+          const token = await getToken(env);
+          const rowNum = idx + 2;
+          const range = `Builds!A${rowNum}:E${rowNum}`;
+          await fetch(
+            `https://sheets.googleapis.com/v4/spreadsheets/${env.GOOGLE_SHEET_ID}/values/${encodeURIComponent(range)}?valueInputOption=USER_ENTERED`,
+            { method: "PUT", headers: { Authorization: `Bearer ${token}`, "Content-Type": "application/json" },
+              body: JSON.stringify({ range, majorDimension: "ROWS", values: [[
+                new Date().toISOString().slice(0,10), pseudo, char_slug, name, build_data
+              ]] }) }
+          );
+        } else {
+          // Append new row
+          await appendRow(env, "Builds", [
+            new Date().toISOString().slice(0,10), pseudo, char_slug, name, build_data
+          ]);
+        }
+        // Log activite
+        try { await appendRow(env, "Activite", [new Date().toISOString(), "build", `⚔️ **${pseudo}** a enregistré un build pour **${char_slug}**`, "", ""]); } catch {}
         return new Response(JSON.stringify({ok:true}), {headers:corsH});
       } catch(e) {
         return new Response(JSON.stringify({error:e.message}),{status:500,headers:corsH});
