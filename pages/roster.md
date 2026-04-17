@@ -367,7 +367,12 @@ async function openMemberModal(member) {
     <div class="modal-stats">
       <div class="modal-stat"><div class="modal-stat-label">Combat Class</div><div class="modal-stat-value">${member.cc_format||'—'}</div></div>
       <div class="modal-stat"><div class="modal-stat-label">Statut</div><div class="modal-stat-value" style="font-size:1rem;color:var(--text-primary)">${member.statut||'—'}</div></div>
-      <div class="modal-stat"><div class="modal-stat-label">Perso principal</div><div class="modal-stat-value" style="font-size:1rem;color:var(--text-primary)">${member.main_char||'—'}</div></div>
+      <div class="modal-stat" style="${(typeof heroPortrait==='function' && heroPortrait(member.main_char,'combine')) ? 'grid-column:1/-1;display:flex;align-items:center;gap:14px;padding:12px 16px' : ''}">
+        ${(typeof heroPortrait==='function' && heroPortrait(member.main_char,'combine')) ? `
+          <img src="${heroPortrait(member.main_char,'combine')}" alt="${member.main_char||''}" style="width:72px;height:72px;border-radius:var(--radius);object-fit:cover;object-position:top;border:1px solid rgba(201,151,62,.3);flex-shrink:0" onerror="this.style.display='none'">
+          <div><div class="modal-stat-label">Perso principal</div><div class="modal-stat-value" style="font-size:1rem;color:var(--text-primary)">${member.main_char||'—'}</div></div>
+        ` : `<div class="modal-stat-label">Perso principal</div><div class="modal-stat-value" style="font-size:1rem;color:var(--text-primary)">${member.main_char||'—'}</div>`}
+      </div>
     </div>
 
     ${showHistory ? `
@@ -391,7 +396,10 @@ async function openMemberModal(member) {
           const pct = val * 10;
           return `
           <div class="modal-perso-row">
-            <span class="modal-perso-name">${p.personnage}</span>
+            <span class="modal-perso-name" style="display:flex;align-items:center;gap:7px">
+              ${(typeof heroPortrait==='function' && heroPortrait(p.personnage,'hud')) ? `<img src="${heroPortrait(p.personnage,'hud')}" alt="" style="width:22px;height:22px;border-radius:50%;object-fit:cover;border:1px solid rgba(201,151,62,.25);background:rgba(0,0,0,.2)" onerror="this.style.display='none'">` : ''}
+              ${p.personnage}
+            </span>
             <div style="display:flex;align-items:center;gap:8px">
               <div style="width:80px;height:4px;background:var(--border);border-radius:99px;overflow:hidden">
                 <div style="height:100%;width:${pct}%;background:var(--gold-bright);border-radius:99px"></div>

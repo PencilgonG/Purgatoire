@@ -1,0 +1,698 @@
+[
+  {
+    "slug": "clotho",
+    "name": "Clotho",
+    "weapons": "Rapier / Book / END_WEAPON",
+    "elements": "Wind / Ice / Ice",
+    "image_url": "https://cdn-zeroluck-gg.b-cdn.net/7dso/SevenDeadlySins/Assets/Content/UIImg/Icon_Item/portrait_Hero/Big/Big_Klotho_001.png",
+    "costumes": [
+      {
+        "id": "220102701",
+        "nom": "Explorer's Uniform",
+        "image_url": "https://cdn-zeroluck-gg.b-cdn.net/7dso/SevenDeadlySins/Assets/Content/UIImg/Icon_Item/Dictionary_Special/Costume_Klotho_001.png",
+        "default": true
+      }
+    ]
+  },
+  {
+    "slug": "mannie",
+    "name": "Mannie",
+    "weapons": "END_WEAPON / SwordDual / Sword1h",
+    "elements": "Holy / Ice / Ice",
+    "image_url": "https://cdn-zeroluck-gg.b-cdn.net/7dso/SevenDeadlySins/Assets/Content/UIImg/Icon_Item/portrait_Hero/Big/Big_manny_001.png",
+    "costumes": [
+      {
+        "id": "220102501",
+        "nom": "Exalted Priestess",
+        "image_url": "https://cdn-zeroluck-gg.b-cdn.net/7dso/SevenDeadlySins/Assets/Content/UIImg/Icon_Item/Dictionary_Special/Costume_Manny_001.png",
+        "default": true
+      },
+      {
+        "id": "220102502",
+        "nom": "Heart of Prayer",
+        "image_url": "https://cdn-zeroluck-gg.b-cdn.net/7dso/SevenDeadlySins/Assets/Content/UIImg/Icon_Item/Dictionary_Special/Costume_Manny_002.png",
+        "default": false
+      },
+      {
+        "id": "220102503",
+        "nom": "Arch Priestess's Prestige",
+        "image_url": "https://cdn-zeroluck-gg.b-cdn.net/7dso/SevenDeadlySins/Assets/Content/UIImg/Icon_Item/Dictionary_Special/Costume_Manny_003.png",
+        "default": false
+      },
+      {
+        "id": "220102504",
+        "nom": "Exploration of the Unknown",
+        "image_url": "https://cdn-zeroluck-gg.b-cdn.net/7dso/SevenDeadlySins/Assets/Content/UIImg/Icon_Item/Dictionary_Special/Costume_Manny_004.png",
+        "default": false
+      }
+    ]
+  },
+  {
+    "slug": "gilthunder",
+    "name": "Gilthunder",
+    "weapons": "Sword1h / Shield / Lance",
+    "elements": "Thunder / Thunder / Thunder",
+    "image_url": "https://cdn-zeroluck-gg.b-cdn.net/7dso/SevenDeadlySins/Assets/Content/UIImg/Icon_Item/portrait_Hero/Big/Big_gil_thunder_001.png",
+    "costumes": [
+      {
+        "id": "220100601",
+        "nom": "Young Holy Knight",
+        "image_url": "https://cdn-zeroluck-gg.b-cdn.net/7dso/SevenDeadlySins/Assets/Content/UIImg/Icon_Item/Dictionary_Special/Costume_Gil_Thunder_001.png",
+        "default": true
+      },
+      {
+        "id": "220100602",
+        "nom": "Exemplary Holy Knight",
+        "image_url": "https://cdn-zeroluck-gg.b-cdn.net/7dso/SevenDeadlySins/Assets/Content/UIImg/Icon_Item/Dictionary_Special/Costume_Gil_Thunder_002.png",
+        "default": false
+      },
+      {
+        "id": "220100603",
+        "nom": "Holy Knight of Lightning",
+        "image_url": "https://cdn-zeroluck-gg.b-cdn.net/7dso/SevenDeadlySins/Assets/Content/UIImg/Icon_Item/Dictionary_Special/Costume_Gil_Thunder_003.png",
+        "default": false
+      },
+      {
+        "id": "220100604",
+        "nom": "Exemplary Adventure",
+        "image_url": "https://cdn-zeroluck-gg.b-cdn.net/7dso/SevenDeadlySins/Assets/Content/UIImg/Icon_Item/Dictionary_Special/Costume_Gil_Thunder_004.png",
+        "default": false
+      }
+    ]
+  },
+  {
+    "slug": "derieri",
+    "name": "Derieri",
+    "weapons": "",
+    "elements": "",
+    "image_url": "https://cdn-zeroluck-gg.b-cdn.net/7dso/SevenDeadlySins/Assets/Content/UIImg/Icon_Item/portrait_Hero/Big/Big_derieri_001.png",
+    "costumes": []
+  },
+  {
+    "slug": "gowther",
+    "name": "Gowther",
+    "weapons": "",
+    "elements": "",
+    "image_url": "https://cdn-zeroluck-gg.b-cdn.net/7dso/SevenDeadlySins/Assets/Content/UIImg/Icon_Item/portrait_Hero/Big/Big_gowther_001.png",
+    "costumes": []
+  },
+  {
+    "slug": "elizabeth",
+    "name": "Elizabeth",
+    "weapons": "",
+    "elements": "",
+    "image_url": "https://cdn-zeroluck-gg.b-cdn.net/7dso/SevenDeadlySins/Assets/Content/UIImg/Icon_Item/portrait_Hero/Big/Big_elizabeth_001.png",
+    "costumes": []
+  },
+  {
+    "slug": "daisy",
+    "name": "Daisy",
+    "weapons": "Shield / Book / Wand",
+    "elements": "Earth / Thunder / Wind",
+    "image_url": "https://cdn-zeroluck-gg.b-cdn.net/7dso/SevenDeadlySins/Assets/Content/UIImg/Icon_Item/portrait_Hero/Big/Big_Daisy_001.png",
+    "costumes": [
+      {
+        "id": "220102801",
+        "nom": "Fairy of the Past",
+        "image_url": "https://cdn-zeroluck-gg.b-cdn.net/7dso/SevenDeadlySins/Assets/Content/UIImg/Icon_Item/Dictionary_Special/Costume_Daisy_001.png",
+        "default": true
+      },
+      {
+        "id": "220102802",
+        "nom": "Small Explorer",
+        "image_url": "https://cdn-zeroluck-gg.b-cdn.net/7dso/SevenDeadlySins/Assets/Content/UIImg/Icon_Item/Dictionary_Special/Costume_Daisy_002.png",
+        "default": false
+      },
+      {
+        "id": "220102803",
+        "nom": "Autumn Scent",
+        "image_url": "https://cdn-zeroluck-gg.b-cdn.net/7dso/SevenDeadlySins/Assets/Content/UIImg/Icon_Item/Dictionary_Special/Costume_Daisy_003.png",
+        "default": false
+      },
+      {
+        "id": "220102804",
+        "nom": "Spirit of Exploration",
+        "image_url": "https://cdn-zeroluck-gg.b-cdn.net/7dso/SevenDeadlySins/Assets/Content/UIImg/Icon_Item/Dictionary_Special/Costume_Daisy_004.png",
+        "default": false
+      }
+    ]
+  },
+  {
+    "slug": "dredrin",
+    "name": "Dredrin",
+    "weapons": "Shield / Axe / Rapier",
+    "elements": "Earth / Default / Holy",
+    "image_url": "https://cdn-zeroluck-gg.b-cdn.net/7dso/SevenDeadlySins/Assets/Content/UIImg/Icon_Item/portrait_Hero/Big/Big_dreydrin_001.png",
+    "costumes": [
+      {
+        "id": "220100301",
+        "nom": "Friendly Apprentice Holy Knight",
+        "image_url": "https://cdn-zeroluck-gg.b-cdn.net/7dso/SevenDeadlySins/Assets/Content/UIImg/Icon_Item/Dictionary_Special/Costume_Dreydrin_001.png",
+        "default": true
+      },
+      {
+        "id": "220100302",
+        "nom": "A Nice Day Off",
+        "image_url": "https://cdn-zeroluck-gg.b-cdn.net/7dso/SevenDeadlySins/Assets/Content/UIImg/Icon_Item/Dictionary_Special/Costume_Dreydrin_002.png",
+        "default": false
+      },
+      {
+        "id": "220100303",
+        "nom": "Descendant of Royalty",
+        "image_url": "https://cdn-zeroluck-gg.b-cdn.net/7dso/SevenDeadlySins/Assets/Content/UIImg/Icon_Item/Dictionary_Special/Costume_Dreydrin_003.png",
+        "default": false
+      },
+      {
+        "id": "220100304",
+        "nom": "Thorough Preparation",
+        "image_url": "https://cdn-zeroluck-gg.b-cdn.net/7dso/SevenDeadlySins/Assets/Content/UIImg/Icon_Item/Dictionary_Special/Costume_Dreydrin_004.png",
+        "default": false
+      }
+    ]
+  },
+  {
+    "slug": "tioreh",
+    "name": "Tioreh",
+    "weapons": "Book / Wand / END_WEAPON",
+    "elements": "Fire / Fire / Earth",
+    "image_url": "https://cdn-zeroluck-gg.b-cdn.net/7dso/SevenDeadlySins/Assets/Content/UIImg/Icon_Item/portrait_Hero/Big/Big_tioreh_001.png",
+    "costumes": [
+      {
+        "id": "220100201",
+        "nom": "Adorable Fairy",
+        "image_url": "https://cdn-zeroluck-gg.b-cdn.net/7dso/SevenDeadlySins/Assets/Content/UIImg/Icon_Item/Dictionary_Special/Costume_Tioreh_001.png",
+        "default": true
+      },
+      {
+        "id": "220100202",
+        "nom": "Casual Outing",
+        "image_url": "https://cdn-zeroluck-gg.b-cdn.net/7dso/SevenDeadlySins/Assets/Content/UIImg/Icon_Item/Dictionary_Special/Costume_Tioreh_002.png",
+        "default": false
+      },
+      {
+        "id": "220100203",
+        "nom": "Daughter of the Forest and Earth",
+        "image_url": "https://cdn-zeroluck-gg.b-cdn.net/7dso/SevenDeadlySins/Assets/Content/UIImg/Icon_Item/Dictionary_Special/Costume_Tioreh_003.png",
+        "default": false
+      },
+      {
+        "id": "220100204",
+        "nom": "Adventure's Beginning",
+        "image_url": "https://cdn-zeroluck-gg.b-cdn.net/7dso/SevenDeadlySins/Assets/Content/UIImg/Icon_Item/Dictionary_Special/Costume_Tioreh_004.png",
+        "default": false
+      }
+    ]
+  },
+  {
+    "slug": "guila",
+    "name": "Guila",
+    "weapons": "Lance / Shield / Rapier",
+    "elements": "Fire / Fire / Fire",
+    "image_url": "https://cdn-zeroluck-gg.b-cdn.net/7dso/SevenDeadlySins/Assets/Content/UIImg/Icon_Item/portrait_Hero/Big/Big_guila_001.png",
+    "costumes": [
+      {
+        "id": "220101801",
+        "nom": "One and Only Holy Knight",
+        "image_url": "https://cdn-zeroluck-gg.b-cdn.net/7dso/SevenDeadlySins/Assets/Content/UIImg/Icon_Item/Dictionary_Special/Costume_Guila_001.png",
+        "default": true
+      },
+      {
+        "id": "220101802",
+        "nom": "Family Time",
+        "image_url": "https://cdn-zeroluck-gg.b-cdn.net/7dso/SevenDeadlySins/Assets/Content/UIImg/Icon_Item/Dictionary_Special/Costume_Guila_002.png",
+        "default": false
+      },
+      {
+        "id": "220101803",
+        "nom": "Holy Knight of Explosions",
+        "image_url": "https://cdn-zeroluck-gg.b-cdn.net/7dso/SevenDeadlySins/Assets/Content/UIImg/Icon_Item/Dictionary_Special/Costume_Guila_003.png",
+        "default": false
+      },
+      {
+        "id": "220101804",
+        "nom": "Light Footsteps",
+        "image_url": "https://cdn-zeroluck-gg.b-cdn.net/7dso/SevenDeadlySins/Assets/Content/UIImg/Icon_Item/Dictionary_Special/Costume_Guila_004.png",
+        "default": false
+      }
+    ]
+  },
+  {
+    "slug": "griamore",
+    "name": "Griamore",
+    "weapons": "Shield / Cudgel3c / Gauntlets",
+    "elements": "Default / Default / Default",
+    "image_url": "https://cdn-zeroluck-gg.b-cdn.net/7dso/SevenDeadlySins/Assets/Content/UIImg/Icon_Item/portrait_Hero/Big/Big_griamore_001.png",
+    "costumes": [
+      {
+        "id": "220101401",
+        "nom": "Princess's Guardian Knight",
+        "image_url": "https://cdn-zeroluck-gg.b-cdn.net/7dso/SevenDeadlySins/Assets/Content/UIImg/Icon_Item/Dictionary_Special/Costume_Griamore_001.png",
+        "default": true
+      },
+      {
+        "id": "220101402",
+        "nom": "Casual Outing",
+        "image_url": "https://cdn-zeroluck-gg.b-cdn.net/7dso/SevenDeadlySins/Assets/Content/UIImg/Icon_Item/Dictionary_Special/Costume_Griamore_002.png",
+        "default": false
+      },
+      {
+        "id": "220101403",
+        "nom": "Holy Knight of the Iron Wall",
+        "image_url": "https://cdn-zeroluck-gg.b-cdn.net/7dso/SevenDeadlySins/Assets/Content/UIImg/Icon_Item/Dictionary_Special/Costume_Griamore_003.png",
+        "default": false
+      },
+      {
+        "id": "220101404",
+        "nom": "Makeshift Barricade",
+        "image_url": "https://cdn-zeroluck-gg.b-cdn.net/7dso/SevenDeadlySins/Assets/Content/UIImg/Icon_Item/Dictionary_Special/Costume_Griamore_004.png",
+        "default": false
+      }
+    ]
+  },
+  {
+    "slug": "escanor",
+    "name": "Escanor",
+    "weapons": "",
+    "elements": "",
+    "image_url": "https://cdn-zeroluck-gg.b-cdn.net/7dso/SevenDeadlySins/Assets/Content/UIImg/Icon_Item/portrait_Hero/Big/Big_escanor_001.png",
+    "costumes": []
+  },
+  {
+    "slug": "bug",
+    "name": "Bug",
+    "weapons": "Axe / SwordDual / Book",
+    "elements": "Dark / Dark / Dark",
+    "image_url": "https://cdn-zeroluck-gg.b-cdn.net/7dso/SevenDeadlySins/Assets/Content/UIImg/Icon_Item/portrait_Hero/Big/Big_bug_001.png",
+    "costumes": [
+      {
+        "id": "220101501",
+        "nom": "Shy Demon",
+        "image_url": "https://cdn-zeroluck-gg.b-cdn.net/7dso/SevenDeadlySins/Assets/Content/UIImg/Icon_Item/Dictionary_Special/Costume_Bug_001.png",
+        "default": true
+      },
+      {
+        "id": "220101502",
+        "nom": "Demon's Outing",
+        "image_url": "https://cdn-zeroluck-gg.b-cdn.net/7dso/SevenDeadlySins/Assets/Content/UIImg/Icon_Item/Dictionary_Special/Costume_Bug_002.png",
+        "default": false
+      },
+      {
+        "id": "220101503",
+        "nom": "Shadow Walk",
+        "image_url": "https://cdn-zeroluck-gg.b-cdn.net/7dso/SevenDeadlySins/Assets/Content/UIImg/Icon_Item/Dictionary_Special/Costume_Bug_003.png",
+        "default": false
+      },
+      {
+        "id": "220101504",
+        "nom": "Demon's Stealth",
+        "image_url": "https://cdn-zeroluck-gg.b-cdn.net/7dso/SevenDeadlySins/Assets/Content/UIImg/Icon_Item/Dictionary_Special/Costume_Bug_004.png",
+        "default": false
+      }
+    ]
+  },
+  {
+    "slug": "drake",
+    "name": "Drake",
+    "weapons": "Sword2h / END_WEAPON / Sword1h",
+    "elements": "Thunder / Thunder / Thunder",
+    "image_url": "https://cdn-zeroluck-gg.b-cdn.net/7dso/SevenDeadlySins/Assets/Content/UIImg/Icon_Item/portrait_Hero/Big/Big_Drake_001.png",
+    "costumes": [
+      {
+        "id": "220102601",
+        "nom": "Dragon Descendent",
+        "image_url": "https://cdn-zeroluck-gg.b-cdn.net/7dso/SevenDeadlySins/Assets/Content/UIImg/Icon_Item/Dictionary_Special/Costume_Drake_002.png",
+        "default": true
+      },
+      {
+        "id": "220102602",
+        "nom": "Oath of the Throne",
+        "image_url": "https://cdn-zeroluck-gg.b-cdn.net/7dso/SevenDeadlySins/Assets/Content/UIImg/Icon_Item/Dictionary_Special/Costume_Drake_003.png",
+        "default": false
+      },
+      {
+        "id": "220102603",
+        "nom": "Glory of the Past",
+        "image_url": "https://cdn-zeroluck-gg.b-cdn.net/7dso/SevenDeadlySins/Assets/Content/UIImg/Icon_Item/Dictionary_Special/Costume_Drake_004.png",
+        "default": false
+      },
+      {
+        "id": "220102604",
+        "nom": "Shadow Lord",
+        "image_url": "https://cdn-zeroluck-gg.b-cdn.net/7dso/SevenDeadlySins/Assets/Content/UIImg/Icon_Item/Dictionary_Special/Costume_Drake_005.png",
+        "default": false
+      }
+    ]
+  },
+  {
+    "slug": "howzer",
+    "name": "Howzer",
+    "weapons": "Lance / Gauntlets / Cudgel3c",
+    "elements": "Wind / Wind / Wind",
+    "image_url": "https://cdn-zeroluck-gg.b-cdn.net/7dso/SevenDeadlySins/Assets/Content/UIImg/Icon_Item/portrait_Hero/Big/Big_howzer_001.png",
+    "costumes": [
+      {
+        "id": "220100401",
+        "nom": "Trusted Grandmaster",
+        "image_url": "https://cdn-zeroluck-gg.b-cdn.net/7dso/SevenDeadlySins/Assets/Content/UIImg/Icon_Item/Dictionary_Special/Costume_Howzer_001.png",
+        "default": true
+      },
+      {
+        "id": "220100402",
+        "nom": "End-of-Day Mug of Ale",
+        "image_url": "https://cdn-zeroluck-gg.b-cdn.net/7dso/SevenDeadlySins/Assets/Content/UIImg/Icon_Item/Dictionary_Special/Costume_Howzer_002.png",
+        "default": false
+      },
+      {
+        "id": "220100403",
+        "nom": "Holy Knight of Storms",
+        "image_url": "https://cdn-zeroluck-gg.b-cdn.net/7dso/SevenDeadlySins/Assets/Content/UIImg/Icon_Item/Dictionary_Special/Costume_Howzer_003.png",
+        "default": false
+      },
+      {
+        "id": "220100404",
+        "nom": "Secure Adventure",
+        "image_url": "https://cdn-zeroluck-gg.b-cdn.net/7dso/SevenDeadlySins/Assets/Content/UIImg/Icon_Item/Dictionary_Special/Costume_Howzer_004.png",
+        "default": false
+      }
+    ]
+  },
+  {
+    "slug": "slater",
+    "name": "Slater",
+    "weapons": "Sword2h / Axe / Cudgel3c",
+    "elements": "Fire / Default / Default",
+    "image_url": "https://cdn-zeroluck-gg.b-cdn.net/7dso/SevenDeadlySins/Assets/Content/UIImg/Icon_Item/portrait_Hero/Big/Big_slader_001.png",
+    "costumes": [
+      {
+        "id": "220101301",
+        "nom": "Veteran Holy Knight",
+        "image_url": "https://cdn-zeroluck-gg.b-cdn.net/7dso/SevenDeadlySins/Assets/Content/UIImg/Icon_Item/Dictionary_Special/Costume_Slader_001.png",
+        "default": true
+      },
+      {
+        "id": "220101302",
+        "nom": "Loyal Friend",
+        "image_url": "https://cdn-zeroluck-gg.b-cdn.net/7dso/SevenDeadlySins/Assets/Content/UIImg/Icon_Item/Dictionary_Special/Costume_Slader_002.png",
+        "default": false
+      },
+      {
+        "id": "220101303",
+        "nom": "Sword of the Old King",
+        "image_url": "https://cdn-zeroluck-gg.b-cdn.net/7dso/SevenDeadlySins/Assets/Content/UIImg/Icon_Item/Dictionary_Special/Costume_Slader_003.png",
+        "default": false
+      },
+      {
+        "id": "220101304",
+        "nom": "Secret Mission",
+        "image_url": "https://cdn-zeroluck-gg.b-cdn.net/7dso/SevenDeadlySins/Assets/Content/UIImg/Icon_Item/Dictionary_Special/Costume_Slader_004.png",
+        "default": false
+      }
+    ]
+  },
+  {
+    "slug": "king",
+    "name": "King",
+    "weapons": "END_WEAPON / Book / Wand",
+    "elements": "Holy / Default / Earth",
+    "image_url": "https://cdn-zeroluck-gg.b-cdn.net/7dso/SevenDeadlySins/Assets/Content/UIImg/Icon_Item/portrait_Hero/Big/Big_king_001.png",
+    "costumes": [
+      {
+        "id": "220101001",
+        "nom": "Inexperienced Fairy King",
+        "image_url": "https://cdn-zeroluck-gg.b-cdn.net/7dso/SevenDeadlySins/Assets/Content/UIImg/Icon_Item/Dictionary_Special/Costume_King_001.png",
+        "default": true
+      },
+      {
+        "id": "220101002",
+        "nom": "Forest's Footsteps",
+        "image_url": "https://cdn-zeroluck-gg.b-cdn.net/7dso/SevenDeadlySins/Assets/Content/UIImg/Icon_Item/Dictionary_Special/Costume_King_004.png",
+        "default": false
+      },
+      {
+        "id": "220101003",
+        "nom": "The Grizzly Sin of Sloth",
+        "image_url": "https://cdn-zeroluck-gg.b-cdn.net/7dso/SevenDeadlySins/Assets/Content/UIImg/Icon_Item/Dictionary_Special/Costume_King_003.png",
+        "default": false
+      },
+      {
+        "id": "220101004",
+        "nom": "Shadow of the Deep Forest",
+        "image_url": "https://cdn-zeroluck-gg.b-cdn.net/7dso/SevenDeadlySins/Assets/Content/UIImg/Icon_Item/Dictionary_Special/Costume_King_002.png",
+        "default": false
+      }
+    ]
+  },
+  {
+    "slug": "merlin",
+    "name": "Merlin",
+    "weapons": "",
+    "elements": "",
+    "image_url": "https://cdn-zeroluck-gg.b-cdn.net/7dso/SevenDeadlySins/Assets/Content/UIImg/Icon_Item/portrait_Hero/Big/Big_merlin_001.png",
+    "costumes": []
+  },
+  {
+    "slug": "meliodas",
+    "name": "Meliodas",
+    "weapons": "Sword1h / Axe / SwordDual",
+    "elements": "Dark / Dark / Dark",
+    "image_url": "https://cdn-zeroluck-gg.b-cdn.net/7dso/SevenDeadlySins/Assets/Content/UIImg/Icon_Item/portrait_Hero/Big/Big_meliodas_001.png",
+    "costumes": [
+      {
+        "id": "220100501",
+        "nom": "Ordinary Tavern Owner",
+        "image_url": "https://cdn-zeroluck-gg.b-cdn.net/7dso/SevenDeadlySins/Assets/Content/UIImg/Icon_Item/Dictionary_Special/Costume_Meliodas_001.png",
+        "default": true
+      },
+      {
+        "id": "220100502",
+        "nom": "A New Adventure",
+        "image_url": "https://cdn-zeroluck-gg.b-cdn.net/7dso/SevenDeadlySins/Assets/Content/UIImg/Icon_Item/Dictionary_Special/Costume_Meliodas_002.png",
+        "default": false
+      },
+      {
+        "id": "220100503",
+        "nom": "The Dragon Sin of Wrath",
+        "image_url": "https://cdn-zeroluck-gg.b-cdn.net/7dso/SevenDeadlySins/Assets/Content/UIImg/Icon_Item/Dictionary_Special/Costume_Meliodas_003.png",
+        "default": false
+      },
+      {
+        "id": "220100504",
+        "nom": "Simple Defense",
+        "image_url": "https://cdn-zeroluck-gg.b-cdn.net/7dso/SevenDeadlySins/Assets/Content/UIImg/Icon_Item/Dictionary_Special/Costume_Meliodas_004.png",
+        "default": false
+      }
+    ]
+  },
+  {
+    "slug": "tristan",
+    "name": "Tristan",
+    "weapons": "SwordDual / Sword2h / Sword1h",
+    "elements": "Fire / Fire / Wind",
+    "image_url": "https://cdn-zeroluck-gg.b-cdn.net/7dso/SevenDeadlySins/Assets/Content/UIImg/Icon_Item/portrait_Hero/Big/Big_tristan_001.png",
+    "costumes": [
+      {
+        "id": "220100101",
+        "nom": "Little Prince",
+        "image_url": "https://cdn-zeroluck-gg.b-cdn.net/7dso/SevenDeadlySins/Assets/Content/UIImg/Icon_Item/Dictionary_Special/Costume_Tristan_001.png",
+        "default": true
+      },
+      {
+        "id": "220100100",
+        "nom": "Cos Body",
+        "image_url": "https://cdn-zeroluck-gg.b-cdn.net/7dso/SevenDeadlySins/Assets/Content/UIImg/Icon_Item/Dictionary_Special/Costume_Tristan_006.png",
+        "default": false
+      },
+      {
+        "id": "220100102",
+        "nom": "Formal Attire",
+        "image_url": "https://cdn-zeroluck-gg.b-cdn.net/7dso/SevenDeadlySins/Assets/Content/UIImg/Icon_Item/Dictionary_Special/Costume_Tristan_002.png",
+        "default": false
+      },
+      {
+        "id": "220100103",
+        "nom": "Royal Dignity",
+        "image_url": "https://cdn-zeroluck-gg.b-cdn.net/7dso/SevenDeadlySins/Assets/Content/UIImg/Icon_Item/Dictionary_Special/Costume_Tristan_003.png",
+        "default": false
+      },
+      {
+        "id": "220100104",
+        "nom": "Prince's Adventure",
+        "image_url": "https://cdn-zeroluck-gg.b-cdn.net/7dso/SevenDeadlySins/Assets/Content/UIImg/Icon_Item/Dictionary_Special/Costume_Tristan_004.png",
+        "default": false
+      }
+    ]
+  },
+  {
+    "slug": "dreyfus",
+    "name": "Dreyfus",
+    "weapons": "Rapier / Sword1h / Lance",
+    "elements": "Default / Earth / Holy",
+    "image_url": "https://cdn-zeroluck-gg.b-cdn.net/7dso/SevenDeadlySins/Assets/Content/UIImg/Icon_Item/portrait_Hero/Big/Big_dreyfus_001.png",
+    "costumes": [
+      {
+        "id": "220101101",
+        "nom": "Kingdom Sword Art Instructor",
+        "image_url": "https://cdn-zeroluck-gg.b-cdn.net/7dso/SevenDeadlySins/Assets/Content/UIImg/Icon_Item/Dictionary_Special/Costume_Dreyfus_001.png",
+        "default": true
+      },
+      {
+        "id": "220101102",
+        "nom": "Royal Butler",
+        "image_url": "https://cdn-zeroluck-gg.b-cdn.net/7dso/SevenDeadlySins/Assets/Content/UIImg/Icon_Item/Dictionary_Special/Costume_Dreyfus_002.png",
+        "default": false
+      },
+      {
+        "id": "220101103",
+        "nom": "Old Soldier's Honor",
+        "image_url": "https://cdn-zeroluck-gg.b-cdn.net/7dso/SevenDeadlySins/Assets/Content/UIImg/Icon_Item/Dictionary_Special/Costume_Dreyfus_003.png",
+        "default": false
+      },
+      {
+        "id": "220101104",
+        "nom": "Simple Attire",
+        "image_url": "https://cdn-zeroluck-gg.b-cdn.net/7dso/SevenDeadlySins/Assets/Content/UIImg/Icon_Item/Dictionary_Special/Costume_Dreyfus_004.png",
+        "default": false
+      }
+    ]
+  },
+  {
+    "slug": "diane",
+    "name": "Diane",
+    "weapons": "Axe / Gauntlets / Cudgel3c",
+    "elements": "Earth / Earth / Earth",
+    "image_url": "https://cdn-zeroluck-gg.b-cdn.net/7dso/SevenDeadlySins/Assets/Content/UIImg/Icon_Item/portrait_Hero/Big/Big_diane_001.png",
+    "costumes": [
+      {
+        "id": "220101901",
+        "nom": "Giant Girl in Love",
+        "image_url": "https://cdn-zeroluck-gg.b-cdn.net/7dso/SevenDeadlySins/Assets/Content/UIImg/Icon_Item/Dictionary_Special/Costume_Diane_001.png",
+        "default": true
+      },
+      {
+        "id": "220101902",
+        "nom": "Tavern Hostess",
+        "image_url": "https://cdn-zeroluck-gg.b-cdn.net/7dso/SevenDeadlySins/Assets/Content/UIImg/Icon_Item/Dictionary_Special/Costume_Diane_002.png",
+        "default": false
+      },
+      {
+        "id": "220101903",
+        "nom": "The Serpent Sin of Envy",
+        "image_url": "https://cdn-zeroluck-gg.b-cdn.net/7dso/SevenDeadlySins/Assets/Content/UIImg/Icon_Item/Dictionary_Special/Costume_Diane_003.png",
+        "default": false
+      },
+      {
+        "id": "220101904",
+        "nom": "Cheerful Girl",
+        "image_url": "https://cdn-zeroluck-gg.b-cdn.net/7dso/SevenDeadlySins/Assets/Content/UIImg/Icon_Item/Dictionary_Special/Costume_Diane_004.png",
+        "default": false
+      }
+    ]
+  },
+  {
+    "slug": "ban",
+    "name": "Ban",
+    "weapons": "",
+    "elements": "",
+    "image_url": "https://cdn-zeroluck-gg.b-cdn.net/7dso/SevenDeadlySins/Assets/Content/UIImg/Icon_Item/portrait_Hero/Big/Big_Ban_001.png",
+    "costumes": []
+  },
+  {
+    "slug": "jericho",
+    "name": "Jericho",
+    "weapons": "SwordDual / Lance / Rapier",
+    "elements": "Ice / Ice / Ice",
+    "image_url": "https://cdn-zeroluck-gg.b-cdn.net/7dso/SevenDeadlySins/Assets/Content/UIImg/Icon_Item/portrait_Hero/Big/Big_jericho_001.png",
+    "costumes": [
+      {
+        "id": "220101601",
+        "nom": "Runaway Holy Knight",
+        "image_url": "https://cdn-zeroluck-gg.b-cdn.net/7dso/SevenDeadlySins/Assets/Content/UIImg/Icon_Item/Dictionary_Special/Costume_Jericho_001.png",
+        "default": true
+      },
+      {
+        "id": "220101602",
+        "nom": "Leisurely Moment",
+        "image_url": "https://cdn-zeroluck-gg.b-cdn.net/7dso/SevenDeadlySins/Assets/Content/UIImg/Icon_Item/Dictionary_Special/Costume_Jericho_002.png",
+        "default": false
+      },
+      {
+        "id": "220101603",
+        "nom": "Holy Knight With the Star-Shaped Visor",
+        "image_url": "https://cdn-zeroluck-gg.b-cdn.net/7dso/SevenDeadlySins/Assets/Content/UIImg/Icon_Item/Dictionary_Special/Costume_Jericho_003.png",
+        "default": false
+      },
+      {
+        "id": "220101604",
+        "nom": "Secretive Traveler",
+        "image_url": "https://cdn-zeroluck-gg.b-cdn.net/7dso/SevenDeadlySins/Assets/Content/UIImg/Icon_Item/Dictionary_Special/Costume_Jericho_004.png",
+        "default": false
+      }
+    ]
+  },
+  {
+    "slug": "elaine",
+    "name": "Elaine",
+    "weapons": "Wand / END_WEAPON / Book",
+    "elements": "Wind / Holy / Earth",
+    "image_url": "https://cdn-zeroluck-gg.b-cdn.net/7dso/SevenDeadlySins/Assets/Content/UIImg/Icon_Item/portrait_Hero/Big/Big_elaine_001.png",
+    "costumes": [
+      {
+        "id": "220100901",
+        "nom": "Guardian Saint of the Fountain of Youth",
+        "image_url": "https://cdn-zeroluck-gg.b-cdn.net/7dso/SevenDeadlySins/Assets/Content/UIImg/Icon_Item/Dictionary_Special/Costume_Elaine_001.png",
+        "default": true
+      },
+      {
+        "id": "220100902",
+        "nom": "Temp Employee",
+        "image_url": "https://cdn-zeroluck-gg.b-cdn.net/7dso/SevenDeadlySins/Assets/Content/UIImg/Icon_Item/Dictionary_Special/Costume_Elaine_002.png",
+        "default": false
+      },
+      {
+        "id": "220100903",
+        "nom": "Guiding Light",
+        "image_url": "https://cdn-zeroluck-gg.b-cdn.net/7dso/SevenDeadlySins/Assets/Content/UIImg/Icon_Item/Dictionary_Special/Costume_Elaine_003.png",
+        "default": false
+      },
+      {
+        "id": "220100904",
+        "nom": "Cheerful Outing",
+        "image_url": "https://cdn-zeroluck-gg.b-cdn.net/7dso/SevenDeadlySins/Assets/Content/UIImg/Icon_Item/Dictionary_Special/Costume_Elaine_004.png",
+        "default": false
+      }
+    ]
+  },
+  {
+    "slug": "hendrickson",
+    "name": "Hendrickson",
+    "weapons": "Sword1h / SwordDual / Lance",
+    "elements": "Holy / Default / Dark",
+    "image_url": "https://cdn-zeroluck-gg.b-cdn.net/7dso/SevenDeadlySins/Assets/Content/UIImg/Icon_Item/portrait_Hero/Big/Big_hendrickson_001.png",
+    "costumes": [
+      {
+        "id": "220101201",
+        "nom": "Liones Apothecary",
+        "image_url": "https://cdn-zeroluck-gg.b-cdn.net/7dso/SevenDeadlySins/Assets/Content/UIImg/Icon_Item/Dictionary_Special/Costume_Hendrickson_001.png",
+        "default": true
+      },
+      {
+        "id": "220101202",
+        "nom": "Romantic Gray",
+        "image_url": "https://cdn-zeroluck-gg.b-cdn.net/7dso/SevenDeadlySins/Assets/Content/UIImg/Icon_Item/Dictionary_Special/Costume_Hendrickson_002.png",
+        "default": false
+      },
+      {
+        "id": "220101203",
+        "nom": "A Suit From Younger Days",
+        "image_url": "https://cdn-zeroluck-gg.b-cdn.net/7dso/SevenDeadlySins/Assets/Content/UIImg/Icon_Item/Dictionary_Special/Costume_Hendrickson_003.png",
+        "default": false
+      },
+      {
+        "id": "220101204",
+        "nom": "Apothecary's Workwear",
+        "image_url": "https://cdn-zeroluck-gg.b-cdn.net/7dso/SevenDeadlySins/Assets/Content/UIImg/Icon_Item/Dictionary_Special/Costume_Hendrickson_004.png",
+        "default": false
+      }
+    ]
+  }
+]

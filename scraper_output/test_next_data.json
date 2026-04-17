@@ -1,0 +1,937 @@
+{
+  "props": {
+    "pageProps": {
+      "gear": {
+        "id": "132325005",
+        "codex_entry_id": "6035011",
+        "codex_category": "armor",
+        "codex_class": "belt",
+        "codex_group": "None",
+        "codex_class_sort": 3,
+        "codex_group_sort": 5,
+        "codex_list_sort": 36,
+        "codex_dictionary_id": 248,
+        "slug_en": "arachne-s-melody-belt",
+        "slug_fr": "ceinture-de-la-melodie-d-arachnee",
+        "name_en": "Arachne's Melody Belt",
+        "name_fr": "Ceinture de la mÃ©lodie d'ArachnÃ©e",
+        "description_en": "A Belt woven from resilient, durable spider silk. Its tightly woven fabric makes it resistant to damage.",
+        "description_fr": "Une ceinture tissÃ©e Ã  l'aide de soie d'araignÃ©e rÃ©sistante et robuste. Son tissage trÃ¨s serrÃ© lui permet de rÃ©sister aux dÃ©gÃ¢ts.",
+        "effect_en": "",
+        "effect_fr": "",
+        "max_effect_en": "",
+        "max_effect_fr": "",
+        "weapon_passive_icon_path": "",
+        "weapon_passive_icon_url": "",
+        "image_path": "Assets/Content/UIImg/Icon_Item/Armor/Belt_Plate_4038.png",
+        "image_raw_url": "https://cdn-zeroluck-gg.b-cdn.net/7dso/SevenDeadlySins/Assets/Content/UIImg/Icon_Item/Armor/Belt_Plate_4038.png",
+        "icon": "icon_armor_belt_plate_4038",
+        "item_type": "Equip",
+        "detail_type": "Armor",
+        "division": "Belt",
+        "grade": "Grade5",
+        "battle_type": "defense",
+        "quality_min": 96,
+        "quality_max": 0,
+        "quality_label": "96",
+        "reinforce_max": 5,
+        "option_reroll_cost_value": 0,
+        "set_keys": [
+          "armor_t5_spider"
+        ],
+        "models": [],
+        "lobby_models": [],
+        "weapon_passive": "none",
+        "overlimit_group_id": "",
+        "promotion_group_id": "promo_armor_t5_default",
+        "growth_ability_main": [
+          "armor_main1_132325005"
+        ],
+        "growth_ability_sub": [
+          "armor_sub1_132325005"
+        ],
+        "sub_unlock_reinforce": [],
+        "sell": {
+          "currency": "Gold",
+          "value": 50
+        },
+        "flags": {
+          "elimination": true,
+          "putdown": true,
+          "first_check": false,
+          "is_lock": false,
+          "peace_mode_hidden": false,
+          "obtain_location_check": false,
+          "show_special_popup": true,
+          "disassemble_enabled": true
+        },
+        "metadata": {
+          "drop_model": "70651501",
+          "show_bag_tid": "bag_armor",
+          "exp_group_id": "exp_armor_t5",
+          "exp": 0,
+          "exp_types": [
+            "Armor",
+            "Accessory"
+          ],
+          "sound_tid": "",
+          "sound_name": "2001001",
+          "visible_type": "",
+          "acquest_limit": "",
+          "local_item_division_tag": "itemdivision_belt",
+          "item_detail_type_icon": "",
+          "disassemble_key": "plate",
+          "item_usage_types": [],
+          "only_use_by": [],
+          "fx_offset_position": ""
+        },
+        "stats": {
+          "main": [
+            {
+              "id": "armor_main1_132325005",
+              "growth_type": "equiplv_13",
+              "ability_type": "B_MaxHP_Equip",
+              "value_base": 0,
+              "value_total": 10434,
+              "stages": [
+                {
+                  "stage": 0,
+                  "value": 0
+                },
+                {
+                  "stage": 1,
+                  "value": 0
+                },
+                {
+                  "stage": 2,
+                  "value": 4792
+                },
+                {
+                  "stage": 3,
+                  "value": 5642
+                },
+                {
+                  "stage": 4,
+                  "value": 0
+                },
+                {
+                  "stage": 5,
+                  "value": 0
+                },
+                {
+                  "stage": 6,
+                  "value": 0
+                },
+                {
+                  "stage": 7,
+                  "value": 0
+                },
+                {
+                  "stage": 8,
+                  "value": 0
+                },
+                {
+                  "stage": 9,
+                  "value": 0
+                },
+                {
+                  "stage": 10,
+                  "value": 0
+                }
+              ]
+            }
+          ],
+          "sub": [
+            {
+              "id": "armor_sub1_132325005",
+              "growth_type": "equiplv_13",
+              "ability_type": "H_HealPower_Rate",
+              "value_base": 0,
+              "value_total": 1134,
+              "stages": [
+                {
+                  "stage": 0,
+                  "value": 0
+                },
+                {
+                  "stage": 1,
+                  "value": 0
+                },
+                {
+                  "stage": 2,
+                  "value": 516
+                },
+                {
+                  "stage": 3,
+                  "value": 618
+                },
+                {
+                  "stage": 4,
+                  "value": 0
+                },
+                {
+                  "stage": 5,
+                  "value": 0
+                },
+                {
+                  "stage": 6,
+                  "value": 0
+                },
+                {
+                  "stage": 7,
+                  "value": 0
+                },
+                {
+                  "stage": 8,
+                  "value": 0
+                },
+                {
+                  "stage": 9,
+                  "value": 0
+                },
+                {
+                  "stage": 10,
+                  "value": 0
+                }
+              ]
+            }
+          ],
+          "random_options": [],
+          "passive_options": []
+        },
+        "set_info": [
+          {
+            "id": "armor_t5_spider",
+            "name": {
+              "en": "Grudge of the Spider Nest",
+              "fr": "RancÅur du nid d'araignÃ©e"
+            },
+            "icon": "equippassive_armor_e",
+            "icon_path": "Assets/Content/UIImg/origin/EquipPassive/Armor/EquipPassive_Armor_E.png",
+            "icon_raw_url": "https://cdn-zeroluck-gg.b-cdn.net/7dso/SevenDeadlySins/Assets/Content/UIImg/origin/EquipPassive/Armor/EquipPassive_Armor_E.png",
+            "pieces_count": 7,
+            "pieces": [
+              {
+                "id": "132125005",
+                "itemType": "Equip",
+                "detailType": "Armor",
+                "division": "Top",
+                "grade": "Grade5",
+                "icon": "icon_armor_top_plate_4038",
+                "imagePath": "Assets/Content/UIImg/Icon_Item/Armor/Top_Plate_4038.png",
+                "imageRawUrl": "https://cdn-zeroluck-gg.b-cdn.net/7dso/SevenDeadlySins/Assets/Content/UIImg/Icon_Item/Armor/Top_Plate_4038.png",
+                "name": {
+                  "key": "local_item_equip_name_132125005",
+                  "en": "Arachne's Melody Top",
+                  "fr": "Haut de la mÃ©lodie d'ArachnÃ©e"
+                },
+                "description": {
+                  "key": "local_item_equip_desc_132125005",
+                  "en": "A Top woven from resilient, durable spider silk. Its tightly woven fabric makes it resistant to damage.",
+                  "fr": "Un haut tissÃ© Ã  l'aide de soie d'araignÃ©e rÃ©sistante et robuste. Son tissage trÃ¨s serrÃ© lui permet de rÃ©sister aux dÃ©gÃ¢ts."
+                }
+              },
+              {
+                "id": "132225005",
+                "itemType": "Equip",
+                "detailType": "Armor",
+                "division": "Bottom",
+                "grade": "Grade5",
+                "icon": "icon_armor_bottom_plate_4038",
+                "imagePath": "Assets/Content/UIImg/Icon_Item/Armor/Bottom_Plate_4038.png",
+                "imageRawUrl": "https://cdn-zeroluck-gg.b-cdn.net/7dso/SevenDeadlySins/Assets/Content/UIImg/Icon_Item/Armor/Bottom_Plate_4038.png",
+                "name": {
+                  "key": "local_item_equip_name_132225005",
+                  "en": "Arachne's Melody Bottoms",
+                  "fr": "Bas de la mÃ©lodie d'ArachnÃ©e"
+                },
+                "description": {
+                  "key": "local_item_equip_desc_132225005",
+                  "en": "Bottoms woven from resilient, durable spider silk. Its tightly woven fabric makes it resistant to damage.",
+                  "fr": "Un bas tissÃ© Ã  l'aide de soie d'araignÃ©e rÃ©sistante et robuste. Son tissage trÃ¨s serrÃ© lui permet de rÃ©sister aux dÃ©gÃ¢ts."
+                }
+              },
+              {
+                "id": "132325005",
+                "itemType": "Equip",
+                "detailType": "Armor",
+                "division": "Belt",
+                "grade": "Grade5",
+                "icon": "icon_armor_belt_plate_4038",
+                "imagePath": "Assets/Content/UIImg/Icon_Item/Armor/Belt_Plate_4038.png",
+                "imageRawUrl": "https://cdn-zeroluck-gg.b-cdn.net/7dso/SevenDeadlySins/Assets/Content/UIImg/Icon_Item/Armor/Belt_Plate_4038.png",
+                "name": {
+                  "key": "local_item_equip_name_132325005",
+                  "en": "Arachne's Melody Belt",
+                  "fr": "Ceinture de la mÃ©lodie d'ArachnÃ©e"
+                },
+                "description": {
+                  "key": "local_item_equip_desc_132325005",
+                  "en": "A Belt woven from resilient, durable spider silk. Its tightly woven fabric makes it resistant to damage.",
+                  "fr": "Une ceinture tissÃ©e Ã  l'aide de soie d'araignÃ©e rÃ©sistante et robuste. Son tissage trÃ¨s serrÃ© lui permet de rÃ©sister aux dÃ©gÃ¢ts."
+                }
+              },
+              {
+                "id": "132425005",
+                "itemType": "Equip",
+                "detailType": "Armor",
+                "division": "Shoes",
+                "grade": "Grade5",
+                "icon": "icon_armor_shoes_plate_4038",
+                "imagePath": "Assets/Content/UIImg/Icon_Item/Armor/Shoes_Plate_4038.png",
+                "imageRawUrl": "https://cdn-zeroluck-gg.b-cdn.net/7dso/SevenDeadlySins/Assets/Content/UIImg/Icon_Item/Armor/Shoes_Plate_4038.png",
+                "name": {
+                  "key": "local_item_equip_name_132425005",
+                  "en": "Arachne's Melody Combat Boots",
+                  "fr": "Bottes de combat de la mÃ©lodie d'ArachnÃ©e"
+                },
+                "description": {
+                  "key": "local_item_equip_desc_132425005",
+                  "en": "Combat Boots woven from resilient, durable spider silk. Its tightly woven fabric makes it resistant to damage.",
+                  "fr": "Des bottes de combat tissÃ©es Ã  l'aide de soie d'araignÃ©e rÃ©sistante et robuste. Leur tissage trÃ¨s serrÃ© leur permet de rÃ©sister aux dÃ©gÃ¢ts."
+                }
+              },
+              {
+                "id": "132605005",
+                "itemType": "Equip",
+                "detailType": "Accessory",
+                "division": "Necklace",
+                "grade": "Grade5",
+                "icon": "icon_acc_necklace_default_4020",
+                "imagePath": "Assets/Content/UIImg/Icon_Item/Acc/Necklace_Default_4020.png",
+                "imageRawUrl": "https://cdn-zeroluck-gg.b-cdn.net/7dso/SevenDeadlySins/Assets/Content/UIImg/Icon_Item/Acc/Necklace_Default_4020.png",
+                "name": {
+                  "key": "local_item_equip_name_132605005",
+                  "en": "Arachne's Melody Necklace",
+                  "fr": "Collier de la mÃ©lodie d'ArachnÃ©e"
+                },
+                "description": {
+                  "key": "local_item_equip_desc_132605005",
+                  "en": "A Necklace woven from unyielding spider silk, each tiny gem meticulously bound to create an intricate masterpiece.",
+                  "fr": "Un collier tissÃ© Ã  partir de soie d'araignÃ©e insÃ©cable, sur laquelle chaque minuscule gemme mÃ©ticuleusement sertie participe Ã  crÃ©er un chef-d'Åuvre de complexitÃ©."
+                }
+              },
+              {
+                "id": "132705005",
+                "itemType": "Equip",
+                "detailType": "Accessory",
+                "division": "Earring",
+                "grade": "Grade5",
+                "icon": "icon_acc_earring_default_4020",
+                "imagePath": "Assets/Content/UIImg/Icon_Item/Acc/Earring_Default_4020.png",
+                "imageRawUrl": "https://cdn-zeroluck-gg.b-cdn.net/7dso/SevenDeadlySins/Assets/Content/UIImg/Icon_Item/Acc/Earring_Default_4020.png",
+                "name": {
+                  "key": "local_item_equip_name_132705005",
+                  "en": "Arachne's Melody Earrings",
+                  "fr": "Boucles d'oreilles de la mÃ©lodie d'ArachnÃ©e"
+                },
+                "description": {
+                  "key": "local_item_equip_desc_132705005",
+                  "en": "Earrings woven from unyielding spider silk, each tiny gem meticulously bound to create an intricate masterpiece.",
+                  "fr": "Des boucles d'oreilles tissÃ©es Ã  partir de soie d'araignÃ©e insÃ©cable, sur laquelle chaque minuscule gemme mÃ©ticuleusement sertie participe Ã  crÃ©er un chef-d'Åuvre de complexitÃ©."
+                }
+              },
+              {
+                "id": "132805005",
+                "itemType": "Equip",
+                "detailType": "Accessory",
+                "division": "Ring",
+                "grade": "Grade5",
+                "icon": "icon_acc_ring_default_4020",
+                "imagePath": "Assets/Content/UIImg/Icon_Item/Acc/Ring_Default_4020.png",
+                "imageRawUrl": "https://cdn-zeroluck-gg.b-cdn.net/7dso/SevenDeadlySins/Assets/Content/UIImg/Icon_Item/Acc/Ring_Default_4020.png",
+                "name": {
+                  "key": "local_item_equip_name_132805005",
+                  "en": "Arachne's Melody Ring",
+                  "fr": "Anneau de la mÃ©lodie d'ArachnÃ©e"
+                },
+                "description": {
+                  "key": "local_item_equip_desc_132805005",
+                  "en": "A Ring woven from unyielding spider silk, each tiny gem meticulously bound to create an intricate masterpiece.",
+                  "fr": "Un anneau tissÃ© Ã  partir de soie d'araignÃ©e insÃ©cable, sur laquelle chaque minuscule gemme mÃ©ticuleusement sertie participe Ã  crÃ©er un chef-d'Åuvre de complexitÃ©."
+                }
+              }
+            ],
+            "effects": [
+              {
+                "id": "armor_t5_spider_1",
+                "set_parts_count": 3,
+                "option_type": "Option",
+                "set_option": "set1_armor_t5_spider",
+                "passive_level": 0,
+                "description": {
+                  "en": "Fire Attack +10%",
+                  "fr": "Attaque de Feu +10%"
+                },
+                "passive": null
+              },
+              {
+                "id": "armor_t5_spider_2",
+                "set_parts_count": 5,
+                "option_type": "Option",
+                "set_option": "set2_armor_t5_spider",
+                "passive_level": 0,
+                "description": {
+                  "en": "Normal Skill Damage +15%",
+                  "fr": "DÃ©gÃ¢ts de compÃ©tence normale +15%"
+                },
+                "passive": null
+              },
+              {
+                "id": "armor_t5_spider_3",
+                "set_parts_count": 5,
+                "option_type": "Passive",
+                "set_option": "epset_e",
+                "passive_level": 1,
+                "description": {
+                  "en": "If Magic Points are 6 or greater when using a skill, Buff and Debuff durations are increased by 18% for 10 sec. (Cooldown: 20 sec)",
+                  "fr": "Lorsque les points de magie sont supÃ©rieurs ou Ã©gaux Ã  6 au moment d'utiliser une compÃ©tence, augmente la durÃ©e des bonus et des malus de 18% pendant 10Â s. (Temps de rechargeÂ : 20Â s)"
+                },
+                "passive": null
+              },
+              {
+                "id": "armor_t5_spider_4",
+                "set_parts_count": 7,
+                "option_type": "Option",
+                "set_option": "set3_armor_t5_spider",
+                "passive_level": 0,
+                "description": {
+                  "en": "Fire Damage +25%",
+                  "fr": "DÃ©gÃ¢ts de Feu +25%"
+                },
+                "passive": null
+              },
+              {
+                "id": "armor_t5_spider_5",
+                "set_parts_count": 7,
+                "option_type": "Passive",
+                "set_option": "epset_e",
+                "passive_level": 1,
+                "description": {
+                  "en": "If Magic Points are 6 or greater when using a skill, Buff and Debuff durations are increased by 24% for 10 sec. (Cooldown: 20 sec)",
+                  "fr": "Lorsque les points de magie sont supÃ©rieurs ou Ã©gaux Ã  6 au moment d'utiliser une compÃ©tence, augmente la durÃ©e des bonus et des malus de 24% pendant 10Â s. (Temps de rechargeÂ : 20Â s)"
+                },
+                "passive": null
+              }
+            ],
+            "effect_groups": [
+              {
+                "set_parts_count": 3,
+                "entries": [
+                  {
+                    "id": "armor_t5_spider_1",
+                    "set_parts_count": 3,
+                    "option_type": "Option",
+                    "set_option": "set1_armor_t5_spider",
+                    "passive_level": 0,
+                    "description": {
+                      "en": "Fire Attack +10%",
+                      "fr": "Attaque de Feu +10%"
+                    },
+                    "passive": null
+                  }
+                ]
+              },
+              {
+                "set_parts_count": 5,
+                "entries": [
+                  {
+                    "id": "armor_t5_spider_2",
+                    "set_parts_count": 5,
+                    "option_type": "Option",
+                    "set_option": "set2_armor_t5_spider",
+                    "passive_level": 0,
+                    "description": {
+                      "en": "Normal Skill Damage +15%",
+                      "fr": "DÃ©gÃ¢ts de compÃ©tence normale +15%"
+                    },
+                    "passive": null
+                  },
+                  {
+                    "id": "armor_t5_spider_3",
+                    "set_parts_count": 5,
+                    "option_type": "Passive",
+                    "set_option": "epset_e",
+                    "passive_level": 1,
+                    "description": {
+                      "en": "If Magic Points are 6 or greater when using a skill, Buff and Debuff durations are increased by 18% for 10 sec. (Cooldown: 20 sec)",
+                      "fr": "Lorsque les points de magie sont supÃ©rieurs ou Ã©gaux Ã  6 au moment d'utiliser une compÃ©tence, augmente la durÃ©e des bonus et des malus de 18% pendant 10Â s. (Temps de rechargeÂ : 20Â s)"
+                    },
+                    "passive": null
+                  }
+                ]
+              },
+              {
+                "set_parts_count": 7,
+                "entries": [
+                  {
+                    "id": "armor_t5_spider_4",
+                    "set_parts_count": 7,
+                    "option_type": "Option",
+                    "set_option": "set3_armor_t5_spider",
+                    "passive_level": 0,
+                    "description": {
+                      "en": "Fire Damage +25%",
+                      "fr": "DÃ©gÃ¢ts de Feu +25%"
+                    },
+                    "passive": null
+                  },
+                  {
+                    "id": "armor_t5_spider_5",
+                    "set_parts_count": 7,
+                    "option_type": "Passive",
+                    "set_option": "epset_e",
+                    "passive_level": 1,
+                    "description": {
+                      "en": "If Magic Points are 6 or greater when using a skill, Buff and Debuff durations are increased by 24% for 10 sec. (Cooldown: 20 sec)",
+                      "fr": "Lorsque les points de magie sont supÃ©rieurs ou Ã©gaux Ã  6 au moment d'utiliser une compÃ©tence, augmente la durÃ©e des bonus et des malus de 24% pendant 10Â s. (Temps de rechargeÂ : 20Â s)"
+                    },
+                    "passive": null
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "promotion": [
+          {
+            "id": "promo_armor_t5_default_0",
+            "promotion_group_id": "promo_armor_t5_default",
+            "promotion_level": 0,
+            "max_reinforce": 5,
+            "is_max": true,
+            "cost_type": "None",
+            "cost_value": 0,
+            "materials": []
+          }
+        ],
+        "overlimit": {
+          "group_id": "",
+          "max_level": 0,
+          "materials": [
+            {
+              "id": "101061326",
+              "name_en": "SSR Magic Crystal Shard",
+              "name_fr": "Ãclat de cristal magique SSR",
+              "slug_en": "ssr-magic-crystal-shard",
+              "slug_fr": "eclat-de-cristal-magique-ssr",
+              "image_raw_url": "https://cdn-zeroluck-gg.b-cdn.net/7dso/SevenDeadlySins/Assets/Content/UIImg/Icon_Item/item/101061326.png",
+              "image_path": "Assets/Content/UIImg/Icon_Item/item/101061326.png",
+              "item_type": "Etc",
+              "detail_type": "OverlimitExp",
+              "division": "OverlimitCommonExp",
+              "grade": "Grade5",
+              "exp_value": 100
+            }
+          ],
+          "steps": []
+        },
+        "salvage": {
+          "base": {
+            "id": "214",
+            "disassemble_key": "plate",
+            "grade": "Grade5",
+            "overlimit_key": "",
+            "outputs": [
+              {
+                "id": "101120268",
+                "kind": "item",
+                "rate_percent": 100,
+                "rate_label": "100%",
+                "quantity_min": 30,
+                "quantity_max": 50,
+                "quantity_label": "30-50",
+                "level_rate_key": "rate_02",
+                "level_rates": {
+                  "lv0": 1,
+                  "lv1": 1.04,
+                  "lv2": 1.08,
+                  "lv3": 1.12,
+                  "lv4": 1.16,
+                  "lv5": 1.2,
+                  "lv6": 1.24,
+                  "lv7": 1.28,
+                  "lv8": 1.32,
+                  "lv9": 1.36,
+                  "lv10": 1.4,
+                  "lv11": 1.44,
+                  "lv12": 1.48,
+                  "lv13": 1.52,
+                  "lv14": 1.56,
+                  "lv15": 1.6,
+                  "lv16": 1.64,
+                  "lv17": 1.68,
+                  "lv18": 1.72,
+                  "lv19": 1.76,
+                  "lv20": 1.8,
+                  "lv21": 1.84,
+                  "lv22": 1.88,
+                  "lv23": 1.92,
+                  "lv24": 1.96,
+                  "lv25": 2,
+                  "lv26": 2.04,
+                  "lv27": 2.08,
+                  "lv28": 2.12,
+                  "lv29": 2.16,
+                  "lv30": 2.2,
+                  "lv31": 2.24,
+                  "lv32": 2.28,
+                  "lv33": 2.32,
+                  "lv34": 2.36,
+                  "lv35": 2.4,
+                  "lv36": 2.44,
+                  "lv37": 2.48,
+                  "lv38": 2.52,
+                  "lv39": 2.56,
+                  "lv40": 2.6,
+                  "lv41": 2.64,
+                  "lv42": 2.68,
+                  "lv43": 2.72,
+                  "lv44": 2.76,
+                  "lv45": 2.8,
+                  "lv46": 2.84,
+                  "lv47": 2.88,
+                  "lv48": 2.92,
+                  "lv49": 2.96,
+                  "lv50": 3,
+                  "lv51": 3.55,
+                  "lv52": 3.6,
+                  "lv53": 3.65,
+                  "lv54": 3.7,
+                  "lv55": 3.75,
+                  "lv56": 3.8,
+                  "lv57": 3.85,
+                  "lv58": 3.9,
+                  "lv59": 3.95,
+                  "lv60": 4,
+                  "lv61": 4.05,
+                  "lv62": 4.1,
+                  "lv63": 4.15,
+                  "lv64": 4.2,
+                  "lv65": 4.25,
+                  "lv66": 4.3,
+                  "lv67": 4.35,
+                  "lv68": 4.4,
+                  "lv69": 4.45,
+                  "lv70": 4.5,
+                  "lv71": 4.55,
+                  "lv72": 4.6,
+                  "lv73": 4.65,
+                  "lv74": 4.7,
+                  "lv75": 4.75,
+                  "lv76": 4.8,
+                  "lv77": 4.85,
+                  "lv78": 4.9,
+                  "lv79": 4.95,
+                  "lv80": 5,
+                  "lv81": 5.05,
+                  "lv82": 5.1,
+                  "lv83": 5.15,
+                  "lv84": 5.2,
+                  "lv85": 5.25,
+                  "lv86": 5.3,
+                  "lv87": 5.35,
+                  "lv88": 5.4,
+                  "lv89": 5.45,
+                  "lv90": 5.5,
+                  "lv91": 5.55,
+                  "lv92": 5.6,
+                  "lv93": 5.65,
+                  "lv94": 5.7,
+                  "lv95": 5.75,
+                  "lv96": 5.8,
+                  "lv97": 5.85,
+                  "lv98": 5.9,
+                  "lv99": 5.95,
+                  "lv100": 6
+                },
+                "item": {
+                  "id": "101120268",
+                  "name_en": "Metal Fragment",
+                  "name_fr": "Fragment de mÃ©tal",
+                  "slug_en": "metal-fragment",
+                  "slug_fr": "fragment-de-metal",
+                  "image_raw_url": "https://cdn-zeroluck-gg.b-cdn.net/7dso/SevenDeadlySins/Assets/Content/UIImg/Icon_Item/item/101120268.png",
+                  "image_path": "Assets/Content/UIImg/Icon_Item/item/101120268.png",
+                  "item_type": "Etc",
+                  "detail_type": "Consumables",
+                  "division": "SellEtc",
+                  "grade": "Grade1"
+                }
+              }
+            ]
+          },
+          "overlimit": []
+        },
+        "obtain_location_types": [],
+        "drop_packs": [],
+        "sources": {
+          "monsters": [],
+          "dungeons": [],
+          "merchants": [],
+          "recipes": [
+            {
+              "id": "2006",
+              "type": "production",
+              "group": "production_tab_equip",
+              "name_en": "Production",
+              "name_fr": "Production",
+              "required_exp": 0,
+              "exp_value": 160,
+              "contents_level": 5,
+              "production_value": 5,
+              "craft_time_ms": 126000,
+              "cost_type": "Gold",
+              "cost_value": 0,
+              "reward_type": "Item",
+              "effect_en": "A Belt woven from resilient, durable spider silk. Its tightly woven fabric makes it resistant to damage.",
+              "effect_fr": "Une ceinture tissÃ©e Ã  l'aide de soie d'araignÃ©e rÃ©sistante et robuste. Son tissage trÃ¨s serrÃ© lui permet de rÃ©sister aux dÃ©gÃ¢ts.",
+              "outputs": [
+                {
+                  "id": "132325005",
+                  "name": "Arachne's Melody Belt",
+                  "name_en": "Arachne's Melody Belt",
+                  "name_fr": "Ceinture de la mÃ©lodie d'ArachnÃ©e",
+                  "image_raw_url": "https://cdn-zeroluck-gg.b-cdn.net/7dso/SevenDeadlySins/Assets/Content/UIImg/Icon_Item/Armor/Belt_Plate_4038.png",
+                  "image_path": "Assets/Content/UIImg/Icon_Item/Armor/Belt_Plate_4038.png",
+                  "quantity": 1,
+                  "item_type": "Equip",
+                  "detail_type": "Armor",
+                  "division": "Belt",
+                  "grade": "Grade5",
+                  "rate": 100,
+                  "rate_label": "100%",
+                  "quality_min": 96,
+                  "quality_max": 96,
+                  "effect_en": "A Belt woven from resilient, durable spider silk. Its tightly woven fabric makes it resistant to damage.",
+                  "effect_fr": "Une ceinture tissÃ©e Ã  l'aide de soie d'araignÃ©e rÃ©sistante et robuste. Son tissage trÃ¨s serrÃ© lui permet de rÃ©sister aux dÃ©gÃ¢ts."
+                }
+              ],
+              "rewards": [
+                {
+                  "item": {
+                    "id": "132325005",
+                    "name_en": "Arachne's Melody Belt",
+                    "name_fr": "Ceinture de la mÃ©lodie d'ArachnÃ©e",
+                    "image_raw_url": "https://cdn-zeroluck-gg.b-cdn.net/7dso/SevenDeadlySins/Assets/Content/UIImg/Icon_Item/Armor/Belt_Plate_4038.png",
+                    "image_path": "Assets/Content/UIImg/Icon_Item/Armor/Belt_Plate_4038.png",
+                    "item_type": "Equip",
+                    "detail_type": "Armor",
+                    "division": "Belt",
+                    "grade": "Grade5"
+                  },
+                  "rate": 100,
+                  "rate_label": "100%",
+                  "quantity": 1,
+                  "quality_min": 96,
+                  "quality_max": 96
+                }
+              ],
+              "materials": [
+                {
+                  "id": "101070148",
+                  "name_en": "Shakeera's Curse",
+                  "name_fr": "MalÃ©diction de Shakeera",
+                  "slug_en": "shakeera-s-curse",
+                  "slug_fr": "malediction-de-shakeera",
+                  "image_raw_url": "https://cdn-zeroluck-gg.b-cdn.net/7dso/SevenDeadlySins/Assets/Content/UIImg/Icon_Item/item/101070148.png",
+                  "image_path": "Assets/Content/UIImg/Icon_Item/item/101070148.png",
+                  "item_type": "Etc",
+                  "detail_type": "Consumables",
+                  "division": "SellEtc",
+                  "grade": "Grade4",
+                  "quantity": 15
+                },
+                {
+                  "id": "101120271",
+                  "name_en": "Enhanced Metal",
+                  "name_fr": "MÃ©tal amÃ©liorÃ©",
+                  "slug_en": "enhanced-metal",
+                  "slug_fr": "metal-ameliore",
+                  "image_raw_url": "https://cdn-zeroluck-gg.b-cdn.net/7dso/SevenDeadlySins/Assets/Content/UIImg/Icon_Item/item/101120271.png",
+                  "image_path": "Assets/Content/UIImg/Icon_Item/item/101120271.png",
+                  "item_type": "Etc",
+                  "detail_type": "Consumables",
+                  "division": "SellEtc",
+                  "grade": "Grade2",
+                  "quantity": 10
+                },
+                {
+                  "id": "101120315",
+                  "name_en": "Rare Armor Shock Absorber",
+                  "name_fr": "Amortisseur pour armures rare",
+                  "slug_en": "rare-armor-shock-absorber",
+                  "slug_fr": "amortisseur-pour-armures-rare",
+                  "image_raw_url": "https://cdn-zeroluck-gg.b-cdn.net/7dso/SevenDeadlySins/Assets/Content/UIImg/Icon_Item/item/101120315.png",
+                  "image_path": "Assets/Content/UIImg/Icon_Item/item/101120315.png",
+                  "item_type": "Etc",
+                  "detail_type": "Consumables",
+                  "division": "SellEtc",
+                  "grade": "Grade4",
+                  "quantity": 1
+                },
+                {
+                  "id": "101010042",
+                  "name_en": "Platinum Ingot",
+                  "name_fr": "Lingot de platine",
+                  "slug_en": "platinum-ingot",
+                  "slug_fr": "lingot-de-platine",
+                  "image_raw_url": "https://cdn-zeroluck-gg.b-cdn.net/7dso/SevenDeadlySins/Assets/Content/UIImg/Icon_Item/item/101010042.png",
+                  "image_path": "Assets/Content/UIImg/Icon_Item/item/101010042.png",
+                  "item_type": "Etc",
+                  "detail_type": "Consumables",
+                  "division": "SellEtc",
+                  "grade": "Grade4",
+                  "quantity": 10
+                },
+                {
+                  "id": "101062015",
+                  "name_en": "Belt Crafting Blueprint",
+                  "name_fr": "SchÃ©ma de fabrication de ceinture",
+                  "slug_en": "belt-crafting-blueprint",
+                  "slug_fr": "schema-de-fabrication-de-ceinture",
+                  "image_raw_url": "https://cdn-zeroluck-gg.b-cdn.net/7dso/SevenDeadlySins/Assets/Content/UIImg/Icon_Item/item/101062015.png",
+                  "image_path": "Assets/Content/UIImg/Icon_Item/item/101062015.png",
+                  "item_type": "Etc",
+                  "detail_type": "Consumables",
+                  "division": "SellEtc",
+                  "grade": "Grade4",
+                  "quantity": 1
+                }
+              ]
+            }
+          ]
+        },
+        "usages": {
+          "recipes": []
+        },
+        "counts": {
+          "drop_packs": 0,
+          "monsters": 0,
+          "dungeons": 0,
+          "merchants": 0,
+          "source_recipes": 1,
+          "used_in_recipes": 0,
+          "set_count": 1,
+          "random_option_groups": 0,
+          "random_option_abilities": 0,
+          "overlimit_steps": 0,
+          "promotion_steps": 1,
+          "salvage_outputs": 1
+        },
+        "locale": "en",
+        "name": "Arachne's Melody Belt",
+        "description": "A Belt woven from resilient, durable spider silk. Its tightly woven fabric makes it resistant to damage.",
+        "effect": "",
+        "associated_characters": [],
+        "slug": "arachne-s-melody-belt",
+        "image_url": "https://cdn-zeroluck-gg.b-cdn.net/7dso/SevenDeadlySins/Assets/Content/UIImg/Icon_Item/Armor/Belt_Plate_4038.png",
+        "passive_options": [],
+        "passiveOptions": [],
+        "rarity": "Grade5"
+      },
+      "t": {
+        "overview": "Overview",
+        "category": "Category",
+        "slot": "Slot",
+        "rarity": "Rarity",
+        "battleType": "Battle Type",
+        "quality": "Quality",
+        "reinforceMax": "Reinforce Max",
+        "sellValue": "Sell Value",
+        "stats": "Stats",
+        "mainStats": "Main Stats",
+        "subStats": "Static Sub Stats",
+        "totalValue": "Raw Total",
+        "growthType": "Growth Type",
+        "randomOptions": "Random Option Pools",
+        "randomPoolTitle": "Possible Random Rolls",
+        "weight": "weight",
+        "emptyRandomOptions": "No random option data.",
+        "sets": "Sets",
+        "pieces": "pieces",
+        "emptySets": "No set data.",
+        "sources": "Sources",
+        "dropPacks": "Drop Packs",
+        "dungeons": "Dungeons",
+        "monsters": "Monsters",
+        "emptySources": "No source data.",
+        "crafting": "Crafting",
+        "craftedBy": "Crafted By",
+        "usedIn": "Used In",
+        "emptyRecipes": "No recipe data.",
+        "salvageAndUpgrade": "Salvage & Upgrade",
+        "salvage": "Salvage",
+        "amount": "Amount",
+        "limitLabel": "Limit",
+        "bossLabel": "Boss",
+        "promotion": "Promotion",
+        "emptySalvage": "No salvage data.",
+        "emptyPromotion": "No promotion data.",
+        "level": "Level",
+        "bp": "BP",
+        "unknown": "Unknown",
+        "noDescription": "No description."
+      },
+      "localePaths": {
+        "en": "/7dso/gear/arachne-s-melody-belt",
+        "fr": "/7dso/fr/equipements/ceinture-de-la-melodie-d-arachnee"
+      },
+      "meta": {
+        "title": "Arachne's Melody Belt gear, stats & set info | 7DSO",
+        "description": "Review Arachne's Melody Belt in Seven Deadly Sins: Origin with stats, crafting, salvage, effects, and set information for better gearing.",
+        "keywords": [],
+        "alternates": {
+          "canonical": "https://zeroluck.gg/7dso/gear/arachne-s-melody-belt/",
+          "languages": {
+            "en": "https://zeroluck.gg/7dso/gear/arachne-s-melody-belt/",
+            "fr": "https://zeroluck.gg/7dso/fr/equipements/ceinture-de-la-melodie-d-arachnee/",
+            "x-default": "https://zeroluck.gg/7dso/gear/arachne-s-melody-belt/"
+          }
+        },
+        "openGraph": {
+          "type": "website",
+          "locale": "en_US",
+          "siteName": "ZeroLuck.GG",
+          "title": "Arachne's Melody Belt gear, stats & set info | 7DSO",
+          "description": "Review Arachne's Melody Belt in Seven Deadly Sins: Origin with stats, crafting, salvage, effects, and set information for better gearing.",
+          "url": "https://zeroluck.gg/7dso/gear/arachne-s-melody-belt/",
+          "images": [
+            {
+              "url": "https://cdn-zeroluck-gg.b-cdn.net/7dso/SevenDeadlySins/Assets/Content/UIImg/Icon_Item/Armor/Belt_Plate_4038.png?class=hero",
+              "alt": "Arachne's Melody Belt gear, stats & set info | 7DSO"
+            }
+          ]
+        },
+        "twitter": {
+          "card": "summary",
+          "title": "Arachne's Melody Belt gear, stats & set info | 7DSO",
+          "description": "Review Arachne's Melody Belt in Seven Deadly Sins: Origin with stats, crafting, salvage, effects, and set information for better gearing.",
+          "images": [
+            "https://cdn-zeroluck-gg.b-cdn.net/7dso/SevenDeadlySins/Assets/Content/UIImg/Icon_Item/Armor/Belt_Plate_4038.png?class=hero"
+          ]
+        },
+        "robots": {
+          "index": false,
+          "follow": true,
+          "googleBot": {
+            "index": false,
+            "follow": true,
+            "max-snippet": -1,
+            "max-image-preview": "large",
+            "max-video-preview": -1
+          }
+        }
+      }
+    },
+    "__N_SSG": true
+  },
+  "page": "/7dso/gear/[slug]",
+  "query": {
+    "slug": "arachne-s-melody-belt"
+  },
+  "buildId": "9q0RN2u95Wc83rA4XdCAv",
+  "isFallback": false,
+  "gsp": true,
+  "scriptLoader": []
+}

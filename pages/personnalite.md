@@ -58,6 +58,7 @@ permalink: /pages/personnalite/
         <div class="quiz-card quiz-result-card">
           <div class="quiz-result-header">
             <span class="eyebrow">Ton personnage</span>
+            <div id="result-portrait" style="margin:10px auto 8px;width:110px;height:110px;border-radius:var(--radius-lg);overflow:hidden;border:2px solid rgba(201,151,62,.35);background:rgba(0,0,0,.2);display:none"><img id="result-portrait-img" alt="" style="width:100%;height:100%;object-fit:cover;object-position:top"></div>
             <h2 id="result-name" class="result-name"></h2>
             <div id="result-match" class="result-match"></div>
           </div>
@@ -140,6 +141,11 @@ permalink: /pages/personnalite/
 .quiz-exaequo-btn strong { display:block;font-size:.95rem;color:#f0ece0;margin-bottom:6px; }
 .quiz-exaequo-btn p { font-size:.74rem;color:rgba(153,147,170,.75);margin:0;line-height:1.5; }
 .quiz-result-card { text-align:center; }
+#result-portrait {
+  box-shadow: 0 4px 24px rgba(0,0,0,.5), 0 0 0 1px rgba(201,151,62,.2);
+  transition: transform .3s ease;
+}
+#result-portrait:hover { transform: scale(1.03); }
 .result-name { font-family:'Cormorant Garamond',Georgia,serif;font-size:2.6rem;font-weight:700;color:#f0ece0;margin:6px 0 8px; }
 .result-match { font-size:.8rem;font-weight:700;color:#e3b45a;letter-spacing:.06em; }
 .result-desc { font-size:.87rem;color:rgba(153,147,170,.85);line-height:1.72;max-width:500px;margin:0 auto 24px; }
@@ -307,11 +313,13 @@ function blend(p,comp,inf){return Object.fromEntries(AXES.map(a=>[a,p[a]*(1-inf)
 // ── Ex-aequo ────────────────────────────────────────────
 function showExAequo(cA,cB,top5,profile) {
   document.getElementById('exaequo-desc').innerHTML=`<strong style="color:#e3b45a">${cA.nom}</strong> et <strong style="color:#e3b45a">${cB.nom}</strong> ont tous les deux <strong style="color:#e3b45a">${Math.round(cA.matchPct)}%</strong> de compatibilité.<br>Lequel te correspond le mieux ?`;
-  document.getElementById('exaequo-choices').innerHTML=[cA,cB].map(c=>`
-    <button class="quiz-exaequo-btn" onclick="chooseChar('${c.slug}')">
-      <strong>${c.nom}</strong>
-      <p>${(c.description||'').slice(0,90)}…</p>
-    </button>`).join('');
+  document.getElementById('exaequo-choices').innerHTML=[cA,cB].map(c=>{
+    const _img = (typeof heroPortrait==='function') ? heroPortrait(c.nom,'slot') : '';
+    return `<button class="quiz-exaequo-btn" onclick="chooseChar('${c.slug}')" style="position:relative;overflow:hidden;text-align:left">
+      ${_img ? `<img src="${_img}" alt="" style="position:absolute;right:-10px;top:0;bottom:0;width:80px;height:100%;object-fit:cover;object-position:top;opacity:.22;pointer-events:none" onerror="this.remove()">` : ''}
+      <div style="position:relative;z-index:1"><strong>${c.nom}</strong><p>${(c.description||'').slice(0,90)}…</p></div>
+    </button>`;
+  }).join('');
   document.getElementById('step-exaequo').style.display='block';
 }
 
@@ -328,6 +336,12 @@ function chooseChar(slug) {
 function showResult(winner,top5,profile) {
   document.getElementById('result-name').textContent=winner.nom;
   document.getElementById('result-match').textContent=`Compatibilité : ${Math.round(winner.matchPct)}%`;
+  const _rPortrait = document.getElementById('result-portrait');
+  const _rPortraitImg = document.getElementById('result-portrait-img');
+  if (_rPortrait && _rPortraitImg && typeof heroPortrait === 'function') {
+    const _url = heroPortrait(winner.nom, 'big');
+    if (_url) { _rPortraitImg.src = _url; _rPortrait.style.display = 'block'; }
+  }
   document.getElementById('result-desc').textContent=winner.description||'';
   document.getElementById('result-top5').innerHTML=top5.map((c,i)=>`<span class="result-top5-item${i===0?' first':''}">${c.nom} — ${Math.round(c.matchPct)}%</span>`).join('');
   document.getElementById('result-axes').innerHTML=AXES.map(a=>`
@@ -384,11 +398,15 @@ async function loadPersoCards() {
       let profil={};
       try{profil=JSON.parse(r.profil_json||r.profil||'{}');}catch(e){}
       const dataStr=encodeURIComponent(JSON.stringify({pseudo:r.pseudo,personnage:r.personnage,match_pct:r.match_pct,top5,discord_id:r.discord_id,profil}));
-      return `<div class="perso-card" onclick="openModal('${dataStr}')">
-        <img class="perso-avatar" src="${WORKER_URL}/avatar/${r.discord_id||''}" alt="" onerror="this.style.opacity='.2'">
-        <div class="perso-pseudo">${r.pseudo||'—'}</div>
-        <div class="perso-char">${r.personnage||'—'}</div>
-        <div class="perso-hint">Voir le top 5 →</div>
+      const _charImg = (typeof heroPortrait==='function') ? heroPortrait(r.personnage||'','slot') : '';
+      return `<div class="perso-card" onclick="openModal('${dataStr}')" style="position:relative;overflow:hidden">
+        ${_charImg ? `<div style="position:absolute;inset:0;z-index:0;pointer-events:none"><img src="${_charImg}" alt="" style="width:100%;height:100%;object-fit:cover;object-position:top;opacity:.15;filter:saturate(.6)" onerror="this.parentElement.remove()"></div>` : ''}
+        <div style="position:relative;z-index:1">
+          <img class="perso-avatar" src="${WORKER_URL}/avatar/${r.discord_id||''}" alt="" onerror="this.style.opacity='.2'">
+          <div class="perso-pseudo">${r.pseudo||'—'}</div>
+          <div class="perso-char">${r.personnage||'—'}</div>
+          <div class="perso-hint">Voir le top 5 →</div>
+        </div>
       </div>`;
     }).join('');
   } catch(e){wrap.innerHTML='<p class="empty-state">Erreur de chargement.</p>';}
@@ -406,11 +424,14 @@ function openModal(encoded) {
       </div>
     </div>
     <div style="font-size:.65rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:rgba(153,147,170,.6);margin-bottom:10px">Top 5 personnages</div>
-    ${top5.map((nom,i)=>`
-      <div style="display:flex;align-items:center;gap:10px;padding:7px 0;border-bottom:1px solid rgba(255,255,255,.06)">
+    ${top5.map((nom,i)=>{
+      const _hud = (typeof heroPortrait==='function') ? heroPortrait(nom,'hud') : '';
+      return `<div style="display:flex;align-items:center;gap:10px;padding:7px 0;border-bottom:1px solid rgba(255,255,255,.06)">
         <span style="font-size:.7rem;font-weight:700;color:${i===0?'#e3b45a':'rgba(153,147,170,.5)'};min-width:18px">#${i+1}</span>
+        ${_hud ? `<img src="${_hud}" alt="" style="width:24px;height:24px;border-radius:50%;object-fit:cover;border:1px solid rgba(201,151,62,${i===0?.4:.15});background:rgba(0,0,0,.2);flex-shrink:0" onerror="this.style.display='none'">` : ''}
         <span style="font-size:.85rem;font-weight:${i===0?700:400};color:${i===0?'#f0ece0':'rgba(233,228,217,.7)'}">${nom}</span>
-      </div>`).join('')}
+      </div>`;
+    }).join('')}
     ${Object.keys(d.profil||{}).length ? `
       <div style="font-size:.65rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:rgba(153,147,170,.6);margin:16px 0 10px">Profil de personnalité</div>
       <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px">

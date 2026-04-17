@@ -1,0 +1,2974 @@
+[
+  {
+    "id": "equip_t4_scale_3",
+    "name": {
+      "en": "Blinding Flash",
+      "fr": "Flash aveuglant"
+    },
+    "icon": "equippassive_armor_v",
+    "icon_path": "Assets/Content/UIImg/origin/EquipPassive/Armor/EquipPassive_Armor_V.png",
+    "icon_raw_url": "https://cdn-zeroluck-gg.b-cdn.net/7dso/SevenDeadlySins/Assets/Content/UIImg/origin/EquipPassive/Armor/EquipPassive_Armor_V.png",
+    "pieces_count": 4,
+    "pieces": [
+      {
+        "id": "132133013",
+        "itemType": "Equip",
+        "detailType": "Armor",
+        "division": "Top",
+        "grade": "Grade3",
+        "icon": "icon_armor_top_plate_3014",
+        "imagePath": "Assets/Content/UIImg/Icon_Item/Armor/Top_Plate_3014.png",
+        "imageRawUrl": "https://cdn-zeroluck-gg.b-cdn.net/7dso/SevenDeadlySins/Assets/Content/UIImg/Icon_Item/Armor/Top_Plate_3014.png",
+        "name": {
+          "key": "local_item_equip_name_132133013",
+          "en": "Thunderous Top (Sturdy)",
+          "fr": "Haut tonitruant (Robuste)"
+        },
+        "description": {
+          "key": "local_item_equip_desc_132133013",
+          "en": "A Top crafted using hard iron and tough leather. It's remarkable hardness ensures no weapon can easily pierce it.",
+          "fr": "Un haut confectionné à l'aide de fer solide et de cuir robuste.\nSa remarquable solidité ne laisse aucune arme le transpercer facilement."
+        }
+      },
+      {
+        "id": "132134003",
+        "itemType": "Equip",
+        "detailType": "Armor",
+        "division": "Top",
+        "grade": "Grade4",
+        "icon": "icon_armor_top_plate_3014",
+        "imagePath": "Assets/Content/UIImg/Icon_Item/Armor/Top_Plate_3014.png",
+        "imageRawUrl": "https://cdn-zeroluck-gg.b-cdn.net/7dso/SevenDeadlySins/Assets/Content/UIImg/Icon_Item/Armor/Top_Plate_3014.png",
+        "name": {
+          "key": "local_item_equip_name_132134003",
+          "en": "Thunderous Top (Finest)",
+          "fr": "Haut tonitruant (Incomparable)"
+        },
+        "description": {
+          "key": "local_item_equip_desc_132134003",
+          "en": "A Top crafted using hard iron and tough leather. It's remarkable hardness ensures no weapon can easily pierce it.",
+          "fr": "Un haut confectionné à l'aide de fer solide et de cuir robuste.\nSa remarquable solidité ne laisse aucune arme le transpercer facilement."
+        }
+      },
+      {
+        "id": "132233013",
+        "itemType": "Equip",
+        "detailType": "Armor",
+        "division": "Bottom",
+        "grade": "Grade3",
+        "icon": "icon_armor_bottom_plate_3014",
+        "imagePath": "Assets/Content/UIImg/Icon_Item/Armor/Bottom_Plate_3014.png",
+        "imageRawUrl": "https://cdn-zeroluck-gg.b-cdn.net/7dso/SevenDeadlySins/Assets/Content/UIImg/Icon_Item/Armor/Bottom_Plate_3014.png",
+        "name": {
+          "key": "local_item_equip_name_132233013",
+          "en": "Thunderous Bottoms (Sturdy)",
+          "fr": "Bas tonitruant (Robuste)"
+        },
+        "description": {
+          "key": "local_item_equip_desc_132233013",
+          "en": "Bottoms crafted using hard iron and tough leather. Their remarkable hardness ensures no weapon can easily pierce them.",
+          "fr": "Un bas confectionné à l'aide de fer solide et de cuir robuste.\nSa remarquable solidité ne laisse aucune arme le transpercer facilement."
+        }
+      },
+      {
+        "id": "132234003",
+        "itemType": "Equip",
+        "detailType": "Armor",
+        "division": "Bottom",
+        "grade": "Grade4",
+        "icon": "icon_armor_bottom_plate_3014",
+        "imagePath": "Assets/Content/UIImg/Icon_Item/Armor/Bottom_Plate_3014.png",
+        "imageRawUrl": "https://cdn-zeroluck-gg.b-cdn.net/7dso/SevenDeadlySins/Assets/Content/UIImg/Icon_Item/Armor/Bottom_Plate_3014.png",
+        "name": {
+          "key": "local_item_equip_name_132234003",
+          "en": "Thunderous Bottoms (Finest)",
+          "fr": "Bas tonitruant (Incomparable)"
+        },
+        "description": {
+          "key": "local_item_equip_desc_132234003",
+          "en": "Bottoms crafted using hard iron and tough leather. Their remarkable hardness ensures no weapon can easily pierce them.",
+          "fr": "Un bas confectionné à l'aide de fer solide et de cuir robuste.\nSa remarquable solidité ne laisse aucune arme le transpercer facilement."
+        }
+      },
+      {
+        "id": "132333013",
+        "itemType": "Equip",
+        "detailType": "Armor",
+        "division": "Belt",
+        "grade": "Grade3",
+        "icon": "icon_armor_belt_plate_3014",
+        "imagePath": "Assets/Content/UIImg/Icon_Item/Armor/Belt_Plate_3014.png",
+        "imageRawUrl": "https://cdn-zeroluck-gg.b-cdn.net/7dso/SevenDeadlySins/Assets/Content/UIImg/Icon_Item/Armor/Belt_Plate_3014.png",
+        "name": {
+          "key": "local_item_equip_name_132333013",
+          "en": "Thunderous Belt (Sturdy)",
+          "fr": "Ceinture tonitruante (Robuste)"
+        },
+        "description": {
+          "key": "local_item_equip_desc_132333013",
+          "en": "A Belt crafted using hard iron and tough leather. It's remarkable hardness ensures no weapon can easily pierce it.",
+          "fr": "Une ceinture confectionnée à l'aide de fer solide et de cuir robuste.\nSa remarquable solidité ne laisse aucune arme la transpercer facilement."
+        }
+      },
+      {
+        "id": "132334003",
+        "itemType": "Equip",
+        "detailType": "Armor",
+        "division": "Belt",
+        "grade": "Grade4",
+        "icon": "icon_armor_belt_plate_3014",
+        "imagePath": "Assets/Content/UIImg/Icon_Item/Armor/Belt_Plate_3014.png",
+        "imageRawUrl": "https://cdn-zeroluck-gg.b-cdn.net/7dso/SevenDeadlySins/Assets/Content/UIImg/Icon_Item/Armor/Belt_Plate_3014.png",
+        "name": {
+          "key": "local_item_equip_name_132334003",
+          "en": "Thunderous Belt (Finest)",
+          "fr": "Ceinture tonitruante (Incomparable)"
+        },
+        "description": {
+          "key": "local_item_equip_desc_132334003",
+          "en": "A Belt crafted using hard iron and tough leather. It's remarkable hardness ensures no weapon can easily pierce it.",
+          "fr": "Une ceinture confectionnée à l'aide de fer solide et de cuir robuste.\nSa remarquable solidité ne laisse aucune arme la transpercer facilement."
+        }
+      },
+      {
+        "id": "132433013",
+        "itemType": "Equip",
+        "detailType": "Armor",
+        "division": "Shoes",
+        "grade": "Grade3",
+        "icon": "icon_armor_shoes_plate_3014",
+        "imagePath": "Assets/Content/UIImg/Icon_Item/Armor/Shoes_Plate_3014.png",
+        "imageRawUrl": "https://cdn-zeroluck-gg.b-cdn.net/7dso/SevenDeadlySins/Assets/Content/UIImg/Icon_Item/Armor/Shoes_Plate_3014.png",
+        "name": {
+          "key": "local_item_equip_name_132433013",
+          "en": "Thunderous Combat Boots (Sturdy)",
+          "fr": "Bottes de combat tonitruantes (Robustes)"
+        },
+        "description": {
+          "key": "local_item_equip_desc_132433013",
+          "en": "Combat Boots crafted using hard iron and tough leather. Their remarkable hardness ensures no weapon can easily pierce them.",
+          "fr": "Des bottes de combat confectionnées à l'aide de fer solide et de cuir robuste.\nLeur remarquable solidité ne laisse aucune arme les transpercer facilement."
+        }
+      },
+      {
+        "id": "132434003",
+        "itemType": "Equip",
+        "detailType": "Armor",
+        "division": "Shoes",
+        "grade": "Grade4",
+        "icon": "icon_armor_shoes_plate_3014",
+        "imagePath": "Assets/Content/UIImg/Icon_Item/Armor/Shoes_Plate_3014.png",
+        "imageRawUrl": "https://cdn-zeroluck-gg.b-cdn.net/7dso/SevenDeadlySins/Assets/Content/UIImg/Icon_Item/Armor/Shoes_Plate_3014.png",
+        "name": {
+          "key": "local_item_equip_name_132434003",
+          "en": "Thunderous Combat Boots (Finest)",
+          "fr": "Bottes de combat tonitruantes (Incomparables)"
+        },
+        "description": {
+          "key": "local_item_equip_desc_132434003",
+          "en": "Combat Boots crafted using hard iron and tough leather. Their remarkable hardness ensures no weapon can easily pierce them.",
+          "fr": "Des bottes de combat confectionnées à l'aide de fer solide et de cuir robuste.\nLeur remarquable solidité ne laisse aucune arme les transpercer facilement."
+        }
+      }
+    ],
+    "effects": [
+      {
+        "id": "equip_t4_scale_3_1",
+        "set_parts_count": 3,
+        "option_type": "Option",
+        "set_option": "set1_equip_t4_scale_3",
+        "passive_level": 0,
+        "description": {
+          "en": "Attack +7.5%",
+          "fr": "Attaque +7.5%"
+        },
+        "passive": null
+      },
+      {
+        "id": "equip_t4_scale_3_2",
+        "set_parts_count": 4,
+        "option_type": "Option",
+        "set_option": "set2_equip_t4_scale_3",
+        "passive_level": 0,
+        "description": {
+          "en": "Pierce +50",
+          "fr": "Perforation +50"
+        },
+        "passive": null
+      },
+      {
+        "id": "equip_t4_scale_3_3",
+        "set_parts_count": 4,
+        "option_type": "Passive",
+        "set_option": "epset_scale_2",
+        "passive_level": 1,
+        "description": {
+          "en": "Activating a Burst restores the Magic Gauge by 1000. (Cooldown: 20 sec)",
+          "fr": "L'activation d'un Déluge restaure la jauge de magie de 1000. (Temps de recharge : 20 s)"
+        },
+        "passive": null
+      }
+    ],
+    "effect_groups": [
+      {
+        "set_parts_count": 3,
+        "entries": [
+          {
+            "id": "equip_t4_scale_3_1",
+            "set_parts_count": 3,
+            "option_type": "Option",
+            "set_option": "set1_equip_t4_scale_3",
+            "passive_level": 0,
+            "description": {
+              "en": "Attack +7.5%",
+              "fr": "Attaque +7.5%"
+            },
+            "passive": null
+          }
+        ]
+      },
+      {
+        "set_parts_count": 4,
+        "entries": [
+          {
+            "id": "equip_t4_scale_3_2",
+            "set_parts_count": 4,
+            "option_type": "Option",
+            "set_option": "set2_equip_t4_scale_3",
+            "passive_level": 0,
+            "description": {
+              "en": "Pierce +50",
+              "fr": "Perforation +50"
+            },
+            "passive": null
+          },
+          {
+            "id": "equip_t4_scale_3_3",
+            "set_parts_count": 4,
+            "option_type": "Passive",
+            "set_option": "epset_scale_2",
+            "passive_level": 1,
+            "description": {
+              "en": "Activating a Burst restores the Magic Gauge by 1000. (Cooldown: 20 sec)",
+              "fr": "L'activation d'un Déluge restaure la jauge de magie de 1000. (Temps de recharge : 20 s)"
+            },
+            "passive": null
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "equip_t4_scale_1",
+    "name": {
+      "en": "Burning Heart",
+      "fr": "Cœur ardent"
+    },
+    "icon": "equippassive_armor_v",
+    "icon_path": "Assets/Content/UIImg/origin/EquipPassive/Armor/EquipPassive_Armor_V.png",
+    "icon_raw_url": "https://cdn-zeroluck-gg.b-cdn.net/7dso/SevenDeadlySins/Assets/Content/UIImg/origin/EquipPassive/Armor/EquipPassive_Armor_V.png",
+    "pieces_count": 4,
+    "pieces": [
+      {
+        "id": "132123004",
+        "itemType": "Equip",
+        "detailType": "Armor",
+        "division": "Top",
+        "grade": "Grade3",
+        "icon": "icon_armor_top_leather_3006",
+        "imagePath": "Assets/Content/UIImg/Icon_Item/Armor/Top_Leather_3006.png",
+        "imageRawUrl": "https://cdn-zeroluck-gg.b-cdn.net/7dso/SevenDeadlySins/Assets/Content/UIImg/Icon_Item/Armor/Top_Leather_3006.png",
+        "name": {
+          "key": "local_item_equip_name_132123004",
+          "en": "Fiery Essence Top (Sturdy)",
+          "fr": "Haut de l'essence incandescente (Robuste)"
+        },
+        "description": {
+          "key": "local_item_equip_desc_132123004",
+          "en": "A Top imbued with a Fiery Essence. Thick and sturdy, yet allows for agile movement.",
+          "fr": "Un haut imprégné d'essence incandescente.\nIl permet des mouvements lestes malgré son épaisseur et sa robustesse."
+        }
+      },
+      {
+        "id": "132124001",
+        "itemType": "Equip",
+        "detailType": "Armor",
+        "division": "Top",
+        "grade": "Grade4",
+        "icon": "icon_armor_top_leather_3006",
+        "imagePath": "Assets/Content/UIImg/Icon_Item/Armor/Top_Leather_3006.png",
+        "imageRawUrl": "https://cdn-zeroluck-gg.b-cdn.net/7dso/SevenDeadlySins/Assets/Content/UIImg/Icon_Item/Armor/Top_Leather_3006.png",
+        "name": {
+          "key": "local_item_equip_name_132124001",
+          "en": "Fiery Essence Top (Finest)",
+          "fr": "Haut de l'essence incandescente (Incomparable)"
+        },
+        "description": {
+          "key": "local_item_equip_desc_132124001",
+          "en": "A Top imbued with a Fiery Essence. Thick and sturdy, yet allows for agile movement.",
+          "fr": "Un haut imprégné d'essence incandescente.\nIl permet des mouvements lestes malgré son épaisseur et sa robustesse."
+        }
+      },
+      {
+        "id": "132223004",
+        "itemType": "Equip",
+        "detailType": "Armor",
+        "division": "Bottom",
+        "grade": "Grade3",
+        "icon": "icon_armor_bottom_leather_3006",
+        "imagePath": "Assets/Content/UIImg/Icon_Item/Armor/Bottom_Leather_3006.png",
+        "imageRawUrl": "https://cdn-zeroluck-gg.b-cdn.net/7dso/SevenDeadlySins/Assets/Content/UIImg/Icon_Item/Armor/Bottom_Leather_3006.png",
+        "name": {
+          "key": "local_item_equip_name_132223004",
+          "en": "Fiery Essence Bottoms (Sturdy)",
+          "fr": "Bas de l'essence incandescente (Robuste)"
+        },
+        "description": {
+          "key": "local_item_equip_desc_132223004",
+          "en": "Bottoms imbued with a Fiery Essence. Thick and sturdy, yet allows for agile movement.",
+          "fr": "Un bas imprégné d'essence incandescente.\nIl permet des mouvements lestes malgré son épaisseur et sa robustesse."
+        }
+      },
+      {
+        "id": "132224001",
+        "itemType": "Equip",
+        "detailType": "Armor",
+        "division": "Bottom",
+        "grade": "Grade4",
+        "icon": "icon_armor_bottom_leather_3006",
+        "imagePath": "Assets/Content/UIImg/Icon_Item/Armor/Bottom_Leather_3006.png",
+        "imageRawUrl": "https://cdn-zeroluck-gg.b-cdn.net/7dso/SevenDeadlySins/Assets/Content/UIImg/Icon_Item/Armor/Bottom_Leather_3006.png",
+        "name": {
+          "key": "local_item_equip_name_132224001",
+          "en": "Fiery Essence Bottoms (Finest)",
+          "fr": "Bas de l'essence incandescente (Incomparable)"
+        },
+        "description": {
+          "key": "local_item_equip_desc_132224001",
+          "en": "Bottoms imbued with a Fiery Essence. Thick and sturdy, yet allows for agile movement.",
+          "fr": "Un bas imprégné d'essence incandescente.\nIl permet des mouvements lestes malgré son épaisseur et sa robustesse."
+        }
+      },
+      {
+        "id": "132323004",
+        "itemType": "Equip",
+        "detailType": "Armor",
+        "division": "Belt",
+        "grade": "Grade3",
+        "icon": "icon_armor_belt_leather_3006",
+        "imagePath": "Assets/Content/UIImg/Icon_Item/Armor/Belt_Leather_3006.png",
+        "imageRawUrl": "https://cdn-zeroluck-gg.b-cdn.net/7dso/SevenDeadlySins/Assets/Content/UIImg/Icon_Item/Armor/Belt_Leather_3006.png",
+        "name": {
+          "key": "local_item_equip_name_132323004",
+          "en": "Fiery Essence Belt (Sturdy)",
+          "fr": "Ceinture de l'essence incandescente (Robuste)"
+        },
+        "description": {
+          "key": "local_item_equip_desc_132323004",
+          "en": "A Belt imbued with a Fiery Essence. Thick and sturdy, yet allows for agile movement.",
+          "fr": "Une ceinture imprégnée d'essence incandescente.\nElle permet des mouvements lestes malgré son épaisseur et sa robustesse."
+        }
+      },
+      {
+        "id": "132324001",
+        "itemType": "Equip",
+        "detailType": "Armor",
+        "division": "Belt",
+        "grade": "Grade4",
+        "icon": "icon_armor_belt_leather_3006",
+        "imagePath": "Assets/Content/UIImg/Icon_Item/Armor/Belt_Leather_3006.png",
+        "imageRawUrl": "https://cdn-zeroluck-gg.b-cdn.net/7dso/SevenDeadlySins/Assets/Content/UIImg/Icon_Item/Armor/Belt_Leather_3006.png",
+        "name": {
+          "key": "local_item_equip_name_132324001",
+          "en": "Fiery Essence Belt (Finest)",
+          "fr": "Ceinture de l'essence incandescente (Incomparable)"
+        },
+        "description": {
+          "key": "local_item_equip_desc_132324001",
+          "en": "A Belt imbued with a Fiery Essence. Thick and sturdy, yet allows for agile movement.",
+          "fr": "Une ceinture imprégnée d'essence incandescente.\nElle permet des mouvements lestes malgré son épaisseur et sa robustesse."
+        }
+      },
+      {
+        "id": "132423004",
+        "itemType": "Equip",
+        "detailType": "Armor",
+        "division": "Shoes",
+        "grade": "Grade3",
+        "icon": "icon_armor_shoes_leather_3006",
+        "imagePath": "Assets/Content/UIImg/Icon_Item/Armor/Shoes_Leather_3006.png",
+        "imageRawUrl": "https://cdn-zeroluck-gg.b-cdn.net/7dso/SevenDeadlySins/Assets/Content/UIImg/Icon_Item/Armor/Shoes_Leather_3006.png",
+        "name": {
+          "key": "local_item_equip_name_132423004",
+          "en": "Fiery Essence Combat Boots (Sturdy)",
+          "fr": "Bottes de combat de l'essence incandescente (Robustes)"
+        },
+        "description": {
+          "key": "local_item_equip_desc_132423004",
+          "en": "Combat Boots imbued with a Fiery Essence. Thick and sturdy, yet allows for agile movement.",
+          "fr": "Des bottes de combat imprégnées d'essence incandescente.\nElles permettent des mouvements lestes malgré leur épaisseur et leur robustesse."
+        }
+      },
+      {
+        "id": "132424001",
+        "itemType": "Equip",
+        "detailType": "Armor",
+        "division": "Shoes",
+        "grade": "Grade4",
+        "icon": "icon_armor_shoes_leather_3006",
+        "imagePath": "Assets/Content/UIImg/Icon_Item/Armor/Shoes_Leather_3006.png",
+        "imageRawUrl": "https://cdn-zeroluck-gg.b-cdn.net/7dso/SevenDeadlySins/Assets/Content/UIImg/Icon_Item/Armor/Shoes_Leather_3006.png",
+        "name": {
+          "key": "local_item_equip_name_132424001",
+          "en": "Fiery Essence Combat Boots (Finest)",
+          "fr": "Bottes de combat de l'essence incandescente (Incomparables)"
+        },
+        "description": {
+          "key": "local_item_equip_desc_132424001",
+          "en": "Combat Boots imbued with a Fiery Essence. Thick and sturdy, yet allows for agile movement.",
+          "fr": "Des bottes de combat imprégnées d'essence incandescente.\nElles permettent des mouvements lestes malgré leur épaisseur et leur robustesse."
+        }
+      }
+    ],
+    "effects": [
+      {
+        "id": "equip_t4_scale_1_1",
+        "set_parts_count": 3,
+        "option_type": "Option",
+        "set_option": "set1_equip_t4_scale_1",
+        "passive_level": 0,
+        "description": {
+          "en": "Pierce +30",
+          "fr": "Perforation +30"
+        },
+        "passive": null
+      },
+      {
+        "id": "equip_t4_scale_1_2",
+        "set_parts_count": 4,
+        "option_type": "Option",
+        "set_option": "set2_equip_t4_scale_1",
+        "passive_level": 0,
+        "description": {
+          "en": "Attack +5%",
+          "fr": "Attaque +5%"
+        },
+        "passive": null
+      },
+      {
+        "id": "equip_t4_scale_1_3",
+        "set_parts_count": 4,
+        "option_type": "Passive",
+        "set_option": "epset_scale_1",
+        "passive_level": 1,
+        "description": {
+          "en": "Activating a Burst restores the Magic Gauge by 800. (Cooldown: 20 sec)",
+          "fr": "L'activation d'un Déluge restaure la jauge de magie de 800. (Temps de recharge : 20 s)"
+        },
+        "passive": null
+      }
+    ],
+    "effect_groups": [
+      {
+        "set_parts_count": 3,
+        "entries": [
+          {
+            "id": "equip_t4_scale_1_1",
+            "set_parts_count": 3,
+            "option_type": "Option",
+            "set_option": "set1_equip_t4_scale_1",
+            "passive_level": 0,
+            "description": {
+              "en": "Pierce +30",
+              "fr": "Perforation +30"
+            },
+            "passive": null
+          }
+        ]
+      },
+      {
+        "set_parts_count": 4,
+        "entries": [
+          {
+            "id": "equip_t4_scale_1_2",
+            "set_parts_count": 4,
+            "option_type": "Option",
+            "set_option": "set2_equip_t4_scale_1",
+            "passive_level": 0,
+            "description": {
+              "en": "Attack +5%",
+              "fr": "Attaque +5%"
+            },
+            "passive": null
+          },
+          {
+            "id": "equip_t4_scale_1_3",
+            "set_parts_count": 4,
+            "option_type": "Passive",
+            "set_option": "epset_scale_1",
+            "passive_level": 1,
+            "description": {
+              "en": "Activating a Burst restores the Magic Gauge by 800. (Cooldown: 20 sec)",
+              "fr": "L'activation d'un Déluge restaure la jauge de magie de 800. (Temps de recharge : 20 s)"
+            },
+            "passive": null
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "armor_t5_dead",
+    "name": {
+      "en": "Cries of Souls",
+      "fr": "Cris des âmes"
+    },
+    "icon": "equippassive_armor_b",
+    "icon_path": "Assets/Content/UIImg/origin/EquipPassive/Armor/EquipPassive_Armor_B.png",
+    "icon_raw_url": "https://cdn-zeroluck-gg.b-cdn.net/7dso/SevenDeadlySins/Assets/Content/UIImg/origin/EquipPassive/Armor/EquipPassive_Armor_B.png",
+    "pieces_count": 7,
+    "pieces": [
+      {
+        "id": "132125006",
+        "itemType": "Equip",
+        "detailType": "Armor",
+        "division": "Top",
+        "grade": "Grade5",
+        "icon": "icon_armor_top_plate_4039",
+        "imagePath": "Assets/Content/UIImg/Icon_Item/Armor/Top_Plate_4039.png",
+        "imageRawUrl": "https://cdn-zeroluck-gg.b-cdn.net/7dso/SevenDeadlySins/Assets/Content/UIImg/Icon_Item/Armor/Top_Plate_4039.png",
+        "name": {
+          "key": "local_item_equip_name_132125006",
+          "en": "Life Crystal Top",
+          "fr": "Haut du cristal de vie"
+        },
+        "description": {
+          "key": "local_item_equip_desc_132125006",
+          "en": "A Top crafted from crystals born of the breath of the dead. It radiates a grim aura and indestructible resilience.",
+          "fr": "Un haut fabriqué à partir de cristaux nés du souffle des morts. Il s'en dégage une aura sinistre qui semble indestructible."
+        }
+      },
+      {
+        "id": "132225006",
+        "itemType": "Equip",
+        "detailType": "Armor",
+        "division": "Bottom",
+        "grade": "Grade5",
+        "icon": "icon_armor_bottom_plate_4039",
+        "imagePath": "Assets/Content/UIImg/Icon_Item/Armor/Bottom_Plate_4039.png",
+        "imageRawUrl": "https://cdn-zeroluck-gg.b-cdn.net/7dso/SevenDeadlySins/Assets/Content/UIImg/Icon_Item/Armor/Bottom_Plate_4039.png",
+        "name": {
+          "key": "local_item_equip_name_132225006",
+          "en": "Life Crystal Bottoms",
+          "fr": "Bas du cristal de vie"
+        },
+        "description": {
+          "key": "local_item_equip_desc_132225006",
+          "en": "Bottoms crafted from crystals born of the breath of the dead. It radiates a grim aura and indestructible resilience.",
+          "fr": "Un bas fabriqué à partir de cristaux nés du souffle des morts. Il s'en dégage une aura sinistre qui semble indestructible."
+        }
+      },
+      {
+        "id": "132325006",
+        "itemType": "Equip",
+        "detailType": "Armor",
+        "division": "Belt",
+        "grade": "Grade5",
+        "icon": "icon_armor_belt_plate_4039",
+        "imagePath": "Assets/Content/UIImg/Icon_Item/Armor/Belt_Plate_4039.png",
+        "imageRawUrl": "https://cdn-zeroluck-gg.b-cdn.net/7dso/SevenDeadlySins/Assets/Content/UIImg/Icon_Item/Armor/Belt_Plate_4039.png",
+        "name": {
+          "key": "local_item_equip_name_132325006",
+          "en": "Life Crystal Belt",
+          "fr": "Ceinture du cristal de vie"
+        },
+        "description": {
+          "key": "local_item_equip_desc_132325006",
+          "en": "A Belt crafted from crystals born of the breath of the dead. It radiates a grim aura and indestructible resilience.",
+          "fr": "Une ceinture fabriquée à partir de cristaux nés du souffle des morts. Il s'en dégage une aura sinistre qui semble indestructible."
+        }
+      },
+      {
+        "id": "132425006",
+        "itemType": "Equip",
+        "detailType": "Armor",
+        "division": "Shoes",
+        "grade": "Grade5",
+        "icon": "icon_armor_shoes_plate_4039",
+        "imagePath": "Assets/Content/UIImg/Icon_Item/Armor/Shoes_Plate_4039.png",
+        "imageRawUrl": "https://cdn-zeroluck-gg.b-cdn.net/7dso/SevenDeadlySins/Assets/Content/UIImg/Icon_Item/Armor/Shoes_Plate_4039.png",
+        "name": {
+          "key": "local_item_equip_name_132425006",
+          "en": "Life Crystal Combat Boots",
+          "fr": "Bottes de combat du cristal de vie"
+        },
+        "description": {
+          "key": "local_item_equip_desc_132425006",
+          "en": "Combat Boots crafted from crystals born of the breath of the dead. It radiates a grim aura and indestructible resilience.",
+          "fr": "Des bottes de combat fabriquées à partir de cristaux nés du souffle des morts. Il s'en dégage une aura sinistre qui semble indestructible."
+        }
+      },
+      {
+        "id": "132605006",
+        "itemType": "Equip",
+        "detailType": "Accessory",
+        "division": "Necklace",
+        "grade": "Grade5",
+        "icon": "icon_acc_necklace_default_4021",
+        "imagePath": "Assets/Content/UIImg/Icon_Item/Acc/Necklace_Default_4021.png",
+        "imageRawUrl": "https://cdn-zeroluck-gg.b-cdn.net/7dso/SevenDeadlySins/Assets/Content/UIImg/Icon_Item/Acc/Necklace_Default_4021.png",
+        "name": {
+          "key": "local_item_equip_name_132605006",
+          "en": "Life Crystal Necklace",
+          "fr": "Collier du cristal de vie"
+        },
+        "description": {
+          "key": "local_item_equip_desc_132605006",
+          "en": "A Necklace crafted from crystals born of the breath of the dead. It gleams with an eerie, captivating radiance.",
+          "fr": "Un collier fabriqué à partir de cristaux nés du souffle des morts. Il resplendit d'un éclat étrange et envoûtant."
+        }
+      },
+      {
+        "id": "132705006",
+        "itemType": "Equip",
+        "detailType": "Accessory",
+        "division": "Earring",
+        "grade": "Grade5",
+        "icon": "icon_acc_earring_default_4021",
+        "imagePath": "Assets/Content/UIImg/Icon_Item/Acc/Earring_Default_4021.png",
+        "imageRawUrl": "https://cdn-zeroluck-gg.b-cdn.net/7dso/SevenDeadlySins/Assets/Content/UIImg/Icon_Item/Acc/Earring_Default_4021.png",
+        "name": {
+          "key": "local_item_equip_name_132705006",
+          "en": "Life Crystal Earrings",
+          "fr": "Boucles d'oreilles du cristal de vie"
+        },
+        "description": {
+          "key": "local_item_equip_desc_132705006",
+          "en": "Earrings crafted from crystals born of the breath of the dead. They gleam with an eerie, captivating radiance.",
+          "fr": "Des boucles d'oreilles fabriquées à partir de cristaux nés du souffle des morts. Elles resplendissent d'un éclat étrange et envoûtant."
+        }
+      },
+      {
+        "id": "132805006",
+        "itemType": "Equip",
+        "detailType": "Accessory",
+        "division": "Ring",
+        "grade": "Grade5",
+        "icon": "icon_acc_ring_default_4021",
+        "imagePath": "Assets/Content/UIImg/Icon_Item/Acc/Ring_Default_4021.png",
+        "imageRawUrl": "https://cdn-zeroluck-gg.b-cdn.net/7dso/SevenDeadlySins/Assets/Content/UIImg/Icon_Item/Acc/Ring_Default_4021.png",
+        "name": {
+          "key": "local_item_equip_name_132805006",
+          "en": "Life Crystal Ring",
+          "fr": "Anneau du cristal de vie"
+        },
+        "description": {
+          "key": "local_item_equip_desc_132805006",
+          "en": "A Ring crafted from crystals born of the breath of the dead. It gleams with an eerie, captivating radiance.",
+          "fr": "Un anneau fabriqué à partir de cristaux nés du souffle des morts. Il resplendit d'un éclat étrange et envoûtant."
+        }
+      }
+    ],
+    "effects": [
+      {
+        "id": "armor_t5_dead_1",
+        "set_parts_count": 2,
+        "option_type": "Option",
+        "set_option": "set1_armor_t5_dead",
+        "passive_level": 0,
+        "description": {
+          "en": "Earth Attack +100",
+          "fr": "Attaque de Terre +100"
+        },
+        "passive": null
+      },
+      {
+        "id": "armor_t5_dead_2",
+        "set_parts_count": 4,
+        "option_type": "Option",
+        "set_option": "set2_armor_t5_dead",
+        "passive_level": 0,
+        "description": {
+          "en": "Defense +20%",
+          "fr": "Défense +20%"
+        },
+        "passive": null
+      },
+      {
+        "id": "armor_t5_dead_3",
+        "set_parts_count": 4,
+        "option_type": "Passive",
+        "set_option": "epset_b",
+        "passive_level": 1,
+        "description": {
+          "en": "Each time Perseverance is triggered when hit, the Tag Gauge is restored by 50 and Perseverance increases by 4 for 20 sec. (Max: 40)",
+          "fr": "Chaque fois que la persévérance est déclenchée, restaure la jauge de relève de 50 et augmente la persévérance de 4 pendant 20 s. (Max : 40)"
+        },
+        "passive": null
+      },
+      {
+        "id": "armor_t5_dead_4",
+        "set_parts_count": 7,
+        "option_type": "Option",
+        "set_option": "set3_armor_t5_dead",
+        "passive_level": 0,
+        "description": {
+          "en": "Earth Damage +20%",
+          "fr": "Dégâts de Terre +20%"
+        },
+        "passive": null
+      },
+      {
+        "id": "armor_t5_dead_5",
+        "set_parts_count": 7,
+        "option_type": "Passive",
+        "set_option": "epset_b",
+        "passive_level": 1,
+        "description": {
+          "en": "Each time Perseverance is triggered when hit, the Tag Gauge is restored by 100 and Perseverance increases by 5 for 20 sec. (Max: 50)",
+          "fr": "Chaque fois que la persévérance est déclenchée, restaure la jauge de relève de 100 et augmente la persévérance de 5 pendant 20 s. (Max : 50)"
+        },
+        "passive": null
+      }
+    ],
+    "effect_groups": [
+      {
+        "set_parts_count": 2,
+        "entries": [
+          {
+            "id": "armor_t5_dead_1",
+            "set_parts_count": 2,
+            "option_type": "Option",
+            "set_option": "set1_armor_t5_dead",
+            "passive_level": 0,
+            "description": {
+              "en": "Earth Attack +100",
+              "fr": "Attaque de Terre +100"
+            },
+            "passive": null
+          }
+        ]
+      },
+      {
+        "set_parts_count": 4,
+        "entries": [
+          {
+            "id": "armor_t5_dead_2",
+            "set_parts_count": 4,
+            "option_type": "Option",
+            "set_option": "set2_armor_t5_dead",
+            "passive_level": 0,
+            "description": {
+              "en": "Defense +20%",
+              "fr": "Défense +20%"
+            },
+            "passive": null
+          },
+          {
+            "id": "armor_t5_dead_3",
+            "set_parts_count": 4,
+            "option_type": "Passive",
+            "set_option": "epset_b",
+            "passive_level": 1,
+            "description": {
+              "en": "Each time Perseverance is triggered when hit, the Tag Gauge is restored by 50 and Perseverance increases by 4 for 20 sec. (Max: 40)",
+              "fr": "Chaque fois que la persévérance est déclenchée, restaure la jauge de relève de 50 et augmente la persévérance de 4 pendant 20 s. (Max : 40)"
+            },
+            "passive": null
+          }
+        ]
+      },
+      {
+        "set_parts_count": 7,
+        "entries": [
+          {
+            "id": "armor_t5_dead_4",
+            "set_parts_count": 7,
+            "option_type": "Option",
+            "set_option": "set3_armor_t5_dead",
+            "passive_level": 0,
+            "description": {
+              "en": "Earth Damage +20%",
+              "fr": "Dégâts de Terre +20%"
+            },
+            "passive": null
+          },
+          {
+            "id": "armor_t5_dead_5",
+            "set_parts_count": 7,
+            "option_type": "Passive",
+            "set_option": "epset_b",
+            "passive_level": 1,
+            "description": {
+              "en": "Each time Perseverance is triggered when hit, the Tag Gauge is restored by 100 and Perseverance increases by 5 for 20 sec. (Max: 50)",
+              "fr": "Chaque fois que la persévérance est déclenchée, restaure la jauge de relève de 100 et augmente la persévérance de 5 pendant 20 s. (Max : 50)"
+            },
+            "passive": null
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "accessory_t5_crystal",
+    "name": {
+      "en": "Deadly Fragment",
+      "fr": "Fragment mortel"
+    },
+    "icon": "equippassive_armor_s",
+    "icon_path": "Assets/Content/UIImg/origin/EquipPassive/Armor/EquipPassive_Armor_S.png",
+    "icon_raw_url": "https://cdn-zeroluck-gg.b-cdn.net/7dso/SevenDeadlySins/Assets/Content/UIImg/origin/EquipPassive/Armor/EquipPassive_Armor_S.png",
+    "pieces_count": 4,
+    "pieces": [
+      {
+        "id": "132135003",
+        "itemType": "Equip",
+        "detailType": "Armor",
+        "division": "Top",
+        "grade": "Grade5",
+        "icon": "icon_armor_top_plate_4036",
+        "imagePath": "Assets/Content/UIImg/Icon_Item/Armor/Top_Plate_4036.png",
+        "imageRawUrl": "https://cdn-zeroluck-gg.b-cdn.net/7dso/SevenDeadlySins/Assets/Content/UIImg/Icon_Item/Armor/Top_Plate_4036.png",
+        "name": {
+          "key": "local_item_equip_name_132135003",
+          "en": "Jet-black Crystal Top",
+          "fr": "Haut du cristal noir de jais"
+        },
+        "description": {
+          "key": "local_item_equip_desc_132135003",
+          "en": "A Top polished with a fine powder made from ground black crystals. It effectively wards off incoming attacks.",
+          "fr": "Un haut qui a été poli à l'aide de cristaux noirs finement moulus. Il protège efficacement des attaques."
+        }
+      },
+      {
+        "id": "132235003",
+        "itemType": "Equip",
+        "detailType": "Armor",
+        "division": "Bottom",
+        "grade": "Grade5",
+        "icon": "icon_armor_bottom_plate_4036",
+        "imagePath": "Assets/Content/UIImg/Icon_Item/Armor/Bottom_Plate_4036.png",
+        "imageRawUrl": "https://cdn-zeroluck-gg.b-cdn.net/7dso/SevenDeadlySins/Assets/Content/UIImg/Icon_Item/Armor/Bottom_Plate_4036.png",
+        "name": {
+          "key": "local_item_equip_name_132235003",
+          "en": "Jet-black Crystal Bottoms",
+          "fr": "Bas du cristal noir de jais"
+        },
+        "description": {
+          "key": "local_item_equip_desc_132235003",
+          "en": "Bottoms polished with a fine powder made from ground black crystals. They effectively ward off incoming attacks.",
+          "fr": "Un bas qui a été poli à l'aide de cristaux noirs finement moulus. Il protège efficacement des attaques."
+        }
+      },
+      {
+        "id": "132335003",
+        "itemType": "Equip",
+        "detailType": "Armor",
+        "division": "Belt",
+        "grade": "Grade5",
+        "icon": "icon_armor_belt_plate_4036",
+        "imagePath": "Assets/Content/UIImg/Icon_Item/Armor/Belt_Plate_4036.png",
+        "imageRawUrl": "https://cdn-zeroluck-gg.b-cdn.net/7dso/SevenDeadlySins/Assets/Content/UIImg/Icon_Item/Armor/Belt_Plate_4036.png",
+        "name": {
+          "key": "local_item_equip_name_132335003",
+          "en": "Jet-black Crystal Belt",
+          "fr": "Ceinture du cristal noir de jais"
+        },
+        "description": {
+          "key": "local_item_equip_desc_132335003",
+          "en": "A Belt polished with a fine powder made from ground black crystals. It effectively wards off incoming attacks.",
+          "fr": "Une ceinture qui a été polie à l'aide de cristaux noirs finement moulus. Elle protège efficacement des attaques."
+        }
+      },
+      {
+        "id": "132435003",
+        "itemType": "Equip",
+        "detailType": "Armor",
+        "division": "Shoes",
+        "grade": "Grade5",
+        "icon": "icon_armor_shoes_plate_4036",
+        "imagePath": "Assets/Content/UIImg/Icon_Item/Armor/Shoes_Plate_4036.png",
+        "imageRawUrl": "https://cdn-zeroluck-gg.b-cdn.net/7dso/SevenDeadlySins/Assets/Content/UIImg/Icon_Item/Armor/Shoes_Plate_4036.png",
+        "name": {
+          "key": "local_item_equip_name_132435003",
+          "en": "Jet-black Crystal Combat Boots",
+          "fr": "Bottes de combat du cristal noir de jais"
+        },
+        "description": {
+          "key": "local_item_equip_desc_132435003",
+          "en": "Combat Boots polished with a fine powder made from ground black crystals. They effectively wards off incoming attacks.",
+          "fr": "Des bottes de combat qui ont été polies à l'aide de cristaux noirs finement moulus. Elles protègent efficacement des attaques."
+        }
+      }
+    ],
+    "effects": [
+      {
+        "id": "accessory_t5_crystal_1",
+        "set_parts_count": 2,
+        "option_type": "Option",
+        "set_option": "set1_accessory_t5_crystal",
+        "passive_level": 0,
+        "description": {
+          "en": "Normal Skill Damage +10%",
+          "fr": "Dégâts de compétence normale +10%"
+        },
+        "passive": null
+      },
+      {
+        "id": "accessory_t5_crystal_2",
+        "set_parts_count": 4,
+        "option_type": "Option",
+        "set_option": "set2_accessory_t5_crystal",
+        "passive_level": 0,
+        "description": {
+          "en": "Crit Damage +15%",
+          "fr": "Dégâts crit. +15%"
+        },
+        "passive": null
+      },
+      {
+        "id": "accessory_t5_crystal_3",
+        "set_parts_count": 4,
+        "option_type": "Passive",
+        "set_option": "epset_s_2",
+        "passive_level": 1,
+        "description": {
+          "en": "6% chance to increase Crit Chance by 50% for 5 sec when landing an attack. 30% chance to deal additional damage equal to 30% of Attack when landing a Critical Hit while the effect is active. (Cooldown: 10 sec)",
+          "fr": "6% de chances d'augmenter les chances crit. de 50% pendant 5 s lorsqu'une attaque fait mouche. 30% de chances d'infliger des dégâts supplémentaires égaux à 30% de l'attaque après avoir réussi un coup critique lorsque l'effet est actif. (Temps de recharge : 10 s)"
+        },
+        "passive": null
+      }
+    ],
+    "effect_groups": [
+      {
+        "set_parts_count": 2,
+        "entries": [
+          {
+            "id": "accessory_t5_crystal_1",
+            "set_parts_count": 2,
+            "option_type": "Option",
+            "set_option": "set1_accessory_t5_crystal",
+            "passive_level": 0,
+            "description": {
+              "en": "Normal Skill Damage +10%",
+              "fr": "Dégâts de compétence normale +10%"
+            },
+            "passive": null
+          }
+        ]
+      },
+      {
+        "set_parts_count": 4,
+        "entries": [
+          {
+            "id": "accessory_t5_crystal_2",
+            "set_parts_count": 4,
+            "option_type": "Option",
+            "set_option": "set2_accessory_t5_crystal",
+            "passive_level": 0,
+            "description": {
+              "en": "Crit Damage +15%",
+              "fr": "Dégâts crit. +15%"
+            },
+            "passive": null
+          },
+          {
+            "id": "accessory_t5_crystal_3",
+            "set_parts_count": 4,
+            "option_type": "Passive",
+            "set_option": "epset_s_2",
+            "passive_level": 1,
+            "description": {
+              "en": "6% chance to increase Crit Chance by 50% for 5 sec when landing an attack. 30% chance to deal additional damage equal to 30% of Attack when landing a Critical Hit while the effect is active. (Cooldown: 10 sec)",
+              "fr": "6% de chances d'augmenter les chances crit. de 50% pendant 5 s lorsqu'une attaque fait mouche. 30% de chances d'infliger des dégâts supplémentaires égaux à 30% de l'attaque après avoir réussi un coup critique lorsque l'effet est actif. (Temps de recharge : 10 s)"
+            },
+            "passive": null
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "accessory_t5_corruption",
+    "name": {
+      "en": "Edge of the Void",
+      "fr": "Au bord du néant"
+    },
+    "icon": "equippassive_armor_a",
+    "icon_path": "Assets/Content/UIImg/origin/EquipPassive/Armor/EquipPassive_Armor_A.png",
+    "icon_raw_url": "https://cdn-zeroluck-gg.b-cdn.net/7dso/SevenDeadlySins/Assets/Content/UIImg/origin/EquipPassive/Armor/EquipPassive_Armor_A.png",
+    "pieces_count": 3,
+    "pieces": [
+      {
+        "id": "132604004",
+        "itemType": "Equip",
+        "detailType": "Accessory",
+        "division": "Necklace",
+        "grade": "Grade5",
+        "icon": "icon_acc_necklace_default_4006",
+        "imagePath": "Assets/Content/UIImg/Icon_Item/Acc/Necklace_Default_4006.png",
+        "imageRawUrl": "https://cdn-zeroluck-gg.b-cdn.net/7dso/SevenDeadlySins/Assets/Content/UIImg/Icon_Item/Acc/Necklace_Default_4006.png",
+        "name": {
+          "key": "local_item_equip_name_132604004",
+          "en": "Corrupted Watcher's Necklace",
+          "fr": "Collier du vigile corrompu"
+        },
+        "description": {
+          "key": "local_item_equip_desc_132604004",
+          "en": "A Necklace forged by melting down the Underground Prison Warden's key. Traces of Corruption have vanished, leaving behind pure, undeniable beauty.",
+          "fr": "Un collier forgé en fondant la clé du directeur de la prison souterraine.\nToutes traces de corruption en ont disparu, ne laissant que la pureté de son incontestable beauté."
+        }
+      },
+      {
+        "id": "132704004",
+        "itemType": "Equip",
+        "detailType": "Accessory",
+        "division": "Earring",
+        "grade": "Grade5",
+        "icon": "icon_acc_earring_default_4006",
+        "imagePath": "Assets/Content/UIImg/Icon_Item/Acc/Earring_Default_4006.png",
+        "imageRawUrl": "https://cdn-zeroluck-gg.b-cdn.net/7dso/SevenDeadlySins/Assets/Content/UIImg/Icon_Item/Acc/Earring_Default_4006.png",
+        "name": {
+          "key": "local_item_equip_name_132704004",
+          "en": "Corrupted Watcher's Earrings",
+          "fr": "Boucles d'oreilles du vigile corrompu"
+        },
+        "description": {
+          "key": "local_item_equip_desc_132704004",
+          "en": "Earrings forged by melting down the Underground Prison Warden's key. Traces of Corruption have vanished, leaving behind pure, undeniable beauty.",
+          "fr": "Des boucles d'oreilles forgées en fondant la clé du directeur de la prison souterraine.\nToutes traces de corruption en ont disparu, ne laissant que la pureté de leur incontestable beauté."
+        }
+      },
+      {
+        "id": "132804004",
+        "itemType": "Equip",
+        "detailType": "Accessory",
+        "division": "Ring",
+        "grade": "Grade5",
+        "icon": "icon_acc_ring_default_4006",
+        "imagePath": "Assets/Content/UIImg/Icon_Item/Acc/Ring_Default_4006.png",
+        "imageRawUrl": "https://cdn-zeroluck-gg.b-cdn.net/7dso/SevenDeadlySins/Assets/Content/UIImg/Icon_Item/Acc/Ring_Default_4006.png",
+        "name": {
+          "key": "local_item_equip_name_132804004",
+          "en": "Corrupted Watcher's Ring",
+          "fr": "Anneau du vigile corrompu"
+        },
+        "description": {
+          "key": "local_item_equip_desc_132804004",
+          "en": "A Ring forged by melting down the Underground Prison Warden's key. Traces of Corruption have vanished, leaving behind pure, undeniable beauty.",
+          "fr": "Un anneau forgé en fondant la clé du directeur de la prison souterraine.\nToutes traces de corruption en ont disparu, ne laissant que la pureté de son incontestable beauté."
+        }
+      }
+    ],
+    "effects": [
+      {
+        "id": "accessory_t5_corruption_1",
+        "set_parts_count": 2,
+        "option_type": "Option",
+        "set_option": "set1_accessory_t5_corruption",
+        "passive_level": 0,
+        "description": {
+          "en": "Defense Shatter +5%",
+          "fr": "Percement de défense +5%"
+        },
+        "passive": null
+      },
+      {
+        "id": "accessory_t5_corruption_2",
+        "set_parts_count": 3,
+        "option_type": "Option",
+        "set_option": "set2_accessory_t5_corruption",
+        "passive_level": 0,
+        "description": {
+          "en": "All Damage +7.5%",
+          "fr": "Tous les dégâts +7.5%"
+        },
+        "passive": null
+      },
+      {
+        "id": "accessory_t5_corruption_3",
+        "set_parts_count": 3,
+        "option_type": "Passive",
+        "set_option": "epset_a",
+        "passive_level": 1,
+        "description": {
+          "en": "If Tag Points are fewer than 1 when using the Tag Skill, the Tag Gauge is restored by 100 every second for 10 sec. (Cooldown: 20 sec)",
+          "fr": "Lorsque les points de relève sont inférieurs à 1 au moment d'utiliser la compétence de relève, restaure la jauge de relève de 100 toutes les secondes pendant 10 s. (Temps de recharge : 20 s)"
+        },
+        "passive": null
+      }
+    ],
+    "effect_groups": [
+      {
+        "set_parts_count": 2,
+        "entries": [
+          {
+            "id": "accessory_t5_corruption_1",
+            "set_parts_count": 2,
+            "option_type": "Option",
+            "set_option": "set1_accessory_t5_corruption",
+            "passive_level": 0,
+            "description": {
+              "en": "Defense Shatter +5%",
+              "fr": "Percement de défense +5%"
+            },
+            "passive": null
+          }
+        ]
+      },
+      {
+        "set_parts_count": 3,
+        "entries": [
+          {
+            "id": "accessory_t5_corruption_2",
+            "set_parts_count": 3,
+            "option_type": "Option",
+            "set_option": "set2_accessory_t5_corruption",
+            "passive_level": 0,
+            "description": {
+              "en": "All Damage +7.5%",
+              "fr": "Tous les dégâts +7.5%"
+            },
+            "passive": null
+          },
+          {
+            "id": "accessory_t5_corruption_3",
+            "set_parts_count": 3,
+            "option_type": "Passive",
+            "set_option": "epset_a",
+            "passive_level": 1,
+            "description": {
+              "en": "If Tag Points are fewer than 1 when using the Tag Skill, the Tag Gauge is restored by 100 every second for 10 sec. (Cooldown: 20 sec)",
+              "fr": "Lorsque les points de relève sont inférieurs à 1 au moment d'utiliser la compétence de relève, restaure la jauge de relève de 100 toutes les secondes pendant 10 s. (Temps de recharge : 20 s)"
+            },
+            "passive": null
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "armor_t5_spider",
+    "name": {
+      "en": "Grudge of the Spider Nest",
+      "fr": "Rancœur du nid d'araignée"
+    },
+    "icon": "equippassive_armor_e",
+    "icon_path": "Assets/Content/UIImg/origin/EquipPassive/Armor/EquipPassive_Armor_E.png",
+    "icon_raw_url": "https://cdn-zeroluck-gg.b-cdn.net/7dso/SevenDeadlySins/Assets/Content/UIImg/origin/EquipPassive/Armor/EquipPassive_Armor_E.png",
+    "pieces_count": 7,
+    "pieces": [
+      {
+        "id": "132125005",
+        "itemType": "Equip",
+        "detailType": "Armor",
+        "division": "Top",
+        "grade": "Grade5",
+        "icon": "icon_armor_top_plate_4038",
+        "imagePath": "Assets/Content/UIImg/Icon_Item/Armor/Top_Plate_4038.png",
+        "imageRawUrl": "https://cdn-zeroluck-gg.b-cdn.net/7dso/SevenDeadlySins/Assets/Content/UIImg/Icon_Item/Armor/Top_Plate_4038.png",
+        "name": {
+          "key": "local_item_equip_name_132125005",
+          "en": "Arachne's Melody Top",
+          "fr": "Haut de la mélodie d'Arachnée"
+        },
+        "description": {
+          "key": "local_item_equip_desc_132125005",
+          "en": "A Top woven from resilient, durable spider silk. Its tightly woven fabric makes it resistant to damage.",
+          "fr": "Un haut tissé à l'aide de soie d'araignée résistante et robuste. Son tissage très serré lui permet de résister aux dégâts."
+        }
+      },
+      {
+        "id": "132225005",
+        "itemType": "Equip",
+        "detailType": "Armor",
+        "division": "Bottom",
+        "grade": "Grade5",
+        "icon": "icon_armor_bottom_plate_4038",
+        "imagePath": "Assets/Content/UIImg/Icon_Item/Armor/Bottom_Plate_4038.png",
+        "imageRawUrl": "https://cdn-zeroluck-gg.b-cdn.net/7dso/SevenDeadlySins/Assets/Content/UIImg/Icon_Item/Armor/Bottom_Plate_4038.png",
+        "name": {
+          "key": "local_item_equip_name_132225005",
+          "en": "Arachne's Melody Bottoms",
+          "fr": "Bas de la mélodie d'Arachnée"
+        },
+        "description": {
+          "key": "local_item_equip_desc_132225005",
+          "en": "Bottoms woven from resilient, durable spider silk. Its tightly woven fabric makes it resistant to damage.",
+          "fr": "Un bas tissé à l'aide de soie d'araignée résistante et robuste. Son tissage très serré lui permet de résister aux dégâts."
+        }
+      },
+      {
+        "id": "132325005",
+        "itemType": "Equip",
+        "detailType": "Armor",
+        "division": "Belt",
+        "grade": "Grade5",
+        "icon": "icon_armor_belt_plate_4038",
+        "imagePath": "Assets/Content/UIImg/Icon_Item/Armor/Belt_Plate_4038.png",
+        "imageRawUrl": "https://cdn-zeroluck-gg.b-cdn.net/7dso/SevenDeadlySins/Assets/Content/UIImg/Icon_Item/Armor/Belt_Plate_4038.png",
+        "name": {
+          "key": "local_item_equip_name_132325005",
+          "en": "Arachne's Melody Belt",
+          "fr": "Ceinture de la mélodie d'Arachnée"
+        },
+        "description": {
+          "key": "local_item_equip_desc_132325005",
+          "en": "A Belt woven from resilient, durable spider silk. Its tightly woven fabric makes it resistant to damage.",
+          "fr": "Une ceinture tissée à l'aide de soie d'araignée résistante et robuste. Son tissage très serré lui permet de résister aux dégâts."
+        }
+      },
+      {
+        "id": "132425005",
+        "itemType": "Equip",
+        "detailType": "Armor",
+        "division": "Shoes",
+        "grade": "Grade5",
+        "icon": "icon_armor_shoes_plate_4038",
+        "imagePath": "Assets/Content/UIImg/Icon_Item/Armor/Shoes_Plate_4038.png",
+        "imageRawUrl": "https://cdn-zeroluck-gg.b-cdn.net/7dso/SevenDeadlySins/Assets/Content/UIImg/Icon_Item/Armor/Shoes_Plate_4038.png",
+        "name": {
+          "key": "local_item_equip_name_132425005",
+          "en": "Arachne's Melody Combat Boots",
+          "fr": "Bottes de combat de la mélodie d'Arachnée"
+        },
+        "description": {
+          "key": "local_item_equip_desc_132425005",
+          "en": "Combat Boots woven from resilient, durable spider silk. Its tightly woven fabric makes it resistant to damage.",
+          "fr": "Des bottes de combat tissées à l'aide de soie d'araignée résistante et robuste. Leur tissage très serré leur permet de résister aux dégâts."
+        }
+      },
+      {
+        "id": "132605005",
+        "itemType": "Equip",
+        "detailType": "Accessory",
+        "division": "Necklace",
+        "grade": "Grade5",
+        "icon": "icon_acc_necklace_default_4020",
+        "imagePath": "Assets/Content/UIImg/Icon_Item/Acc/Necklace_Default_4020.png",
+        "imageRawUrl": "https://cdn-zeroluck-gg.b-cdn.net/7dso/SevenDeadlySins/Assets/Content/UIImg/Icon_Item/Acc/Necklace_Default_4020.png",
+        "name": {
+          "key": "local_item_equip_name_132605005",
+          "en": "Arachne's Melody Necklace",
+          "fr": "Collier de la mélodie d'Arachnée"
+        },
+        "description": {
+          "key": "local_item_equip_desc_132605005",
+          "en": "A Necklace woven from unyielding spider silk, each tiny gem meticulously bound to create an intricate masterpiece.",
+          "fr": "Un collier tissé à partir de soie d'araignée insécable, sur laquelle chaque minuscule gemme méticuleusement sertie participe à créer un chef-d'œuvre de complexité."
+        }
+      },
+      {
+        "id": "132705005",
+        "itemType": "Equip",
+        "detailType": "Accessory",
+        "division": "Earring",
+        "grade": "Grade5",
+        "icon": "icon_acc_earring_default_4020",
+        "imagePath": "Assets/Content/UIImg/Icon_Item/Acc/Earring_Default_4020.png",
+        "imageRawUrl": "https://cdn-zeroluck-gg.b-cdn.net/7dso/SevenDeadlySins/Assets/Content/UIImg/Icon_Item/Acc/Earring_Default_4020.png",
+        "name": {
+          "key": "local_item_equip_name_132705005",
+          "en": "Arachne's Melody Earrings",
+          "fr": "Boucles d'oreilles de la mélodie d'Arachnée"
+        },
+        "description": {
+          "key": "local_item_equip_desc_132705005",
+          "en": "Earrings woven from unyielding spider silk, each tiny gem meticulously bound to create an intricate masterpiece.",
+          "fr": "Des boucles d'oreilles tissées à partir de soie d'araignée insécable, sur laquelle chaque minuscule gemme méticuleusement sertie participe à créer un chef-d'œuvre de complexité."
+        }
+      },
+      {
+        "id": "132805005",
+        "itemType": "Equip",
+        "detailType": "Accessory",
+        "division": "Ring",
+        "grade": "Grade5",
+        "icon": "icon_acc_ring_default_4020",
+        "imagePath": "Assets/Content/UIImg/Icon_Item/Acc/Ring_Default_4020.png",
+        "imageRawUrl": "https://cdn-zeroluck-gg.b-cdn.net/7dso/SevenDeadlySins/Assets/Content/UIImg/Icon_Item/Acc/Ring_Default_4020.png",
+        "name": {
+          "key": "local_item_equip_name_132805005",
+          "en": "Arachne's Melody Ring",
+          "fr": "Anneau de la mélodie d'Arachnée"
+        },
+        "description": {
+          "key": "local_item_equip_desc_132805005",
+          "en": "A Ring woven from unyielding spider silk, each tiny gem meticulously bound to create an intricate masterpiece.",
+          "fr": "Un anneau tissé à partir de soie d'araignée insécable, sur laquelle chaque minuscule gemme méticuleusement sertie participe à créer un chef-d'œuvre de complexité."
+        }
+      }
+    ],
+    "effects": [
+      {
+        "id": "armor_t5_spider_1",
+        "set_parts_count": 3,
+        "option_type": "Option",
+        "set_option": "set1_armor_t5_spider",
+        "passive_level": 0,
+        "description": {
+          "en": "Fire Attack +10%",
+          "fr": "Attaque de Feu +10%"
+        },
+        "passive": null
+      },
+      {
+        "id": "armor_t5_spider_2",
+        "set_parts_count": 5,
+        "option_type": "Option",
+        "set_option": "set2_armor_t5_spider",
+        "passive_level": 0,
+        "description": {
+          "en": "Normal Skill Damage +15%",
+          "fr": "Dégâts de compétence normale +15%"
+        },
+        "passive": null
+      },
+      {
+        "id": "armor_t5_spider_3",
+        "set_parts_count": 5,
+        "option_type": "Passive",
+        "set_option": "epset_e",
+        "passive_level": 1,
+        "description": {
+          "en": "If Magic Points are 6 or greater when using a skill, Buff and Debuff durations are increased by 18% for 10 sec. (Cooldown: 20 sec)",
+          "fr": "Lorsque les points de magie sont supérieurs ou égaux à 6 au moment d'utiliser une compétence, augmente la durée des bonus et des malus de 18% pendant 10 s. (Temps de recharge : 20 s)"
+        },
+        "passive": null
+      },
+      {
+        "id": "armor_t5_spider_4",
+        "set_parts_count": 7,
+        "option_type": "Option",
+        "set_option": "set3_armor_t5_spider",
+        "passive_level": 0,
+        "description": {
+          "en": "Fire Damage +25%",
+          "fr": "Dégâts de Feu +25%"
+        },
+        "passive": null
+      },
+      {
+        "id": "armor_t5_spider_5",
+        "set_parts_count": 7,
+        "option_type": "Passive",
+        "set_option": "epset_e",
+        "passive_level": 1,
+        "description": {
+          "en": "If Magic Points are 6 or greater when using a skill, Buff and Debuff durations are increased by 24% for 10 sec. (Cooldown: 20 sec)",
+          "fr": "Lorsque les points de magie sont supérieurs ou égaux à 6 au moment d'utiliser une compétence, augmente la durée des bonus et des malus de 24% pendant 10 s. (Temps de recharge : 20 s)"
+        },
+        "passive": null
+      }
+    ],
+    "effect_groups": [
+      {
+        "set_parts_count": 3,
+        "entries": [
+          {
+            "id": "armor_t5_spider_1",
+            "set_parts_count": 3,
+            "option_type": "Option",
+            "set_option": "set1_armor_t5_spider",
+            "passive_level": 0,
+            "description": {
+              "en": "Fire Attack +10%",
+              "fr": "Attaque de Feu +10%"
+            },
+            "passive": null
+          }
+        ]
+      },
+      {
+        "set_parts_count": 5,
+        "entries": [
+          {
+            "id": "armor_t5_spider_2",
+            "set_parts_count": 5,
+            "option_type": "Option",
+            "set_option": "set2_armor_t5_spider",
+            "passive_level": 0,
+            "description": {
+              "en": "Normal Skill Damage +15%",
+              "fr": "Dégâts de compétence normale +15%"
+            },
+            "passive": null
+          },
+          {
+            "id": "armor_t5_spider_3",
+            "set_parts_count": 5,
+            "option_type": "Passive",
+            "set_option": "epset_e",
+            "passive_level": 1,
+            "description": {
+              "en": "If Magic Points are 6 or greater when using a skill, Buff and Debuff durations are increased by 18% for 10 sec. (Cooldown: 20 sec)",
+              "fr": "Lorsque les points de magie sont supérieurs ou égaux à 6 au moment d'utiliser une compétence, augmente la durée des bonus et des malus de 18% pendant 10 s. (Temps de recharge : 20 s)"
+            },
+            "passive": null
+          }
+        ]
+      },
+      {
+        "set_parts_count": 7,
+        "entries": [
+          {
+            "id": "armor_t5_spider_4",
+            "set_parts_count": 7,
+            "option_type": "Option",
+            "set_option": "set3_armor_t5_spider",
+            "passive_level": 0,
+            "description": {
+              "en": "Fire Damage +25%",
+              "fr": "Dégâts de Feu +25%"
+            },
+            "passive": null
+          },
+          {
+            "id": "armor_t5_spider_5",
+            "set_parts_count": 7,
+            "option_type": "Passive",
+            "set_option": "epset_e",
+            "passive_level": 1,
+            "description": {
+              "en": "If Magic Points are 6 or greater when using a skill, Buff and Debuff durations are increased by 24% for 10 sec. (Cooldown: 20 sec)",
+              "fr": "Lorsque les points de magie sont supérieurs ou égaux à 6 au moment d'utiliser une compétence, augmente la durée des bonus et des malus de 24% pendant 10 s. (Temps de recharge : 20 s)"
+            },
+            "passive": null
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "armor_t4_immortal",
+    "name": {
+      "en": "Lavender Brilliance",
+      "fr": "Brillance lavande"
+    },
+    "icon": "equippassive_armor_h",
+    "icon_path": "Assets/Content/UIImg/origin/EquipPassive/Armor/EquipPassive_Armor_H.png",
+    "icon_raw_url": "https://cdn-zeroluck-gg.b-cdn.net/7dso/SevenDeadlySins/Assets/Content/UIImg/origin/EquipPassive/Armor/EquipPassive_Armor_H.png",
+    "pieces_count": 3,
+    "pieces": [
+      {
+        "id": "132604001",
+        "itemType": "Equip",
+        "detailType": "Accessory",
+        "division": "Necklace",
+        "grade": "Grade4",
+        "icon": "icon_acc_necklace_default_4003",
+        "imagePath": "Assets/Content/UIImg/Icon_Item/Acc/Necklace_Default_4003.png",
+        "imageRawUrl": "https://cdn-zeroluck-gg.b-cdn.net/7dso/SevenDeadlySins/Assets/Content/UIImg/Icon_Item/Acc/Necklace_Default_4003.png",
+        "name": {
+          "key": "local_item_equip_name_132604001",
+          "en": "Immortal Guardian Necklace",
+          "fr": "Collier de gardien immortel"
+        },
+        "description": {
+          "key": "local_item_equip_desc_132604001",
+          "en": "A Necklace infused with the mysterious cosmic power. Simply wearing it is said to shield the wearer from harm.",
+          "fr": "Un collier imprégné d'une mystérieuse puissance cosmique. Le simple fait de le porter suffirait à se protéger du danger."
+        }
+      },
+      {
+        "id": "132704001",
+        "itemType": "Equip",
+        "detailType": "Accessory",
+        "division": "Earring",
+        "grade": "Grade4",
+        "icon": "icon_acc_earring_default_4003",
+        "imagePath": "Assets/Content/UIImg/Icon_Item/Acc/Earring_Default_4003.png",
+        "imageRawUrl": "https://cdn-zeroluck-gg.b-cdn.net/7dso/SevenDeadlySins/Assets/Content/UIImg/Icon_Item/Acc/Earring_Default_4003.png",
+        "name": {
+          "key": "local_item_equip_name_132704001",
+          "en": "Immortal Guardian Earrings",
+          "fr": "Boucles d'oreilles de gardien immortel"
+        },
+        "description": {
+          "key": "local_item_equip_desc_132704001",
+          "en": "Earrings infused with the mysterious cosmic power. Simply wearing them is said to shield the wearer from harm.",
+          "fr": "Des boucles d'oreilles imprégnées d'une mystérieuse puissance cosmique. Le simple fait de les porter suffirait à se protéger du danger."
+        }
+      },
+      {
+        "id": "132804001",
+        "itemType": "Equip",
+        "detailType": "Accessory",
+        "division": "Ring",
+        "grade": "Grade4",
+        "icon": "icon_acc_ring_default_4003",
+        "imagePath": "Assets/Content/UIImg/Icon_Item/Acc/Ring_Default_4003.png",
+        "imageRawUrl": "https://cdn-zeroluck-gg.b-cdn.net/7dso/SevenDeadlySins/Assets/Content/UIImg/Icon_Item/Acc/Ring_Default_4003.png",
+        "name": {
+          "key": "local_item_equip_name_132804001",
+          "en": "Immortal Guardian Ring",
+          "fr": "Anneau de gardien immortel"
+        },
+        "description": {
+          "key": "local_item_equip_desc_132804001",
+          "en": "A Ring infused with the mysterious cosmic power. Simply wearing it is said to shield the wearer from harm.",
+          "fr": "Un anneau imprégné d'une mystérieuse puissance cosmique. Le simple fait de le porter suffirait à se protéger du danger."
+        }
+      }
+    ],
+    "effects": [
+      {
+        "id": "armor_t4_immortal_1",
+        "set_parts_count": 3,
+        "option_type": "Option",
+        "set_option": "set1_armor_t4_immortal",
+        "passive_level": 0,
+        "description": {
+          "en": "All Elemental Burst Efficiency +10%",
+          "fr": "Efficacité de Déluge de tous les éléments +10%"
+        },
+        "passive": null
+      },
+      {
+        "id": "armor_t4_immortal_2",
+        "set_parts_count": 3,
+        "option_type": "Passive",
+        "set_option": "epset_h_1",
+        "passive_level": 1,
+        "description": {
+          "en": "3% chance to restore the Tag Gauge by 1000 when attacking an enemy without a Burst activated. (Cooldown: 3 sec)",
+          "fr": "Attaquer un ennemi qui n'est pas sous l'effet d'un Déluge a 3% de chances de restaurer la jauge de relève de 1000. (Temps de recharge : 3 s)"
+        },
+        "passive": null
+      }
+    ],
+    "effect_groups": [
+      {
+        "set_parts_count": 3,
+        "entries": [
+          {
+            "id": "armor_t4_immortal_1",
+            "set_parts_count": 3,
+            "option_type": "Option",
+            "set_option": "set1_armor_t4_immortal",
+            "passive_level": 0,
+            "description": {
+              "en": "All Elemental Burst Efficiency +10%",
+              "fr": "Efficacité de Déluge de tous les éléments +10%"
+            },
+            "passive": null
+          },
+          {
+            "id": "armor_t4_immortal_2",
+            "set_parts_count": 3,
+            "option_type": "Passive",
+            "set_option": "epset_h_1",
+            "passive_level": 1,
+            "description": {
+              "en": "3% chance to restore the Tag Gauge by 1000 when attacking an enemy without a Burst activated. (Cooldown: 3 sec)",
+              "fr": "Attaquer un ennemi qui n'est pas sous l'effet d'un Déluge a 3% de chances de restaurer la jauge de relève de 1000. (Temps de recharge : 3 s)"
+            },
+            "passive": null
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "accessory_t5_thought",
+    "name": {
+      "en": "Lavender Shadow",
+      "fr": "Ombre lavande"
+    },
+    "icon": "equippassive_armor_h",
+    "icon_path": "Assets/Content/UIImg/origin/EquipPassive/Armor/EquipPassive_Armor_H.png",
+    "icon_raw_url": "https://cdn-zeroluck-gg.b-cdn.net/7dso/SevenDeadlySins/Assets/Content/UIImg/origin/EquipPassive/Armor/EquipPassive_Armor_H.png",
+    "pieces_count": 3,
+    "pieces": [
+      {
+        "id": "132605002",
+        "itemType": "Equip",
+        "detailType": "Accessory",
+        "division": "Necklace",
+        "grade": "Grade5",
+        "icon": "icon_acc_necklace_default_4018",
+        "imagePath": "Assets/Content/UIImg/Icon_Item/Acc/Necklace_Default_4018.png",
+        "imageRawUrl": "https://cdn-zeroluck-gg.b-cdn.net/7dso/SevenDeadlySins/Assets/Content/UIImg/Icon_Item/Acc/Necklace_Default_4018.png",
+        "name": {
+          "key": "local_item_equip_name_132605002",
+          "en": "Twisted Thought Necklace",
+          "fr": "Collier de la pensée pervertie"
+        },
+        "description": {
+          "key": "local_item_equip_desc_132605002",
+          "en": "An elegant Necklace with an unmistakably ominous aura. It protects the wearer with powerful dark magic.",
+          "fr": "Un élégant collier qui dégage une aura indéniablement menaçante. Sa puissante magie ténébreuse protège son porteur."
+        }
+      },
+      {
+        "id": "132705002",
+        "itemType": "Equip",
+        "detailType": "Accessory",
+        "division": "Earring",
+        "grade": "Grade5",
+        "icon": "icon_acc_earring_default_4018",
+        "imagePath": "Assets/Content/UIImg/Icon_Item/Acc/Earring_Default_4018.png",
+        "imageRawUrl": "https://cdn-zeroluck-gg.b-cdn.net/7dso/SevenDeadlySins/Assets/Content/UIImg/Icon_Item/Acc/Earring_Default_4018.png",
+        "name": {
+          "key": "local_item_equip_name_132705002",
+          "en": "Twisted Thought Earrings",
+          "fr": "Boucles d'oreilles de la pensée pervertie"
+        },
+        "description": {
+          "key": "local_item_equip_desc_132705002",
+          "en": "Elegant Earrings with an unmistakably ominous aura. They protect the wearer with powerful dark magic.",
+          "fr": "D'élégantes boucles d'oreilles qui dégagent une aura indéniablement menaçante. Leur puissante magie ténébreuse protège leur porteur."
+        }
+      },
+      {
+        "id": "132805002",
+        "itemType": "Equip",
+        "detailType": "Accessory",
+        "division": "Ring",
+        "grade": "Grade5",
+        "icon": "icon_acc_ring_default_4018",
+        "imagePath": "Assets/Content/UIImg/Icon_Item/Acc/Ring_Default_4018.png",
+        "imageRawUrl": "https://cdn-zeroluck-gg.b-cdn.net/7dso/SevenDeadlySins/Assets/Content/UIImg/Icon_Item/Acc/Ring_Default_4018.png",
+        "name": {
+          "key": "local_item_equip_name_132805002",
+          "en": "Twisted Thought Ring",
+          "fr": "Anneau de la pensée pervertie"
+        },
+        "description": {
+          "key": "local_item_equip_desc_132805002",
+          "en": "An elegant Ring with an unmistakably ominous aura. It protects the wearer with powerful dark magic.",
+          "fr": "Un élégant anneau qui dégage une aura indéniablement menaçante. Sa puissante magie ténébreuse protège son porteur."
+        }
+      }
+    ],
+    "effects": [
+      {
+        "id": "accessory_t5_thought_1",
+        "set_parts_count": 3,
+        "option_type": "Option",
+        "set_option": "set1_accessory_t5_thought",
+        "passive_level": 0,
+        "description": {
+          "en": "All Elemental Burst Efficiency +15%",
+          "fr": "Efficacité de Déluge de tous les éléments +15%"
+        },
+        "passive": null
+      },
+      {
+        "id": "accessory_t5_thought_2",
+        "set_parts_count": 3,
+        "option_type": "Passive",
+        "set_option": "epset_h_2",
+        "passive_level": 1,
+        "description": {
+          "en": "3% chance to restore the Tag Gauge by 1000 when attacking an enemy without a Burst activated. (Cooldown: 3 sec)\nAllied heroes' Ultimate Move damage increases by 20% for 8 sec when a Burst is activated.",
+          "fr": "Attaquer un ennemi qui n'est pas sous l'effet d'un Déluge a 3% de chances de restaurer la jauge de relève de 1000. (Temps de recharge : 3 s)\nAugmente les dégâts d'attaque ultime des héros alliés de 20% pendant 8 s lorsqu'un Déluge est déclenché."
+        },
+        "passive": null
+      }
+    ],
+    "effect_groups": [
+      {
+        "set_parts_count": 3,
+        "entries": [
+          {
+            "id": "accessory_t5_thought_1",
+            "set_parts_count": 3,
+            "option_type": "Option",
+            "set_option": "set1_accessory_t5_thought",
+            "passive_level": 0,
+            "description": {
+              "en": "All Elemental Burst Efficiency +15%",
+              "fr": "Efficacité de Déluge de tous les éléments +15%"
+            },
+            "passive": null
+          },
+          {
+            "id": "accessory_t5_thought_2",
+            "set_parts_count": 3,
+            "option_type": "Passive",
+            "set_option": "epset_h_2",
+            "passive_level": 1,
+            "description": {
+              "en": "3% chance to restore the Tag Gauge by 1000 when attacking an enemy without a Burst activated. (Cooldown: 3 sec)\nAllied heroes' Ultimate Move damage increases by 20% for 8 sec when a Burst is activated.",
+              "fr": "Attaquer un ennemi qui n'est pas sous l'effet d'un Déluge a 3% de chances de restaurer la jauge de relève de 1000. (Temps de recharge : 3 s)\nAugmente les dégâts d'attaque ultime des héros alliés de 20% pendant 8 s lorsqu'un Déluge est déclenché."
+            },
+            "passive": null
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "equip_t4_scale_4",
+    "name": {
+      "en": "Quaking Horizon",
+      "fr": "Horizon vacillant"
+    },
+    "icon": "equippassive_armor_v",
+    "icon_path": "Assets/Content/UIImg/origin/EquipPassive/Armor/EquipPassive_Armor_V.png",
+    "icon_raw_url": "https://cdn-zeroluck-gg.b-cdn.net/7dso/SevenDeadlySins/Assets/Content/UIImg/origin/EquipPassive/Armor/EquipPassive_Armor_V.png",
+    "pieces_count": 7,
+    "pieces": [
+      {
+        "id": "132123016",
+        "itemType": "Equip",
+        "detailType": "Armor",
+        "division": "Top",
+        "grade": "Grade3",
+        "icon": "icon_armor_top_leather_3017",
+        "imagePath": "Assets/Content/UIImg/Icon_Item/Armor/Top_Leather_3017.png",
+        "imageRawUrl": "https://cdn-zeroluck-gg.b-cdn.net/7dso/SevenDeadlySins/Assets/Content/UIImg/Icon_Item/Armor/Top_Leather_3017.png",
+        "name": {
+          "key": "local_item_equip_name_132123016",
+          "en": "Scorching Gust Top (Sturdy)",
+          "fr": "Haut de la rafale brûlante (Robuste)"
+        },
+        "description": {
+          "key": "local_item_equip_desc_132123016",
+          "en": "A Top infused with the harsh desert winds. It is versatile with resistance to both heat and cold.",
+          "fr": "Un haut infusé des vents cinglants du désert.\nProtégeant à la fois contre le chaud et le froid, il est très polyvalent."
+        }
+      },
+      {
+        "id": "132124004",
+        "itemType": "Equip",
+        "detailType": "Armor",
+        "division": "Top",
+        "grade": "Grade4",
+        "icon": "icon_armor_top_leather_3017",
+        "imagePath": "Assets/Content/UIImg/Icon_Item/Armor/Top_Leather_3017.png",
+        "imageRawUrl": "https://cdn-zeroluck-gg.b-cdn.net/7dso/SevenDeadlySins/Assets/Content/UIImg/Icon_Item/Armor/Top_Leather_3017.png",
+        "name": {
+          "key": "local_item_equip_name_132124004",
+          "en": "Scorching Gust Top (Finest)",
+          "fr": "Haut de la rafale brûlante (Incomparable)"
+        },
+        "description": {
+          "key": "local_item_equip_desc_132124004",
+          "en": "A Top infused with the harsh desert winds. It is versatile with resistance to both heat and cold.",
+          "fr": "Un haut infusé des vents cinglants du désert.\nProtégeant à la fois contre le chaud et le froid, il est très polyvalent."
+        }
+      },
+      {
+        "id": "132223016",
+        "itemType": "Equip",
+        "detailType": "Armor",
+        "division": "Bottom",
+        "grade": "Grade3",
+        "icon": "icon_armor_bottom_leather_3017",
+        "imagePath": "Assets/Content/UIImg/Icon_Item/Armor/Bottom_Leather_3017.png",
+        "imageRawUrl": "https://cdn-zeroluck-gg.b-cdn.net/7dso/SevenDeadlySins/Assets/Content/UIImg/Icon_Item/Armor/Bottom_Leather_3017.png",
+        "name": {
+          "key": "local_item_equip_name_132223016",
+          "en": "Scorching Gust Bottoms (Sturdy)",
+          "fr": "Bas de la rafale brûlante (Robuste)"
+        },
+        "description": {
+          "key": "local_item_equip_desc_132223016",
+          "en": "Bottoms infused with the harsh desert winds. It is versatile with resistance to both heat and cold.",
+          "fr": "Un bas infusé des vents cinglants du désert.\nProtégeant à la fois contre le chaud et le froid, il est très polyvalent."
+        }
+      },
+      {
+        "id": "132224004",
+        "itemType": "Equip",
+        "detailType": "Armor",
+        "division": "Bottom",
+        "grade": "Grade4",
+        "icon": "icon_armor_bottom_leather_3017",
+        "imagePath": "Assets/Content/UIImg/Icon_Item/Armor/Bottom_Leather_3017.png",
+        "imageRawUrl": "https://cdn-zeroluck-gg.b-cdn.net/7dso/SevenDeadlySins/Assets/Content/UIImg/Icon_Item/Armor/Bottom_Leather_3017.png",
+        "name": {
+          "key": "local_item_equip_name_132224004",
+          "en": "Scorching Gust Bottoms (Finest)",
+          "fr": "Bas de la rafale brûlante (Incomparable)"
+        },
+        "description": {
+          "key": "local_item_equip_desc_132224004",
+          "en": "Bottoms infused with the harsh desert winds. It is versatile with resistance to both heat and cold.",
+          "fr": "Un bas infusé des vents cinglants du désert.\nProtégeant à la fois contre le chaud et le froid, il est très polyvalent."
+        }
+      },
+      {
+        "id": "132323016",
+        "itemType": "Equip",
+        "detailType": "Armor",
+        "division": "Belt",
+        "grade": "Grade3",
+        "icon": "icon_armor_belt_leather_3017",
+        "imagePath": "Assets/Content/UIImg/Icon_Item/Armor/Belt_Leather_3017.png",
+        "imageRawUrl": "https://cdn-zeroluck-gg.b-cdn.net/7dso/SevenDeadlySins/Assets/Content/UIImg/Icon_Item/Armor/Belt_Leather_3017.png",
+        "name": {
+          "key": "local_item_equip_name_132323016",
+          "en": "Scorching Gust Belt (Sturdy)",
+          "fr": "Ceinture de la rafale brûlante (Robuste)"
+        },
+        "description": {
+          "key": "local_item_equip_desc_132323016",
+          "en": "A Belt infused with the harsh desert winds. It is versatile with resistance to both heat and cold.",
+          "fr": "Une ceinture infusée des vents cinglants du désert.\nProtégeant à la fois contre le chaud et le froid, elle est très polyvalente."
+        }
+      },
+      {
+        "id": "132324004",
+        "itemType": "Equip",
+        "detailType": "Armor",
+        "division": "Belt",
+        "grade": "Grade4",
+        "icon": "icon_armor_belt_leather_3017",
+        "imagePath": "Assets/Content/UIImg/Icon_Item/Armor/Belt_Leather_3017.png",
+        "imageRawUrl": "https://cdn-zeroluck-gg.b-cdn.net/7dso/SevenDeadlySins/Assets/Content/UIImg/Icon_Item/Armor/Belt_Leather_3017.png",
+        "name": {
+          "key": "local_item_equip_name_132324004",
+          "en": "Scorching Gust Belt (Finest)",
+          "fr": "Ceinture de la rafale brûlante (Incomparable)"
+        },
+        "description": {
+          "key": "local_item_equip_desc_132324004",
+          "en": "A Belt infused with the harsh desert winds. It is versatile with resistance to both heat and cold.",
+          "fr": "Une ceinture infusée des vents cinglants du désert.\nProtégeant à la fois contre le chaud et le froid, elle est très polyvalente."
+        }
+      },
+      {
+        "id": "132423016",
+        "itemType": "Equip",
+        "detailType": "Armor",
+        "division": "Shoes",
+        "grade": "Grade3",
+        "icon": "icon_armor_shoes_leather_3017",
+        "imagePath": "Assets/Content/UIImg/Icon_Item/Armor/Shoes_Leather_3017.png",
+        "imageRawUrl": "https://cdn-zeroluck-gg.b-cdn.net/7dso/SevenDeadlySins/Assets/Content/UIImg/Icon_Item/Armor/Shoes_Leather_3017.png",
+        "name": {
+          "key": "local_item_equip_name_132423016",
+          "en": "Scorching Gust Combat Boots (Sturdy)",
+          "fr": "Bottes de combat de la rafale brûlante (Robustes)"
+        },
+        "description": {
+          "key": "local_item_equip_desc_132423016",
+          "en": "Combat Boots infused with the harsh desert winds. It is versatile with resistance to both heat and cold.",
+          "fr": "Des bottes de combat infusées des vents cinglants du désert.\nProtégeant à la fois contre le chaud et le froid, elles sont très polyvalentes."
+        }
+      },
+      {
+        "id": "132424004",
+        "itemType": "Equip",
+        "detailType": "Armor",
+        "division": "Shoes",
+        "grade": "Grade4",
+        "icon": "icon_armor_shoes_leather_3017",
+        "imagePath": "Assets/Content/UIImg/Icon_Item/Armor/Shoes_Leather_3017.png",
+        "imageRawUrl": "https://cdn-zeroluck-gg.b-cdn.net/7dso/SevenDeadlySins/Assets/Content/UIImg/Icon_Item/Armor/Shoes_Leather_3017.png",
+        "name": {
+          "key": "local_item_equip_name_132424004",
+          "en": "Scorching Gust Combat Boots (Finest)",
+          "fr": "Bottes de combat de la rafale brûlante (Incomparables)"
+        },
+        "description": {
+          "key": "local_item_equip_desc_132424004",
+          "en": "Combat Boots infused with the harsh desert winds. It is versatile with resistance to both heat and cold.",
+          "fr": "Des bottes de combat infusées des vents cinglants du désert.\nProtégeant à la fois contre le chaud et le froid, elles sont très polyvalentes."
+        }
+      },
+      {
+        "id": "132603015",
+        "itemType": "Equip",
+        "detailType": "Accessory",
+        "division": "Necklace",
+        "grade": "Grade3",
+        "icon": "icon_acc_necklace_default_3016",
+        "imagePath": "Assets/Content/UIImg/Icon_Item/Acc/Necklace_Default_3016.png",
+        "imageRawUrl": "https://cdn-zeroluck-gg.b-cdn.net/7dso/SevenDeadlySins/Assets/Content/UIImg/Icon_Item/Acc/Necklace_Default_3016.png",
+        "name": {
+          "key": "local_item_equip_name_132603015",
+          "en": "Scorching Gust Necklace (Sturdy)",
+          "fr": "Collier de la rafale brûlante (Robuste)"
+        },
+        "description": {
+          "key": "local_item_equip_desc_132603015",
+          "en": "A Necklace crafted from Scorching Essence. The scorching heat of the blazing sun radiates from it.",
+          "fr": "Un collier confectionné à partir d'essence brûlante.\nL'intense chaleur du soleil flamboyant en rayonne."
+        }
+      },
+      {
+        "id": "132604006",
+        "itemType": "Equip",
+        "detailType": "Accessory",
+        "division": "Necklace",
+        "grade": "Grade4",
+        "icon": "icon_acc_necklace_default_3016",
+        "imagePath": "Assets/Content/UIImg/Icon_Item/Acc/Necklace_Default_3016.png",
+        "imageRawUrl": "https://cdn-zeroluck-gg.b-cdn.net/7dso/SevenDeadlySins/Assets/Content/UIImg/Icon_Item/Acc/Necklace_Default_3016.png",
+        "name": {
+          "key": "local_item_equip_name_132604006",
+          "en": "Scorching Gust Necklace (Finest)",
+          "fr": "Collier de la rafale brûlante (Incomparable)"
+        },
+        "description": {
+          "key": "local_item_equip_desc_132604006",
+          "en": "A Necklace crafted from Scorching Essence. The scorching heat of the blazing sun radiates from it.",
+          "fr": "Un collier confectionné à partir d'essence brûlante. L'intense chaleur du soleil flamboyant en rayonne."
+        }
+      },
+      {
+        "id": "132703015",
+        "itemType": "Equip",
+        "detailType": "Accessory",
+        "division": "Earring",
+        "grade": "Grade3",
+        "icon": "icon_acc_earring_default_3016",
+        "imagePath": "Assets/Content/UIImg/Icon_Item/Acc/Earring_Default_3016.png",
+        "imageRawUrl": "https://cdn-zeroluck-gg.b-cdn.net/7dso/SevenDeadlySins/Assets/Content/UIImg/Icon_Item/Acc/Earring_Default_3016.png",
+        "name": {
+          "key": "local_item_equip_name_132703015",
+          "en": "Scorching Gust Earrings (Sturdy)",
+          "fr": "Boucles d'oreilles de la rafale brûlante (Robustes)"
+        },
+        "description": {
+          "key": "local_item_equip_desc_132703015",
+          "en": "Earrings crafted from Scorching Essence. The scorching heat of the blazing sun radiates from them.",
+          "fr": "Des boucles d'oreilles confectionnées à partir d'essence brûlante.\nL'intense chaleur du soleil flamboyant en rayonne."
+        }
+      },
+      {
+        "id": "132704006",
+        "itemType": "Equip",
+        "detailType": "Accessory",
+        "division": "Earring",
+        "grade": "Grade4",
+        "icon": "icon_acc_earring_default_3016",
+        "imagePath": "Assets/Content/UIImg/Icon_Item/Acc/Earring_Default_3016.png",
+        "imageRawUrl": "https://cdn-zeroluck-gg.b-cdn.net/7dso/SevenDeadlySins/Assets/Content/UIImg/Icon_Item/Acc/Earring_Default_3016.png",
+        "name": {
+          "key": "local_item_equip_name_132704006",
+          "en": "Scorching Gust Earrings (Finest)",
+          "fr": "Boucles d'oreilles de la rafale brûlante (Incomparable)"
+        },
+        "description": {
+          "key": "local_item_equip_desc_132704006",
+          "en": "Earrings crafted from Scorching Essence. The scorching heat of the blazing sun radiates from them.",
+          "fr": "Des boucles d'oreilles confectionnées à partir d'essence brûlante. L'intense chaleur du soleil flamboyant en rayonne."
+        }
+      },
+      {
+        "id": "132803015",
+        "itemType": "Equip",
+        "detailType": "Accessory",
+        "division": "Ring",
+        "grade": "Grade3",
+        "icon": "icon_acc_ring_default_3016",
+        "imagePath": "Assets/Content/UIImg/Icon_Item/Acc/Ring_Default_3016.png",
+        "imageRawUrl": "https://cdn-zeroluck-gg.b-cdn.net/7dso/SevenDeadlySins/Assets/Content/UIImg/Icon_Item/Acc/Ring_Default_3016.png",
+        "name": {
+          "key": "local_item_equip_name_132803015",
+          "en": "Scorching Gust Ring (Sturdy)",
+          "fr": "Anneau de la rafale brûlante (Robuste)"
+        },
+        "description": {
+          "key": "local_item_equip_desc_132803015",
+          "en": "A Ring crafted from Scorching Essence. The scorching heat of the blazing sun radiates from it.",
+          "fr": "Un anneau confectionné à partir d'essence brûlante.\nL'intense chaleur du soleil flamboyant en rayonne."
+        }
+      },
+      {
+        "id": "132804006",
+        "itemType": "Equip",
+        "detailType": "Accessory",
+        "division": "Ring",
+        "grade": "Grade4",
+        "icon": "icon_acc_ring_default_3016",
+        "imagePath": "Assets/Content/UIImg/Icon_Item/Acc/Ring_Default_3016.png",
+        "imageRawUrl": "https://cdn-zeroluck-gg.b-cdn.net/7dso/SevenDeadlySins/Assets/Content/UIImg/Icon_Item/Acc/Ring_Default_3016.png",
+        "name": {
+          "key": "local_item_equip_name_132804006",
+          "en": "Scorching Gust Ring (Finest)",
+          "fr": "Anneau de la rafale brûlante (Incomparable)"
+        },
+        "description": {
+          "key": "local_item_equip_desc_132804006",
+          "en": "A Ring crafted from Scorching Essence. The scorching heat of the blazing sun radiates from it.",
+          "fr": "Un anneau confectionné à partir d'essence brûlante. L'intense chaleur du soleil flamboyant en rayonne."
+        }
+      }
+    ],
+    "effects": [
+      {
+        "id": "equip_t4_scale_4_1",
+        "set_parts_count": 3,
+        "option_type": "Option",
+        "set_option": "set1_equip_t4_scale_4",
+        "passive_level": 0,
+        "description": {
+          "en": "Pierce +70",
+          "fr": "Perforation +70"
+        },
+        "passive": null
+      },
+      {
+        "id": "equip_t4_scale_4_2",
+        "set_parts_count": 5,
+        "option_type": "Option",
+        "set_option": "set2_equip_t4_scale_4",
+        "passive_level": 0,
+        "description": {
+          "en": "Ultimate Move Damage +10%",
+          "fr": "Dégâts d'attaque ultime +10%"
+        },
+        "passive": null
+      },
+      {
+        "id": "equip_t4_scale_4_3",
+        "set_parts_count": 5,
+        "option_type": "Passive",
+        "set_option": "epset_scale_3",
+        "passive_level": 1,
+        "description": {
+          "en": "Activating a Burst restores the Magic Gauge by 1200. (Cooldown: 20 sec)",
+          "fr": "L'activation d'un Déluge restaure la jauge de magie de 1200. (Temps de recharge : 20 s)"
+        },
+        "passive": null
+      },
+      {
+        "id": "equip_t4_scale_4_4",
+        "set_parts_count": 7,
+        "option_type": "Option",
+        "set_option": "set3_equip_t4_scale_4",
+        "passive_level": 0,
+        "description": {
+          "en": "Attack +10%",
+          "fr": "Attaque +10%"
+        },
+        "passive": null
+      },
+      {
+        "id": "equip_t4_scale_4_5",
+        "set_parts_count": 7,
+        "option_type": "Passive",
+        "set_option": "epset_scale_3",
+        "passive_level": 1,
+        "description": {
+          "en": "Activating a Burst restores the Magic Gauge by 1400. (Cooldown: 20 sec)",
+          "fr": "L'activation d'un Déluge restaure la jauge de magie de 1400. (Temps de recharge : 20 s)"
+        },
+        "passive": null
+      }
+    ],
+    "effect_groups": [
+      {
+        "set_parts_count": 3,
+        "entries": [
+          {
+            "id": "equip_t4_scale_4_1",
+            "set_parts_count": 3,
+            "option_type": "Option",
+            "set_option": "set1_equip_t4_scale_4",
+            "passive_level": 0,
+            "description": {
+              "en": "Pierce +70",
+              "fr": "Perforation +70"
+            },
+            "passive": null
+          }
+        ]
+      },
+      {
+        "set_parts_count": 5,
+        "entries": [
+          {
+            "id": "equip_t4_scale_4_2",
+            "set_parts_count": 5,
+            "option_type": "Option",
+            "set_option": "set2_equip_t4_scale_4",
+            "passive_level": 0,
+            "description": {
+              "en": "Ultimate Move Damage +10%",
+              "fr": "Dégâts d'attaque ultime +10%"
+            },
+            "passive": null
+          },
+          {
+            "id": "equip_t4_scale_4_3",
+            "set_parts_count": 5,
+            "option_type": "Passive",
+            "set_option": "epset_scale_3",
+            "passive_level": 1,
+            "description": {
+              "en": "Activating a Burst restores the Magic Gauge by 1200. (Cooldown: 20 sec)",
+              "fr": "L'activation d'un Déluge restaure la jauge de magie de 1200. (Temps de recharge : 20 s)"
+            },
+            "passive": null
+          }
+        ]
+      },
+      {
+        "set_parts_count": 7,
+        "entries": [
+          {
+            "id": "equip_t4_scale_4_4",
+            "set_parts_count": 7,
+            "option_type": "Option",
+            "set_option": "set3_equip_t4_scale_4",
+            "passive_level": 0,
+            "description": {
+              "en": "Attack +10%",
+              "fr": "Attaque +10%"
+            },
+            "passive": null
+          },
+          {
+            "id": "equip_t4_scale_4_5",
+            "set_parts_count": 7,
+            "option_type": "Passive",
+            "set_option": "epset_scale_3",
+            "passive_level": 1,
+            "description": {
+              "en": "Activating a Burst restores the Magic Gauge by 1400. (Cooldown: 20 sec)",
+              "fr": "L'activation d'un Déluge restaure la jauge de magie de 1400. (Temps de recharge : 20 s)"
+            },
+            "passive": null
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "armor_t4_ferzen",
+    "name": {
+      "en": "Remnants of the Abandoned Mine",
+      "fr": "Ruines de la mine abandonnée"
+    },
+    "icon": "equippassive_armor_g",
+    "icon_path": "Assets/Content/UIImg/origin/EquipPassive/Armor/EquipPassive_Armor_G.png",
+    "icon_raw_url": "https://cdn-zeroluck-gg.b-cdn.net/7dso/SevenDeadlySins/Assets/Content/UIImg/origin/EquipPassive/Armor/EquipPassive_Armor_G.png",
+    "pieces_count": 7,
+    "pieces": [
+      {
+        "id": "132125004",
+        "itemType": "Equip",
+        "detailType": "Armor",
+        "division": "Top",
+        "grade": "Grade4",
+        "icon": "icon_armor_top_plate_4037",
+        "imagePath": "Assets/Content/UIImg/Icon_Item/Armor/Top_Plate_4037.png",
+        "imageRawUrl": "https://cdn-zeroluck-gg.b-cdn.net/7dso/SevenDeadlySins/Assets/Content/UIImg/Icon_Item/Armor/Top_Plate_4037.png",
+        "name": {
+          "key": "local_item_equip_name_132125004",
+          "en": "Mad Miner Top",
+          "fr": "Haut du mineur fou"
+        },
+        "description": {
+          "key": "local_item_equip_desc_132125004",
+          "en": "A Top crafted from leather repeatedly tanned with sturdy ore. Soft yet tough, it effectively mitigates enemy attacks.",
+          "fr": "Un haut confectionné avec du cuir tanné et renforcé de minerai solide. Souple malgré sa robustesse, il atténue efficacement les attaques ennemies."
+        }
+      },
+      {
+        "id": "132225004",
+        "itemType": "Equip",
+        "detailType": "Armor",
+        "division": "Bottom",
+        "grade": "Grade4",
+        "icon": "icon_armor_bottom_plate_4037",
+        "imagePath": "Assets/Content/UIImg/Icon_Item/Armor/Bottom_Plate_4037.png",
+        "imageRawUrl": "https://cdn-zeroluck-gg.b-cdn.net/7dso/SevenDeadlySins/Assets/Content/UIImg/Icon_Item/Armor/Bottom_Plate_4037.png",
+        "name": {
+          "key": "local_item_equip_name_132225004",
+          "en": "Mad Miner Bottoms",
+          "fr": "Bas du mineur fou"
+        },
+        "description": {
+          "key": "local_item_equip_desc_132225004",
+          "en": "Bottoms crafted from leather repeatedly tanned with sturdy ore. Soft yet tough, it effectively mitigates enemy attacks.",
+          "fr": "Un bas confectionné avec du cuir tanné et renforcé de minerai solide. Souple malgré sa robustesse, il atténue efficacement les attaques ennemies."
+        }
+      },
+      {
+        "id": "132325004",
+        "itemType": "Equip",
+        "detailType": "Armor",
+        "division": "Belt",
+        "grade": "Grade4",
+        "icon": "icon_armor_belt_plate_4037",
+        "imagePath": "Assets/Content/UIImg/Icon_Item/Armor/Belt_Plate_4037.png",
+        "imageRawUrl": "https://cdn-zeroluck-gg.b-cdn.net/7dso/SevenDeadlySins/Assets/Content/UIImg/Icon_Item/Armor/Belt_Plate_4037.png",
+        "name": {
+          "key": "local_item_equip_name_132325004",
+          "en": "Mad Miner Belt",
+          "fr": "Ceinture du mineur fou"
+        },
+        "description": {
+          "key": "local_item_equip_desc_132325004",
+          "en": "A Belt crafted from leather repeatedly tanned with sturdy ore. Soft yet tough, it effectively mitigates enemy attacks.",
+          "fr": "Une ceinture confectionnée avec du cuir tanné et renforcé de minerai solide. Souple malgré sa robustesse, elle atténue efficacement les attaques ennemies."
+        }
+      },
+      {
+        "id": "132425004",
+        "itemType": "Equip",
+        "detailType": "Armor",
+        "division": "Shoes",
+        "grade": "Grade4",
+        "icon": "icon_armor_shoes_plate_4037",
+        "imagePath": "Assets/Content/UIImg/Icon_Item/Armor/Shoes_Plate_4037.png",
+        "imageRawUrl": "https://cdn-zeroluck-gg.b-cdn.net/7dso/SevenDeadlySins/Assets/Content/UIImg/Icon_Item/Armor/Shoes_Plate_4037.png",
+        "name": {
+          "key": "local_item_equip_name_132425004",
+          "en": "Mad Miner Combat Boots",
+          "fr": "Bottes de combat du mineur fou"
+        },
+        "description": {
+          "key": "local_item_equip_desc_132425004",
+          "en": "Combat Boots crafted from leather repeatedly tanned with sturdy ore. Soft yet tough, it effectively mitigates enemy attacks.",
+          "fr": "Des bottes de combat confectionnées avec du cuir tanné et renforcé de minerai solide. Souples malgré leur robustesse, elles atténuent efficacement les attaques ennemies."
+        }
+      },
+      {
+        "id": "132605004",
+        "itemType": "Equip",
+        "detailType": "Accessory",
+        "division": "Necklace",
+        "grade": "Grade4",
+        "icon": "icon_acc_necklace_default_4019",
+        "imagePath": "Assets/Content/UIImg/Icon_Item/Acc/Necklace_Default_4019.png",
+        "imageRawUrl": "https://cdn-zeroluck-gg.b-cdn.net/7dso/SevenDeadlySins/Assets/Content/UIImg/Icon_Item/Acc/Necklace_Default_4019.png",
+        "name": {
+          "key": "local_item_equip_name_132605004",
+          "en": "Mad Miner Necklace",
+          "fr": "Collier du mineur fou"
+        },
+        "description": {
+          "key": "local_item_equip_desc_132605004",
+          "en": "A Necklace crafted from solid ore refined from the Ferzen Mines. It may appear rugged, but its precise craftsmanship shines through.",
+          "fr": "Un collier fabriqué à partir d'un solide minerai raffiné qui provient des mines de Ferzen. Malgré son style un peu brut, la précision de l'artisanat est évidente."
+        }
+      },
+      {
+        "id": "132705004",
+        "itemType": "Equip",
+        "detailType": "Accessory",
+        "division": "Earring",
+        "grade": "Grade4",
+        "icon": "icon_acc_earring_default_4019",
+        "imagePath": "Assets/Content/UIImg/Icon_Item/Acc/Earring_Default_4019.png",
+        "imageRawUrl": "https://cdn-zeroluck-gg.b-cdn.net/7dso/SevenDeadlySins/Assets/Content/UIImg/Icon_Item/Acc/Earring_Default_4019.png",
+        "name": {
+          "key": "local_item_equip_name_132705004",
+          "en": "Mad Miner Earrings",
+          "fr": "Boucles d'oreilles du mineur fou"
+        },
+        "description": {
+          "key": "local_item_equip_desc_132705004",
+          "en": "Earrings crafted from solid ore refined from the Ferzen Mines. They may appear rugged, but their precise craftsmanship shines through.",
+          "fr": "Des boucles d'oreilles fabriquées à partir d'un solide minerai raffiné qui provient des mines de Ferzen. Malgré leur style un peu brut, la précision de l'artisanat est évidente."
+        }
+      },
+      {
+        "id": "132805004",
+        "itemType": "Equip",
+        "detailType": "Accessory",
+        "division": "Ring",
+        "grade": "Grade4",
+        "icon": "icon_acc_ring_default_4019",
+        "imagePath": "Assets/Content/UIImg/Icon_Item/Acc/Ring_Default_4019.png",
+        "imageRawUrl": "https://cdn-zeroluck-gg.b-cdn.net/7dso/SevenDeadlySins/Assets/Content/UIImg/Icon_Item/Acc/Ring_Default_4019.png",
+        "name": {
+          "key": "local_item_equip_name_132805004",
+          "en": "Mad Miner Ring",
+          "fr": "Anneau du mineur fou"
+        },
+        "description": {
+          "key": "local_item_equip_desc_132805004",
+          "en": "A Ring crafted from solid ore refined from the Ferzen Mines. It may appear rugged, but its precise craftsmanship shines through.",
+          "fr": "Un anneau fabriqué à partir d'un solide minerai raffiné qui provient des mines de Ferzen. Malgré son style un peu brut, la précision de l'artisanat est évidente."
+        }
+      }
+    ],
+    "effects": [
+      {
+        "id": "armor_t4_ferzen_1",
+        "set_parts_count": 2,
+        "option_type": "Option",
+        "set_option": "set1_armor_t4_ferzen",
+        "passive_level": 0,
+        "description": {
+          "en": "Lightning Attack +15%",
+          "fr": "Attaque de Foudre +15%"
+        },
+        "passive": null
+      },
+      {
+        "id": "armor_t4_ferzen_2",
+        "set_parts_count": 5,
+        "option_type": "Option",
+        "set_option": "set2_armor_t4_ferzen",
+        "passive_level": 0,
+        "description": {
+          "en": "Tag Skill Damage +15%",
+          "fr": "Dégâts de compétence de relève +15%"
+        },
+        "passive": null
+      },
+      {
+        "id": "armor_t4_ferzen_3",
+        "set_parts_count": 5,
+        "option_type": "Passive",
+        "set_option": "epset_g",
+        "passive_level": 1,
+        "description": {
+          "en": "Using the Tag Skill decreases nearby enemies' Movement Speed by 25% and Attack by 10% for 20 sec. (Cooldown: 30 sec)",
+          "fr": "L'utilisation de la compétence de relève réduit la vitesse de déplacement des ennemis proches de 25% et leur attaque de 10% pendant 20 s. (Temps de recharge : 30 s)"
+        },
+        "passive": null
+      },
+      {
+        "id": "armor_t4_ferzen_4",
+        "set_parts_count": 7,
+        "option_type": "Option",
+        "set_option": "set3_armor_t4_ferzen",
+        "passive_level": 0,
+        "description": {
+          "en": "Lightning Damage +8%",
+          "fr": "Dégâts de Foudre +8%"
+        },
+        "passive": null
+      },
+      {
+        "id": "armor_t4_ferzen_5",
+        "set_parts_count": 7,
+        "option_type": "Passive",
+        "set_option": "epset_g",
+        "passive_level": 1,
+        "description": {
+          "en": "Using the Tag Skill decreases nearby enemies' Movement Speed by 50% and Attack by 20% for 20 sec. (Cooldown: 30 sec)",
+          "fr": "L'utilisation de la compétence de relève réduit la vitesse de déplacement des ennemis proches de 50% et leur attaque de 20% pendant 20 s. (Temps de recharge : 30 s)"
+        },
+        "passive": null
+      }
+    ],
+    "effect_groups": [
+      {
+        "set_parts_count": 2,
+        "entries": [
+          {
+            "id": "armor_t4_ferzen_1",
+            "set_parts_count": 2,
+            "option_type": "Option",
+            "set_option": "set1_armor_t4_ferzen",
+            "passive_level": 0,
+            "description": {
+              "en": "Lightning Attack +15%",
+              "fr": "Attaque de Foudre +15%"
+            },
+            "passive": null
+          }
+        ]
+      },
+      {
+        "set_parts_count": 5,
+        "entries": [
+          {
+            "id": "armor_t4_ferzen_2",
+            "set_parts_count": 5,
+            "option_type": "Option",
+            "set_option": "set2_armor_t4_ferzen",
+            "passive_level": 0,
+            "description": {
+              "en": "Tag Skill Damage +15%",
+              "fr": "Dégâts de compétence de relève +15%"
+            },
+            "passive": null
+          },
+          {
+            "id": "armor_t4_ferzen_3",
+            "set_parts_count": 5,
+            "option_type": "Passive",
+            "set_option": "epset_g",
+            "passive_level": 1,
+            "description": {
+              "en": "Using the Tag Skill decreases nearby enemies' Movement Speed by 25% and Attack by 10% for 20 sec. (Cooldown: 30 sec)",
+              "fr": "L'utilisation de la compétence de relève réduit la vitesse de déplacement des ennemis proches de 25% et leur attaque de 10% pendant 20 s. (Temps de recharge : 30 s)"
+            },
+            "passive": null
+          }
+        ]
+      },
+      {
+        "set_parts_count": 7,
+        "entries": [
+          {
+            "id": "armor_t4_ferzen_4",
+            "set_parts_count": 7,
+            "option_type": "Option",
+            "set_option": "set3_armor_t4_ferzen",
+            "passive_level": 0,
+            "description": {
+              "en": "Lightning Damage +8%",
+              "fr": "Dégâts de Foudre +8%"
+            },
+            "passive": null
+          },
+          {
+            "id": "armor_t4_ferzen_5",
+            "set_parts_count": 7,
+            "option_type": "Passive",
+            "set_option": "epset_g",
+            "passive_level": 1,
+            "description": {
+              "en": "Using the Tag Skill decreases nearby enemies' Movement Speed by 50% and Attack by 20% for 20 sec. (Cooldown: 30 sec)",
+              "fr": "L'utilisation de la compétence de relève réduit la vitesse de déplacement des ennemis proches de 50% et leur attaque de 20% pendant 20 s. (Temps de recharge : 30 s)"
+            },
+            "passive": null
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "equip_t4_scale_2",
+    "name": {
+      "en": "Scattered Petals",
+      "fr": "Pétales éparpillés"
+    },
+    "icon": "equippassive_armor_u",
+    "icon_path": "Assets/Content/UIImg/origin/EquipPassive/Armor/EquipPassive_Armor_U.png",
+    "icon_raw_url": "https://cdn-zeroluck-gg.b-cdn.net/7dso/SevenDeadlySins/Assets/Content/UIImg/origin/EquipPassive/Armor/EquipPassive_Armor_U.png",
+    "pieces_count": 3,
+    "pieces": [
+      {
+        "id": "132603009",
+        "itemType": "Equip",
+        "detailType": "Accessory",
+        "division": "Necklace",
+        "grade": "Grade3",
+        "icon": "icon_acc_necklace_default_3010",
+        "imagePath": "Assets/Content/UIImg/Icon_Item/Acc/Necklace_Default_3010.png",
+        "imageRawUrl": "https://cdn-zeroluck-gg.b-cdn.net/7dso/SevenDeadlySins/Assets/Content/UIImg/Icon_Item/Acc/Necklace_Default_3010.png",
+        "name": {
+          "key": "local_item_equip_name_132603009",
+          "en": "Gentle Breeze Necklace (Sturdy)",
+          "fr": "Collier de la brise légère (Robuste)"
+        },
+        "description": {
+          "key": "local_item_equip_desc_132603009",
+          "en": "A plain Necklace touched by a spirit's warm breath. A love for peace protects the wearer.",
+          "fr": "Un collier tout simple touché par le souffle chaud d'un esprit.\nL'amour pour la paix protège son porteur."
+        }
+      },
+      {
+        "id": "132604003",
+        "itemType": "Equip",
+        "detailType": "Accessory",
+        "division": "Necklace",
+        "grade": "Grade4",
+        "icon": "icon_acc_necklace_default_3010",
+        "imagePath": "Assets/Content/UIImg/Icon_Item/Acc/Necklace_Default_3010.png",
+        "imageRawUrl": "https://cdn-zeroluck-gg.b-cdn.net/7dso/SevenDeadlySins/Assets/Content/UIImg/Icon_Item/Acc/Necklace_Default_3010.png",
+        "name": {
+          "key": "local_item_equip_name_132604003",
+          "en": "Gentle Breeze Necklace (Finest)",
+          "fr": "Collier de la brise légère (Incomparable)"
+        },
+        "description": {
+          "key": "local_item_equip_desc_132604003",
+          "en": "A plain Necklace touched by a spirit's warm breath. A love for peace protects the wearer.",
+          "fr": "Un collier tout simple touché par le souffle chaud d'un esprit.\nL'amour pour la paix protège son porteur."
+        }
+      },
+      {
+        "id": "132703009",
+        "itemType": "Equip",
+        "detailType": "Accessory",
+        "division": "Earring",
+        "grade": "Grade3",
+        "icon": "icon_acc_earring_default_3010",
+        "imagePath": "Assets/Content/UIImg/Icon_Item/Acc/Earring_Default_3010.png",
+        "imageRawUrl": "https://cdn-zeroluck-gg.b-cdn.net/7dso/SevenDeadlySins/Assets/Content/UIImg/Icon_Item/Acc/Earring_Default_3010.png",
+        "name": {
+          "key": "local_item_equip_name_132703009",
+          "en": "Gentle Breeze Earrings (Sturdy)",
+          "fr": "Boucles d'oreilles de la brise légère (Robustes)"
+        },
+        "description": {
+          "key": "local_item_equip_desc_132703009",
+          "en": "Plain Earrings touched by a spirit's warm breath. A love for peace protects the wearer.",
+          "fr": "Des boucles d'oreilles toutes simples touchées par le souffle chaud d'un esprit. L'amour pour la paix protège leur porteur."
+        }
+      },
+      {
+        "id": "132704003",
+        "itemType": "Equip",
+        "detailType": "Accessory",
+        "division": "Earring",
+        "grade": "Grade4",
+        "icon": "icon_acc_earring_default_3010",
+        "imagePath": "Assets/Content/UIImg/Icon_Item/Acc/Earring_Default_3010.png",
+        "imageRawUrl": "https://cdn-zeroluck-gg.b-cdn.net/7dso/SevenDeadlySins/Assets/Content/UIImg/Icon_Item/Acc/Earring_Default_3010.png",
+        "name": {
+          "key": "local_item_equip_name_132704003",
+          "en": "Gentle Breeze Earrings (Finest)",
+          "fr": "Boucles d'oreilles de la brise légère (Incomparables)"
+        },
+        "description": {
+          "key": "local_item_equip_desc_132704003",
+          "en": "Plain Earrings touched by a spirit's warm breath. A love for peace protects the wearer.",
+          "fr": "Des boucles d'oreilles décoratives touchées par le souffle chaud d'un esprit.\nL'amour pour la paix protège leur porteur."
+        }
+      },
+      {
+        "id": "132803009",
+        "itemType": "Equip",
+        "detailType": "Accessory",
+        "division": "Ring",
+        "grade": "Grade3",
+        "icon": "icon_acc_ring_default_3010",
+        "imagePath": "Assets/Content/UIImg/Icon_Item/Acc/Ring_Default_3010.png",
+        "imageRawUrl": "https://cdn-zeroluck-gg.b-cdn.net/7dso/SevenDeadlySins/Assets/Content/UIImg/Icon_Item/Acc/Ring_Default_3010.png",
+        "name": {
+          "key": "local_item_equip_name_132803009",
+          "en": "Gentle Breeze Ring (Sturdy)",
+          "fr": "Anneau de la brise légère (Robuste)"
+        },
+        "description": {
+          "key": "local_item_equip_desc_132803009",
+          "en": "A plain Ring touched by a spirit's warm breath. A love for peace protects the wearer.",
+          "fr": "Un anneau tout simple touché par le souffle chaud d'un esprit. L'amour pour la paix protège son porteur."
+        }
+      },
+      {
+        "id": "132804003",
+        "itemType": "Equip",
+        "detailType": "Accessory",
+        "division": "Ring",
+        "grade": "Grade4",
+        "icon": "icon_acc_ring_default_3010",
+        "imagePath": "Assets/Content/UIImg/Icon_Item/Acc/Ring_Default_3010.png",
+        "imageRawUrl": "https://cdn-zeroluck-gg.b-cdn.net/7dso/SevenDeadlySins/Assets/Content/UIImg/Icon_Item/Acc/Ring_Default_3010.png",
+        "name": {
+          "key": "local_item_equip_name_132804003",
+          "en": "Gentle Breeze Ring (Finest)",
+          "fr": "Anneau de la brise légère (Incomparable)"
+        },
+        "description": {
+          "key": "local_item_equip_desc_132804003",
+          "en": "A plain Ring touched by a spirit's warm breath. A love for peace protects the wearer.",
+          "fr": "Un anneau tout simple touché par le souffle chaud d'un esprit.\nL'amour pour la paix protège son porteur."
+        }
+      }
+    ],
+    "effects": [
+      {
+        "id": "equip_t4_scale_2_1",
+        "set_parts_count": 3,
+        "option_type": "Option",
+        "set_option": "set1_equip_t4_scale_2",
+        "passive_level": 0,
+        "description": {
+          "en": "Crit Chance +10%",
+          "fr": "Chances crit. +10%"
+        },
+        "passive": null
+      },
+      {
+        "id": "equip_t4_scale_2_2",
+        "set_parts_count": 3,
+        "option_type": "Passive",
+        "set_option": "epset_u",
+        "passive_level": 1,
+        "description": {
+          "en": "Attacking an enemy whose remaining HP is 50% or higher increases the Burst Gauge by 9.",
+          "fr": "Attaquer un ennemi dont les PV restants sont supérieurs ou égaux à 50% augmente la jauge de Déluge de 9."
+        },
+        "passive": null
+      }
+    ],
+    "effect_groups": [
+      {
+        "set_parts_count": 3,
+        "entries": [
+          {
+            "id": "equip_t4_scale_2_1",
+            "set_parts_count": 3,
+            "option_type": "Option",
+            "set_option": "set1_equip_t4_scale_2",
+            "passive_level": 0,
+            "description": {
+              "en": "Crit Chance +10%",
+              "fr": "Chances crit. +10%"
+            },
+            "passive": null
+          },
+          {
+            "id": "equip_t4_scale_2_2",
+            "set_parts_count": 3,
+            "option_type": "Passive",
+            "set_option": "epset_u",
+            "passive_level": 1,
+            "description": {
+              "en": "Attacking an enemy whose remaining HP is 50% or higher increases the Burst Gauge by 9.",
+              "fr": "Attaquer un ennemi dont les PV restants sont supérieurs ou égaux à 50% augmente la jauge de Déluge de 9."
+            },
+            "passive": null
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "armor_t4_ocean",
+    "name": {
+      "en": "Sharp Fragment",
+      "fr": "Fragment tranchant"
+    },
+    "icon": "equippassive_armor_s",
+    "icon_path": "Assets/Content/UIImg/origin/EquipPassive/Armor/EquipPassive_Armor_S.png",
+    "icon_raw_url": "https://cdn-zeroluck-gg.b-cdn.net/7dso/SevenDeadlySins/Assets/Content/UIImg/origin/EquipPassive/Armor/EquipPassive_Armor_S.png",
+    "pieces_count": 4,
+    "pieces": [
+      {
+        "id": "132125001",
+        "itemType": "Equip",
+        "detailType": "Armor",
+        "division": "Top",
+        "grade": "Grade4",
+        "icon": "icon_armor_top_leather_4012",
+        "imagePath": "Assets/Content/UIImg/Icon_Item/Armor/Top_Leather_4012.png",
+        "imageRawUrl": "https://cdn-zeroluck-gg.b-cdn.net/7dso/SevenDeadlySins/Assets/Content/UIImg/Icon_Item/Armor/Top_Leather_4012.png",
+        "name": {
+          "key": "local_item_equip_name_132125001",
+          "en": "Ruler of the Ocean Top",
+          "fr": "Haut du souverain des océans"
+        },
+        "description": {
+          "key": "local_item_equip_desc_132125001",
+          "en": "A Top crafted from the hardened hide of a monster. Its dense, reinforced construction helps reduce incoming damage in battle.",
+          "fr": "Un haut confectionné avec la peau durcie d'un monstre. Sa conception dense et renforcée lui permet de réduire les dégâts subis en combat."
+        }
+      },
+      {
+        "id": "132225001",
+        "itemType": "Equip",
+        "detailType": "Armor",
+        "division": "Bottom",
+        "grade": "Grade4",
+        "icon": "icon_armor_bottom_leather_4012",
+        "imagePath": "Assets/Content/UIImg/Icon_Item/Armor/Bottom_Leather_4012.png",
+        "imageRawUrl": "https://cdn-zeroluck-gg.b-cdn.net/7dso/SevenDeadlySins/Assets/Content/UIImg/Icon_Item/Armor/Bottom_Leather_4012.png",
+        "name": {
+          "key": "local_item_equip_name_132225001",
+          "en": "Ruler of the Ocean Bottoms",
+          "fr": "Bas du souverain des océans"
+        },
+        "description": {
+          "key": "local_item_equip_desc_132225001",
+          "en": "Bottoms crafted from the hardened hide of a monster. Their dense, reinforced construction helps reduce incoming damage in battle.",
+          "fr": "Un bas confectionné avec la peau durcie d'un monstre. Sa conception dense et renforcée lui permet de réduire les dégâts subis en combat."
+        }
+      },
+      {
+        "id": "132325001",
+        "itemType": "Equip",
+        "detailType": "Armor",
+        "division": "Belt",
+        "grade": "Grade4",
+        "icon": "icon_armor_belt_leather_4012",
+        "imagePath": "Assets/Content/UIImg/Icon_Item/Armor/Belt_Leather_4012.png",
+        "imageRawUrl": "https://cdn-zeroluck-gg.b-cdn.net/7dso/SevenDeadlySins/Assets/Content/UIImg/Icon_Item/Armor/Belt_Leather_4012.png",
+        "name": {
+          "key": "local_item_equip_name_132325001",
+          "en": "Ruler of the Ocean Belt",
+          "fr": "Ceinture du souverain des océans"
+        },
+        "description": {
+          "key": "local_item_equip_desc_132325001",
+          "en": "A Belt crafted from the hardened hide of a monster. Its dense, reinforced construction helps reduce incoming damage in battle.",
+          "fr": "Une ceinture confectionnée avec la peau durcie d'un monstre. Sa conception dense et renforcée lui permet de réduire les dégâts subis en combat."
+        }
+      },
+      {
+        "id": "132425001",
+        "itemType": "Equip",
+        "detailType": "Armor",
+        "division": "Shoes",
+        "grade": "Grade4",
+        "icon": "icon_armor_shoes_leather_4012",
+        "imagePath": "Assets/Content/UIImg/Icon_Item/Armor/Shoes_Leather_4012.png",
+        "imageRawUrl": "https://cdn-zeroluck-gg.b-cdn.net/7dso/SevenDeadlySins/Assets/Content/UIImg/Icon_Item/Armor/Shoes_Leather_4012.png",
+        "name": {
+          "key": "local_item_equip_name_132425001",
+          "en": "Ruler of the Ocean Combat Boots",
+          "fr": "Bottes de combat du souverain des océans"
+        },
+        "description": {
+          "key": "local_item_equip_desc_132425001",
+          "en": "Combat Boots crafted from the hardened hide of a monster. Their dense, reinforced construction helps reduce incoming damage in battle.",
+          "fr": "Des bottes de combat confectionnées avec la peau durcie d'un monstre. Leur conception dense et renforcée leur permet de réduire les dégâts subis en combat."
+        }
+      }
+    ],
+    "effects": [
+      {
+        "id": "armor_t4_ocean_1",
+        "set_parts_count": 2,
+        "option_type": "Option",
+        "set_option": "set1_armor_t4_ocean",
+        "passive_level": 0,
+        "description": {
+          "en": "Normal Skill Damage +5%",
+          "fr": "Dégâts de compétence normale +5%"
+        },
+        "passive": null
+      },
+      {
+        "id": "armor_t4_ocean_2",
+        "set_parts_count": 4,
+        "option_type": "Option",
+        "set_option": "set2_armor_t4_ocean",
+        "passive_level": 0,
+        "description": {
+          "en": "Crit Damage +10%",
+          "fr": "Dégâts crit. +10%"
+        },
+        "passive": null
+      },
+      {
+        "id": "armor_t4_ocean_3",
+        "set_parts_count": 4,
+        "option_type": "Passive",
+        "set_option": "epset_s_1",
+        "passive_level": 1,
+        "description": {
+          "en": "6% chance to increase Crit Chance by 50% for 5 sec when landing an attack. (Cooldown: 10 sec)",
+          "fr": "6% de chances d'augmenter les chances crit. de 50% pendant 5 s lorsqu'une attaque fait mouche. (Temps de recharge : 10 s)"
+        },
+        "passive": null
+      }
+    ],
+    "effect_groups": [
+      {
+        "set_parts_count": 2,
+        "entries": [
+          {
+            "id": "armor_t4_ocean_1",
+            "set_parts_count": 2,
+            "option_type": "Option",
+            "set_option": "set1_armor_t4_ocean",
+            "passive_level": 0,
+            "description": {
+              "en": "Normal Skill Damage +5%",
+              "fr": "Dégâts de compétence normale +5%"
+            },
+            "passive": null
+          }
+        ]
+      },
+      {
+        "set_parts_count": 4,
+        "entries": [
+          {
+            "id": "armor_t4_ocean_2",
+            "set_parts_count": 4,
+            "option_type": "Option",
+            "set_option": "set2_armor_t4_ocean",
+            "passive_level": 0,
+            "description": {
+              "en": "Crit Damage +10%",
+              "fr": "Dégâts crit. +10%"
+            },
+            "passive": null
+          },
+          {
+            "id": "armor_t4_ocean_3",
+            "set_parts_count": 4,
+            "option_type": "Passive",
+            "set_option": "epset_s_1",
+            "passive_level": 1,
+            "description": {
+              "en": "6% chance to increase Crit Chance by 50% for 5 sec when landing an attack. (Cooldown: 10 sec)",
+              "fr": "6% de chances d'augmenter les chances crit. de 50% pendant 5 s lorsqu'une attaque fait mouche. (Temps de recharge : 10 s)"
+            },
+            "passive": null
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "armor_t5_undying",
+    "name": {
+      "en": "The Watcher",
+      "fr": "Observateur"
+    },
+    "icon": "equippassive_armor_d",
+    "icon_path": "Assets/Content/UIImg/origin/EquipPassive/Armor/EquipPassive_Armor_D.png",
+    "icon_raw_url": "https://cdn-zeroluck-gg.b-cdn.net/7dso/SevenDeadlySins/Assets/Content/UIImg/origin/EquipPassive/Armor/EquipPassive_Armor_D.png",
+    "pieces_count": 4,
+    "pieces": [
+      {
+        "id": "132114016",
+        "itemType": "Equip",
+        "detailType": "Armor",
+        "division": "Top",
+        "grade": "Grade5",
+        "icon": "icon_armor_top_cloth_4018",
+        "imagePath": "Assets/Content/UIImg/Icon_Item/Armor/Top_Cloth_4018.png",
+        "imageRawUrl": "https://cdn-zeroluck-gg.b-cdn.net/7dso/SevenDeadlySins/Assets/Content/UIImg/Icon_Item/Armor/Top_Cloth_4018.png",
+        "name": {
+          "key": "local_item_equip_name_132114016",
+          "en": "Immortal Watcher Top",
+          "fr": "Haut du vigile immortel"
+        },
+        "description": {
+          "key": "local_item_equip_desc_132114016",
+          "en": "A Top woven from elastic spider silk. Lightweight yet dense enough to resist arrows.",
+          "fr": "Un haut tissé à l'aide de soie d'araignée élastique.\nSuffisamment dense malgré sa légèreté pour résister aux flèches."
+        }
+      },
+      {
+        "id": "132214016",
+        "itemType": "Equip",
+        "detailType": "Armor",
+        "division": "Bottom",
+        "grade": "Grade5",
+        "icon": "icon_armor_bottom_cloth_4018",
+        "imagePath": "Assets/Content/UIImg/Icon_Item/Armor/Bottom_Cloth_4018.png",
+        "imageRawUrl": "https://cdn-zeroluck-gg.b-cdn.net/7dso/SevenDeadlySins/Assets/Content/UIImg/Icon_Item/Armor/Bottom_Cloth_4018.png",
+        "name": {
+          "key": "local_item_equip_name_132214016",
+          "en": "Immortal Watcher Bottoms",
+          "fr": "Bas du vigile immortel"
+        },
+        "description": {
+          "key": "local_item_equip_desc_132214016",
+          "en": "Bottoms woven from elastic spider silk. Lightweight yet dense enough to resist arrows.",
+          "fr": "Un bas tissé à l'aide de soie d'araignée élastique.\nSuffisamment dense malgré sa légèreté pour résister aux flèches."
+        }
+      },
+      {
+        "id": "132314016",
+        "itemType": "Equip",
+        "detailType": "Armor",
+        "division": "Belt",
+        "grade": "Grade5",
+        "icon": "icon_armor_belt_cloth_4018",
+        "imagePath": "Assets/Content/UIImg/Icon_Item/Armor/Belt_Cloth_4018.png",
+        "imageRawUrl": "https://cdn-zeroluck-gg.b-cdn.net/7dso/SevenDeadlySins/Assets/Content/UIImg/Icon_Item/Armor/Belt_Cloth_4018.png",
+        "name": {
+          "key": "local_item_equip_name_132314016",
+          "en": "Immortal Watcher Belt",
+          "fr": "Ceinture du vigile immortel"
+        },
+        "description": {
+          "key": "local_item_equip_desc_132314016",
+          "en": "A Belt woven from elastic spider silk. Lightweight yet dense enough to resist arrows.",
+          "fr": "Une ceinture tissée à l'aide de soie d'araignée élastique.\nSuffisamment dense malgré sa légèreté pour résister aux flèches."
+        }
+      },
+      {
+        "id": "132414016",
+        "itemType": "Equip",
+        "detailType": "Armor",
+        "division": "Shoes",
+        "grade": "Grade5",
+        "icon": "icon_armor_shoes_cloth_4018",
+        "imagePath": "Assets/Content/UIImg/Icon_Item/Armor/Shoes_Cloth_4018.png",
+        "imageRawUrl": "https://cdn-zeroluck-gg.b-cdn.net/7dso/SevenDeadlySins/Assets/Content/UIImg/Icon_Item/Armor/Shoes_Cloth_4018.png",
+        "name": {
+          "key": "local_item_equip_name_132414016",
+          "en": "Immortal Watcher Combat Boots",
+          "fr": "Bottes de combat du vigile immortel"
+        },
+        "description": {
+          "key": "local_item_equip_desc_132414016",
+          "en": "Combat Boots woven from elastic spider silk. Lightweight yet dense enough to resist arrows.",
+          "fr": "Des bottes de combat tissées à l'aide de soie d'araignée élastique.\nSuffisamment denses malgré leur légèreté pour résister aux flèches."
+        }
+      }
+    ],
+    "effects": [
+      {
+        "id": "armor_t5_undying_1",
+        "set_parts_count": 2,
+        "option_type": "Option",
+        "set_option": "set1_armor_t5_undying",
+        "passive_level": 0,
+        "description": {
+          "en": "All Damage +5%",
+          "fr": "Tous les dégâts +5%"
+        },
+        "passive": null
+      },
+      {
+        "id": "armor_t5_undying_2",
+        "set_parts_count": 4,
+        "option_type": "Option",
+        "set_option": "set2_armor_t5_undying",
+        "passive_level": 0,
+        "description": {
+          "en": "Defense +15%",
+          "fr": "Défense +15%"
+        },
+        "passive": null
+      },
+      {
+        "id": "armor_t5_undying_3",
+        "set_parts_count": 4,
+        "option_type": "Passive",
+        "set_option": "epset_d",
+        "passive_level": 1,
+        "description": {
+          "en": "10% chance to inflict additional damage equal to 50% of Defense and inflict Bleed for 10 sec when landing an attack. (Cooldown: 15 sec)",
+          "fr": "10% de chances d'infliger des dégâts supplémentaires égaux à 50% de la défense et d'infliger Saignement pendant 10 s lorsqu'une attaque fait mouche. (Temps de recharge : 15 s)"
+        },
+        "passive": null
+      }
+    ],
+    "effect_groups": [
+      {
+        "set_parts_count": 2,
+        "entries": [
+          {
+            "id": "armor_t5_undying_1",
+            "set_parts_count": 2,
+            "option_type": "Option",
+            "set_option": "set1_armor_t5_undying",
+            "passive_level": 0,
+            "description": {
+              "en": "All Damage +5%",
+              "fr": "Tous les dégâts +5%"
+            },
+            "passive": null
+          }
+        ]
+      },
+      {
+        "set_parts_count": 4,
+        "entries": [
+          {
+            "id": "armor_t5_undying_2",
+            "set_parts_count": 4,
+            "option_type": "Option",
+            "set_option": "set2_armor_t5_undying",
+            "passive_level": 0,
+            "description": {
+              "en": "Defense +15%",
+              "fr": "Défense +15%"
+            },
+            "passive": null
+          },
+          {
+            "id": "armor_t5_undying_3",
+            "set_parts_count": 4,
+            "option_type": "Passive",
+            "set_option": "epset_d",
+            "passive_level": 1,
+            "description": {
+              "en": "10% chance to inflict additional damage equal to 50% of Defense and inflict Bleed for 10 sec when landing an attack. (Cooldown: 15 sec)",
+              "fr": "10% de chances d'infliger des dégâts supplémentaires égaux à 50% de la défense et d'infliger Saignement pendant 10 s lorsqu'une attaque fait mouche. (Temps de recharge : 15 s)"
+            },
+            "passive": null
+          }
+        ]
+      }
+    ]
+  }
+]

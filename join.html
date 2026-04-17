@@ -237,6 +237,22 @@ permalink: /join/
       border-radius: 2px;
       overflow: hidden;
     }
+    .cg-img {
+      width: 100%;
+      aspect-ratio: 1;
+      border-radius: 50%;
+      object-fit: cover;
+      object-position: top;
+      border: 1.5px solid rgba(201,146,58,.2);
+      background: rgba(255,255,255,.04);
+      transition: border-color .2s, transform .18s;
+      display: block;
+    }
+    .cg-img:hover {
+      border-color: rgba(201,146,58,.6);
+      transform: scale(1.08);
+    }
+
     .stat-box {
       background: var(--surface);
       padding: 20px 18px;
@@ -554,6 +570,29 @@ permalink: /join/
             <span class="stat-num" id="stat-gdg">—</span>
             <span class="stat-lbl">Win Rate</span>
           </div>
+        </div>
+        <!-- Portraits des personnages jouables -->
+        <div class="char-grid" style="display:grid;grid-template-columns:repeat(7,1fr);gap:6px;margin-top:14px">
+          <img src="/Purgatoire/assets/images/heroes/slot_meliodas_001.png"   alt="Meliodas"    class="cg-img" title="Meliodas">
+          <img src="/Purgatoire/assets/images/heroes/slot_king_001.png"       alt="King"        class="cg-img" title="King">
+          <img src="/Purgatoire/assets/images/heroes/slot_diane_001.png"      alt="Diane"       class="cg-img" title="Diane">
+          <img src="/Purgatoire/assets/images/heroes/hud_elaine_001.png"      alt="Elaine"      class="cg-img" title="Elaine">
+          <img src="/Purgatoire/assets/images/heroes/slot_jericho_001.png"    alt="Jericho"     class="cg-img" title="Jericho">
+          <img src="/Purgatoire/assets/images/heroes/slot_howzer_001.png"     alt="Howzer"      class="cg-img" title="Howzer">
+          <img src="/Purgatoire/assets/images/heroes/slot_griamore_001.png"   alt="Griamore"    class="cg-img" title="Griamore">
+          <img src="/Purgatoire/assets/images/heroes/slot_dreyfus_001.png"    alt="Dreyfus"     class="cg-img" title="Dreyfus">
+          <img src="/Purgatoire/assets/images/heroes/slot_hendrickson_001.png" alt="Hendrickson" class="cg-img" title="Hendrickson">
+          <img src="/Purgatoire/assets/images/heroes/slot_guila_001.png"      alt="Guila"       class="cg-img" title="Guila">
+          <img src="/Purgatoire/assets/images/heroes/slot_gil_thunder_001.png" alt="Gil Thunder" class="cg-img" title="Gil Thunder">
+          <img src="/Purgatoire/assets/images/heroes/slot_slader_001.png"     alt="Slader"      class="cg-img" title="Slader">
+          <img src="/Purgatoire/assets/images/heroes/slot_tristan_001.png"    alt="Tristan"     class="cg-img" title="Tristan">
+          <img src="/Purgatoire/assets/images/heroes/slot_manny_001.png"      alt="Manny"       class="cg-img" title="Manny">
+          <img src="/Purgatoire/assets/images/heroes/slot_Daisy_001.png"      alt="Daisy"       class="cg-img" title="Daisy">
+          <img src="/Purgatoire/assets/images/heroes/slot_Drake_001.png"      alt="Drake"       class="cg-img" title="Drake">
+          <img src="/Purgatoire/assets/images/heroes/slot_bug_001.png"        alt="Bug"         class="cg-img" title="Bug">
+          <img src="/Purgatoire/assets/images/heroes/slot_Klotho_001.png"     alt="Klotho"      class="cg-img" title="Klotho">
+          <img src="/Purgatoire/assets/images/heroes/slot_dreydrin_001.png"   alt="Dreydrin"    class="cg-img" title="Dreydrin">
+          <img src="/Purgatoire/assets/images/heroes/hud_tioreh_001.png"      alt="Tioreh"      class="cg-img" title="Tioreh">
         </div>
       </div>
     </div>

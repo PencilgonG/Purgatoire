@@ -96,9 +96,10 @@ function renderHomeRoster(roster) {
   const top5 = [...roster].sort((a,b) => ccNum(b.cc)-ccNum(a.cc)).slice(0,5);
   if (!top5.length) { wrap.innerHTML = '<p class="empty-state">Aucune donnée.</p>'; return; }
   wrap.innerHTML = top5.map((r,i) => `
-    <article class="list-card">
-      <div><span class="list-rank">#${i+1}</span><h3>${esc(r.pseudo||'Inconnu')}</h3><p>${esc(r.main_char||'—')} · ${esc(r.grade||'—')}</p></div>
-      <strong style="color:var(--gold-bright);font-family:var(--font-display);font-size:1.1rem">${formatCC(r.cc)}</strong>
+    <article class="list-card" style="display:flex;align-items:center;gap:10px">
+      ${(typeof heroPortrait==='function' && heroPortrait(r.main_char,'hud')) ? `<img src="${heroPortrait(r.main_char,'hud')}" alt="${esc(r.main_char)}" style="width:36px;height:36px;border-radius:50%;flex-shrink:0;border:1.5px solid rgba(201,151,62,.3);object-fit:cover;background:rgba(0,0,0,.2)" onerror="this.style.display='none'">` : ''}
+      <div style="flex:1;min-width:0"><span class="list-rank">#${i+1}</span><h3>${esc(r.pseudo||'Inconnu')}</h3><p>${esc(r.main_char||'—')} · ${esc(r.grade||'—')}</p></div>
+      <strong style="color:var(--gold-bright);font-family:var(--font-display);font-size:1.1rem;white-space:nowrap">${formatCC(r.cc)}</strong>
     </article>`).join('');
 }
 
@@ -145,14 +146,22 @@ function renderRosterPage(roster) {
   const sorted = [...roster].sort((a,b) => ccNum(b.cc)-ccNum(a.cc));
   const medals = ['🥇','🥈','🥉'];
   if (podium) {
-    podium.innerHTML = sorted.slice(0,3).map((r,i) => `
-      <article class="podium-card podium-${i+1}">
-        <span class="podium-rank">${medals[i]}</span>
-        <h3>${esc(r.pseudo||'—')}</h3>
-        <strong>${formatCC(r.cc)}</strong>
-        <p>${esc(r.main_char||'—')}</p>
-        <span class="status-pill" style="margin-top:6px;display:inline-block">${esc(r.grade||'—')}</span>
-      </article>`).join('');
+    podium.innerHTML = sorted.slice(0,3).map((r,i) => {
+      const portrait = (typeof heroPortrait === 'function') ? heroPortrait(r.main_char, 'combine') : '';
+      const hudImg   = (typeof heroPortrait === 'function') ? heroPortrait(r.main_char, 'hud') : '';
+      return `
+      <article class="podium-card podium-${i+1}" style="position:relative;overflow:hidden">
+        ${portrait ? `<div style="position:absolute;inset:0;z-index:0;pointer-events:none"><img src="${portrait}" alt="" style="width:100%;height:100%;object-fit:cover;object-position:top center;opacity:.18;filter:saturate(.7)" onerror="this.parentElement.remove()"></div>` : ''}
+        <div style="position:relative;z-index:1">
+          <span class="podium-rank">${medals[i]}</span>
+          ${hudImg ? `<div style="margin:4px auto 6px;width:44px;height:44px;border-radius:50%;overflow:hidden;border:2px solid rgba(201,151,62,.45);background:rgba(0,0,0,.3)"><img src="${hudImg}" alt="${esc(r.main_char)}" style="width:100%;height:100%;object-fit:cover" onerror="this.parentElement.remove()"></div>` : ''}
+          <h3>${esc(r.pseudo||'—')}</h3>
+          <strong>${formatCC(r.cc)}</strong>
+          <p>${esc(r.main_char||'—')}</p>
+          <span class="status-pill" style="margin-top:6px;display:inline-block">${esc(r.grade||'—')}</span>
+        </div>
+      </article>`;
+    }).join('');
   }
   if (tbody) {
     function renderRows(data) {
@@ -174,7 +183,9 @@ function renderRosterPage(roster) {
           <td>${i < 3 ? medals[i] : (i+1)}</td>
           <td style="font-weight:600">${avatar}${esc(r.pseudo||'—')}</td>
           <td class="col-cc">${formatCC(r.cc)}</td>
-          <td style="color:var(--text-secondary)">${esc(r.main_char||'—')}</td>
+          <td style="color:var(--text-secondary)">
+            ${(typeof heroPortrait==='function' && heroPortrait(r.main_char,'hud')) ? `<img src="${heroPortrait(r.main_char,'hud')}" alt="" style="width:22px;height:22px;border-radius:50%;vertical-align:middle;margin-right:5px;border:1px solid rgba(201,151,62,.3);background:rgba(0,0,0,.2);object-fit:cover" onerror="this.style.display='none'">` : ''}${esc(r.main_char||'—')}
+          </td>
           <td>${gradePill(r.grade||'—')}</td>
           <td><span class="badge ${pillCls}">${esc(r.statut||'—')}</span></td>
           <td style="font-size:.9rem;text-align:center" title="Voir la fiche">📋</td>
@@ -462,12 +473,17 @@ function renderTierlistPage(tierlist) {
         <div style="display:flex;flex-wrap:wrap;gap:8px">
           ${chars.map(p => {
             const pct = Math.round(Number(p.total||0)/maxVotes*100);
+            const portrait = (typeof heroPortrait === 'function') ? heroPortrait(p.personnage, 'slot') : '';
+            const tierColor = COLORS[t] || 'var(--text-muted)';
             return `
-            <div style="background:var(--bg-elevated);border:1px solid var(--border);border-radius:var(--radius);padding:10px 14px;min-width:130px">
-              <div style="font-weight:600;font-size:.85rem">${esc(p.personnage||'—')}</div>
-              <div style="font-size:.75rem;color:${COLORS[t]||'var(--text-muted)'};margin-top:4px">${p.total||0} vote${Number(p.total||0)>1?'s':''}</div>
-              <div style="margin-top:6px;height:4px;background:var(--border);border-radius:99px;overflow:hidden">
-                <div style="height:100%;width:${pct}%;background:${COLORS[t]||'var(--gold-bright)'};border-radius:99px;transition:.3s"></div>
+            <div style="background:var(--bg-elevated);border:1px solid var(--border);border-radius:var(--radius);padding:0;min-width:120px;overflow:hidden;transition:border-color .2s,transform .2s;cursor:default" onmouseenter="this.style.borderColor='${tierColor}';this.style.transform='translateY(-2px)'" onmouseleave="this.style.borderColor='var(--border)';this.style.transform=''">
+              ${portrait ? `<div style="position:relative;height:90px;overflow:hidden;background:rgba(0,0,0,.2)"><img src="${portrait}" alt="${esc(p.personnage)}" style="width:100%;height:100%;object-fit:cover;object-position:top center;display:block" onerror="this.parentElement.style.display='none'"><div style="position:absolute;inset:0;background:linear-gradient(180deg,transparent 40%,rgba(7,8,13,.85) 100%)"></div></div>` : `<div style="height:6px;background:${tierColor};opacity:.4"></div>`}
+              <div style="padding:8px 10px">
+                <div style="font-weight:600;font-size:.82rem;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">${esc(p.personnage||'—')}</div>
+                <div style="font-size:.7rem;color:${tierColor};margin-top:2px">${p.total||0} vote${Number(p.total||0)>1?'s':''}</div>
+                <div style="margin-top:5px;height:3px;background:var(--border);border-radius:99px;overflow:hidden">
+                  <div style="height:100%;width:${pct}%;background:${tierColor};border-radius:99px;transition:.3s"></div>
+                </div>
               </div>
             </div>`;
           }).join('')}

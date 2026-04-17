@@ -1,0 +1,1531 @@
+[
+  {
+    "id": "133014001",
+    "slug": "formal-attire",
+    "name": "Tenue de cérémonie",
+    "character_slug": "",
+    "character_name": "",
+    "description": "",
+    "image_url": "https://cdn-zeroluck-gg.b-cdn.net/7dso/SevenDeadlySins/Assets/Content/UIImg/Icon_Item/BindArmor/Tristan_Cloth_4001.png",
+    "rarity": "Grade4",
+    "default": false,
+    "variant_level": 1,
+    "main_stat": "unknown_B_MaxHP_Equip",
+    "main_val": 6936,
+    "subs": [
+      {
+        "stat": "UltimateSkill_DamAdd_Rate",
+        "val": 809
+      },
+      {
+        "stat": "C_Critical_Rate",
+        "val": 480
+      }
+    ],
+    "bind_stats": {},
+    "effects_raw": [],
+    "effects_parsed": []
+  },
+  {
+    "id": "133015001",
+    "slug": "royal-dignity",
+    "name": "Dignité royale",
+    "character_slug": "",
+    "character_name": "",
+    "description": "",
+    "image_url": "https://cdn-zeroluck-gg.b-cdn.net/7dso/SevenDeadlySins/Assets/Content/UIImg/Icon_Item/BindArmor/Tristan_Cloth_5001.png",
+    "rarity": "Grade5",
+    "default": false,
+    "variant_level": 1,
+    "main_stat": "unknown_B_MaxHP_Equip",
+    "main_val": 14739,
+    "subs": [
+      {
+        "stat": "Fire_Burst_Gauge_Rate",
+        "val": 1886
+      },
+      {
+        "stat": "C_Critical_Rate",
+        "val": 1020
+      }
+    ],
+    "bind_stats": {},
+    "effects_raw": [],
+    "effects_parsed": []
+  },
+  {
+    "id": "133015002",
+    "slug": "prince-s-adventure",
+    "name": "Aventure du prince",
+    "character_slug": "",
+    "character_name": "",
+    "description": "",
+    "image_url": "https://cdn-zeroluck-gg.b-cdn.net/7dso/SevenDeadlySins/Assets/Content/UIImg/Icon_Item/BindArmor/Tristan_Leather_5002.png",
+    "rarity": "Grade5",
+    "default": false,
+    "variant_level": 1,
+    "main_stat": "unknown_B_MaxHP_Equip",
+    "main_val": 14739,
+    "subs": [
+      {
+        "stat": "UltimateSkill_DamAdd_Rate",
+        "val": 1718
+      },
+      {
+        "stat": "C_Critical_Rate",
+        "val": 1020
+      }
+    ],
+    "bind_stats": {},
+    "effects_raw": [],
+    "effects_parsed": []
+  },
+  {
+    "id": "133024001",
+    "slug": "casual-outing",
+    "name": "Sortie décontractée",
+    "character_slug": "",
+    "character_name": "",
+    "description": "",
+    "image_url": "https://cdn-zeroluck-gg.b-cdn.net/7dso/SevenDeadlySins/Assets/Content/UIImg/Icon_Item/BindArmor/Tioreh_Leather_4001.png",
+    "rarity": "Grade4",
+    "default": false,
+    "variant_level": 1,
+    "main_stat": "unknown_B_MaxHP_Equip",
+    "main_val": 6936,
+    "subs": [
+      {
+        "stat": "Debuff_Time_Rate",
+        "val": 1420
+      },
+      {
+        "stat": "I_DefAdd_Rate",
+        "val": 270
+      }
+    ],
+    "bind_stats": {},
+    "effects_raw": [],
+    "effects_parsed": []
+  },
+  {
+    "id": "133025001",
+    "slug": "daughter-of-the-forest-and-earth",
+    "name": "Fille de la forêt et de la terre",
+    "character_slug": "",
+    "character_name": "",
+    "description": "",
+    "image_url": "https://cdn-zeroluck-gg.b-cdn.net/7dso/SevenDeadlySins/Assets/Content/UIImg/Icon_Item/BindArmor/Tioreh_Cloth_5001.png",
+    "rarity": "Grade5",
+    "default": false,
+    "variant_level": 1,
+    "main_stat": "unknown_B_MaxHP_Equip",
+    "main_val": 14739,
+    "subs": [
+      {
+        "stat": "Debuff_Time_Rate",
+        "val": 3017
+      },
+      {
+        "stat": "NormalSkill_DamAdd_Rate",
+        "val": 2193
+      }
+    ],
+    "bind_stats": {},
+    "effects_raw": [],
+    "effects_parsed": []
+  },
+  {
+    "id": "133025002",
+    "slug": "adventure-s-beginning",
+    "name": "Début de l'aventure",
+    "character_slug": "",
+    "character_name": "",
+    "description": "",
+    "image_url": "https://cdn-zeroluck-gg.b-cdn.net/7dso/SevenDeadlySins/Assets/Content/UIImg/Icon_Item/BindArmor/Tioreh_Leather_5002.png",
+    "rarity": "Grade5",
+    "default": false,
+    "variant_level": 1,
+    "main_stat": "unknown_B_MaxHP_Equip",
+    "main_val": 14739,
+    "subs": [
+      {
+        "stat": "H_HealPower_Rate",
+        "val": 1397
+      },
+      {
+        "stat": "MF_ChargeEffic_Rate",
+        "val": 1509
+      }
+    ],
+    "bind_stats": {},
+    "effects_raw": [],
+    "effects_parsed": []
+  },
+  {
+    "id": "133034001",
+    "slug": "exemplary-holy-knight",
+    "name": "Chevalier sacré exemplaire",
+    "character_slug": "",
+    "character_name": "",
+    "description": "",
+    "image_url": "https://cdn-zeroluck-gg.b-cdn.net/7dso/SevenDeadlySins/Assets/Content/UIImg/Icon_Item/BindArmor/Gil_Thunder_Plate_4001.png",
+    "rarity": "Grade4",
+    "default": false,
+    "variant_level": 1,
+    "main_stat": "unknown_B_MaxHP_Equip",
+    "main_val": 6936,
+    "subs": [
+      {
+        "stat": "Thunder_Add",
+        "val": 375
+      },
+      {
+        "stat": "Debuff_Time_Rate",
+        "val": 1420
+      }
+    ],
+    "bind_stats": {},
+    "effects_raw": [],
+    "effects_parsed": []
+  },
+  {
+    "id": "133035001",
+    "slug": "holy-knight-of-lightning",
+    "name": "Chevalier sacré de la foudre",
+    "character_slug": "",
+    "character_name": "",
+    "description": "",
+    "image_url": "https://cdn-zeroluck-gg.b-cdn.net/7dso/SevenDeadlySins/Assets/Content/UIImg/Icon_Item/BindArmor/Gil_Thunder_Cloth_5001.png",
+    "rarity": "Grade5",
+    "default": false,
+    "variant_level": 1,
+    "main_stat": "unknown_B_MaxHP_Equip",
+    "main_val": 14739,
+    "subs": [
+      {
+        "stat": "Thunder_Burst_Gauge_Rate",
+        "val": 1257
+      },
+      {
+        "stat": "Debuff_Time_Rate",
+        "val": 2011
+      },
+      {
+        "stat": "S_SkillRecycle_Rate",
+        "val": 755
+      }
+    ],
+    "bind_stats": {},
+    "effects_raw": [],
+    "effects_parsed": []
+  },
+  {
+    "id": "133035002",
+    "slug": "exemplary-adventure",
+    "name": "Aventure exemplaire",
+    "character_slug": "",
+    "character_name": "",
+    "description": "",
+    "image_url": "https://cdn-zeroluck-gg.b-cdn.net/7dso/SevenDeadlySins/Assets/Content/UIImg/Icon_Item/BindArmor/Gil_Thunder_Leather_5002.png",
+    "rarity": "Grade5",
+    "default": false,
+    "variant_level": 1,
+    "main_stat": "unknown_B_MaxHP_Equip",
+    "main_val": 14739,
+    "subs": [
+      {
+        "stat": "P_Shield_Rate",
+        "val": 1164
+      },
+      {
+        "stat": "Debuff_Time_Rate",
+        "val": 2011
+      },
+      {
+        "stat": "S_SkillRecycle_Rate",
+        "val": 755
+      }
+    ],
+    "bind_stats": {},
+    "effects_raw": [],
+    "effects_parsed": []
+  },
+  {
+    "id": "133044001",
+    "slug": "end-of-day-mug-of-ale",
+    "name": "Choppe de bière de la fin des temps",
+    "character_slug": "",
+    "character_name": "",
+    "description": "",
+    "image_url": "https://cdn-zeroluck-gg.b-cdn.net/7dso/SevenDeadlySins/Assets/Content/UIImg/Icon_Item/BindArmor/Howzer_Cloth_4001.png",
+    "rarity": "Grade4",
+    "default": false,
+    "variant_level": 1,
+    "main_stat": "unknown_B_MaxHP_Equip",
+    "main_val": 6936,
+    "subs": [
+      {
+        "stat": "Wind_Add",
+        "val": 375
+      },
+      {
+        "stat": "Debuff_Time_Rate",
+        "val": 1420
+      }
+    ],
+    "bind_stats": {},
+    "effects_raw": [],
+    "effects_parsed": []
+  },
+  {
+    "id": "133045001",
+    "slug": "holy-knight-of-storms",
+    "name": "Chevalier sacré de la tempête",
+    "character_slug": "",
+    "character_name": "",
+    "description": "",
+    "image_url": "https://cdn-zeroluck-gg.b-cdn.net/7dso/SevenDeadlySins/Assets/Content/UIImg/Icon_Item/BindArmor/Howzer_Cloth_5001.png",
+    "rarity": "Grade5",
+    "default": false,
+    "variant_level": 1,
+    "main_stat": "unknown_B_MaxHP_Equip",
+    "main_val": 14739,
+    "subs": [
+      {
+        "stat": "Wind_Add",
+        "val": 1075
+      },
+      {
+        "stat": "TickDam_Rate",
+        "val": 1897
+      }
+    ],
+    "bind_stats": {},
+    "effects_raw": [],
+    "effects_parsed": []
+  },
+  {
+    "id": "133045002",
+    "slug": "secure-adventure",
+    "name": "Aventure en toute sécurité",
+    "character_slug": "",
+    "character_name": "",
+    "description": "",
+    "image_url": "https://cdn-zeroluck-gg.b-cdn.net/7dso/SevenDeadlySins/Assets/Content/UIImg/Icon_Item/BindArmor/Howzer_Leather_5002.png",
+    "rarity": "Grade5",
+    "default": false,
+    "variant_level": 1,
+    "main_stat": "unknown_B_MaxHP_Equip",
+    "main_val": 14739,
+    "subs": [
+      {
+        "stat": "ActiveThird_DamAdd_Rate",
+        "val": 1900
+      },
+      {
+        "stat": "C_Critical_Rate",
+        "val": 680
+      },
+      {
+        "stat": "Debuff_Time_Rate",
+        "val": 2011
+      }
+    ],
+    "bind_stats": {},
+    "effects_raw": [],
+    "effects_parsed": []
+  },
+  {
+    "id": "133054001",
+    "slug": "a-nice-day-off",
+    "name": "Une belle journée de repos",
+    "character_slug": "",
+    "character_name": "",
+    "description": "",
+    "image_url": "https://cdn-zeroluck-gg.b-cdn.net/7dso/SevenDeadlySins/Assets/Content/UIImg/Icon_Item/BindArmor/Dreydrin_Plate_4001.png",
+    "rarity": "Grade4",
+    "default": false,
+    "variant_level": 1,
+    "main_stat": "unknown_B_MaxHP_Equip",
+    "main_val": 6936,
+    "subs": [
+      {
+        "stat": "I_DefAdd_Rate",
+        "val": 270
+      },
+      {
+        "stat": "I_MaxHPAdd_Rate",
+        "val": 198
+      }
+    ],
+    "bind_stats": {},
+    "effects_raw": [],
+    "effects_parsed": []
+  },
+  {
+    "id": "133055001",
+    "slug": "descendant-of-royalty",
+    "name": "Ascendance royale",
+    "character_slug": "",
+    "character_name": "",
+    "description": "",
+    "image_url": "https://cdn-zeroluck-gg.b-cdn.net/7dso/SevenDeadlySins/Assets/Content/UIImg/Icon_Item/BindArmor/Dreydrin_Cloth_5001.png",
+    "rarity": "Grade5",
+    "default": false,
+    "variant_level": 1,
+    "main_stat": "unknown_B_MaxHP_Equip",
+    "main_val": 14739,
+    "subs": [
+      {
+        "stat": "P_Shield_Rate",
+        "val": 1164
+      },
+      {
+        "stat": "I_DefAdd_Rate",
+        "val": 382
+      },
+      {
+        "stat": "I_MaxHPAdd_Rate",
+        "val": 280
+      }
+    ],
+    "bind_stats": {},
+    "effects_raw": [],
+    "effects_parsed": []
+  },
+  {
+    "id": "133055002",
+    "slug": "thorough-preparation",
+    "name": "Préparation minutieuse",
+    "character_slug": "",
+    "character_name": "",
+    "description": "",
+    "image_url": "https://cdn-zeroluck-gg.b-cdn.net/7dso/SevenDeadlySins/Assets/Content/UIImg/Icon_Item/BindArmor/Dreydrin_Leather_5002.png",
+    "rarity": "Grade5",
+    "default": false,
+    "variant_level": 1,
+    "main_stat": "unknown_B_MaxHP_Equip",
+    "main_val": 14739,
+    "subs": [
+      {
+        "stat": "Default_Add",
+        "val": 796
+      },
+      {
+        "stat": "Debuff_Time_Rate",
+        "val": 3017
+      }
+    ],
+    "bind_stats": {},
+    "effects_raw": [],
+    "effects_parsed": []
+  },
+  {
+    "id": "133064001",
+    "slug": "demon-s-outing",
+    "name": "Sortie du démon",
+    "character_slug": "",
+    "character_name": "",
+    "description": "",
+    "image_url": "https://cdn-zeroluck-gg.b-cdn.net/7dso/SevenDeadlySins/Assets/Content/UIImg/Icon_Item/BindArmor/Bug_Leather_4001.png",
+    "rarity": "Grade4",
+    "default": false,
+    "variant_level": 1,
+    "main_stat": "unknown_B_MaxHP_Equip",
+    "main_val": 6936,
+    "subs": [
+      {
+        "stat": "Dark_Add",
+        "val": 375
+      },
+      {
+        "stat": "I_MaxHPAdd_Rate",
+        "val": 198
+      }
+    ],
+    "bind_stats": {},
+    "effects_raw": [],
+    "effects_parsed": []
+  },
+  {
+    "id": "133065001",
+    "slug": "shadow-walk",
+    "name": "Marche des ombres",
+    "character_slug": "",
+    "character_name": "",
+    "description": "",
+    "image_url": "https://cdn-zeroluck-gg.b-cdn.net/7dso/SevenDeadlySins/Assets/Content/UIImg/Icon_Item/BindArmor/Bug_Cloth_5001.png",
+    "rarity": "Grade5",
+    "default": false,
+    "variant_level": 1,
+    "main_stat": "unknown_B_MaxHP_Equip",
+    "main_val": 14739,
+    "subs": [
+      {
+        "stat": "Dark_Add",
+        "val": 1075
+      },
+      {
+        "stat": "C_Critical_Dam_Rate",
+        "val": 1171
+      }
+    ],
+    "bind_stats": {},
+    "effects_raw": [],
+    "effects_parsed": []
+  },
+  {
+    "id": "133065002",
+    "slug": "demon-s-stealth",
+    "name": "Furtivité du démon",
+    "character_slug": "",
+    "character_name": "",
+    "description": "",
+    "image_url": "https://cdn-zeroluck-gg.b-cdn.net/7dso/SevenDeadlySins/Assets/Content/UIImg/Icon_Item/BindArmor/Bug_Leather_5002.png",
+    "rarity": "Grade5",
+    "default": false,
+    "variant_level": 1,
+    "main_stat": "unknown_B_MaxHP_Equip",
+    "main_val": 14739,
+    "subs": [
+      {
+        "stat": "Dark_Add",
+        "val": 1075
+      },
+      {
+        "stat": "ActiveThird_DamAdd_Rate",
+        "val": 1852
+      }
+    ],
+    "bind_stats": {},
+    "effects_raw": [],
+    "effects_parsed": []
+  },
+  {
+    "id": "133074001",
+    "slug": "temp-employee",
+    "name": "Employé saisonnier",
+    "character_slug": "",
+    "character_name": "",
+    "description": "",
+    "image_url": "https://cdn-zeroluck-gg.b-cdn.net/7dso/SevenDeadlySins/Assets/Content/UIImg/Icon_Item/BindArmor/Elaine_Leather_4001.png",
+    "rarity": "Grade4",
+    "default": false,
+    "variant_level": 1,
+    "main_stat": "unknown_B_MaxHP_Equip",
+    "main_val": 6936,
+    "subs": [
+      {
+        "stat": "MF_ChargeEffic_Rate",
+        "val": 710
+      },
+      {
+        "stat": "Buff_Time_Rate",
+        "val": 1420
+      }
+    ],
+    "bind_stats": {},
+    "effects_raw": [],
+    "effects_parsed": []
+  },
+  {
+    "id": "133075001",
+    "slug": "guiding-light",
+    "name": "Lumière de guidance",
+    "character_slug": "",
+    "character_name": "",
+    "description": "",
+    "image_url": "https://cdn-zeroluck-gg.b-cdn.net/7dso/SevenDeadlySins/Assets/Content/UIImg/Icon_Item/BindArmor/Elaine_Cloth_5001.png",
+    "rarity": "Grade5",
+    "default": false,
+    "variant_level": 1,
+    "main_stat": "unknown_B_MaxHP_Equip",
+    "main_val": 14739,
+    "subs": [
+      {
+        "stat": "Wind_Add",
+        "val": 1115
+      },
+      {
+        "stat": "C_Critical_Rate",
+        "val": 612
+      }
+    ],
+    "bind_stats": {},
+    "effects_raw": [],
+    "effects_parsed": []
+  },
+  {
+    "id": "133075002",
+    "slug": "cheerful-outing",
+    "name": "Sortie joyeuse",
+    "character_slug": "",
+    "character_name": "",
+    "description": "",
+    "image_url": "https://cdn-zeroluck-gg.b-cdn.net/7dso/SevenDeadlySins/Assets/Content/UIImg/Icon_Item/BindArmor/Elaine_Leather_5002.png",
+    "rarity": "Grade5",
+    "default": false,
+    "variant_level": 1,
+    "main_stat": "unknown_B_MaxHP_Equip",
+    "main_val": 14739,
+    "subs": [
+      {
+        "stat": "Holy_Add",
+        "val": 796
+      },
+      {
+        "stat": "Burst_Gauge_Rate",
+        "val": 1132
+      }
+    ],
+    "bind_stats": {},
+    "effects_raw": [],
+    "effects_parsed": []
+  },
+  {
+    "id": "133084001",
+    "slug": "royal-butler",
+    "name": "Majordome royal",
+    "character_slug": "",
+    "character_name": "",
+    "description": "",
+    "image_url": "https://cdn-zeroluck-gg.b-cdn.net/7dso/SevenDeadlySins/Assets/Content/UIImg/Icon_Item/BindArmor/Dreyfus_Cloth_4001.png",
+    "rarity": "Grade4",
+    "default": false,
+    "variant_level": 1,
+    "main_stat": "unknown_B_MaxHP_Equip",
+    "main_val": 6936,
+    "subs": [
+      {
+        "stat": "C_Critical_Dam_Rate",
+        "val": 848
+      },
+      {
+        "stat": "Debuff_Time_Rate",
+        "val": 1420
+      }
+    ],
+    "bind_stats": {},
+    "effects_raw": [],
+    "effects_parsed": []
+  },
+  {
+    "id": "133085001",
+    "slug": "old-soldier-s-honor",
+    "name": "Honneur au vieux soldat",
+    "character_slug": "",
+    "character_name": "",
+    "description": "",
+    "image_url": "https://cdn-zeroluck-gg.b-cdn.net/7dso/SevenDeadlySins/Assets/Content/UIImg/Icon_Item/BindArmor/Dreyfus_Cloth_5001.png",
+    "rarity": "Grade5",
+    "default": false,
+    "variant_level": 1,
+    "main_stat": "unknown_B_MaxHP_Equip",
+    "main_val": 14739,
+    "subs": [
+      {
+        "stat": "Default_Add",
+        "val": 796
+      },
+      {
+        "stat": "Debuff_Time_Rate",
+        "val": 3017
+      }
+    ],
+    "bind_stats": {},
+    "effects_raw": [],
+    "effects_parsed": []
+  },
+  {
+    "id": "133085002",
+    "slug": "simple-attire",
+    "name": "Tenue modeste",
+    "character_slug": "",
+    "character_name": "",
+    "description": "",
+    "image_url": "https://cdn-zeroluck-gg.b-cdn.net/7dso/SevenDeadlySins/Assets/Content/UIImg/Icon_Item/BindArmor/Dreyfus_Leather_5002.png",
+    "rarity": "Grade5",
+    "default": false,
+    "variant_level": 1,
+    "main_stat": "unknown_B_MaxHP_Equip",
+    "main_val": 14739,
+    "subs": [
+      {
+        "stat": "NormalSkill_DamAdd_Rate",
+        "val": 1462
+      },
+      {
+        "stat": "Debuff_Time_Rate",
+        "val": 2011
+      },
+      {
+        "stat": "S_SkillRecycle_Rate",
+        "val": 755
+      }
+    ],
+    "bind_stats": {},
+    "effects_raw": [],
+    "effects_parsed": []
+  },
+  {
+    "id": "133094001",
+    "slug": "romantic-gray",
+    "name": "Gris romantique",
+    "character_slug": "",
+    "character_name": "",
+    "description": "",
+    "image_url": "https://cdn-zeroluck-gg.b-cdn.net/7dso/SevenDeadlySins/Assets/Content/UIImg/Icon_Item/BindArmor/Hendrickson_Leather_4001.png",
+    "rarity": "Grade4",
+    "default": false,
+    "variant_level": 1,
+    "main_stat": "unknown_B_MaxHP_Equip",
+    "main_val": 6936,
+    "subs": [
+      {
+        "stat": "MF_ChargeEffic_Rate",
+        "val": 710
+      },
+      {
+        "stat": "C_Critical_Rate",
+        "val": 480
+      }
+    ],
+    "bind_stats": {},
+    "effects_raw": [],
+    "effects_parsed": []
+  },
+  {
+    "id": "133095001",
+    "slug": "a-suit-from-younger-days",
+    "name": "Une tenue de jeunesse",
+    "character_slug": "",
+    "character_name": "",
+    "description": "",
+    "image_url": "https://cdn-zeroluck-gg.b-cdn.net/7dso/SevenDeadlySins/Assets/Content/UIImg/Icon_Item/BindArmor/Hendrickson_Cloth_5001.png",
+    "rarity": "Grade5",
+    "default": false,
+    "variant_level": 1,
+    "main_stat": "unknown_B_MaxHP_Equip",
+    "main_val": 14739,
+    "subs": [
+      {
+        "stat": "H_HealPower_Rate",
+        "val": 931
+      },
+      {
+        "stat": "MF_ChargeEffic_Rate",
+        "val": 1006
+      },
+      {
+        "stat": "I_MaxHPAdd_Rate",
+        "val": 280
+      }
+    ],
+    "bind_stats": {},
+    "effects_raw": [],
+    "effects_parsed": []
+  },
+  {
+    "id": "133095002",
+    "slug": "apothecary-s-workwear",
+    "name": "Vêtements de travail de l'apothicaire",
+    "character_slug": "",
+    "character_name": "",
+    "description": "",
+    "image_url": "https://cdn-zeroluck-gg.b-cdn.net/7dso/SevenDeadlySins/Assets/Content/UIImg/Icon_Item/BindArmor/Hendrickson_Leather_5002.png",
+    "rarity": "Grade5",
+    "default": false,
+    "variant_level": 1,
+    "main_stat": "unknown_B_MaxHP_Equip",
+    "main_val": 14739,
+    "subs": [
+      {
+        "stat": "Default_Add",
+        "val": 1115
+      },
+      {
+        "stat": "C_Critical_Rate",
+        "val": 612
+      }
+    ],
+    "bind_stats": {},
+    "effects_raw": [],
+    "effects_parsed": []
+  },
+  {
+    "id": "133104001",
+    "slug": "loyal-friend",
+    "name": "Ami loyal",
+    "character_slug": "",
+    "character_name": "",
+    "description": "",
+    "image_url": "https://cdn-zeroluck-gg.b-cdn.net/7dso/SevenDeadlySins/Assets/Content/UIImg/Icon_Item/BindArmor/Slader_Plate_4001.png",
+    "rarity": "Grade4",
+    "default": false,
+    "variant_level": 1,
+    "main_stat": "unknown_B_MaxHP_Equip",
+    "main_val": 6936,
+    "subs": [
+      {
+        "stat": "Debuff_Time_Rate",
+        "val": 1420
+      },
+      {
+        "stat": "NormalSkill_DamAdd_Rate",
+        "val": 1032
+      }
+    ],
+    "bind_stats": {},
+    "effects_raw": [],
+    "effects_parsed": []
+  },
+  {
+    "id": "133105001",
+    "slug": "sword-of-the-old-king",
+    "name": "Épée du vieux roi",
+    "character_slug": "",
+    "character_name": "",
+    "description": "",
+    "image_url": "https://cdn-zeroluck-gg.b-cdn.net/7dso/SevenDeadlySins/Assets/Content/UIImg/Icon_Item/BindArmor/Slader_Cloth_5001.png",
+    "rarity": "Grade5",
+    "default": false,
+    "variant_level": 1,
+    "main_stat": "unknown_B_MaxHP_Equip",
+    "main_val": 14739,
+    "subs": [
+      {
+        "stat": "ActiveThird_DamAdd_Rate",
+        "val": 2849
+      },
+      {
+        "stat": "NormalSkill_DamAdd_Rate",
+        "val": 2193
+      }
+    ],
+    "bind_stats": {},
+    "effects_raw": [],
+    "effects_parsed": []
+  },
+  {
+    "id": "133105002",
+    "slug": "secret-mission",
+    "name": "Mission secrète",
+    "character_slug": "",
+    "character_name": "",
+    "description": "",
+    "image_url": "https://cdn-zeroluck-gg.b-cdn.net/7dso/SevenDeadlySins/Assets/Content/UIImg/Icon_Item/BindArmor/Slader_Leather_5002.png",
+    "rarity": "Grade5",
+    "default": false,
+    "variant_level": 1,
+    "main_stat": "unknown_B_MaxHP_Equip",
+    "main_val": 14739,
+    "subs": [
+      {
+        "stat": "Default_Add",
+        "val": 531
+      },
+      {
+        "stat": "Debuff_Time_Rate",
+        "val": 2011
+      },
+      {
+        "stat": "TickDam_Rate",
+        "val": 1946
+      }
+    ],
+    "bind_stats": {},
+    "effects_raw": [],
+    "effects_parsed": []
+  },
+  {
+    "id": "133114001",
+    "slug": "family-time",
+    "name": "Moment en famille",
+    "character_slug": "",
+    "character_name": "",
+    "description": "",
+    "image_url": "https://cdn-zeroluck-gg.b-cdn.net/7dso/SevenDeadlySins/Assets/Content/UIImg/Icon_Item/BindArmor/Guila_Leather_4001.png",
+    "rarity": "Grade4",
+    "default": false,
+    "variant_level": 1,
+    "main_stat": "unknown_B_MaxHP_Equip",
+    "main_val": 6936,
+    "subs": [
+      {
+        "stat": "C_Critical_Rate",
+        "val": 480
+      },
+      {
+        "stat": "I_MaxHPAdd_Rate",
+        "val": 198
+      }
+    ],
+    "bind_stats": {},
+    "effects_raw": [],
+    "effects_parsed": []
+  },
+  {
+    "id": "133115001",
+    "slug": "holy-knight-of-explosions",
+    "name": "Chevalier sacré des explosions",
+    "character_slug": "",
+    "character_name": "",
+    "description": "",
+    "image_url": "https://cdn-zeroluck-gg.b-cdn.net/7dso/SevenDeadlySins/Assets/Content/UIImg/Icon_Item/BindArmor/Guila_Cloth_5001.png",
+    "rarity": "Grade5",
+    "default": false,
+    "variant_level": 1,
+    "main_stat": "unknown_B_MaxHP_Equip",
+    "main_val": 14739,
+    "subs": [
+      {
+        "stat": "NormalSkill_DamAdd_Rate",
+        "val": 2193
+      },
+      {
+        "stat": "C_Critical_Rate",
+        "val": 1020
+      }
+    ],
+    "bind_stats": {},
+    "effects_raw": [],
+    "effects_parsed": []
+  },
+  {
+    "id": "133115002",
+    "slug": "light-footsteps",
+    "name": "Pas légers",
+    "character_slug": "",
+    "character_name": "",
+    "description": "",
+    "image_url": "https://cdn-zeroluck-gg.b-cdn.net/7dso/SevenDeadlySins/Assets/Content/UIImg/Icon_Item/BindArmor/Guila_Leather_5002.png",
+    "rarity": "Grade5",
+    "default": false,
+    "variant_level": 1,
+    "main_stat": "unknown_B_MaxHP_Equip",
+    "main_val": 14739,
+    "subs": [
+      {
+        "stat": "P_Shield_Rate",
+        "val": 1746
+      },
+      {
+        "stat": "I_MaxHPAdd_Rate",
+        "val": 419
+      }
+    ],
+    "bind_stats": {},
+    "effects_raw": [],
+    "effects_parsed": []
+  },
+  {
+    "id": "133124001",
+    "slug": "casual-outing-2",
+    "name": "Sortie décontractée",
+    "character_slug": "",
+    "character_name": "",
+    "description": "",
+    "image_url": "https://cdn-zeroluck-gg.b-cdn.net/7dso/SevenDeadlySins/Assets/Content/UIImg/Icon_Item/BindArmor/Griamore_Cloth_4001.png",
+    "rarity": "Grade4",
+    "default": false,
+    "variant_level": 1,
+    "main_stat": "unknown_B_MaxHP_Equip",
+    "main_val": 6936,
+    "subs": [
+      {
+        "stat": "Default_Add",
+        "val": 375
+      },
+      {
+        "stat": "I_DefAdd_Rate",
+        "val": 270
+      }
+    ],
+    "bind_stats": {},
+    "effects_raw": [],
+    "effects_parsed": []
+  },
+  {
+    "id": "133125001",
+    "slug": "holy-knight-of-the-iron-wall",
+    "name": "Chevalier sacré du mur de fer",
+    "character_slug": "",
+    "character_name": "",
+    "description": "",
+    "image_url": "https://cdn-zeroluck-gg.b-cdn.net/7dso/SevenDeadlySins/Assets/Content/UIImg/Icon_Item/BindArmor/Griamore_Cloth_5001.png",
+    "rarity": "Grade5",
+    "default": false,
+    "variant_level": 1,
+    "main_stat": "unknown_B_MaxHP_Equip",
+    "main_val": 14739,
+    "subs": [
+      {
+        "stat": "P_Shield_Rate",
+        "val": 1746
+      },
+      {
+        "stat": "I_DefAdd_Rate",
+        "val": 573
+      }
+    ],
+    "bind_stats": {},
+    "effects_raw": [],
+    "effects_parsed": []
+  },
+  {
+    "id": "133125002",
+    "slug": "makeshift-barricade",
+    "name": "Barricade de fortune",
+    "character_slug": "",
+    "character_name": "",
+    "description": "",
+    "image_url": "https://cdn-zeroluck-gg.b-cdn.net/7dso/SevenDeadlySins/Assets/Content/UIImg/Icon_Item/BindArmor/Griamore_Leather_5002.png",
+    "rarity": "Grade5",
+    "default": false,
+    "variant_level": 1,
+    "main_stat": "unknown_B_MaxHP_Equip",
+    "main_val": 14739,
+    "subs": [
+      {
+        "stat": "Default_Add",
+        "val": 1075
+      },
+      {
+        "stat": "P_Shield_Rate",
+        "val": 1135
+      }
+    ],
+    "bind_stats": {},
+    "effects_raw": [],
+    "effects_parsed": []
+  },
+  {
+    "id": "133134001",
+    "slug": "leisurely-moment",
+    "name": "Moment de détente",
+    "character_slug": "",
+    "character_name": "",
+    "description": "",
+    "image_url": "https://cdn-zeroluck-gg.b-cdn.net/7dso/SevenDeadlySins/Assets/Content/UIImg/Icon_Item/BindArmor/Jericho_Plate_4001.png",
+    "rarity": "Grade4",
+    "default": false,
+    "variant_level": 1,
+    "main_stat": "unknown_B_MaxHP_Equip",
+    "main_val": 6936,
+    "subs": [
+      {
+        "stat": "Ice_Add",
+        "val": 375
+      },
+      {
+        "stat": "NormalAttack_DamAdd_Rate",
+        "val": 1472
+      }
+    ],
+    "bind_stats": {},
+    "effects_raw": [],
+    "effects_parsed": []
+  },
+  {
+    "id": "133135001",
+    "slug": "holy-knight-with-the-star-shaped-visor",
+    "name": "Chevalier sacré à la visière en étoile",
+    "character_slug": "",
+    "character_name": "",
+    "description": "",
+    "image_url": "https://cdn-zeroluck-gg.b-cdn.net/7dso/SevenDeadlySins/Assets/Content/UIImg/Icon_Item/BindArmor/Jericho_Cloth_5001.png",
+    "rarity": "Grade5",
+    "default": false,
+    "variant_level": 1,
+    "main_stat": "unknown_B_MaxHP_Equip",
+    "main_val": 14739,
+    "subs": [
+      {
+        "stat": "Ice_Burst_Gauge_Rate",
+        "val": 1886
+      },
+      {
+        "stat": "NormalAttack_DamAdd_Rate",
+        "val": 3128
+      }
+    ],
+    "bind_stats": {},
+    "effects_raw": [],
+    "effects_parsed": []
+  },
+  {
+    "id": "133135002",
+    "slug": "secretive-traveler",
+    "name": "Voyageuse cachottière",
+    "character_slug": "",
+    "character_name": "",
+    "description": "",
+    "image_url": "https://cdn-zeroluck-gg.b-cdn.net/7dso/SevenDeadlySins/Assets/Content/UIImg/Icon_Item/BindArmor/Jericho_Leather_5002.png",
+    "rarity": "Grade5",
+    "default": false,
+    "variant_level": 1,
+    "main_stat": "unknown_B_MaxHP_Equip",
+    "main_val": 14739,
+    "subs": [
+      {
+        "stat": "P_Shield_Rate",
+        "val": 1746
+      },
+      {
+        "stat": "Buff_Time_Rate",
+        "val": 3017
+      }
+    ],
+    "bind_stats": {},
+    "effects_raw": [],
+    "effects_parsed": []
+  },
+  {
+    "id": "133144001",
+    "slug": "forest-s-footsteps",
+    "name": "Traces de la forêt",
+    "character_slug": "",
+    "character_name": "",
+    "description": "",
+    "image_url": "https://cdn-zeroluck-gg.b-cdn.net/7dso/SevenDeadlySins/Assets/Content/UIImg/Icon_Item/BindArmor/King_Plate_4001.png",
+    "rarity": "Grade4",
+    "default": false,
+    "variant_level": 1,
+    "main_stat": "unknown_B_MaxHP_Equip",
+    "main_val": 6936,
+    "subs": [
+      {
+        "stat": "I_MaxHPAdd_Rate",
+        "val": 198
+      },
+      {
+        "stat": "Buff_Time_Rate",
+        "val": 1420
+      }
+    ],
+    "bind_stats": {},
+    "effects_raw": [],
+    "effects_parsed": []
+  },
+  {
+    "id": "133145001",
+    "slug": "the-grizzly-sin-of-sloth",
+    "name": "Le Grizzly de la Paresse",
+    "character_slug": "",
+    "character_name": "",
+    "description": "",
+    "image_url": "https://cdn-zeroluck-gg.b-cdn.net/7dso/SevenDeadlySins/Assets/Content/UIImg/Icon_Item/BindArmor/King_Cloth_5001.png",
+    "rarity": "Grade5",
+    "default": false,
+    "variant_level": 1,
+    "main_stat": "unknown_B_MaxHP_Equip",
+    "main_val": 14739,
+    "subs": [
+      {
+        "stat": "Holy_Add",
+        "val": 1115
+      },
+      {
+        "stat": "UltimateSkill_DamAdd_Rate",
+        "val": 1031
+      }
+    ],
+    "bind_stats": {},
+    "effects_raw": [],
+    "effects_parsed": []
+  },
+  {
+    "id": "133145002",
+    "slug": "shadow-of-the-deep-forest",
+    "name": "L'ombre de la forêt profonde",
+    "character_slug": "",
+    "character_name": "",
+    "description": "",
+    "image_url": "https://cdn-zeroluck-gg.b-cdn.net/7dso/SevenDeadlySins/Assets/Content/UIImg/Icon_Item/BindArmor/King_Leather_5002.png",
+    "rarity": "Grade5",
+    "default": false,
+    "variant_level": 1,
+    "main_stat": "unknown_B_MaxHP_Equip",
+    "main_val": 14739,
+    "subs": [
+      {
+        "stat": "H_HealPower_Rate",
+        "val": 1397
+      },
+      {
+        "stat": "I_MaxHPAdd_Rate",
+        "val": 419
+      }
+    ],
+    "bind_stats": {},
+    "effects_raw": [],
+    "effects_parsed": []
+  },
+  {
+    "id": "133154001",
+    "slug": "tavern-hostess",
+    "name": "Serveuse de la taverne",
+    "character_slug": "",
+    "character_name": "",
+    "description": "",
+    "image_url": "https://cdn-zeroluck-gg.b-cdn.net/7dso/SevenDeadlySins/Assets/Content/UIImg/Icon_Item/BindArmor/Diane_Plate_4001.png",
+    "rarity": "Grade4",
+    "default": false,
+    "variant_level": 1,
+    "main_stat": "unknown_B_MaxHP_Equip",
+    "main_val": 6936,
+    "subs": [
+      {
+        "stat": "I_DefAdd_Rate",
+        "val": 270
+      },
+      {
+        "stat": "I_MaxHPAdd_Rate",
+        "val": 198
+      }
+    ],
+    "bind_stats": {},
+    "effects_raw": [],
+    "effects_parsed": []
+  },
+  {
+    "id": "133155001",
+    "slug": "the-serpent-sin-of-envy",
+    "name": "Le Serpent de l'Envie",
+    "character_slug": "",
+    "character_name": "",
+    "description": "",
+    "image_url": "https://cdn-zeroluck-gg.b-cdn.net/7dso/SevenDeadlySins/Assets/Content/UIImg/Icon_Item/BindArmor/Diane_Cloth_5001.png",
+    "rarity": "Grade5",
+    "default": false,
+    "variant_level": 1,
+    "main_stat": "unknown_B_MaxHP_Equip",
+    "main_val": 14739,
+    "subs": [
+      {
+        "stat": "ActiveThird_DamAdd_Rate",
+        "val": 1900
+      },
+      {
+        "stat": "C_Critical_Rate",
+        "val": 680
+      },
+      {
+        "stat": "I_DefAdd_Rate",
+        "val": 382
+      }
+    ],
+    "bind_stats": {},
+    "effects_raw": [],
+    "effects_parsed": []
+  },
+  {
+    "id": "133155002",
+    "slug": "cheerful-girl",
+    "name": "Fille enjouée",
+    "character_slug": "",
+    "character_name": "",
+    "description": "",
+    "image_url": "https://cdn-zeroluck-gg.b-cdn.net/7dso/SevenDeadlySins/Assets/Content/UIImg/Icon_Item/BindArmor/Diane_Leather_5002.png",
+    "rarity": "Grade5",
+    "default": false,
+    "variant_level": 1,
+    "main_stat": "unknown_B_MaxHP_Equip",
+    "main_val": 14739,
+    "subs": [
+      {
+        "stat": "Earth_Burst_Gauge_Rate",
+        "val": 1886
+      },
+      {
+        "stat": "I_DefAdd_Rate",
+        "val": 573
+      }
+    ],
+    "bind_stats": {},
+    "effects_raw": [],
+    "effects_parsed": []
+  },
+  {
+    "id": "133174001",
+    "slug": "oath-of-the-throne",
+    "name": "Serment du trône",
+    "character_slug": "",
+    "character_name": "",
+    "description": "",
+    "image_url": "https://cdn-zeroluck-gg.b-cdn.net/7dso/SevenDeadlySins/Assets/Content/UIImg/Icon_Item/BindArmor/Drake_Cloth_4001.png",
+    "rarity": "Grade4",
+    "default": false,
+    "variant_level": 1,
+    "main_stat": "unknown_B_MaxHP_Equip",
+    "main_val": 6936,
+    "subs": [
+      {
+        "stat": "Thunder_Add",
+        "val": 375
+      },
+      {
+        "stat": "C_Critical_Dam_Rate",
+        "val": 848
+      }
+    ],
+    "bind_stats": {},
+    "effects_raw": [],
+    "effects_parsed": []
+  },
+  {
+    "id": "133175001",
+    "slug": "glory-of-the-past",
+    "name": "Gloire du passé",
+    "character_slug": "",
+    "character_name": "",
+    "description": "",
+    "image_url": "https://cdn-zeroluck-gg.b-cdn.net/7dso/SevenDeadlySins/Assets/Content/UIImg/Icon_Item/BindArmor/Drake_Cloth_5001.png",
+    "rarity": "Grade5",
+    "default": false,
+    "variant_level": 1,
+    "main_stat": "unknown_B_MaxHP_Equip",
+    "main_val": 14739,
+    "subs": [
+      {
+        "stat": "Thunder_Add",
+        "val": 531
+      },
+      {
+        "stat": "NormalSkill_DamAdd_Rate",
+        "val": 1462
+      },
+      {
+        "stat": "C_Critical_Dam_Rate",
+        "val": 1201
+      }
+    ],
+    "bind_stats": {},
+    "effects_raw": [],
+    "effects_parsed": []
+  },
+  {
+    "id": "133175002",
+    "slug": "shadow-lord",
+    "name": "Seigneur des ombres",
+    "character_slug": "",
+    "character_name": "",
+    "description": "",
+    "image_url": "https://cdn-zeroluck-gg.b-cdn.net/7dso/SevenDeadlySins/Assets/Content/UIImg/Icon_Item/BindArmor/Drake_Leather_5002.png",
+    "rarity": "Grade5",
+    "default": false,
+    "variant_level": 1,
+    "main_stat": "unknown_B_MaxHP_Equip",
+    "main_val": 14739,
+    "subs": [
+      {
+        "stat": "Thunder_Add",
+        "val": 531
+      },
+      {
+        "stat": "Debuff_Time_Rate",
+        "val": 2011
+      },
+      {
+        "stat": "TickDam_Rate",
+        "val": 1946
+      }
+    ],
+    "bind_stats": {},
+    "effects_raw": [],
+    "effects_parsed": []
+  },
+  {
+    "id": "133184001",
+    "slug": "heart-of-prayer",
+    "name": "Cœur de prière",
+    "character_slug": "",
+    "character_name": "",
+    "description": "",
+    "image_url": "https://cdn-zeroluck-gg.b-cdn.net/7dso/SevenDeadlySins/Assets/Content/UIImg/Icon_Item/BindArmor/Manny_Plate_4001.png",
+    "rarity": "Grade4",
+    "default": false,
+    "variant_level": 1,
+    "main_stat": "unknown_B_MaxHP_Equip",
+    "main_val": 6936,
+    "subs": [
+      {
+        "stat": "I_MaxHPAdd_Rate",
+        "val": 198
+      },
+      {
+        "stat": "C_Critical_Rate",
+        "val": 480
+      }
+    ],
+    "bind_stats": {},
+    "effects_raw": [],
+    "effects_parsed": []
+  },
+  {
+    "id": "133185001",
+    "slug": "arch-priestess-s-prestige",
+    "name": "Prestige de l'archiprêtresse",
+    "character_slug": "",
+    "character_name": "",
+    "description": "",
+    "image_url": "https://cdn-zeroluck-gg.b-cdn.net/7dso/SevenDeadlySins/Assets/Content/UIImg/Icon_Item/BindArmor/Manny_Cloth_5001.png",
+    "rarity": "Grade5",
+    "default": false,
+    "variant_level": 1,
+    "main_stat": "unknown_B_MaxHP_Equip",
+    "main_val": 14739,
+    "subs": [
+      {
+        "stat": "Debuff_Time_Rate",
+        "val": 3017
+      },
+      {
+        "stat": "I_MaxHPAdd_Rate",
+        "val": 419
+      }
+    ],
+    "bind_stats": {},
+    "effects_raw": [],
+    "effects_parsed": []
+  },
+  {
+    "id": "133185002",
+    "slug": "exploration-of-the-unknown",
+    "name": "Exploration de l'inconnu",
+    "character_slug": "",
+    "character_name": "",
+    "description": "",
+    "image_url": "https://cdn-zeroluck-gg.b-cdn.net/7dso/SevenDeadlySins/Assets/Content/UIImg/Icon_Item/BindArmor/Manny_Leather_5002.png",
+    "rarity": "Grade5",
+    "default": false,
+    "variant_level": 1,
+    "main_stat": "unknown_B_MaxHP_Equip",
+    "main_val": 14739,
+    "subs": [
+      {
+        "stat": "Ice_Add",
+        "val": 796
+      },
+      {
+        "stat": "Debuff_Time_Rate",
+        "val": 3017
+      }
+    ],
+    "bind_stats": {},
+    "effects_raw": [],
+    "effects_parsed": []
+  },
+  {
+    "id": "133214001",
+    "slug": "a-new-adventure",
+    "name": "Une nouvelle aventure",
+    "character_slug": "",
+    "character_name": "",
+    "description": "",
+    "image_url": "https://cdn-zeroluck-gg.b-cdn.net/7dso/SevenDeadlySins/Assets/Content/UIImg/Icon_Item/BindArmor/Meliodas_Leather_4001.png",
+    "rarity": "Grade5",
+    "default": false,
+    "variant_level": 1,
+    "main_stat": "unknown_B_MaxHP_Equip",
+    "main_val": 14739,
+    "subs": [
+      {
+        "stat": "Dark_Add",
+        "val": 1115
+      },
+      {
+        "stat": "S_SkillRecycle_Rate",
+        "val": 679
+      }
+    ],
+    "bind_stats": {},
+    "effects_raw": [],
+    "effects_parsed": []
+  },
+  {
+    "id": "133215002",
+    "slug": "simple-defense",
+    "name": "Défense simple",
+    "character_slug": "",
+    "character_name": "",
+    "description": "",
+    "image_url": "https://cdn-zeroluck-gg.b-cdn.net/7dso/SevenDeadlySins/Assets/Content/UIImg/Icon_Item/BindArmor/Meliodas_Leather_5002.png",
+    "rarity": "Grade5",
+    "default": false,
+    "variant_level": 1,
+    "main_stat": "unknown_B_MaxHP_Equip",
+    "main_val": 14739,
+    "subs": [
+      {
+        "stat": "Dark_Add",
+        "val": 1115
+      },
+      {
+        "stat": "NormalSkill_DamAdd_Rate",
+        "val": 1316
+      }
+    ],
+    "bind_stats": {},
+    "effects_raw": [],
+    "effects_parsed": []
+  },
+  {
+    "id": "133194001",
+    "slug": "small-explorer",
+    "name": "Petite exploratrice",
+    "character_slug": "",
+    "character_name": "",
+    "description": "",
+    "image_url": "https://cdn-zeroluck-gg.b-cdn.net/7dso/SevenDeadlySins/Assets/Content/UIImg/Icon_Item/BindArmor/Daisy_Leather_4001.png",
+    "rarity": "Grade5",
+    "default": false,
+    "variant_level": 1,
+    "main_stat": "unknown_B_MaxHP_Equip",
+    "main_val": 14739,
+    "subs": [
+      {
+        "stat": "UltimateSkill_DamAdd_Rate",
+        "val": 1718
+      },
+      {
+        "stat": "C_Critical_Rate",
+        "val": 1020
+      }
+    ],
+    "bind_stats": {},
+    "effects_raw": [],
+    "effects_parsed": []
+  },
+  {
+    "id": "133195002",
+    "slug": "spirit-of-exploration",
+    "name": "Souffle d'exploration",
+    "character_slug": "",
+    "character_name": "",
+    "description": "",
+    "image_url": "https://cdn-zeroluck-gg.b-cdn.net/7dso/SevenDeadlySins/Assets/Content/UIImg/Icon_Item/BindArmor/Daisy_Leather_5002.png",
+    "rarity": "Grade5",
+    "default": false,
+    "variant_level": 1,
+    "main_stat": "unknown_B_MaxHP_Equip",
+    "main_val": 14739,
+    "subs": [
+      {
+        "stat": "Thunder_Add",
+        "val": 531
+      },
+      {
+        "stat": "MF_ChargeEffic_Rate",
+        "val": 1006
+      },
+      {
+        "stat": "Debuff_Time_Rate",
+        "val": 2011
+      }
+    ],
+    "bind_stats": {},
+    "effects_raw": [],
+    "effects_parsed": []
+  }
+]

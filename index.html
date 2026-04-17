@@ -12,9 +12,9 @@ title: Accueil
       <h2 class="pres-title">Une guilde bâtie<br>pour gagner</h2>
       <p class="pres-body">Guilde compétitive de Seven Deadly Sins: Origin, fondée sur l'exigence et la cohésion. Chaque membre est sélectionné pour son implication et son niveau de jeu. Nous dominons les Guerres de Guilde et évoluons ensemble vers les sommets du classement.</p>
       <div class="pres-pillars">
-        <div class="pillar"><span class="pi">⚔️</span><div><strong>GDG</strong><p>Organisation tactique et analyse des résultats en Guerres de Guilde.</p></div></div>
-        <div class="pillar"><span class="pi">📈</span><div><strong>Progression</strong><p>Suivi hebdomadaire de la Combat Class de chaque membre.</p></div></div>
-        <div class="pillar"><span class="pi">🛡️</span><div><strong>Cohésion</strong><p>Communauté soudée, entraide et communication permanente.</p></div></div>
+        <div class="pillar"><span class="pi" style="flex-shrink:0"><img src="/Purgatoire/assets/images/elements/UI_T_Burst_Thunder.png" alt="" style="width:26px;height:26px;object-fit:contain;display:block;filter:drop-shadow(0 0 5px rgba(100,140,255,.6))"></span><div><strong>GDG</strong><p>Organisation tactique et analyse des résultats en Guerres de Guilde.</p></div></div>
+        <div class="pillar"><span class="pi" style="flex-shrink:0"><img src="/Purgatoire/assets/images/elements/UI_T_Burst_Fire.png" alt="" style="width:26px;height:26px;object-fit:contain;display:block;filter:drop-shadow(0 0 5px rgba(255,100,50,.6))"></span><div><strong>Progression</strong><p>Suivi hebdomadaire de la Combat Class de chaque membre.</p></div></div>
+        <div class="pillar"><span class="pi" style="flex-shrink:0"><img src="/Purgatoire/assets/images/elements/UI_T_Burst_Holy.png" alt="" style="width:26px;height:26px;object-fit:contain;display:block;filter:drop-shadow(0 0 5px rgba(255,220,80,.6))"></span><div><strong>Cohésion</strong><p>Communauté soudée, entraide et communication permanente.</p></div></div>
       </div>
     </div>
     <div class="discord-split">
@@ -52,6 +52,40 @@ title: Accueil
 
 </div>
 
+<!-- ── Bande heroes défilante ── -->
+<div class="heroes-scroll-wrap" aria-hidden="true">
+  <div class="heroes-scroll-track">
+    <div class="heroes-scroll-inner" id="heroes-scroll-inner">
+      <!-- Rempli par JS -->
+    </div>
+  </div>
+</div>
+
+<script>
+(function(){
+  const CHARS = [
+    'meliodas','king','diane','elaine','jericho','howzer','griamore',
+    'dreyfus','hendrickson','guila','gil thunder','slader','tristan',
+    'manny','daisy','drake','bug','klotho','dreydrin','tioreh'
+  ];
+  const wrap = document.getElementById('heroes-scroll-inner');
+  if (!wrap) return;
+  // Attendre que heroPortrait soit disponible
+  function buildTrack() {
+    if (typeof heroPortrait !== 'function') { setTimeout(buildTrack, 100); return; }
+    // Dupliquer 3× pour scroll infini fluide
+    const items = [...CHARS,...CHARS,...CHARS].map(name => {
+      const url = heroPortrait(name, 'slot');
+      if (!url) return '';
+      const label = name.charAt(0).toUpperCase() + name.slice(1);
+      return `<div class="hs-item"><img src="${url}" alt="${label}" loading="lazy" onerror="this.parentElement.remove()"><span>${label}</span></div>`;
+    }).join('');
+    wrap.innerHTML = items;
+  }
+  buildTrack();
+})();
+</script>
+
 <style>
 /* ── Structure principale ── */
 .page-split {
@@ -86,6 +120,59 @@ title: Accueil
 .pillar { display: flex; gap: 10px; align-items: flex-start; padding: 9px 12px; border: 1px solid rgba(255,255,255,.06); border-left: 2px solid rgba(201,151,62,.38); border-radius: 7px; transition: border-color .2s,background .2s; }
 .pillar:hover { border-left-color: rgba(201,151,62,.7); background: rgba(201,151,62,.03); }
 .pi { font-size: .88rem; flex-shrink: 0; margin-top: 1px; }
+
+/* ── Heroes scroll band ── */
+.heroes-scroll-wrap {
+  width: 100%;
+  overflow: hidden;
+  border-top: 1px solid rgba(255,255,255,.06);
+  border-bottom: 1px solid rgba(255,255,255,.06);
+  background: rgba(7,8,13,.6);
+  padding: 12px 0;
+  mask-image: linear-gradient(90deg, transparent 0%, black 8%, black 92%, transparent 100%);
+  -webkit-mask-image: linear-gradient(90deg, transparent 0%, black 8%, black 92%, transparent 100%);
+}
+.heroes-scroll-track { width: 100%; overflow: hidden; }
+.heroes-scroll-inner {
+  display: flex;
+  gap: 16px;
+  width: max-content;
+  animation: heroesScroll 40s linear infinite;
+}
+.heroes-scroll-wrap:hover .heroes-scroll-inner { animation-play-state: paused; }
+@keyframes heroesScroll {
+  from { transform: translateX(0); }
+  to   { transform: translateX(calc(-100% / 3)); }
+}
+.hs-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 5px;
+  flex-shrink: 0;
+  cursor: default;
+  transition: transform .18s;
+}
+.hs-item:hover { transform: translateY(-3px); }
+.hs-item img {
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  object-fit: cover;
+  object-position: top;
+  border: 1.5px solid rgba(201,151,62,.25);
+  background: rgba(255,255,255,.04);
+  transition: border-color .18s;
+}
+.hs-item:hover img { border-color: rgba(201,151,62,.6); }
+.hs-item span {
+  font-size: .58rem;
+  font-weight: 600;
+  letter-spacing: .04em;
+  color: rgba(153,147,170,.6);
+  text-transform: capitalize;
+  white-space: nowrap;
+}
 .pillar strong { font-size: .77rem; font-weight: 700; color: #e8e4d9; display: block; margin-bottom: 2px; }
 .pillar p { font-size: .7rem; color: rgba(153,147,170,.72); margin: 0; line-height: 1.4; }
 
