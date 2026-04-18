@@ -145,6 +145,36 @@ export default {
   async fetch(request, env, ctx) {
     const url = new URL(request.url);
 
+    // ── Proxy image CDN zeroluck.gg (contourne hotlink protection) ──
+    if (url.pathname === "/img") {
+      const imgUrl = url.searchParams.get("url");
+      if (!imgUrl) return new Response("Missing url param", { status: 400 });
+      // Whitelist: seulement le CDN zeroluck
+      if (!imgUrl.startsWith("https://cdn-zeroluck-gg.b-cdn.net/")) {
+        return new Response("Forbidden origin", { status: 403 });
+      }
+      try {
+        const imgRes = await fetch(imgUrl, {
+          headers: {
+            "Referer": "https://zeroluck.gg/",
+            "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36",
+            "Accept": "image/avif,image/webp,image/apng,image/*,*/*;q=0.8",
+          }
+        });
+        if (!imgRes.ok) return new Response("Image not found", { status: 404 });
+        const img = await imgRes.arrayBuffer();
+        return new Response(img, {
+          headers: {
+            "Content-Type": imgRes.headers.get("Content-Type") || "image/png",
+            "Cache-Control": "public, max-age=604800",  // 7 jours
+            "Access-Control-Allow-Origin": "*",
+          }
+        });
+      } catch(e) {
+        return new Response("Proxy error", { status: 500 });
+      }
+    }
+
     // Proxy avatar Discord (contourne CORS)
     if (url.pathname.startsWith("/avatar/")) {
       const userId = url.pathname.split("/avatar/")[1];
