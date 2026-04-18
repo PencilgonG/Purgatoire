@@ -31,21 +31,22 @@ title: Accueil
 
   <!-- DROITE : Bannière + (Annonces | Cards) -->
   <div class="col-right">
-    <div class="banner-block">
-      <img src="{{ '/assets/images/banner.png' | relative_url }}" alt="Purgatoire" class="banner-img">
+    <!-- Stats en haut -->
+    <div class="home-stats-strip">
+      <div class="stat-gem"><div class="sg-bar"></div><strong id="stat-members">—</strong><span>Membres</span></div>
+      <div class="stat-gem"><div class="sg-bar"></div><strong id="stat-average-cc">—</strong><span>CC moy.</span></div>
+      <div class="stat-gem"><div class="sg-bar"></div><strong id="stat-last-gdg">—</strong><span>Dernier GDG</span></div>
     </div>
     <div class="content-block">
-      <!-- Annonces : 50% gauche -->
+      <!-- Top 5 CC -->
+      <div class="annonces-block">
+        <div class="bh"><h3 class="bt">Top CC</h3><a href="{{ '/pages/roster/' | relative_url }}" class="bl">Roster →</a></div>
+        <div id="home-roster" class="annonces-inner"><div class="ld">Chargement</div></div>
+      </div>
+      <!-- Annonces -->
       <div class="annonces-block">
         <div class="bh"><h3 class="bt">Annonces</h3><a href="{{ '/pages/annonces/' | relative_url }}" class="bl">Voir tout →</a></div>
         <div id="home-annonces" class="annonces-inner"><div class="ld">Chargement</div></div>
-      </div>
-      <!-- Cards : 50% droite -->
-      <div class="cards-block">
-        <div class="stat-gem"><div class="sg-bar"></div><strong id="stat-members">—</strong><span>Membres actifs</span></div>
-        <div class="stat-gem"><div class="sg-bar"></div><strong id="stat-average-cc">—</strong><span>CC moyenne</span></div>
-        <div class="stat-gem"><div class="sg-bar"></div><strong id="stat-annonces">—</strong><span>Annonces</span></div>
-        <div class="stat-gem"><div class="sg-bar"></div><strong id="stat-last-gdg">—</strong><span>Dernier GDG</span></div>
       </div>
     </div>
   </div>
@@ -85,6 +86,28 @@ title: Accueil
   buildTrack();
 })();
 </script>
+
+<!-- ── Répartition guilde ── -->
+<section id="home-repartition-section" style="padding:28px 0 20px;border-bottom:1px solid rgba(255,255,255,.06)">
+  <div style="width:min(1160px,calc(100% - 48px));margin-inline:auto">
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:20px;align-items:start" id="home-repartition-grid">
+      <!-- Éléments -->
+      <div style="background:var(--bg-surface);border:1px solid var(--border);border-radius:var(--radius-lg);padding:18px 20px">
+        <div style="font-size:.65rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--text-muted);margin-bottom:12px">Éléments de la guilde</div>
+        <div id="home-elem-chart" style="display:flex;flex-direction:column;gap:6px">
+          <div class="ld">Chargement…</div>
+        </div>
+      </div>
+      <!-- Top persos -->
+      <div style="background:var(--bg-surface);border:1px solid var(--border);border-radius:var(--radius-lg);padding:18px 20px">
+        <div style="font-size:.65rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--text-muted);margin-bottom:12px">Personnages les plus joués</div>
+        <div id="home-char-chart" style="display:flex;flex-direction:column;gap:6px">
+          <div class="ld">Chargement…</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
 <style>
 /* ── Structure principale ── */
@@ -247,6 +270,7 @@ title: Accueil
   flex-direction: column;
   overflow: hidden;
 }
+.annonces-block:last-child { border-right: none; }
 .annonces-inner {
   flex: 1;
   overflow-y: auto;
@@ -265,13 +289,21 @@ title: Accueil
 }
 
 /* Cards : 50% droite, grille 2×2 qui remplit toute la hauteur */
-.cards-block {
-  padding: 16px 16px;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-template-rows: 1fr 1fr;
-  gap: 10px;
+.cards-block { display: none; }
+.home-stats-strip {
+  display: flex;
+  flex-shrink: 0;
+  border-bottom: 1px solid rgba(255,255,255,.06);
 }
+.home-stats-strip .stat-gem {
+  flex: 1;
+  border-right: 1px solid rgba(255,255,255,.06);
+  border-radius: 0;
+  padding: 10px 16px;
+  background: transparent;
+}
+.home-stats-strip .stat-gem:last-child { border-right: none; }
+.cards-block-hidden {
 .stat-gem {
   position: relative;
   background: linear-gradient(145deg, rgba(201,151,62,.07), rgba(7,8,13,.55));
@@ -298,6 +330,7 @@ title: Accueil
 .activite-time { font-size:.63rem;color:rgba(153,147,170,.5);white-space:nowrap;flex-shrink:0;padding-top:2px; }
 @media (max-width: 900px) {@media (max-width: 900px) {
   .page-split { grid-template-columns: 1fr; height: auto; }
+  #home-repartition-grid { grid-template-columns: 1fr !important; }
   .content-block { grid-template-columns: 1fr; }
   .cards-block { grid-template-columns: 1fr 1fr; grid-template-rows: auto; }
   .col-left,.col-right { border: none; }

@@ -59,6 +59,16 @@ permalink: /pages/contrats/
 <script>
 const SHEET_ID   = '1npBpU9jQXFOW_mrDiycpB1ptJzXdcZE2iJ8-r8RP8oM';
 const WORKER_URL = 'https://purgatoire-bot.originsguild.workers.dev';
+  // Charger game_data pour les éléments
+  let _gdContrats = null;
+  try {
+    const _gr = await fetch('/Purgatoire/assets/data/game_data.json');
+    _gdContrats = await _gr.json();
+  } catch(e) {}
+  const _charElemMap = {};
+  (_gdContrats?.characters || []).forEach(c => {
+    _charElemMap[c.nom.toLowerCase()] = (c.element_list||[])[0] || 'Default';
+  });
 
 function parseCsv(text) {
   const rows=[]; let row=[],cell='',q=false;
@@ -116,11 +126,18 @@ async function loadContrats() {
         return `
           <div class="contrat-card">
             <div class="contrat-card-head">
-              <img class="contrat-avatar" src="${WORKER_URL}/avatar/${c.discord_id}" onerror="this.style.opacity='.2'">
-              <div>
-                <div class="contrat-pseudo">${c.pseudo||'—'}</div>
+              <div style="position:relative;flex-shrink:0">
+                <img class="contrat-avatar" src="${WORKER_URL}/avatar/${c.discord_id}" onerror="this.style.opacity='.2'">
+                ${(()=>{ const k=(m?.main_char||'').toLowerCase(); const el=_charElemMap[k]||'Default'; const em=typeof ELEM_META!=='undefined'?ELEM_META[el]:null; return em&&el!=='Default'&&em.icon?`<img src="${em.icon}" style="position:absolute;bottom:-2px;right:-2px;width:14px;height:14px;object-fit:contain;filter:drop-shadow(0 0 3px ${em.color})" onerror="this.remove()">`:'' })()}
+              </div>
+              <div style="flex:1;min-width:0">
+                <div style="display:flex;align-items:center;gap:8px">
+                  <div class="contrat-pseudo">${c.pseudo||'—'}</div>
+                  ${(()=>{ const k=(m?.main_char||'').toLowerCase(); const el=_charElemMap[k]||'Default'; const em=typeof ELEM_META!=='undefined'?ELEM_META[el]:null; return m?.main_char&&typeof heroPortrait==='function'?`<span style="font-size:.68rem;color:rgba(153,147,170,.6)">${m.main_char}</span>`:'' })()}
+                </div>
                 <div class="contrat-meta">Engagé le ${fmtDate(c.date_creation)} · Objectif : ${fmtDate(c.date_objectif)}</div>
               </div>
+              ${(()=>{ const k=(m?.main_char||'').toLowerCase(); const portrait=typeof heroPortrait==='function'?heroPortrait(m?.main_char||'','slot'):''; return portrait?`<img src="${portrait}" style="position:absolute;right:0;top:0;bottom:0;width:70px;height:100%;object-fit:cover;object-position:top;opacity:.12;pointer-events:none" onerror="this.remove()">`:'' })()}
             </div>
             <div class="contrat-progress-label">
               <span style="color:rgba(153,147,170,.7)">Départ : <strong style="color:#e8e4d9">${fmtCC(ccDepart)}</strong></span>

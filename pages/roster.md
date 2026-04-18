@@ -338,6 +338,9 @@ async function openMemberModal(member) {
 
   const WORKER_URL = 'https://purgatoire-bot.originsguild.workers.dev';
   const avatarUrl = member.discord_id ? `${WORKER_URL}/avatar/${member.discord_id}` : '';
+  // Élément du perso principal
+  const _elem  = member._element || await (typeof getCharElement === 'function' ? getCharElement(member.main_char) : Promise.resolve('Default'));
+  const _elemM = (typeof ELEM_META !== 'undefined' ? ELEM_META[_elem] : null) || { color:'#888', label:'', icon:'' };
   const showRadar   = myPersos.length >= 2;
   const showList    = myPersos.length >= 1;
   const showHistory = myHistory.length >= 2;
@@ -360,7 +363,10 @@ async function openMemberModal(member) {
         : `<div class="modal-avatar-placeholder"></div>`}
       <div>
         <div class="modal-name">${member.pseudo||'—'}</div>
-        <div style="color:var(--text-secondary);font-size:.85rem">${member.grade||'—'}</div>
+        <div style="color:var(--text-secondary);font-size:.85rem;display:flex;align-items:center;gap:6px">
+          ${member.grade||'—'}
+          ${_elem && _elem !== 'Default' ? `<span style="display:inline-flex;align-items:center;gap:3px;font-size:.68rem;font-weight:700;color:${_elemM.color};background:${_elemM.color}18;border:1px solid ${_elemM.color}44;border-radius:99px;padding:1px 7px">${_elemM.icon ? `<img src="${_elemM.icon}" style="width:13px;height:13px;object-fit:contain;vertical-align:middle">` : ''} ${_elemM.label}</span>` : ''}
+        </div>
       </div>
     </div>
 

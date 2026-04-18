@@ -18,9 +18,10 @@ permalink: /pages/absences/
       <table class="data-table" id="absences-table">
         <thead>
           <tr>
-            <th>Pseudo</th>
+            <th>Membre</th>
             <th>Début</th>
             <th>Fin</th>
+            <th>Durée</th>
             <th>Raison</th>
           </tr>
         </thead>
