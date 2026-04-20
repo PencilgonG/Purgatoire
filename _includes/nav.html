@@ -5,35 +5,37 @@
     <nav class="nav">
       <a href="{{ '/' | relative_url }}">Accueil</a>
       <span class="nav-pipe">|</span>
+      <a href="{{ '/pages/roster/' | relative_url }}">Roster</a>
+      <span class="nav-pipe">|</span>
+      <a href="{{ '/pages/gdg/' | relative_url }}">GDG</a>
+      <span class="nav-pipe">|</span>
+      <a href="{{ '/pages/annonces/' | relative_url }}">Annonces</a>
+      <span class="nav-pipe">|</span>
+      <a href="{{ '/pages/calendrier/' | relative_url }}">Calendrier</a>
+      <span class="nav-pipe">|</span>
+      <a href="{{ '/pages/absences/' | relative_url }}">Absences</a>
+      <span class="nav-pipe">|</span>
+      <a href="{{ '/pages/tierlist/' | relative_url }}">Tierlist</a>
+      <span class="nav-pipe">|</span>
+      <a href="{{ '/pages/recrutement/' | relative_url }}">Recrutement</a>
+      <span class="nav-pipe">|</span>
+      <a href="{{ '/pages/personnalite/' | relative_url }}">Personnalité</a>
+      <span class="nav-pipe">|</span>
+      <a href="{{ '/pages/arbre/' | relative_url }}">Arbre</a>
+      <span class="nav-pipe">|</span>
+      <a href="{{ '/pages/contrats/' | relative_url }}">Contrats</a>
+      <span class="nav-pipe">|</span>
       <a href="{{ '/pages/archives/' | relative_url }}">Archives</a>
+
     </nav>
 
-    <!-- ── Sélecteur de guilde ── -->
+    <!-- Sélecteur de guilde -->
     <div class="guild-switcher" id="nav-guild-switcher">
       <button class="gs-btn" id="gs-btn-1" onclick="window.setActiveGuild('1')">G1</button>
       <button class="gs-btn" id="gs-btn-2" onclick="window.setActiveGuild('2')">G2</button>
     </div>
   </div>
 </header>
-
-<script>
-(function() {
-  function applyGuildUI() {
-    const g = window.getActiveGuild ? window.getActiveGuild() : '1';
-    const b1 = document.getElementById('gs-btn-1');
-    const b2 = document.getElementById('gs-btn-2');
-    if (!b1 || !b2) return;
-    b1.classList.toggle('gs-active', g === '1');
-    b2.classList.toggle('gs-active', g === '2');
-  }
-  // Attendre que config.js soit chargé
-  if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', applyGuildUI);
-  } else {
-    applyGuildUI();
-  }
-})();
-</script>
 
 <style>
 .site-header {
@@ -48,7 +50,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 0 16px 0 32px;
+  padding: 0 32px;
   gap: 0;
 }
 .nav-brand {
@@ -74,9 +76,6 @@
   display: flex;
   align-items: center;
   gap: 0;
-  flex: 1;
-  min-width: 0;
-  overflow-x: auto;
 }
 .nav a {
   font-size: .78rem;
@@ -97,31 +96,25 @@
   flex-shrink: 0;
   user-select: none;
 }
+</style>
 
-/* ── Guild switcher ── */
-.guild-switcher {
-  display: flex;
-  gap: 4px;
-  margin-left: 20px;
-  flex-shrink: 0;
-}
-.gs-btn {
-  padding: 3px 10px;
-  border-radius: 6px;
-  border: 1px solid rgba(255,255,255,.18);
-  background: transparent;
-  color: rgba(233,228,217,.45);
-  font-size: .72rem;
-  font-weight: 700;
-  letter-spacing: .06em;
-  cursor: pointer;
-  transition: all .18s;
-  font-family: var(--font-ui, sans-serif);
-}
-.gs-btn:hover { background: rgba(255,255,255,.08); color: #e8e4d9; }
-.gs-btn.gs-active {
-  background: rgba(227,180,90,.15);
-  border-color: #e3b45a;
-  color: #e3b45a;
-}
+<script>
+(function() {
+  function applyGuildNav() {
+    const g = window.getActiveGuild ? window.getActiveGuild() : '1';
+    const b1 = document.getElementById('gs-btn-1');
+    const b2 = document.getElementById('gs-btn-2');
+    if (b1) b1.classList.toggle('gs-active', g === '1');
+    if (b2) b2.classList.toggle('gs-active', g === '2');
+  }
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', applyGuildNav);
+  else applyGuildNav();
+})();
+</script>
+
+<style>
+.guild-switcher { display:flex;gap:4px;margin-left:20px;flex-shrink:0; }
+.gs-btn { padding:3px 10px;border-radius:6px;border:1px solid rgba(255,255,255,.18);background:transparent;color:rgba(233,228,217,.45);font-size:.72rem;font-weight:700;letter-spacing:.06em;cursor:pointer;transition:all .18s;font-family:var(--font-ui,sans-serif); }
+.gs-btn:hover { background:rgba(255,255,255,.08);color:#e8e4d9; }
+.gs-btn.gs-active { background:rgba(227,180,90,.15);border-color:#e3b45a;color:#e3b45a; }
 </style>
