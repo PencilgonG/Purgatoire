@@ -3,6 +3,13 @@ layout: default
 title: Accueil
 ---
 
+<!-- ── Bannière sélecteur de guilde ── -->
+<div id="home-guild-banner" class="home-guild-banner">
+  <span class="hgb-label">Vous consultez :</span>
+  <button class="hgb-btn" id="hgb-btn-1" onclick="window.setActiveGuild('1')">⚔️ Guilde 1 — Purgatoire</button>
+  <button class="hgb-btn" id="hgb-btn-2" onclick="window.setActiveGuild('2')">🔱 Guilde 2 — Purgatoire II</button>
+</div>
+
 <div class="page-split">
 
   <!-- GAUCHE : Présentation + Discord -->
@@ -425,3 +432,51 @@ async function loadActivite() {
   } catch(e) { wrap.innerHTML = '<div class="ld">Indisponible.</div>'; }
 }
 </script>
+
+<script>
+(function(){
+  const g = window.getActiveGuild ? window.getActiveGuild() : '1';
+  const b1 = document.getElementById('hgb-btn-1');
+  const b2 = document.getElementById('hgb-btn-2');
+  if (b1) b1.classList.toggle('hgb-active', g === '1');
+  if (b2) b2.classList.toggle('hgb-active', g === '2');
+  // Update pres-title to reflect active guild
+  const title = document.querySelector('.pres-title');
+  if (title && g === '2') title.innerHTML = 'Purgatoire II<br>Guilde 2';
+})();
+</script>
+<style>
+.home-guild-banner {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 20px;
+  background: rgba(255,255,255,.03);
+  border-bottom: 1px solid rgba(255,255,255,.07);
+  flex-wrap: wrap;
+}
+.hgb-label {
+  font-size: .78rem;
+  color: rgba(233,228,217,.45);
+  font-weight: 500;
+  letter-spacing: .04em;
+}
+.hgb-btn {
+  padding: 5px 16px;
+  border-radius: 99px;
+  border: 1px solid rgba(255,255,255,.15);
+  background: transparent;
+  color: rgba(233,228,217,.5);
+  font-size: .8rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all .18s;
+  font-family: inherit;
+}
+.hgb-btn:hover { background: rgba(255,255,255,.07); color: #e8e4d9; }
+.hgb-btn.hgb-active {
+  background: rgba(227,180,90,.15);
+  border-color: #e3b45a;
+  color: #e3b45a;
+}
+</style>

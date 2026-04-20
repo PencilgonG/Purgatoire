@@ -705,7 +705,7 @@ document.addEventListener('DOMContentLoaded', async () => {
   markActiveNav();
   setLinks();
 
-  const S = cfg.sheets || {};
+  const S = (window.getSheets ? window.getSheets() : cfg.sheets) || {};
 
   const isHome     = !!qs('#stat-members');
   const isRoster   = !!qs('#roster-table');

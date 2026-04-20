@@ -1,6 +1,23 @@
 import { embed, field, reply, replyEmbed, sendWebhook } from "./discord.js";
 import { upsertMembre, appendRow, readSheet, formatCC, getGradeFromCC, getWeekKey } from "./sheets.js";
 
+// ── Détection guilde (G1 / G2) via rôle Discord ──────────────────────────
+function getGuildSuffix(interaction, env) {
+  if (!env.ROLE_GUILD2) return '';
+  const roles = interaction.member?.roles || [];
+  return roles.includes(env.ROLE_GUILD2) ? '2' : '';
+}
+// Retourne le bon sheet ID selon la guilde
+function getSheetId(env, suffix) {
+  return suffix === '2' ? (env.GOOGLE_SHEET_ID_2 || env.GOOGLE_SHEET_ID) : env.GOOGLE_SHEET_ID;
+}
+// Surcharge env avec le bon GOOGLE_SHEET_ID pour la guilde active
+function envForGuild(env, suffix) {
+  if (suffix !== '2') return env;
+  return { ...env, GOOGLE_SHEET_ID: env.GOOGLE_SHEET_ID_2 || env.GOOGLE_SHEET_ID };
+}
+
+
 export async function handleCommand(interaction, env) {
   const name    = interaction.data.name;
   const options = interaction.data.options || [];
@@ -9,10 +26,14 @@ export async function handleCommand(interaction, env) {
   const getSub    = ()  => options[0]?.name ?? null;
   const getSubOpt = (n) => (options[0]?.options || []).find(o => o.name === n)?.value ?? null;
 
+  // Détecte automatiquement si le membre est G1 ou G2 via son rôle
+  const suffix  = getGuildSuffix(interaction, env);
+  const guildEnv = envForGuild(env, suffix);
+
   try {
     switch (name) {
-      case "cc":          return cmdCC(userId, pseudo, getSub(), getSubOpt, env);
-      case "absence":     return cmdAbsence(userId, pseudo, getSub(), getSubOpt, env);
+      case "cc":          return cmdCC(userId, pseudo, getSub(), getSubOpt, guildEnv);
+      case "absence":     return cmdAbsence(userId, pseudo, getSub(), getSubOpt, guildEnv);
       case "tierlist":    return cmdTierlist(userId, getSub(), getSubOpt, env);
       case "perso":       return cmdPerso(interaction, env);
       case "team":        return cmdTeam(interaction, env);

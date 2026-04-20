@@ -12,5 +12,14 @@ crons = [
 [vars]
 DISCORD_APPLICATION_ID       = "1492569751908516102"
 GUILD_ID                     = "1488740561262477474"
+GUILD_ID_2                   = "GUILD_ID_2_ICI"
 GOOGLE_SHEET_ID              = "1npBpU9jQXFOW_mrDiycpB1ptJzXdcZE2iJ8-r8RP8oM"
+GOOGLE_SHEET_ID_2            = "1npBpU9jQXFOW_mrDiycpB1ptJzXdcZE2iJ8-r8RP8oM"
 GOOGLE_SERVICE_ACCOUNT_EMAIL = "purgatoire-bot@purgatoire-bot.iam.gserviceaccount.com"
+# ID du rôle Discord qui identifie les membres de la Guilde 2
+ROLE_GUILD2                  = "ID_ROLE_GUILDE2_ICI"
+
+# Secrets à configurer via : wrangler secret put NOM_SECRET
+# DISCORD_TOKEN
+# DISCORD_PUBLIC_KEY
+# GOOGLE_PRIVATE_KEY
