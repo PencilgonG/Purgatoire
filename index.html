@@ -279,8 +279,9 @@ title: Accueil
 .stat-gem strong { display: block; font-family: 'Cormorant Garamond',Georgia,serif; font-size: 1.9rem; font-weight: 700; color: #e3b45a; line-height: 1; margin-bottom: 4px; }
 .stat-gem span { font-size: .58rem; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: rgba(153,147,170,.55); }
 
-.discord-split { display:grid; grid-template-columns:1fr 1fr; gap:12px; flex:1; min-height:0; }
-.discord-half { display:flex; flex-direction:column; overflow:hidden; }
+.discord-split { display:grid; grid-template-columns:1fr 1fr; gap:12px; margin-top:16px; }
+.discord-half { display:flex; flex-direction:column; min-height:200px; max-height:280px; }
+.discord-half .discord-scroll { flex:1; overflow-y:auto; }
 .activite-item { display:flex;gap:10px;align-items:flex-start;padding:8px 12px;border-bottom:1px solid rgba(255,255,255,.04);transition:background .14s; }
 .activite-item:hover { background:rgba(255,255,255,.03); }
 .activite-item:last-child { border-bottom:none; }
