@@ -63,38 +63,7 @@ title: Accueil
 </div>
 
 <!-- ── Bande heroes défilante ── -->
-<div class="heroes-scroll-wrap" aria-hidden="true">
-  <div class="heroes-scroll-track">
-    <div class="heroes-scroll-inner" id="heroes-scroll-inner">
-      <!-- Rempli par JS -->
-    </div>
-  </div>
-</div>
 
-<script>
-(function(){
-  const CHARS = [
-    'meliodas','king','diane','elaine','jericho','howzer','griamore',
-    'dreyfus','hendrickson','guila','gil thunder','slader','tristan',
-    'manny','daisy','drake','bug','klotho','dreydrin','tioreh'
-  ];
-  const wrap = document.getElementById('heroes-scroll-inner');
-  if (!wrap) return;
-  // Attendre que heroPortrait soit disponible
-  function buildTrack() {
-    if (typeof heroPortrait !== 'function') { setTimeout(buildTrack, 100); return; }
-    // Dupliquer 3× pour scroll infini fluide
-    const items = [...CHARS,...CHARS,...CHARS].map(name => {
-      const url = heroPortrait(name, 'slot');
-      if (!url) return '';
-      const label = name.charAt(0).toUpperCase() + name.slice(1);
-      return `<div class="hs-item"><img src="${url}" alt="${label}" loading="lazy" onerror="this.parentElement.remove()"><span>${label}</span></div>`;
-    }).join('');
-    wrap.innerHTML = items;
-  }
-  buildTrack();
-})();
-</script>
 
 
 <style>
@@ -102,8 +71,9 @@ title: Accueil
 .page-split {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  height: calc(100vh - 52px);
-  overflow: hidden;
+  min-height: calc(100vh - 52px);
+  overflow: visible;
+  align-items: start;
 }
 
 /* ══ COLONNE GAUCHE ══ */
@@ -111,7 +81,7 @@ title: Accueil
   display: flex;
   flex-direction: column;
   border-right: 1px solid rgba(255,255,255,.08);
-  overflow: hidden;
+  overflow: visible;
 }
 
 /* Présentation */
