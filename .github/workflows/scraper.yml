@@ -1,41 +1,8 @@
-name: Scraper zeroluck.gg → Sheets + game_data.json
-
-on:
-  schedule:
-    - cron: '0 3 * * 1'   # Chaque lundi à 3h UTC
-  workflow_dispatch:        # Déclenchement manuel possible
-
+# Workflow désactivé
+on: workflow_dispatch
 jobs:
-  scrape:
+  disabled:
     runs-on: ubuntu-latest
-    timeout-minutes: 30
-
+    if: false
     steps:
-      - name: Checkout
-        uses: actions/checkout@v4
-        with:
-          token: ${{ secrets.GITHUB_TOKEN }}
-
-      - name: Set up Python
-        uses: actions/setup-python@v5
-        with:
-          python-version: '3.11'
-
-      - name: Install dependencies
-        run: |
-          pip install requests beautifulsoup4 \
-            google-auth google-auth-httplib2 google-api-python-client
-
-      - name: Run scraper
-        env:
-          GOOGLE_SHEET_ID:             ${{ secrets.GOOGLE_SHEET_ID }}
-          GOOGLE_SERVICE_ACCOUNT_JSON: ${{ secrets.GOOGLE_SERVICE_ACCOUNT_JSON }}
-        run: python scraper_to_sheets.py
-
-      - name: Commit game_data.json
-        run: |
-          git config user.name  "github-actions[bot]"
-          git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add assets/data/game_data.json
-          git diff --cached --quiet || git commit -m "chore: update game_data.json [$(date +%Y-%m-%d)]"
-          git push
+      - run: echo "disabled"

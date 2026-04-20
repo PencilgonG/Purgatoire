@@ -127,6 +127,31 @@ async function handleAutocomplete(body, env) {
     } catch {}
   }
 
+  if (name === "tierlist" && focused.name === "arme") {
+    // Récupérer le personnage déjà sélectionné
+    const persoOpt = (sub?.options || options).find(o => o.name === "personnage");
+    const persoVal = persoOpt?.value || "";
+    try {
+      // Chercher d'abord dans le sheet Liste_Armes (pour les nouveaux persos)
+      const { readSheet } = await import("./sheets.js");
+      let armes = [];
+      try {
+        const armesRows = await readSheet(env, "Liste_Armes");
+        const row = armesRows.find(r => r.personnage && r.personnage.toLowerCase() === persoVal.toLowerCase());
+        if (row) armes = [row.arme1, row.arme2, row.arme3].filter(Boolean);
+      } catch {}
+      // Fallback sur CHAR_WEAPONS du commands.js (hardcodé)
+      if (!armes.length) {
+        // Importer dynamiquement
+        const { CHAR_WEAPONS_DATA } = await import("./commands.js").catch(() => ({ CHAR_WEAPONS_DATA: {} }));
+        armes = CHAR_WEAPONS_DATA?.[persoVal] || ["Arme 1", "Arme 2", "Arme 3"];
+      }
+      choices = armes
+        .filter(a => a && a.toLowerCase().includes(query))
+        .map(a => ({ name: a, value: a }));
+    } catch {}
+  }
+
   if (name === "annonce" && focused.name === "titre") {
     try {
       const { readSheet } = await import("./sheets.js");

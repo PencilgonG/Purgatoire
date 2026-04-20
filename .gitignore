@@ -1,0 +1,11 @@
+.venv/
+__pycache__/
+*.pyc
+*.pyo
+scraper_output/
+*.sh
+node_modules/
+.DS_Store
+purgatoire-final/
+purgatoire-cf/
+purgatoire-v3/

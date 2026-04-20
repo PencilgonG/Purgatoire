@@ -18,6 +18,35 @@ function envForGuild(env, suffix) {
 }
 
 
+
+// ── Types d'armes par personnage ─────────────────────────────────────────────
+// Pour ajouter un nouveau perso : ajouter une ligne dans CHAR_WEAPONS
+// Format : 'Nom exact (même casse que dans Liste_Persos)' : ['Arme1', 'Arme2', 'Arme3']
+export const CHAR_WEAPONS_DATA = {
+  'Bug':          ['Hache', 'Double lames', 'Grimoire'],
+  'Clotho':       ['Rapière', 'Grimoire', 'Arme spéciale'],
+  'Daisy':        ['Épée & Bouclier', 'Grimoire', 'Baguette'],
+  'Diane':        ['Hache', 'Gantelets', 'Nunchaku'],
+  'Drake':        ['Épée à 2 mains', 'Bâton', 'Épée longue'],
+  'Dreydrin':     ['Épée & Bouclier', 'Hache', 'Rapière'],
+  'Dreyfus':      ['Rapière', 'Épée longue', 'Lance'],
+  'Elaine':       ['Baguette', 'Arme spéciale', 'Grimoire'],
+  'Gilthunder':   ['Épée longue', 'Épée & Bouclier', 'Lance'],
+  'Griamore':     ['Épée & Bouclier', 'Nunchaku', 'Gantelets'],
+  'Guila':        ['Lance', 'Épée & Bouclier', 'Rapière'],
+  'Hendrickson':  ['Épée longue', 'Double lames', 'Lance'],
+  'Howzer':       ['Lance', 'Gantelets', 'Nunchaku'],
+  'Jericho':      ['Double lames', 'Lance', 'Rapière'],
+  'King':         ['Arme spéciale', 'Grimoire', 'Baguette'],
+  'Mannie':       ['Arme spéciale', 'Double lames', 'Épée longue'],
+  'Meliodas':     ['Épée longue', 'Hache', 'Double lames'],
+  'Slader':       ['Épée à 2 mains', 'Hache', 'Nunchaku'],
+  'Tioreh':       ['Grimoire', 'Baguette', 'Arme spéciale'],
+  'Tristan':      ['Double lames', 'Épée à 2 mains', 'Épée longue'],
+};
+// Armes pour persos non encore dans le jeu (à compléter manuellement dans le sheet)
+// Le bot lit aussi Liste_Armes dans Google Sheets pour les nouveaux persos
+
 export async function handleCommand(interaction, env) {
   const name    = interaction.data.name;
   const options = interaction.data.options || [];
@@ -178,13 +207,17 @@ async function cmdAbsence(userId, pseudo, sub, getOpt, env) {
 async function cmdTierlist(userId, sub, getOpt, env) {
   if (sub === "voter") {
     const perso = getOpt("personnage");
+    const arme  = getOpt("arme");
     const tier  = getOpt("tier");
     if (!["S","A","B","C","D"].includes(tier)) return reply("❌ Tier invalide.");
-    await appendRow(env, "Tierlist_Votes", [userId, perso, tier, new Date().toISOString()]);
-    await recalcTierlist(env, perso);
+    if (!arme) return reply("❌ Veuillez sélectionner un type d'arme.");
+    // Clé unique : personnage + arme (permet 3 entrées distinctes par perso)
+    const entree = `${perso} (${arme})`;
+    await appendRow(env, "Tierlist_Votes", [userId, perso, arme, tier, new Date().toISOString()]);
+    await recalcTierlist(env, perso, arme);
     return replyEmbed([embed({
       title: "✅ Vote enregistré !",
-      fields: [field("Personnage", perso, true), field("Tier", `**${tier}**`, true)],
+      fields: [field("Personnage", perso, true), field("Arme", arme, true), field("Tier", `**${tier}**`, true)],
     })], null, true);
   }
 
