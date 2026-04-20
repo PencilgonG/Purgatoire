@@ -310,6 +310,27 @@ title: Accueil
 /* ── Fix colonne gauche non coupée ── */
 .page-split { overflow: visible !important; }
 .col-left { overflow: visible !important; }
+
+/* ── Fix Discord/Activité côte à côte ── */
+.discord-split {
+  display: grid !important;
+  grid-template-columns: 1fr 1fr !important;
+  gap: 12px !important;
+  margin-top: 16px;
+  width: 100%;
+}
+.discord-half {
+  display: flex !important;
+  flex-direction: column !important;
+  overflow: hidden;
+  max-height: 260px;
+  min-height: 160px;
+}
+.discord-half .discord-scroll {
+  flex: 1;
+  overflow-y: auto;
+  max-height: 220px;
+}
 </style>
 
 <script>
