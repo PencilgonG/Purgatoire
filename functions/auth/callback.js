@@ -1,3 +1,5 @@
+const PRODUCTION_URL = "https://purgatoire-9z2.pages.dev";
+
 // ── /auth/callback ───────────────────────────────────────────────────────────
 export async function onRequestGet({ request, env }) {
   const url   = new URL(request.url);
@@ -6,7 +8,7 @@ export async function onRequestGet({ request, env }) {
   const state = url.searchParams.get('state');
 
   // Si erreur Discord (mauvais mdp, annulation...) → relancer le login
-  if (error || !code) return Response.redirect(`${url.origin}/auth/login`, 302);
+  if (error || !code) return Response.redirect(`${PRODUCTION_URL}/auth/login`, 302);
 
   let next = '/';
   try { next = JSON.parse(atob(state)).next || '/'; } catch {}
@@ -19,25 +21,25 @@ export async function onRequestGet({ request, env }) {
       client_secret: env.DISCORD_CLIENT_SECRET,
       grant_type:    'authorization_code',
       code,
-      redirect_uri:  `${url.origin}/auth/callback`,
+      redirect_uri:  `${PRODUCTION_URL}/auth/callback`,
     }),
   });
   const tokenData = await tokenRes.json();
-  if (!tokenData.access_token) return Response.redirect(`${url.origin}/auth/login`, 302);
+  if (!tokenData.access_token) return Response.redirect(`${PRODUCTION_URL}/auth/login`, 302);
 
   const accessToken = tokenData.access_token;
   const headers     = { Authorization: `Bearer ${accessToken}` };
 
   const userRes = await fetch('https://discord.com/api/v10/users/@me', { headers });
   const user    = await userRes.json();
-  if (!user.id) return Response.redirect(`${url.origin}/auth/login`, 302);
+  if (!user.id) return Response.redirect(`${PRODUCTION_URL}/auth/login`, 302);
 
   const memberRes = await fetch(
     `https://discord.com/api/v10/users/@me/guilds/${env.GUILD_ID}/member`,
     { headers }
   );
 
-  if (!memberRes.ok) return Response.redirect(`${url.origin}/join`, 302);
+  if (!memberRes.ok) return Response.redirect(`${PRODUCTION_URL}/join`, 302);
 
   const member = await memberRes.json();
   const roles  = member.roles || [];
