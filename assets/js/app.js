@@ -6,13 +6,13 @@ const WORKER = 'https://purgatoire-bot.originsguild.workers.dev';
 
 // ── Metadata éléments ──────────────────────────────────────────────────────
 const ELEM_META = {
-  Fire:    { color:'#e87050', icon:'/Purgatoire/assets/images/elements/UI_T_Burst_Fire.png',    label:'Feu' },
-  Ice:     { color:'#70b8e8', icon:'/Purgatoire/assets/images/elements/UI_T_Burst_Ice.png',     label:'Glace' },
-  Wind:    { color:'#78d080', icon:'/Purgatoire/assets/images/elements/UI_T_Burst_Wind.png',    label:'Vent' },
-  Dark:    { color:'#b870e0', icon:'/Purgatoire/assets/images/elements/UI_T_Burst_Dark.png',    label:'Obscurité' },
-  Earth:   { color:'#b89040', icon:'/Purgatoire/assets/images/elements/UI_T_Burst_Earth.png',   label:'Terre' },
-  Holy:    { color:'#e8d870', icon:'/Purgatoire/assets/images/elements/UI_T_Burst_Holy.png',    label:'Lumière' },
-  Thunder: { color:'#8090e8', icon:'/Purgatoire/assets/images/elements/UI_T_Burst_Thunder.png', label:'Foudre' },
+  Fire:    { color:'#e87050', icon:'/assets/images/elements/UI_T_Burst_Fire.png',    label:'Feu' },
+  Ice:     { color:'#70b8e8', icon:'/assets/images/elements/UI_T_Burst_Ice.png',     label:'Glace' },
+  Wind:    { color:'#78d080', icon:'/assets/images/elements/UI_T_Burst_Wind.png',    label:'Vent' },
+  Dark:    { color:'#b870e0', icon:'/assets/images/elements/UI_T_Burst_Dark.png',    label:'Obscurité' },
+  Earth:   { color:'#b89040', icon:'/assets/images/elements/UI_T_Burst_Earth.png',   label:'Terre' },
+  Holy:    { color:'#e8d870', icon:'/assets/images/elements/UI_T_Burst_Holy.png',    label:'Lumière' },
+  Thunder: { color:'#8090e8', icon:'/assets/images/elements/UI_T_Burst_Thunder.png', label:'Foudre' },
   Default: { color:'#888888', icon:'', label:'Neutre' },
 };
 
@@ -21,7 +21,7 @@ let _gameData = null;
 async function loadGameData() {
   if (_gameData) return _gameData;
   try {
-    const r = await fetch('/Purgatoire/assets/data/game_data.json');
+    const r = await fetch('/assets/data/game_data.json');
     _gameData = await r.json();
   } catch(e) { _gameData = { characters: [] }; }
   return _gameData;

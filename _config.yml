@@ -1,11 +1,16 @@
 title: Purgatoire
 description: Guilde 7DS Origin
 
-baseurl: "/Purgatoire"
-url: "https://pencilgong.github.io"
+baseurl: ""
+url: "https://purgatoire-9z2.pages.dev"
 
 markdown: kramdown
 permalink: pretty
 
 exclude:
   - README.md
+  - .venv/
+  - scraper_output/
+  - "*.py"
+  - "*.sh"
+  - purgatoire-final/

@@ -8,7 +8,7 @@ permalink: /pages/builder/
   var KEY='builder_auth',PWD='purga2026';
   if(sessionStorage.getItem(KEY)!=='1'){
     var input=prompt('🔐 Code accès Builder :');
-    if(input!==PWD){document.body.innerHTML='<div style="display:flex;align-items:center;justify-content:center;height:60vh;color:#9993aa;flex-direction:column;gap:12px"><span style="font-size:2rem">🔒</span><span>Accès refusé</span><a href="/Purgatoire/" style="color:#e3b45a">← Retour</a></div>';return;}
+    if(input!==PWD){document.body.innerHTML='<div style="display:flex;align-items:center;justify-content:center;height:60vh;color:#9993aa;flex-direction:column;gap:12px"><span style="font-size:2rem">🔒</span><span>Accès refusé</span><a href="/" style="color:#e3b45a">← Retour</a></div>';return;}
     sessionStorage.setItem(KEY,'1');
   }
 })();
@@ -332,7 +332,7 @@ var openGearSlot=null,openWpIdx=null;
 // ── LOAD ─────────────────────────────────────────────────────────────────────
 async function loadDB(){
   try{
-    var r=await fetch('/Purgatoire/assets/data/builder_data.json',{cache:'no-store'});
+    var r=await fetch('/assets/data/builder_data.json',{cache:'no-store'});
     DB=await r.json();
     if(DB.mastery_by_type)MASTERY_DATA=DB.mastery_by_type;
     buildCharDrop();renderMastery();renderEnchant();recalc();

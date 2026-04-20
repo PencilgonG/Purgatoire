@@ -62,7 +62,7 @@ const WORKER_URL = 'https://purgatoire-bot.originsguild.workers.dev';
   // Charger game_data pour les éléments
   let _gdContrats = null;
   try {
-    const _gr = await fetch('/Purgatoire/assets/data/game_data.json');
+    const _gr = await fetch('/assets/data/game_data.json');
     _gdContrats = await _gr.json();
   } catch(e) {}
   const _charElemMap = {};

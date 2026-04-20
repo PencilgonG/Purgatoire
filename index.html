@@ -19,9 +19,9 @@ title: Accueil
       <h2 class="pres-title">Une guilde bâtie<br>pour gagner</h2>
       <p class="pres-body">Guilde compétitive de Seven Deadly Sins: Origin, fondée sur l'exigence et la cohésion. Chaque membre est sélectionné pour son implication et son niveau de jeu. Nous dominons les Guerres de Guilde et évoluons ensemble vers les sommets du classement.</p>
       <div class="pres-pillars">
-        <div class="pillar"><span class="pi" style="flex-shrink:0"><img src="/Purgatoire/assets/images/elements/UI_T_Burst_Thunder.png" alt="" style="width:26px;height:26px;object-fit:contain;display:block;filter:drop-shadow(0 0 5px rgba(100,140,255,.6))"></span><div><strong>GDG</strong><p>Organisation tactique et analyse des résultats en Guerres de Guilde.</p></div></div>
-        <div class="pillar"><span class="pi" style="flex-shrink:0"><img src="/Purgatoire/assets/images/elements/UI_T_Burst_Fire.png" alt="" style="width:26px;height:26px;object-fit:contain;display:block;filter:drop-shadow(0 0 5px rgba(255,100,50,.6))"></span><div><strong>Progression</strong><p>Suivi hebdomadaire de la Combat Class de chaque membre.</p></div></div>
-        <div class="pillar"><span class="pi" style="flex-shrink:0"><img src="/Purgatoire/assets/images/elements/UI_T_Burst_Holy.png" alt="" style="width:26px;height:26px;object-fit:contain;display:block;filter:drop-shadow(0 0 5px rgba(255,220,80,.6))"></span><div><strong>Cohésion</strong><p>Communauté soudée, entraide et communication permanente.</p></div></div>
+        <div class="pillar"><span class="pi" style="flex-shrink:0"><img src="/assets/images/elements/UI_T_Burst_Thunder.png" alt="" style="width:26px;height:26px;object-fit:contain;display:block;filter:drop-shadow(0 0 5px rgba(100,140,255,.6))"></span><div><strong>GDG</strong><p>Organisation tactique et analyse des résultats en Guerres de Guilde.</p></div></div>
+        <div class="pillar"><span class="pi" style="flex-shrink:0"><img src="/assets/images/elements/UI_T_Burst_Fire.png" alt="" style="width:26px;height:26px;object-fit:contain;display:block;filter:drop-shadow(0 0 5px rgba(255,100,50,.6))"></span><div><strong>Progression</strong><p>Suivi hebdomadaire de la Combat Class de chaque membre.</p></div></div>
+        <div class="pillar"><span class="pi" style="flex-shrink:0"><img src="/assets/images/elements/UI_T_Burst_Holy.png" alt="" style="width:26px;height:26px;object-fit:contain;display:block;filter:drop-shadow(0 0 5px rgba(255,220,80,.6))"></span><div><strong>Cohésion</strong><p>Communauté soudée, entraide et communication permanente.</p></div></div>
       </div>
     </div>
     <div class="discord-split">
@@ -387,7 +387,7 @@ document.addEventListener('DOMContentLoaded', () => {
       <span style="font-family:'Cormorant Garamond',Georgia,serif;font-size:.85rem;color:rgba(201,151,62,.8);letter-spacing:.08em">
         PURGATOIRE — Aperçu du site
       </span>
-      <a href="/Purgatoire/join/" style="font-size:.75rem;font-weight:600;color:#e3b45a;border:1px solid rgba(201,151,62,.35);border-radius:3px;padding:5px 14px;text-decoration:none;font-family:'Cormorant Garamond',Georgia,serif;letter-spacing:.06em;transition:.15s" onmouseover="this.style.background='rgba(201,151,62,.1)'" onmouseout="this.style.background='transparent'">
+      <a href="/join/" style="font-size:.75rem;font-weight:600;color:#e3b45a;border:1px solid rgba(201,151,62,.35);border-radius:3px;padding:5px 14px;text-decoration:none;font-family:'Cormorant Garamond',Georgia,serif;letter-spacing:.06em;transition:.15s" onmouseover="this.style.background='rgba(201,151,62,.1)'" onmouseout="this.style.background='transparent'">
         ← Retour au recrutement
       </a>`;
     document.body.prepend(banner);
@@ -396,7 +396,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // Disable all nav links to prevent navigation
     document.querySelectorAll('a[href]').forEach(a => {
       const href = a.getAttribute('href');
-      if (href && !href.includes('join') && !href.startsWith('http') && !href.startsWith('#') && href !== '/Purgatoire/') {
+      if (href && !href.includes('join') && !href.startsWith('http') && !href.startsWith('#') && href !== '/') {
         a.addEventListener('click', e => e.preventDefault());
         a.style.pointerEvents = 'none';
         a.style.opacity = '.3';

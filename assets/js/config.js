@@ -64,7 +64,7 @@ window.getSheets = function() {
 };
 
 /* ── Portraits de personnages ───────────────────────────────────────────── */
-const HERO_BASE = '/Purgatoire/assets/images/heroes';
+const HERO_BASE = '/assets/images/heroes';
 
 const _HP = {
   slot: {
